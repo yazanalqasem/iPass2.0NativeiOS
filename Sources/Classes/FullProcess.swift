@@ -54,7 +54,7 @@ public class iPassSDK {
         iPassSDKDataObjHandler.shared.sid = generateRandomTwoDigitNumber()
         iPassSDKDataObjHandler.shared.email = userEmail
         iPassSDKDataObjHandler.shared.controller = controller
-        iPassSDKDataObjHandler.shared.isCustom = true
+        iPassSDKDataObjHandler.shared.isCustom = false
        
             iPassHandler.createSessionApi() { status in
                 if status == true {
