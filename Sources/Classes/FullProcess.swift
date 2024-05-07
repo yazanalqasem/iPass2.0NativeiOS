@@ -45,12 +45,30 @@ public class iPassSDK {
     
     
     public static func showAnimationLoader(controller: UIViewController) {
+        
+        let fullSizeView = UIView()
+
+           // Set background color
+        fullSizeView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+
+           // Add the view to the main view
+        controller.view.addSubview(fullSizeView)
+
+           // Constrain the view to the edges of the superview
+           fullSizeView.translatesAutoresizingMaskIntoConstraints = false
+           NSLayoutConstraint.activate([
+               fullSizeView.topAnchor.constraint(equalTo: controller.view.topAnchor),
+               fullSizeView.bottomAnchor.constraint(equalTo: controller.view.bottomAnchor),
+               fullSizeView.leadingAnchor.constraint(equalTo: controller.view.leadingAnchor),
+               fullSizeView.trailingAnchor.constraint(equalTo: controller.view.trailingAnchor)
+           ])
+        
         var activityIndicator: UIActivityIndicatorView!
         activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.color = UIColor.green
-        activityIndicator.center =  controller.view.center
+        activityIndicator.center =  fullSizeView.center
         activityIndicator.hidesWhenStopped = true
-        controller.view.addSubview(activityIndicator)
+        fullSizeView.addSubview(activityIndicator)
         activityIndicator.startAnimating()
         
     }
