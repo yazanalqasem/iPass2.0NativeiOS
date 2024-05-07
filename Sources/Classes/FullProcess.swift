@@ -49,7 +49,7 @@ public class iPassSDK {
         let fullSizeView = UIView()
 
            // Set background color
-        fullSizeView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        fullSizeView.backgroundColor = UIColor.black
 
            // Add the view to the main view
         controller.view.addSubview(fullSizeView)
