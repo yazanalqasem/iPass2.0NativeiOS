@@ -56,7 +56,7 @@ public class iPassHandler {
     private static func convertStringToJSON(_ jsonString: String) -> Any? {
         // Convert the string to Data
         guard let jsonData = jsonString.data(using: .utf8) else {
-            print("Failed to convert string to data")
+            print("Failed to convert string to response data")
             return nil
         }
         
