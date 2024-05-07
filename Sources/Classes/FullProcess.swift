@@ -66,7 +66,7 @@ public class iPassSDK {
         var activityIndicator: UIActivityIndicatorView!
         activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.color = UIColor.green
-        activityIndicator.center =  fullSizeView.center
+        activityIndicator.center =  controller.view.center
         activityIndicator.hidesWhenStopped = true
         fullSizeView.addSubview(activityIndicator)
         activityIndicator.startAnimating()
