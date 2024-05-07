@@ -42,12 +42,14 @@ public class iPassSDK {
     public static weak var delegate : iPassSDKDelegate?
     
     
+    public static  var activityIndicator: UIActivityIndicatorView!
+    
+    public static  let fullSizeView = UIView()
     
     
-    public static func showAnimationLoader(controller: UIViewController) {
+    
+    public static func addAnimationLoader(controller: UIViewController) {
         
-        let fullSizeView = UIView()
-
            // Set background color
         fullSizeView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
 
@@ -63,22 +65,28 @@ public class iPassSDK {
                fullSizeView.trailingAnchor.constraint(equalTo: controller.view.trailingAnchor)
            ])
         
-        var activityIndicator: UIActivityIndicatorView!
+        
         activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.color = UIColor(red: 126/255, green:87/255, blue: 196/255, alpha: 1.0)
         activityIndicator.center =  controller.view.center
         activityIndicator.hidesWhenStopped = true
         fullSizeView.addSubview(activityIndicator)
         activityIndicator.startAnimating()
-        
+    }
+    
+    public static func startLoaderAnimation() {
+        activityIndicator.startAnimating()
+    }
+    
+    public static func stopLoaderAnimation() {
+        activityIndicator.startAnimating()
     }
     
     
   
     
     public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
-        DispatchQueue.main.async {
-            showAnimationLoader(controller: controller)}
+        
         
         iPassSDKDataObjHandler.shared.authToken = userToken
         iPassSDKDataObjHandler.shared.token = appToken
@@ -221,7 +229,10 @@ public class iPassSDK {
 
                 print("userInfo from swift ui class-->> ",data.userInfo?["status"] ?? "no status value")
                 hostingController.dismiss(animated: true, completion: nil)
-                
+               
+                DispatchQueue.main.async {
+                    addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
+                }
 
                 iPassHandler.getresultliveness() { (data, error) in
             
@@ -249,6 +260,9 @@ public class iPassSDK {
                                         if let data = data {
                                             if let dataString = String(data: data, encoding: .utf8) {
                                                 print("getDataFromAPI completed")
+                                                DispatchQueue.main.async {
+                                                    stopLoaderAnimation()
+                                                }
                                                 self.delegate?.getScanCompletionResult(result: dataString, error: "")
                                                 
                                             } else {
