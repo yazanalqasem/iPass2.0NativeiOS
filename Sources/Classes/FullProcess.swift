@@ -79,7 +79,7 @@ public class iPassSDK {
     }
     
     public static func stopLoaderAnimation() {
-        activityIndicator.startAnimating()
+        activityIndicator.stopAnimating()
     }
     
     
