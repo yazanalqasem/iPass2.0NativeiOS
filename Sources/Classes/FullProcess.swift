@@ -79,6 +79,7 @@ public class iPassSDK {
     }
     
     public static func stopLoaderAnimation() {
+        fullSizeView.removeFromSuperview()
         activityIndicator.stopAnimating()
     }
     
@@ -94,8 +95,14 @@ public class iPassSDK {
         iPassSDKDataObjHandler.shared.email = userEmail
         iPassSDKDataObjHandler.shared.controller = controller
         iPassSDKDataObjHandler.shared.isCustom = false
+        DispatchQueue.main.async {
+            addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
+        }
        
             iPassHandler.createSessionApi() { status in
+                DispatchQueue.main.async {
+                    stopLoaderAnimation()
+                }
                 if status == true {
                     DispatchQueue.main.async {
                         DocReader.shared.processParams.multipageProcessing = true
@@ -185,6 +192,9 @@ public class iPassSDK {
     }
     
     private static func fetchCurrentAuthSession() async {
+        DispatchQueue.main.async {
+                  addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
+              }
          do {
              let session = try await Amplify.Auth.fetchAuthSession()
              print("Is user signed in - \(session.isSignedIn)")
@@ -216,7 +226,9 @@ public class iPassSDK {
     
     
     private static func faceLivenessApi()  {
+     
         DispatchQueue.main.async {
+            stopLoaderAnimation()
             var swiftUIView = FaceClass()
             swiftUIView.sessoinIdValue = iPassSDKDataObjHandler.shared.sessionId
             let hostingController = UIHostingController(rootView: swiftUIView)
@@ -230,14 +242,17 @@ public class iPassSDK {
                 print("userInfo from swift ui class-->> ",data.userInfo?["status"] ?? "no status value")
                 hostingController.dismiss(animated: true, completion: nil)
                
+               
                 DispatchQueue.main.async {
-                    addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
-                }
-
+                          addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
+                      }
                 iPassHandler.getresultliveness() { (data, error) in
             
                     if let error = error {
                         print("Error: \(error)")
+                        DispatchQueue.main.async {
+                                            stopLoaderAnimation()
+                                        }
                         self.delegate?.getScanCompletionResult(result: "", error: "Liveness result not processed")
                         return
                     }
@@ -253,6 +268,9 @@ public class iPassSDK {
                                     iPassHandler.getDataFromAPI() { (data, error) in
                                         if let error = error {
                                             print("Error: \(error)")
+                                            DispatchQueue.main.async {
+                                                                stopLoaderAnimation()
+                                                            }
                                             self.delegate?.getScanCompletionResult(result: "", error: "Liveness result not processed")
                                             return
                                         }
@@ -266,6 +284,9 @@ public class iPassSDK {
                                                 self.delegate?.getScanCompletionResult(result: dataString, error: "")
                                                 
                                             } else {
+                                                DispatchQueue.main.async {
+                                                                    stopLoaderAnimation()
+                                                                }
                                                 print("Error converting data to string.")
                                                 self.delegate?.getScanCompletionResult(result: "", error: "Liveness result not processed")
                                             }
@@ -273,6 +294,9 @@ public class iPassSDK {
                                     }
                                 }
                                 else {
+                                    DispatchQueue.main.async {
+                                                        stopLoaderAnimation()
+                                                    }
                                     self.delegate?.getScanCompletionResult(result: "", error: "Time out")
                                 }
                             }
