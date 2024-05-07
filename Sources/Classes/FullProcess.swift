@@ -44,10 +44,22 @@ public class iPassSDK {
     
     
     
+    public static func showAnimationLoader(controller: UIViewController) {
+        var activityIndicator: UIActivityIndicatorView!
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = UIColor.green
+        activityIndicator.center =  controller.view.center
+        activityIndicator.hidesWhenStopped = true
+        controller.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        
+    }
+    
     
   
     
     public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
+        showAnimationLoader(controller: controller)
         
         iPassSDKDataObjHandler.shared.authToken = userToken
         iPassSDKDataObjHandler.shared.token = appToken
