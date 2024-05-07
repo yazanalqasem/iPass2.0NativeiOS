@@ -49,7 +49,7 @@ public class iPassSDK {
         let fullSizeView = UIView()
 
            // Set background color
-        fullSizeView.backgroundColor = UIColor.black
+        fullSizeView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
 
            // Add the view to the main view
         controller.view.addSubview(fullSizeView)
@@ -65,7 +65,7 @@ public class iPassSDK {
         
         var activityIndicator: UIActivityIndicatorView!
         activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = UIColor.green
+        activityIndicator.color = UIColor(red: 126/255, green:87/255, blue: 196/255, alpha: 1.0)
         activityIndicator.center =  controller.view.center
         activityIndicator.hidesWhenStopped = true
         fullSizeView.addSubview(activityIndicator)
