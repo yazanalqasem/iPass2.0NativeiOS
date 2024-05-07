@@ -59,7 +59,8 @@ public class iPassSDK {
   
     
     public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
-        showAnimationLoader(controller: controller)
+        DispatchQueue.main.async {
+            showAnimationLoader(controller: controller)}
         
         iPassSDKDataObjHandler.shared.authToken = userToken
         iPassSDKDataObjHandler.shared.token = appToken
