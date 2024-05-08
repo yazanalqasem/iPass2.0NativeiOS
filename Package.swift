@@ -16,7 +16,6 @@ let package = Package(
            // .library(name: "DocumentReader", targets: ["DocumentReader.xcframework"])
     ],
     dependencies: [
-//        .package(url: "https://github.com/daltoniam/Starscream.git", from: "3.1.1"),
 //        .package(url: "https://github.com/cesarferreira/SwiftEventBus.git", from: "5.1.0"),
         .package(url: "https://github.com/aws-amplify/amplify-ui-swift-liveness", from: "1.2.11")
         // Dependencies declare other packages that this package depends on.
