@@ -28,7 +28,15 @@ public class iPassSDKDataObjHandler {
     var controller = UIViewController()
     var sessionId = String()
     var isCustom = Bool()
+    var loaderColor = UIColor(red: 126/255, green:87/255, blue: 196/255, alpha: 1.0)
 }
+
+public class configSdk {
+    public static func setLoaderColor(color:UIColor) {
+        iPassSDKDataObjHandler.shared.loaderColor = color
+    }
+}
+
 public protocol iPassSDKDelegate : AnyObject {
     func getScanCompletionResult(result : String, error : String)
 }
@@ -67,7 +75,7 @@ public class iPassSDK {
         
         
         activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = UIColor(red: 126/255, green:87/255, blue: 196/255, alpha: 1.0)
+        activityIndicator.color = iPassSDKDataObjHandler.shared.loaderColor
         activityIndicator.center =  controller.view.center
         activityIndicator.hidesWhenStopped = true
         fullSizeView.addSubview(activityIndicator)
