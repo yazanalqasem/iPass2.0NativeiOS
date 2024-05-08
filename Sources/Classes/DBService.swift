@@ -10,7 +10,7 @@ import DocumentReader
 
 final class DocumentReaderService {
     let kiPassLicenseFile = "iPass.license"
-    let kiPassDatabaseId = "Full"
+    let kiPassDatabaseId = "FullAuth"
     
     enum State {
         case downloadingDatabase(progress: Double)
