@@ -80,7 +80,7 @@ final class DocumentReaderService {
                     DocReader.shared.removeDatabase { (success, error) in
                         if success {
                             
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                                 DocReader.shared.runAutoUpdate(
                                     databaseID: self.kiPassDatabaseId,
                                     progressHandler: { (inprogress) in
