@@ -12,6 +12,19 @@ import AWSCognitoAuthPlugin
 //import Amplify
 public class DataBaseDownloading{
     
+    
+    public static func ststst() {
+        DocReader.shared.prepareDatabase(databaseID: "Full", progressHandler: { (progress) in
+            print(progress) // progress block
+        }, completion: { (success, error) in
+            if success {
+                print(success) // Success state
+            } else {
+                print(error) // Error status
+            }
+        })
+    }
+    
     public static func initialization(completion: @escaping (String, String, String) -> Void) {
         
         do {
