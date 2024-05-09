@@ -25,62 +25,6 @@ public class DataBaseDownloading{
         }
     }
     
-    public static func ststst() {
-        
-        guard let licensePath = Bundle.module.url(forResource: "iPass", withExtension: "license") else {
-       
-        return
-    }
-        
-        
-        guard let licenseData = try? Data(contentsOf: licensePath) else {
-            return
-        }
-        
-        let config = DocReader.Config(license: licenseData)
-        
-        
-        DocReader.shared.runAutoUpdate(databaseID: "Full", progressHandler: { (progress) in
-            print(progress) // progress block
-        }, completion: { (success, error) in
-            if success {
-                print(success) // Success state
-            } else {
-                print(error) // Error status
-            }
-        })
-
-        
-//        DocReader.shared.removeDatabase { (success, error) in
-//            if success {
-//                print(success) // Success state
-//                DocReader.shared.runAutoUpdate(databaseID: "Full", progressHandler: { (progress) in
-//                    print(progress) // progress block
-//                }, completion: { (success, error) in
-//                    if success {
-//                        print(success) // Success state
-//                    } else {
-//                        print(error) // Error status
-//                    }
-//                })
-//            } else {
-//                print(error) // Error status
-//            }
-//        }
-        
-        
-        
-//        DocReader.shared.prepareDatabase(databaseID: "Full", progressHandler: { (progress) in
-//            print(progress) // progress block
-//        }, completion: { (success, error) in
-//            if success {
-//                print(success) // Success state
-//            } else {
-//                print(error) // Error status
-//            }
-//        })
-    }
-    
     public static func initialization(completion: @escaping (String, String, String) -> Void) {
         
         do {
