@@ -15,6 +15,7 @@ public class DataBaseDownloading{
     
     
     public static func deleet(){
+        DocReader.shared.cancelDBUpdate()
         DocReader.shared.removeDatabase { (success, error) in
             if success {
                 print(success) // Success state
