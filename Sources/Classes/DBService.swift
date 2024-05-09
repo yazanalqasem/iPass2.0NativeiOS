@@ -62,6 +62,11 @@ final class DocumentReaderService {
         
         
         DispatchQueue.global().async {
+            
+            let fetchedString = UserDefaults.standard.string(forKey: "dataBaseStatus")
+            
+            
+            
             DocReader.shared.runAutoUpdate(
                 databaseID: self.kiPassDatabaseId,
                 progressHandler: { (inprogress) in
