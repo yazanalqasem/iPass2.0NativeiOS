@@ -79,8 +79,6 @@ final class DocumentReaderService {
                     DocReader.shared.cancelDBUpdate()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     DocReader.shared.removeDatabase { (success, error) in
-                        if success {
-                            
                             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                                 DocReader.shared.runAutoUpdate(
                                     databaseID: self.kiPassDatabaseId,
@@ -107,43 +105,10 @@ final class DocumentReaderService {
                                     }
                                 )
                             }
-                            
-                            
-                        }
-                        
-                        
-                        else {
-                            DocReader.shared.runAutoUpdate(
-                                databaseID: self.kiPassDatabaseId,
-                                progressHandler: { (inprogress) in
-                                    progress(.downloadingDatabase(progress: inprogress.fractionCompleted))
-                                },
-                                completion: { (success, error) in
-                                    if let error = error, !success {
-                                        progress(.error("Database error: \(error.localizedDescription)"))
-                                        return
-                                    }
-                                    
-                                    DocReader.shared.initializeReader(config: config, completion: { (success, error) in
-                                        DispatchQueue.main.async {
-                                            progress(.initializingAPI)
-                                            if success {
-                                                progress(.completed)
-                                            } else {
-                                                progress(.error("Initialization error: \(error?.localizedDescription ?? "nil")"))
-                                                
-                                            }
-                                        }
-                                    })
-                                }
-                            )
-                        }
                     }}
                 }
           
             }
-        
-        
         
         
         
