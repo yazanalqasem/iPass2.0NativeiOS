@@ -53,6 +53,15 @@ final class DocumentReaderService {
                 }
 
         
+        DocReader.shared.removeDatabase { (success, error) in
+            if success {
+                print(success) // Success state
+            } else {
+                print(error) // Error status
+            }
+        }
+        
+        
         DispatchQueue.global().async {
             DocReader.shared.runAutoUpdate(
                 databaseID: self.kiPassDatabaseId,
