@@ -55,6 +55,12 @@ final class DocumentReaderService {
         
         let config = DocReader.Config(license: licenseData)
         
+        
+        
+        
+        
+        
+        
         DispatchQueue.global().async {
             DocReader.shared.runAutoUpdate(
                 databaseID: self.kiPassDatabaseId,
