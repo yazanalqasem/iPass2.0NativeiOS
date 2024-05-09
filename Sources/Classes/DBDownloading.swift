@@ -14,7 +14,8 @@ public class DataBaseDownloading{
     
     
     public static func ststst() {
-        DocReader.shared.prepareDatabase(databaseID: "Full", progressHandler: { (progress) in
+        
+        DocReader.shared.runAutoUpdate(databaseID: "Full", progressHandler: { (progress) in
             print(progress) // progress block
         }, completion: { (success, error) in
             if success {
@@ -23,6 +24,16 @@ public class DataBaseDownloading{
                 print(error) // Error status
             }
         })
+        
+//        DocReader.shared.prepareDatabase(databaseID: "Full", progressHandler: { (progress) in
+//            print(progress) // progress block
+//        }, completion: { (success, error) in
+//            if success {
+//                print(success) // Success state
+//            } else {
+//                print(error) // Error status
+//            }
+//        })
     }
     
     public static func initialization(completion: @escaping (String, String, String) -> Void) {
