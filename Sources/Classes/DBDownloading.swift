@@ -55,28 +55,30 @@ public class DataBaseDownloading{
 //        
         
        
-     
+        DispatchQueue.global().async {
+            DocumentReaderService.shared.initializeDatabaseAndAPI(progress: { state in
+                var progressValue = ""
+                var status = ""
+                var validationError = ""
+                switch state {
+                case .downloadingDatabase(progress: let progress):
+                    let progressString = String(format: "%.1f", progress * 100)
+                    progressValue = "Downloading database: \(progressString)%"
+                case .initializingAPI:
+                    UserDefaults.standard.set("completed", forKey: "dataBaseStatus")
+                    status = "Start Now"
+                case .completed:
+                    break
+                case .error(let text):
+                    validationError = text
+                    print(text)
+                }
+                completion(progressValue, status, validationError)
+            })
+        }
         
         
-        DocumentReaderService.shared.initializeDatabaseAndAPI(progress: { state in
-            var progressValue = ""
-            var status = ""
-            var validationError = ""
-            switch state {
-            case .downloadingDatabase(progress: let progress):
-                let progressString = String(format: "%.1f", progress * 100)
-                progressValue = "Downloading database: \(progressString)%"
-            case .initializingAPI:
-                UserDefaults.standard.set("completed", forKey: "dataBaseStatus")
-                status = "Start Now"
-            case .completed:
-                break
-            case .error(let text):
-                validationError = text
-                print(text)
-            }
-            completion(progressValue, status, validationError)
-        })
+      
     }
     
     
