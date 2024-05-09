@@ -15,22 +15,36 @@ public class DataBaseDownloading{
     
     public static func ststst() {
         
-        DocReader.shared.removeDatabase { (success, error) in
-            if success {
-                print(success) // Success state
-                DocReader.shared.runAutoUpdate(databaseID: "Full", progressHandler: { (progress) in
-                    print(progress) // progress block
-                }, completion: { (success, error) in
-                    if success {
-                        print(success) // Success state
-                    } else {
-                        print(error) // Error status
-                    }
-                })
-            } else {
-                print(error) // Error status
+        
+        DocReader.shared.prepareDatabase(databaseID: "Full") { [weak self] progress in
+            self?.updateAlertLoadingMessage(progress: progress)
+        } completion: { [weak self] success, error in
+            DispatchQueue.main.async {
+                self?.dismiss(animated: true)
+                if success {
+                    self?.resultLabel.text = "Database prepared"
+                } else if let error = error {
+                    self?.resultLabel.text = "Database prepare error: \(error.localizedDescription)"
+                }
             }
         }
+        
+//        DocReader.shared.removeDatabase { (success, error) in
+//            if success {
+//                print(success) // Success state
+//                DocReader.shared.runAutoUpdate(databaseID: "Full", progressHandler: { (progress) in
+//                    print(progress) // progress block
+//                }, completion: { (success, error) in
+//                    if success {
+//                        print(success) // Success state
+//                    } else {
+//                        print(error) // Error status
+//                    }
+//                })
+//            } else {
+//                print(error) // Error status
+//            }
+//        }
         
         
         
