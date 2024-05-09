@@ -77,9 +77,9 @@ final class DocumentReaderService {
                 DispatchQueue.global().async {
                     
                     DocReader.shared.cancelDBUpdate()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    DispatchQueue.global().async {
                     DocReader.shared.removeDatabase { (success, error) in
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                        DispatchQueue.global().async {
                                 DocReader.shared.runAutoUpdate(
                                     databaseID: self.kiPassDatabaseId,
                                     progressHandler: { (inprogress) in
