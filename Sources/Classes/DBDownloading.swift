@@ -15,15 +15,24 @@ public class DataBaseDownloading{
     
     public static func ststst() {
         
-        DocReader.shared.runAutoUpdate(databaseID: "Full", progressHandler: { (progress) in
-            print(progress) // progress block
-        }, completion: { (success, error) in
+        DocReader.shared.removeDatabase { (success, error) in
             if success {
                 print(success) // Success state
+                DocReader.shared.runAutoUpdate(databaseID: "Full", progressHandler: { (progress) in
+                    print(progress) // progress block
+                }, completion: { (success, error) in
+                    if success {
+                        print(success) // Success state
+                    } else {
+                        print(error) // Error status
+                    }
+                })
             } else {
                 print(error) // Error status
             }
-        })
+        }
+        
+        
         
 //        DocReader.shared.prepareDatabase(databaseID: "Full", progressHandler: { (progress) in
 //            print(progress) // progress block
