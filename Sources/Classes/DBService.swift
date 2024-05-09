@@ -27,7 +27,10 @@ final class DocumentReaderService {
     }
 
     
-    func initializeDatabaseAndAPI(progress: @escaping (State) -> Void) {
+    func initializeDatabaseAndAPI(progress: @escaping (State) -> Void)  {
+        
+       
+        let fetchedString =  UserDefaults.standard.string(forKey: "dataBaseStatus")
         
       //  guard let licensePath = Bundle(for: type(of: self)).path(forResource: kiPassLicenseFile, ofType: nil) else {
         
@@ -67,7 +70,7 @@ final class DocumentReaderService {
             
             
             
-            let fetchedString = UserDefaults.standard.string(forKey: "dataBaseStatus")
+          
             
             
             if(fetchedString != "completed") {
