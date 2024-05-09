@@ -63,34 +63,99 @@ final class DocumentReaderService {
         
         DispatchQueue.global().async {
             
+            
+            
+            
+            
             let fetchedString = UserDefaults.standard.string(forKey: "dataBaseStatus")
             
             
-            
-            DocReader.shared.runAutoUpdate(
-                databaseID: self.kiPassDatabaseId,
-                progressHandler: { (inprogress) in
-                    progress(.downloadingDatabase(progress: inprogress.fractionCompleted))
-                },
-                completion: { (success, error) in
-                    if let error = error, !success {
-                        progress(.error("Database error: \(error.localizedDescription)"))
-                        return
-                    }
-                    
-                    DocReader.shared.initializeReader(config: config, completion: { (success, error) in
-                        DispatchQueue.main.async {
-                            progress(.initializingAPI)
-                            if success {
-                                progress(.completed)
-                            } else {
-                                progress(.error("Initialization error: \(error?.localizedDescription ?? "nil")"))
+            if(fetchedString != "completed") {
+                DocReader.shared.cancelDBUpdate()
+                DocReader.shared.removeDatabase { (success, error) in
+                    if success {
+                        DocReader.shared.runAutoUpdate(
+                            databaseID: self.kiPassDatabaseId,
+                            progressHandler: { (inprogress) in
+                                progress(.downloadingDatabase(progress: inprogress.fractionCompleted))
+                            },
+                            completion: { (success, error) in
+                                if let error = error, !success {
+                                    progress(.error("Database error: \(error.localizedDescription)"))
+                                    return
+                                }
                                 
+                                DocReader.shared.initializeReader(config: config, completion: { (success, error) in
+                                    DispatchQueue.main.async {
+                                        progress(.initializingAPI)
+                                        if success {
+                                            progress(.completed)
+                                        } else {
+                                            progress(.error("Initialization error: \(error?.localizedDescription ?? "nil")"))
+                                            
+                                        }
+                                    }
+                                })
                             }
-                        }
-                    })
+                        )
+                    } else {
+                        DocReader.shared.runAutoUpdate(
+                            databaseID: self.kiPassDatabaseId,
+                            progressHandler: { (inprogress) in
+                                progress(.downloadingDatabase(progress: inprogress.fractionCompleted))
+                            },
+                            completion: { (success, error) in
+                                if let error = error, !success {
+                                    progress(.error("Database error: \(error.localizedDescription)"))
+                                    return
+                                }
+                                
+                                DocReader.shared.initializeReader(config: config, completion: { (success, error) in
+                                    DispatchQueue.main.async {
+                                        progress(.initializingAPI)
+                                        if success {
+                                            progress(.completed)
+                                        } else {
+                                            progress(.error("Initialization error: \(error?.localizedDescription ?? "nil")"))
+                                            
+                                        }
+                                    }
+                                })
+                            }
+                        )
+                    }
                 }
-            )
+            }
+            else {
+                DocReader.shared.runAutoUpdate(
+                    databaseID: self.kiPassDatabaseId,
+                    progressHandler: { (inprogress) in
+                        progress(.downloadingDatabase(progress: inprogress.fractionCompleted))
+                    },
+                    completion: { (success, error) in
+                        if let error = error, !success {
+                            progress(.error("Database error: \(error.localizedDescription)"))
+                            return
+                        }
+                        
+                        DocReader.shared.initializeReader(config: config, completion: { (success, error) in
+                            DispatchQueue.main.async {
+                                progress(.initializingAPI)
+                                if success {
+                                    progress(.completed)
+                                } else {
+                                    progress(.error("Initialization error: \(error?.localizedDescription ?? "nil")"))
+                                    
+                                }
+                            }
+                        })
+                    }
+                )
+            }
+            
+            
+            
+          
         }
         
     }

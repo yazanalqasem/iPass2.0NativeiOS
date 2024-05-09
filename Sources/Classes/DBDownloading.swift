@@ -14,20 +14,7 @@ public class DataBaseDownloading{
     
     
     
-    public static func deleet(){
-//        DocReader.shared.cancelDBUpdate()
-//        DocReader.shared.removeDatabase { (success, error) in
-//            if success {
-//                print(success) // Success state
-//            } else {
-//                print(error) // Error status
-//            }
-//        }
-        
-        DocReader.shared.checkDatabaseUpdate(databaseID: "Full") { database in
-            print(database?.date ?? "no update")
-        }
-    }
+
     
     public static func initialization(completion: @escaping (String, String, String) -> Void) {
         
