@@ -76,7 +76,7 @@ final class DocumentReaderService {
                 
                 DispatchQueue.global().async {
                     
-                    DocReader.shared.cancelDBUpdate()
+                   // DocReader.shared.cancelDBUpdate()
                     DocReader.shared.removeDatabase { (success, error) in
                         if success {
                             
