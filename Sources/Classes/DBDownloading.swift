@@ -40,7 +40,7 @@ public class DataBaseDownloading{
         let config = DocReader.Config(license: licenseData)
         
         
-        DocReader.shared.prepareDatabase(databaseID: "Full", progressHandler: { (progress) in
+        DocReader.shared.runAutoUpdate(databaseID: "Full", progressHandler: { (progress) in
             print(progress) // progress block
         }, completion: { (success, error) in
             if success {
