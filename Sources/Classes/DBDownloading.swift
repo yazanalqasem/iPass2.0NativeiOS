@@ -16,7 +16,13 @@ public class DataBaseDownloading{
     
     public static func deleet(){
         DocReader.shared.cancelDBUpdate()
-     
+        DocReader.shared.removeDatabase { (success, error) in
+            if success {
+                print(success) // Success state
+            } else {
+                print(error) // Error status
+            }
+        }
     }
     
     public static func initialization(completion: @escaping (String, String, String) -> Void) {
