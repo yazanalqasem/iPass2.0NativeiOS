@@ -160,6 +160,7 @@ public class iPassSDK {
                                             }
                                         case .error:
                                             print("Error")
+                                            self.delegate?.getScanCompletionResult(result: "", error: "Document Scanning Error")
                                         default:
                                             break
                                         }
