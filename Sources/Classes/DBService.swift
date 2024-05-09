@@ -80,32 +80,34 @@ final class DocumentReaderService {
                     DocReader.shared.removeDatabase { (success, error) in
                         if success {
                             
-                          
-                            
-                            DocReader.shared.runAutoUpdate(
-                                databaseID: self.kiPassDatabaseId,
-                                progressHandler: { (inprogress) in
-                                    progress(.downloadingDatabase(progress: inprogress.fractionCompleted))
-                                },
-                                completion: { (success, error) in
-                                    if let error = error, !success {
-                                        progress(.error("Database error: \(error.localizedDescription)"))
-                                        return
-                                    }
-                                    
-                                    DocReader.shared.initializeReader(config: config, completion: { (success, error) in
-                                        DispatchQueue.main.async {
-                                            progress(.initializingAPI)
-                                            if success {
-                                                progress(.completed)
-                                            } else {
-                                                progress(.error("Initialization error: \(error?.localizedDescription ?? "nil")"))
-                                                
-                                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                DocReader.shared.runAutoUpdate(
+                                    databaseID: self.kiPassDatabaseId,
+                                    progressHandler: { (inprogress) in
+                                        progress(.downloadingDatabase(progress: inprogress.fractionCompleted))
+                                    },
+                                    completion: { (success, error) in
+                                        if let error = error, !success {
+                                            progress(.error("Database error: \(error.localizedDescription)"))
+                                            return
                                         }
-                                    })
-                                }
-                            )
+                                        
+                                        DocReader.shared.initializeReader(config: config, completion: { (success, error) in
+                                            DispatchQueue.main.async {
+                                                progress(.initializingAPI)
+                                                if success {
+                                                    progress(.completed)
+                                                } else {
+                                                    progress(.error("Initialization error: \(error?.localizedDescription ?? "nil")"))
+                                                    
+                                                }
+                                            }
+                                        })
+                                    }
+                                )
+                            }
+                            
+                        
                         }
                         
                         
