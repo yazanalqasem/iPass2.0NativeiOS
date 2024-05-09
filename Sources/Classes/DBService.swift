@@ -53,17 +53,17 @@ final class DocumentReaderService {
                 }
 
         
-        DocReader.shared.removeDatabase { (success, error) in
-            if success {
-                print(success) // Success state
-            } else {
-                print(error) // Error status
-            }
-        }
+//        DocReader.shared.removeDatabase { (success, error) in
+//            if success {
+//                print(success) // Success state
+//            } else {
+//                print(error) // Error status
+//            }
+//        }
         
         
         DispatchQueue.global().async {
-            DocReader.shared.runAutoUpdate(
+            DocReader.shared.prepareDatabase(
                 databaseID: self.kiPassDatabaseId,
                 progressHandler: { (inprogress) in
                     progress(.downloadingDatabase(progress: inprogress.fractionCompleted))
