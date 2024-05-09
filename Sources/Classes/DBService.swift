@@ -62,7 +62,7 @@ final class DocumentReaderService {
 //        }
         
         
-        DispatchQueue.global().async {
+     //   DispatchQueue.global().async {
             DocReader.shared.prepareDatabase(
                 databaseID: self.kiPassDatabaseId,
                 progressHandler: { (inprogress) in
@@ -87,7 +87,7 @@ final class DocumentReaderService {
                     })
                 }
             )
-        }
+      //  }
         
     }
 }
