@@ -54,7 +54,7 @@ final class DocumentReaderService {
 
         
         DispatchQueue.global().async {
-            DocReader.shared.prepareDatabase(
+            DocReader.shared.runAutoUpdate(
                 databaseID: self.kiPassDatabaseId,
                 progressHandler: { (inprogress) in
                     progress(.downloadingDatabase(progress: inprogress.fractionCompleted))
