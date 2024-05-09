@@ -14,42 +14,42 @@ public class DataBaseDownloading{
     
     public static func initialization(completion: @escaping (String, String, String) -> Void) {
         
-//        do {
-//            Amplify.Logging.logLevel = .verbose
-//            try Amplify.add(plugin: AWSCognitoAuthPlugin())
-//            
-//            
-//           // try Amplify.configure()
-//        } catch {
-//            print("An error occurred setting up Amplify: \(error)")
-//        }
-//        
-//        // Custom path to your configuration file
-//       
-//        
-//        
-//        let configFileName = "amplifyconfiguration.json"
-//
-//        if let configFileURL = Bundle.module.url(forResource: configFileName, withExtension: nil) {
-//            let configFilePath = configFileURL.path
-//            print("Configuration file path: \(configFilePath)")
-//            if let amplifyConfig = loadAmplifyConfiguration(from: configFilePath) {
-//                // Configure Amplify with the loaded configuration
-//                do {
-//                    try Amplify.configure(amplifyConfig)
-//                }
-//                catch {
-//                    print("Failed to configure Amplify with custom configuration.")
-//                }
-//            } else {
-//                // Handle error loading or decoding configuration
-//                print("Failed to configure Amplify with custom configuration.")
-//            }
-//        } else {
-//            print("Failed to locate configuration file '\(configFileName)' in Bundle.module")
-//        }
-//        
-//        
+        do {
+            Amplify.Logging.logLevel = .verbose
+            try Amplify.add(plugin: AWSCognitoAuthPlugin())
+            
+            
+           // try Amplify.configure()
+        } catch {
+            print("An error occurred setting up Amplify: \(error)")
+        }
+        
+        // Custom path to your configuration file
+       
+        
+        
+        let configFileName = "amplifyconfiguration.json"
+
+        if let configFileURL = Bundle.module.url(forResource: configFileName, withExtension: nil) {
+            let configFilePath = configFileURL.path
+            print("Configuration file path: \(configFilePath)")
+            if let amplifyConfig = loadAmplifyConfiguration(from: configFilePath) {
+                // Configure Amplify with the loaded configuration
+                do {
+                    try Amplify.configure(amplifyConfig)
+                }
+                catch {
+                    print("Failed to configure Amplify with custom configuration.")
+                }
+            } else {
+                // Handle error loading or decoding configuration
+                print("Failed to configure Amplify with custom configuration.")
+            }
+        } else {
+            print("Failed to locate configuration file '\(configFileName)' in Bundle.module")
+        }
+        
+        
        
      
         
