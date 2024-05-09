@@ -15,13 +15,17 @@ public class DataBaseDownloading{
     
     
     public static func deleet(){
-        DocReader.shared.cancelDBUpdate()
-        DocReader.shared.removeDatabase { (success, error) in
-            if success {
-                print(success) // Success state
-            } else {
-                print(error) // Error status
-            }
+//        DocReader.shared.cancelDBUpdate()
+//        DocReader.shared.removeDatabase { (success, error) in
+//            if success {
+//                print(success) // Success state
+//            } else {
+//                print(error) // Error status
+//            }
+//        }
+        
+        DocReader.shared.checkDatabaseUpdate(databaseID: "Full") { database in
+            print(database?.date ?? "no update")
         }
     }
     
@@ -76,6 +80,7 @@ public class DataBaseDownloading{
                 let progressString = String(format: "%.1f", progress * 100)
                 progressValue = "Downloading database: \(progressString)%"
             case .initializingAPI:
+                UserDefaults.standard.set("completed", forKey: "dataBaseStatus")
                 status = "Start Now"
             case .completed:
                 break
