@@ -13,6 +13,17 @@ import AWSCognitoAuthPlugin
 public class DataBaseDownloading{
     
     
+    
+    public static func deleet(){
+        DocReader.shared.removeDatabase { (success, error) in
+            if success {
+                print(success) // Success state
+            } else {
+                print(error) // Error status
+            }
+        }
+    }
+    
     public static func ststst() {
         
         guard let licensePath = Bundle.module.url(forResource: "iPass", withExtension: "license") else {
