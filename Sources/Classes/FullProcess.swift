@@ -31,9 +31,15 @@ public class iPassSDKDataObjHandler {
     var loaderColor = UIColor(red: 126/255, green:87/255, blue: 196/255, alpha: 1.0)
 }
 
+
+
 public class configSdk {
     public static func setLoaderColor(color:UIColor) {
         iPassSDKDataObjHandler.shared.loaderColor = color
+    }
+    public static func getAvailableScenarios() -> [[String: Any]] {
+        let res = getListOfFlows()
+        return res
     }
 }
 
