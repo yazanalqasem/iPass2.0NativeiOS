@@ -114,7 +114,7 @@ public class iPassSDK {
     
     public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
         
-        await controller.view.showToast(toastMessage: "Please Enter Password.", duration: 1.1)
+       
         
         if(type == 0) {
             iPassSDKDataObjHandler.shared.userSelectedFlowType = SelectedFlowType.fullProcess.rawValue
@@ -197,6 +197,8 @@ public class iPassSDK {
                                             }
                                             
                                         case .processTimeout:
+                                           
+                                            iPassSDKDataObjHandler.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
                                             guard docResults != nil else {
                                                 return
                                             }
