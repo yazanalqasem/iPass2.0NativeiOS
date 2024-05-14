@@ -14,6 +14,17 @@ import SwiftUI
 import Amplify
 import AWSCognitoAuthPlugin
 
+
+enum SelectedFlowType: String {
+    case fullProcess = "fullProcess"
+    case idVerificationAndLivenessAndAml = "idVerificationAndLivenessAndAml"
+    case idVerificationAndAml = "idVerificationAndAml"
+    case idVerificationAndLiveness = "idVerificationAndLiveness"
+    case idVerification = "idVerification"
+}
+
+
+
 public class iPassSDKDataObjHandler {
     public init() {}
     
@@ -28,6 +39,7 @@ public class iPassSDKDataObjHandler {
     var controller = UIViewController()
     var sessionId = String()
     var isCustom = Bool()
+    var userSelectedFlowType = String()
     var loaderColor = UIColor(red: 126/255, green:87/255, blue: 196/255, alpha: 1.0)
 }
 
@@ -102,6 +114,24 @@ public class iPassSDK {
     
     public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
         
+        await controller.view.showToast(toastMessage: "Please Enter Password.", duration: 1.1)
+        
+        if(type == 0) {
+            iPassSDKDataObjHandler.shared.userSelectedFlowType = SelectedFlowType.fullProcess.rawValue
+        }
+        if(type == 1) {
+            iPassSDKDataObjHandler.shared.userSelectedFlowType = SelectedFlowType.idVerificationAndLivenessAndAml.rawValue
+        }
+        if(type == 2) {
+            iPassSDKDataObjHandler.shared.userSelectedFlowType = SelectedFlowType.idVerificationAndAml.rawValue
+        }
+        if(type == 3) {
+            iPassSDKDataObjHandler.shared.userSelectedFlowType = SelectedFlowType.idVerificationAndLiveness.rawValue
+        }
+        if(type == 4) {
+            iPassSDKDataObjHandler.shared.userSelectedFlowType = SelectedFlowType.idVerification.rawValue
+        }
+        
         
         iPassSDKDataObjHandler.shared.authToken = userToken
         iPassSDKDataObjHandler.shared.token = appToken
@@ -140,6 +170,7 @@ public class iPassSDK {
                         
                         DocReader.shared.showScanner(presenter: controller, config: config) { [self] (action, docResults, error) in
                             if action == .complete || action == .processTimeout {
+                               
                                 if docResults?.chipPage != 0  {
                                     DocReader.shared.startRFIDReader(fromPresenter: controller, completion: {  []  (action, results, error) in
                                         switch action {
@@ -164,8 +195,23 @@ public class iPassSDK {
                                                     await startCamera()
                                                 }
                                             }
+                                            
+                                        case .processTimeout:
+                                            guard docResults != nil else {
+                                                return
+                                            }
+                                            DispatchQueue.main.async {
+                                                iPassSDKDataObjHandler.shared.resultScanData = docResults!
+                                                Task { @MainActor in
+                                                    await startCamera()
+                                                }
+                                            }
+
+                                            
                                         case .error:
                                             print("Error")
+                                            
+                                            
                                         default:
                                             break
                                         }
