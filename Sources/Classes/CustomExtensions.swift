@@ -42,17 +42,24 @@ extension UIView {
     lblMessage.padding = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
     bgView.addSubview(lblMessage)
     self.addSubview(bgView)
-    lblMessage.alpha = 0
-
-    UIView.animateKeyframes(withDuration: TimeInterval(duration), delay: 0, options: [], animations: {
-        lblMessage.alpha = 1
-    }, completion: { success in
-        UIView.animate(withDuration: TimeInterval(duration), delay: 0, options: [], animations: {
-        lblMessage.alpha = 0
-        bgView.alpha = 0
-        })
-        bgView.removeFromSuperview()
-    })
+    lblMessage.alpha = 1
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+            lblMessage.alpha = 0
+            bgView.alpha = 0
+            bgView.removeFromSuperview()
+        }
+//
+//    UIView.animateKeyframes(withDuration: TimeInterval(duration), delay: 0, options: [], animations: {
+//        lblMessage.alpha = 1
+//    }, completion: { success in
+//        UIView.animate(withDuration: TimeInterval(duration), delay: 0, options: [], animations: {
+//        lblMessage.alpha = 0
+//        bgView.alpha = 0
+//        })
+//        bgView.removeFromSuperview()
+//    })
 }
 }
 
