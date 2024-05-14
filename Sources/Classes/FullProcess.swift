@@ -110,7 +110,7 @@ public class iPassSDK {
     }
     
     public static func rrr(controller: UIViewController)  {
-        controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
+        controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 0)
 
         
     }
