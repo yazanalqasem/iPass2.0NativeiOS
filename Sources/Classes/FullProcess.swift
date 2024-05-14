@@ -111,6 +111,23 @@ public class iPassSDK {
     
  
     
+    static func userOnBoarding(email: String, password: String, completion: @escaping (Bool?, String?) -> Void) {
+        let parameters: [String: Any] = [
+            "email": email,
+            "password": password
+        ]
+        iPassHandler.methodForPost(url: "https://plusapi.ipass-mena.com/api/v1/ipass/create/authenticate/login", params: parameters) { response, error in
+            if(error != "") {
+                print("Response",response as Any)
+                if let json = response {
+                       print("JSON: \(json)")
+                       // Handle the JSON object
+                   }
+            }
+        }
+        
+    }
+    
     public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
         
        
