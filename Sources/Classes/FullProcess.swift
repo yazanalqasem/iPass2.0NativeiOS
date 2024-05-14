@@ -212,7 +212,16 @@ public class iPassSDK {
                                             
                                         case .error:
                                             print("Error")
-                                            
+                                            iPassSDKDataObjHandler.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
+                                            guard docResults != nil else {
+                                                return
+                                            }
+                                            DispatchQueue.main.async {
+                                                iPassSDKDataObjHandler.shared.resultScanData = docResults!
+                                                Task { @MainActor in
+                                                    await startCamera()
+                                                }
+                                            }
                                             
                                         default:
                                             break
@@ -231,6 +240,9 @@ public class iPassSDK {
                                 
                             }
                             else  if action == .cancel  {
+                                self.delegate?.getScanCompletionResult(result: "", error: "Document Scanning Error")
+                            }
+                            else  if action == .processTimeout  {
                                 self.delegate?.getScanCompletionResult(result: "", error: "Document Scanning Error")
                             }
                         }
