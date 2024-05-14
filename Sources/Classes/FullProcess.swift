@@ -111,7 +111,7 @@ public class iPassSDK {
     
  
     
-    static func userOnBoarding(email: String, password: String, completion: @escaping (Bool?, String?) -> Void) {
+    public  static func userOnBoarding(email: String, password: String, completion: @escaping (Bool?, String?) -> Void) {
         let parameters: [String: Any] = [
             "email": email,
             "password": password
