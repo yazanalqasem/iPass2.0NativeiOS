@@ -119,10 +119,18 @@ public class iPassSDK {
         iPassHandler.methodForPost(url: "https://plusapi.ipass-mena.com/api/v1/ipass/create/authenticate/login", params: parameters) { response, error in
             if(error != "") {
                 print("Response",response as Any)
-                if let json = response {
-                       print("JSON: \(json)")
-                       // Handle the JSON object
-                   }
+                if let json = response as? [String: Any] {
+                      if let user = json["user"] as? [String: Any] {
+                          let token = user["token"] as? String
+                          completion(true, token)
+                      }
+                    else {
+                        completion(false, "")
+                    }
+                  }
+                else {
+                    completion(false, "")
+                }
             }
         }
         
