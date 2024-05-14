@@ -412,7 +412,7 @@ public class iPassSDK {
         let parameters: [String: Any] = [:]
         
         iPassHandler.methodForPost(url: "https://plusapi.ipass-mena.com/api/v1/ipass/plus/session/result?sessionId=\(iPassSDKDataObjHandler.shared.sessionId)&sid=\(iPassSDKDataObjHandler.shared.sid)&email=\(iPassSDKDataObjHandler.shared.email)&token=\(iPassSDKDataObjHandler.shared.token)&auth_token=\(iPassSDKDataObjHandler.shared.authToken)", params:parameters) { response, error in
-            if let dataString = String(data: response, encoding: .utf8) {
+            if let dataString = String(data: response as! Data, encoding: .utf8) {
                 iPassSDKDataObjHandler.shared.livenessResultData = dataString
             }
         }
