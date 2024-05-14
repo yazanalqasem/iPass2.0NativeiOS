@@ -106,8 +106,11 @@ public class iPassSDK {
     }
     
     public static func stopLoaderAnimation() {
-        fullSizeView.removeFromSuperview()
-        activityIndicator.stopAnimating()
+        DispatchQueue.main.async {
+            fullSizeView.removeFromSuperview()
+            activityIndicator.stopAnimating()
+        }
+       
     }
     
  
@@ -150,56 +153,269 @@ public class iPassSDK {
         iPassSDKDataObjHandler.shared.email = userEmail
         iPassSDKDataObjHandler.shared.controller = controller
         iPassSDKDataObjHandler.shared.isCustom = false
-        showLoading()
-        
-        
+        createLivenessSession()
+     
+    }
+    
+    
+    
+    public static func createLivenessSession() {
+        DispatchQueue.main.async {
+            addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
+        }
         let parameters: [String: Any] = [
             "email": iPassSDKDataObjHandler.shared.email,
             "auth_token": iPassSDKDataObjHandler.shared.authToken
         ]
         iPassHandler.methodForPost(url: "https://plusapi.ipass-mena.com/api/v1/ipass/plus/face/session/create?token=\(iPassSDKDataObjHandler.shared.token)", params: parameters) { response, error in
+            DispatchQueue.main.async {
+                stopLoaderAnimation()
+            }
             if(error != "") {
                 print("Response",response as Any)
                 if let jsonRes = response as? [String: Any] {
                     print("Response",jsonRes)
-//                    if let sessionId = response["sessionId"] as? String  {
-//                        
-//                    }
+                    if let sessionId = jsonRes["sessionId"] as? String  {
+                        iPassSDKDataObjHandler.shared.sessionId = sessionId
+                        openDocumentScanner()
+                    }
+                    else {
+                        self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
+                    }
                 }
-                
-                
-                
-                
-                
-                
-//                do {
-//                        print("createSessionApi response -->> ",response)
-//                        
-//                        if let sessionId = response["sessionId"] as? String {
-//                            DispatchQueue.main.async {
-//                                iPassSDKDataObjHandler.shared.sessionId = sessionId
-//                            }
-//                            print("sessionId ------>> ",sessionId)
-//                            completion(true)
-//                        }
-//                        // presentSwiftUIView()
-//                 
-//                } catch let error {
-//                    print("Error parsing JSON response: \(error.localizedDescription)")
-//                    completion(false)
-//                }
+                else {
+                    self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
+                }
             }
+            else {
+                self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
+            }
+            
         }
-        
-        
     }
     
     
-    public static func showLoading () {
+    
+    public static func openDocumentScanner() {
         DispatchQueue.main.async {
-            addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
+            DocReader.shared.processParams.multipageProcessing = true
+            DocReader.shared.processParams.authenticityParams?.livenessParams?.checkHolo = false
+            DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = false
+            DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = false
+            
+            let config = DocReader.ScannerConfig(scenario: "")
+            config.scenario = RGL_SCENARIO_FULL_AUTH
+            DocReader.shared.showScanner(presenter: iPassSDKDataObjHandler.shared.controller, config: config) { [self] (action, docResults, error) in
+                if action == .complete || action == .processTimeout {
+                    if docResults?.chipPage != 0  {
+                        DocReader.shared.startRFIDReader(fromPresenter: iPassSDKDataObjHandler.shared.controller, completion: {  []  (action, results, error) in
+                            switch action {
+                            case .complete:
+                                guard results != nil else {
+                                    self.delegate?.getScanCompletionResult(result: "", error: "Document Scanning Error")
+                                    return
+                                }
+                                DispatchQueue.main.async {
+                                    iPassSDKDataObjHandler.shared.resultScanData = results!
+                                    Task { @MainActor in
+                                        await startCamera()
+                                    }
+                                }
+                            case .cancel:
+                                guard docResults != nil else {
+                                    return
+                                }
+                                DispatchQueue.main.async {
+                                    iPassSDKDataObjHandler.shared.resultScanData = docResults!
+                                    Task { @MainActor in
+                                        await startCamera()
+                                    }
+                                }
+                                
+                            case .processTimeout:
+                               
+                                iPassSDKDataObjHandler.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
+                                guard docResults != nil else {
+                                    return
+                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                    iPassSDKDataObjHandler.shared.resultScanData = docResults!
+                                    Task { @MainActor in
+                                        await startCamera()
+                                    }
+                                }
+
+                                
+                            case .error:
+                                print("Error")
+                                iPassSDKDataObjHandler.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
+                                guard docResults != nil else {
+                                    return
+                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                    iPassSDKDataObjHandler.shared.resultScanData = docResults!
+                                    Task { @MainActor in
+                                        await startCamera()
+                                    }
+                                }
+                                
+                            default:
+                                break
+                            }
+                        })
+                    
+                    }
+                    else {
+                        DispatchQueue.main.async {
+                            iPassSDKDataObjHandler.shared.resultScanData = docResults!
+                            Task { @MainActor in
+                                await startCamera()
+                            }
+                        }
+                    }
+                    
+                }
+                else  if action == .cancel  {
+                    self.delegate?.getScanCompletionResult(result: "", error: "Document Scanning Error")
+                }
+                else  if action == .processTimeout  {
+                    self.delegate?.getScanCompletionResult(result: "", error: "Document Scanning Error")
+                }
+            }
         }
+    }
+    
+    public static func startCamera() async {
+        await fetchCurrentAuthSession()
+    }
+    
+    private static func fetchCurrentAuthSession() async {
+        DispatchQueue.main.async {
+                  addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
+              }
+         do {
+             let session = try await Amplify.Auth.fetchAuthSession()
+             print("Is user signed in - \(session.isSignedIn)")
+             
+             print(session)
+             if(session.isSignedIn == true) {
+                 faceLivenessApi()
+             }
+             else {
+                 await signIn()
+             }
+             
+         } catch let error as AuthError {
+             print("Fetch session failed with error \(error)")
+         } catch {
+             print("Unexpected error: \(error)")
+         }
+     }
+    
+    
+    private static func faceLivenessApi()  {
+     
+        DispatchQueue.main.async {
+            stopLoaderAnimation()
+            var swiftUIView = FaceClass()
+            swiftUIView.sessoinIdValue = iPassSDKDataObjHandler.shared.sessionId
+            let hostingController = UIHostingController(rootView: swiftUIView)
+            hostingController.modalPresentationStyle = .fullScreen
+            iPassSDKDataObjHandler.shared.controller.present(hostingController, animated: true)
+          
+            NotificationCenter.default.addObserver(forName: NSNotification.Name("dismissSwiftUI"), object: nil, queue: nil) { (data) in
+                NotificationCenter.default.removeObserver(self)
+                NotificationCenter.default.removeObserver(self, name: NSNotification.Name("dismissSwiftUI"), object: nil)
+
+                print("userInfo from swift ui class-->> ",data.userInfo?["status"] ?? "no status value")
+                hostingController.dismiss(animated: true, completion: nil)
+               
+               
+                DispatchQueue.main.async {
+                          addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
+                      }
+                
+                
+                
+                
+                iPassHandler.getresultliveness() { (data, error) in
+            
+                    if let error = error {
+                        print("Error: \(error)")
+                        DispatchQueue.main.async {
+                                            stopLoaderAnimation()
+                                        }
+                        self.delegate?.getScanCompletionResult(result: "", error: "Liveness result not processed")
+                        return
+                    }
+                 
+                    
+                    if let data = data {
+                        if let dataString = String(data: data, encoding: .utf8) {
+                            iPassSDKDataObjHandler.shared.livenessResultData = dataString
+                            
+                            iPassHandler.saveDataPostApi { data, error in
+                                
+                                if(error == nil) {
+                                    iPassHandler.getDataFromAPI() { (data, error) in
+                                        if let error = error {
+                                            print("Error: \(error)")
+                                            DispatchQueue.main.async {
+                                                                stopLoaderAnimation()
+                                                            }
+                                            self.delegate?.getScanCompletionResult(result: "", error: "Liveness result not processed")
+                                            return
+                                        }
+                                        
+                                        if let data = data {
+                                            if let dataString = String(data: data, encoding: .utf8) {
+                                                print("getDataFromAPI completed")
+                                                DispatchQueue.main.async {
+                                                    stopLoaderAnimation()
+                                                }
+                                                self.delegate?.getScanCompletionResult(result: dataString, error: "")
+                                                
+                                            } else {
+                                                DispatchQueue.main.async {
+                                                                    stopLoaderAnimation()
+                                                                }
+                                                print("Error converting data to string.")
+                                                self.delegate?.getScanCompletionResult(result: "", error: "Liveness result not processed")
+                                            }
+                                        }
+                                    }
+                                }
+                                else {
+                                    DispatchQueue.main.async {
+                                                        stopLoaderAnimation()
+                                                    }
+                                    self.delegate?.getScanCompletionResult(result: "", error: "Time out")
+                                }
+                            }
+                           
+                            
+                            
+                        } else {
+                            print("Error converting data to string.")
+                        }
+                    }
+                    
+                }
+            }
+        }
+     }
+   
+ 
+    
+    public static func getLivenessFeedback() {
         
+        let parameters: [String: Any] = [:]
+        
+        iPassHandler.methodForPost(url: "https://plusapi.ipass-mena.com/api/v1/ipass/plus/session/result?sessionId=\(iPassSDKDataObjHandler.shared.sessionId)&sid=\(iPassSDKDataObjHandler.shared.sid)&email=\(iPassSDKDataObjHandler.shared.email)&token=\(iPassSDKDataObjHandler.shared.token)&auth_token=\(iPassSDKDataObjHandler.shared.authToken)", params:parameters) { response, error in
+            if let dataString = String(data: response, encoding: .utf8) {
+                iPassSDKDataObjHandler.shared.livenessResultData = dataString
+            }
+        }
     }
     
     public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
@@ -209,7 +425,7 @@ public class iPassSDK {
         iPassSDKDataObjHandler.shared.sid = generateRandomTwoDigitNumber()
         iPassSDKDataObjHandler.shared.email = userEmail
         iPassSDKDataObjHandler.shared.controller = controller
-        iPassSDKDataObjHandler.shared.isCustom = false
+        iPassSDKDataObjHandler.shared.isCustom = true
         
         DispatchQueue.main.async {
             addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
@@ -321,32 +537,7 @@ public class iPassSDK {
     
 
     
-    public static func startCamera() async {
-        await fetchCurrentAuthSession()
-    }
-    
-    private static func fetchCurrentAuthSession() async {
-        DispatchQueue.main.async {
-                  addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
-              }
-         do {
-             let session = try await Amplify.Auth.fetchAuthSession()
-             print("Is user signed in - \(session.isSignedIn)")
-             
-             print(session)
-             if(session.isSignedIn == true) {
-                 faceLivenessApi()
-             }
-             else {
-                 await signIn()
-             }
-             
-         } catch let error as AuthError {
-             print("Fetch session failed with error \(error)")
-         } catch {
-             print("Unexpected error: \(error)")
-         }
-     }
+  
     
     
   public static  func nsdataToJSON(data: NSData) -> AnyObject? {
@@ -358,94 +549,7 @@ public class iPassSDK {
         return nil
     }
     
-    
-    private static func faceLivenessApi()  {
-     
-        DispatchQueue.main.async {
-            stopLoaderAnimation()
-            var swiftUIView = FaceClass()
-            swiftUIView.sessoinIdValue = iPassSDKDataObjHandler.shared.sessionId
-            let hostingController = UIHostingController(rootView: swiftUIView)
-            hostingController.modalPresentationStyle = .fullScreen
-            iPassSDKDataObjHandler.shared.controller.present(hostingController, animated: true)
-          
-            NotificationCenter.default.addObserver(forName: NSNotification.Name("dismissSwiftUI"), object: nil, queue: nil) { (data) in
-                NotificationCenter.default.removeObserver(self)
-                NotificationCenter.default.removeObserver(self, name: NSNotification.Name("dismissSwiftUI"), object: nil)
 
-                print("userInfo from swift ui class-->> ",data.userInfo?["status"] ?? "no status value")
-                hostingController.dismiss(animated: true, completion: nil)
-               
-               
-                DispatchQueue.main.async {
-                          addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
-                      }
-                iPassHandler.getresultliveness() { (data, error) in
-            
-                    if let error = error {
-                        print("Error: \(error)")
-                        DispatchQueue.main.async {
-                                            stopLoaderAnimation()
-                                        }
-                        self.delegate?.getScanCompletionResult(result: "", error: "Liveness result not processed")
-                        return
-                    }
-                 
-                    
-                    if let data = data {
-                        if let dataString = String(data: data, encoding: .utf8) {
-                            iPassSDKDataObjHandler.shared.livenessResultData = dataString
-                            
-                            iPassHandler.saveDataPostApi { data, error in
-                                
-                                if(error == nil) {
-                                    iPassHandler.getDataFromAPI() { (data, error) in
-                                        if let error = error {
-                                            print("Error: \(error)")
-                                            DispatchQueue.main.async {
-                                                                stopLoaderAnimation()
-                                                            }
-                                            self.delegate?.getScanCompletionResult(result: "", error: "Liveness result not processed")
-                                            return
-                                        }
-                                        
-                                        if let data = data {
-                                            if let dataString = String(data: data, encoding: .utf8) {
-                                                print("getDataFromAPI completed")
-                                                DispatchQueue.main.async {
-                                                    stopLoaderAnimation()
-                                                }
-                                                self.delegate?.getScanCompletionResult(result: dataString, error: "")
-                                                
-                                            } else {
-                                                DispatchQueue.main.async {
-                                                                    stopLoaderAnimation()
-                                                                }
-                                                print("Error converting data to string.")
-                                                self.delegate?.getScanCompletionResult(result: "", error: "Liveness result not processed")
-                                            }
-                                        }
-                                    }
-                                }
-                                else {
-                                    DispatchQueue.main.async {
-                                                        stopLoaderAnimation()
-                                                    }
-                                    self.delegate?.getScanCompletionResult(result: "", error: "Time out")
-                                }
-                            }
-                           
-                            
-                            
-                        } else {
-                            print("Error converting data to string.")
-                        }
-                    }
-                    
-                }
-            }
-        }
-     }
     
     
     private static func generateRandomTwoDigitNumber() -> String {
