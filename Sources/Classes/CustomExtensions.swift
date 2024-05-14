@@ -33,7 +33,9 @@ extension UIView {
     var expectedSizeTitle: CGSize = lblMessage.sizeThatFits(maxSizeTitle)
     // UILabel can return a size larger than the max size when the number of lines is 1
     expectedSizeTitle = CGSize(width: maxSizeTitle.width.getMinimum(value2: expectedSizeTitle.width), height: maxSizeTitle.height.getMinimum(value2: expectedSizeTitle.height))
-    lblMessage.frame = CGRect(x:((self.bounds.size.width)/2) - ((expectedSizeTitle.width+16)/2), y: (self.bounds.size.height/2) - ((expectedSizeTitle.height+16)/2), width: expectedSizeTitle.width+16, height: expectedSizeTitle.height+16)
+//    lblMessage.frame = CGRect(x:((self.bounds.size.width)/2) - ((expectedSizeTitle.width+16)/2), y: (self.bounds.size.height/2) - ((expectedSizeTitle.height+16)/2), width: expectedSizeTitle.width+16, height: expectedSizeTitle.height+16)
+        
+        lblMessage.frame = CGRect(x:((self.bounds.size.width)/2) - ((expectedSizeTitle.width+16)/2), y: self.bounds.size.height/3.5 , width: expectedSizeTitle.width+16, height: expectedSizeTitle.height+16)
         
     lblMessage.layer.cornerRadius = 8
     lblMessage.layer.masksToBounds = true
