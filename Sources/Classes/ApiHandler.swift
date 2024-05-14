@@ -165,6 +165,7 @@ public class iPassHandler {
 
             if status == 200 {
                 do {
+    
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                         print("Response",json)
                         if let user = json["user"] as? [String: Any] {
@@ -254,6 +255,104 @@ public class iPassHandler {
             }
         }
         
+        task.resume()
+    }
+    
+    
+    
+    public static func methodForPost(url: String, params: [String: Any], completion: @escaping (Any?, String?) -> Void) {
+        // Create a URL for the API endpoint
+        guard let url = URL(string: url) else {
+            print("Invalid URL")
+            return
+        }
+
+        // Create a URLRequest with the URL, setting the HTTP method to "POST"
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+
+        // Add headers if needed
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: params) else {
+            print("Error encoding parameters")
+            completion("", "Error")
+            return
+        }
+
+        // Set the request body with your encoded parameters
+        request.httpBody = jsonData
+
+        // Create a URLSessionDataTask with the request
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                completion("", error.localizedDescription)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                print("Invalid response")
+                completion("", error?.localizedDescription)
+                return
+            }
+            
+            if let data = data {
+                // Process the data, e.g., convert it to a Swift object
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                    completion(json, error?.localizedDescription)
+                } catch {
+                    print("Error parsing JSON: \(error.localizedDescription)")
+                    completion("", error.localizedDescription)
+                }
+            }
+        }
+
+        // Resume the data task to initiate the request
+        task.resume()
+    }
+    
+    
+    public func methodForGet(completion: @escaping (Any?, String?) -> Void) {
+        // Create a URL for the API endpoint
+        guard let url = URL(string: "https://api.example.com/data") else {
+            print("Invalid URL")
+            return
+        }
+
+        // Create a URLRequest with the URL
+        let request = URLRequest(url: url)
+
+        // Create a URLSessionDataTask with the request
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                completion("", error.localizedDescription)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                print("Invalid response")
+                completion("", error?.localizedDescription)
+                return
+            }
+            
+            if let data = data {
+                // Process the data, e.g., convert it to a Swift object
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                    completion(data, error?.localizedDescription)
+                } catch {
+                    print("Error parsing JSON: \(error.localizedDescription)")
+                    completion("", error.localizedDescription)
+                }
+            }
+        }
+
+        // Resume the data task to initiate the request
         task.resume()
     }
     
