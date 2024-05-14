@@ -47,7 +47,7 @@ extension UIView {
     UIView.animateKeyframes(withDuration: TimeInterval(duration), delay: 0, options: [], animations: {
         lblMessage.alpha = 1
     }, completion: { success in
-        UIView.animate(withDuration: TimeInterval(duration), delay: 8, options: [], animations: {
+        UIView.animate(withDuration: TimeInterval(duration), delay: 0, options: [], animations: {
         lblMessage.alpha = 0
         bgView.alpha = 0
         })
