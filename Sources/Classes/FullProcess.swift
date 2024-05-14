@@ -33,6 +33,7 @@ public class iPassSDKDataObjHandler {
     var resultScanData = DocumentReaderResults()
     var livenessResultData = String()
     var authToken = String()
+    var userSelectedFlowId = Int()
     var token = String()
     var email = String()
     var sid = String()
@@ -140,36 +141,74 @@ public class iPassSDK {
         
     }
     
-    public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
-        
-       
-        
-        if(type == 0) {
-            iPassSDKDataObjHandler.shared.userSelectedFlowType = SelectedFlowType.fullProcess.rawValue
-        }
-        if(type == 1) {
-            iPassSDKDataObjHandler.shared.userSelectedFlowType = SelectedFlowType.idVerificationAndLivenessAndAml.rawValue
-        }
-        if(type == 2) {
-            iPassSDKDataObjHandler.shared.userSelectedFlowType = SelectedFlowType.idVerificationAndAml.rawValue
-        }
-        if(type == 3) {
-            iPassSDKDataObjHandler.shared.userSelectedFlowType = SelectedFlowType.idVerificationAndLiveness.rawValue
-        }
-        if(type == 4) {
-            iPassSDKDataObjHandler.shared.userSelectedFlowType = SelectedFlowType.idVerification.rawValue
-        }
-        
-        
+    
+    public static func fullProcessScanningTest(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
+        iPassSDKDataObjHandler.shared.userSelectedFlowId = type
         iPassSDKDataObjHandler.shared.authToken = userToken
         iPassSDKDataObjHandler.shared.token = appToken
         iPassSDKDataObjHandler.shared.sid = generateRandomTwoDigitNumber()
         iPassSDKDataObjHandler.shared.email = userEmail
         iPassSDKDataObjHandler.shared.controller = controller
         iPassSDKDataObjHandler.shared.isCustom = false
+        showLoading()
         
         
+        let parameters: [String: Any] = [
+            "email": iPassSDKDataObjHandler.shared.email,
+            "auth_token": iPassSDKDataObjHandler.shared.authToken
+        ]
+        iPassHandler.methodForPost(url: "https://plusapi.ipass-mena.com/api/v1/ipass/plus/face/session/create?token=\(iPassSDKDataObjHandler.shared.token)", params: parameters) { response, error in
+            if(error != "") {
+                print("Response",response as Any)
+//                if let json = response as? [String: Any] {
+//                    if let sessionId = response["sessionId"] as? String  {
+//                        
+//                    }
+//                }
+                
+                
+                
+                
+                
+                
+//                do {
+//                        print("createSessionApi response -->> ",response)
+//                        
+//                        if let sessionId = response["sessionId"] as? String {
+//                            DispatchQueue.main.async {
+//                                iPassSDKDataObjHandler.shared.sessionId = sessionId
+//                            }
+//                            print("sessionId ------>> ",sessionId)
+//                            completion(true)
+//                        }
+//                        // presentSwiftUIView()
+//                 
+//                } catch let error {
+//                    print("Error parsing JSON response: \(error.localizedDescription)")
+//                    completion(false)
+//                }
+            }
+        }
         
+        
+    }
+    
+    
+    public static func showLoading () {
+        DispatchQueue.main.async {
+            addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
+        }
+        
+    }
+    
+    public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
+        iPassSDKDataObjHandler.shared.userSelectedFlowId = type
+        iPassSDKDataObjHandler.shared.authToken = userToken
+        iPassSDKDataObjHandler.shared.token = appToken
+        iPassSDKDataObjHandler.shared.sid = generateRandomTwoDigitNumber()
+        iPassSDKDataObjHandler.shared.email = userEmail
+        iPassSDKDataObjHandler.shared.controller = controller
+        iPassSDKDataObjHandler.shared.isCustom = false
         
         DispatchQueue.main.async {
             addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
@@ -187,19 +226,7 @@ public class iPassSDK {
                         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = false
                         
                         let config = DocReader.ScannerConfig(scenario: "")
-                        switch type {
-                        case 0:
-                            config.scenario = RGL_SCENARIO_FULL_AUTH
-                        case 1:
-                            config.scenario = RGL_SCENARIO_CREDIT_CARD
-                        case 2:
-                            config.scenario = RGL_SCENARIO_MRZ
-                        case 3:
-                            config.scenario = RGL_SCENARIO_BARCODE
-                        default:
-                            config.scenario = RGL_SCENARIO_FULL_AUTH
-                        }
-                        
+                        config.scenario = RGL_SCENARIO_FULL_AUTH
                         DocReader.shared.showScanner(presenter: controller, config: config) { [self] (action, docResults, error) in
                             if action == .complete || action == .processTimeout {
                                
