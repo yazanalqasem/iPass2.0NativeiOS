@@ -109,7 +109,11 @@ public class iPassSDK {
         activityIndicator.stopAnimating()
     }
     
-    
+    public static func rrr(controller: UIViewController)  {
+        controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
+
+        
+    }
     
     public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
         
@@ -140,9 +144,7 @@ public class iPassSDK {
         iPassSDKDataObjHandler.shared.isCustom = false
         
         
-        await iPassSDKDataObjHandler.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
         
-        return
         
         DispatchQueue.main.async {
             addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
