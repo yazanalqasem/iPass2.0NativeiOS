@@ -160,11 +160,12 @@ public class iPassSDK {
         iPassHandler.methodForPost(url: "https://plusapi.ipass-mena.com/api/v1/ipass/plus/face/session/create?token=\(iPassSDKDataObjHandler.shared.token)", params: parameters) { response, error in
             if(error != "") {
                 print("Response",response as Any)
-//                if let json = response as? [String: Any] {
+                if let jsonRes = response as? [String: Any] {
+                    print("Response",jsonRes)
 //                    if let sessionId = response["sessionId"] as? String  {
 //                        
 //                    }
-//                }
+                }
                 
                 
                 
