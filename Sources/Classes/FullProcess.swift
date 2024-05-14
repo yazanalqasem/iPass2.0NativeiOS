@@ -202,7 +202,7 @@ public class iPassSDK {
                                             guard docResults != nil else {
                                                 return
                                             }
-                                            DispatchQueue.main.async {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                                 iPassSDKDataObjHandler.shared.resultScanData = docResults!
                                                 Task { @MainActor in
                                                     await startCamera()
@@ -216,7 +216,7 @@ public class iPassSDK {
                                             guard docResults != nil else {
                                                 return
                                             }
-                                            DispatchQueue.main.async {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                                 iPassSDKDataObjHandler.shared.resultScanData = docResults!
                                                 Task { @MainActor in
                                                     await startCamera()
