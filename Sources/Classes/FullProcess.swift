@@ -75,7 +75,7 @@ public class iPassSDK {
     
     
     
-    public static func addAnimationLoader(controller: UIViewController) {
+    private static func addAnimationLoader(controller: UIViewController) {
         
            // Set background color
         fullSizeView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
@@ -437,6 +437,7 @@ public class iPassSDK {
                 }
                 if status == true {
                     DispatchQueue.main.async {
+                        DocReader.shared.processParams.returnUncroppedImage = true
                         DocReader.shared.processParams.multipageProcessing = true
                         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkHolo = false
                         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = false
