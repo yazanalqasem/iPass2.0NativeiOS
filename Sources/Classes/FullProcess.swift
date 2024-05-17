@@ -421,7 +421,7 @@ public class iPassSDK {
     public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
       
         var selectedLanguage = "fr"
-            let path = Bundle.main.path(forResource: selectedLanguage, ofType: "lproj")
+        let path = Bundle.module.path(forResource: selectedLanguage, ofType: "lproj") 
             let bundle = Bundle(path: path!)
             let localizedText = bundle!.localizedString(forKey: selectedLanguage, value: selectedLanguage, table: nil)
         
