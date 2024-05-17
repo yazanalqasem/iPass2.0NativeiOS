@@ -419,6 +419,12 @@ public class iPassSDK {
     }
     
     public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
+      
+        var selectedLanguage = "en"
+            let path = Bundle.main.path(forResource: selectedLanguage, ofType: "lproj")
+            let bundle = Bundle(path: path!)
+            let localizedText = bundle!.localizedString(forKey: selectedLanguage, value: selectedLanguage, table: nil)
+        
         iPassSDKDataObjHandler.shared.userSelectedFlowId = type
         iPassSDKDataObjHandler.shared.authToken = userToken
         iPassSDKDataObjHandler.shared.token = appToken
