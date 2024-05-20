@@ -424,52 +424,30 @@ public class iPassSDK {
     
     public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
       
+        let canadianCities = EnglishDataValues()
+        
+        let citiesByProvince = canadianCities.getDictionary()
+        
         DocReader.shared.localizationHandler = { localizationKey in
             // This will look up localization in `CustomLocalization.strings`.
             let result = NSLocalizedString(localizationKey, tableName: "EnLocalizable", comment: "")
             
+        
+            
             
             if(result == "strPresentNextPage") {
                 print("ADSADSS")
+                print(citiesByProvince["strPresentNextPage"]!)
+                return citiesByProvince["strPresentNextPage"]!
             }
             if(localizationKey == "strPresentNextPage") {
                 print("ADSADSSrrr")
             }
             
             
-            let licensePathdd = Bundle.module.path(forResource: "ArLocalizable", ofType: "strings")
-            
-            let localizedStringsddd = NSDictionary(contentsOfFile: licensePathdd!) as? [String: String]
-            
-            print(localizedStringsddd![localizationKey]!)
-            
-            if let path = Bundle.main.path(forResource: "ArLocalizable", ofType: "strings", inDirectory: nil, forLocalization: "Ar") {
-                // Load the dictionary from the file
-                if let localizedStrings = NSDictionary(contentsOfFile: path) as? [String: String] {
-                    // Access a specific localized string
-                    let localizationKey = localizationKey
-                    if let localizedString = localizedStrings[localizationKey] {
-                        print(localizedString)  // Use the localized string
-                    } else {
-                        print("Localization key not found.")
-                    }
-                } else {
-                    print("Failed to load localized strings.")
-                }
-            } else {
-                print("Localization file not found.")
-            }
-
-            
             
           
-            // Localization found in CustomLocalization.
-            if result != localizationKey {
-                return result
-            }
-
-            // By returning nil we fallback to the default localization provided by SDK.
-            return "يرجى تقديم الصفحة التالية"
+            return nil
         }
         
         

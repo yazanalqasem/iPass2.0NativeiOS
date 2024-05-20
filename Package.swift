@@ -61,6 +61,5 @@ let package = Package(
         .binaryTarget(
             name: "RegulaCommon",
             path: "RegulaCommon.xcframework"),
-        
     ]
 )
