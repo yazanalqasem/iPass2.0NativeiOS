@@ -45,6 +45,8 @@ let package = Package(
                 .process("iPass"),
                 .process("amplifyconfiguration"),
                 .process("awsconfiguration"),
+                .process("ArLocalizable"),
+                .process("ArLocalizable.strings"),
                 
                 
               
