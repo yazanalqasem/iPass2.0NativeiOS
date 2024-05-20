@@ -435,7 +435,7 @@ public class iPassSDK {
             if(localizationKey == "strPresentNextPage") {
                 print("ADSADSSrrr")
             }
-            if let path = Bundle.module.path(forResource: "ArLocalizable", ofType: "strings", inDirectory: nil, forLocalization: "en") {
+            if let path = Bundle.main.path(forResource: "ArLocalizable", ofType: "strings", inDirectory: nil, forLocalization: "Ar") {
                 // Load the dictionary from the file
                 if let localizedStrings = NSDictionary(contentsOfFile: path) as? [String: String] {
                     // Access a specific localized string
