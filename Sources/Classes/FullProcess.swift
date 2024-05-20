@@ -426,7 +426,12 @@ public class iPassSDK {
       
         DocReader.shared.localizationHandler = { localizationKey in
             // This will look up localization in `CustomLocalization.strings`.
-            let result = NSLocalizedString(localizationKey, tableName: "ArLocalizable", comment: "")
+            let result = NSLocalizedString(localizationKey, tableName: "EnLocalizable", comment: "")
+            
+            
+            
+            
+
             
             
             if(result == "strPresentNextPage") {
@@ -441,7 +446,7 @@ public class iPassSDK {
             }
 
             // By returning nil we fallback to the default localization provided by SDK.
-            return nil
+            return "يرجى تقديم الصفحة التالية"
         }
         
         
