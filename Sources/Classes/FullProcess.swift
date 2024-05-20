@@ -204,7 +204,11 @@ public class iPassSDK {
             DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = false
             
             let config = DocReader.ScannerConfig(scenario: "")
-            config.scenario = RGL_SCENARIO_FULL_AUTH
+            
+           config.scenario = RGL_SCENARIO_FULL_AUTH
+            
+            
+            
             DocReader.shared.showScanner(presenter: iPassSDKDataObjHandler.shared.controller, config: config) { [self] (action, docResults, error) in
                 if action == .complete || action == .processTimeout {
                     if docResults?.chipPage != 0  {
