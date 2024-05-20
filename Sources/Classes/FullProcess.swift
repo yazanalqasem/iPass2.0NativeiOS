@@ -429,17 +429,32 @@ public class iPassSDK {
             let result = NSLocalizedString(localizationKey, tableName: "EnLocalizable", comment: "")
             
             
-            
-            
-
-            
-            
             if(result == "strPresentNextPage") {
                 print("ADSADSS")
             }
             if(localizationKey == "strPresentNextPage") {
                 print("ADSADSSrrr")
             }
+            if let path = Bundle.main.path(forResource: "ArLocalizable", ofType: "strings", inDirectory: nil, forLocalization: "en") {
+                // Load the dictionary from the file
+                if let localizedStrings = NSDictionary(contentsOfFile: path) as? [String: String] {
+                    // Access a specific localized string
+                    let localizationKey = "result"
+                    if let localizedString = localizedStrings[localizationKey] {
+                        print(localizedString)  // Use the localized string
+                    } else {
+                        print("Localization key not found.")
+                    }
+                } else {
+                    print("Failed to load localized strings.")
+                }
+            } else {
+                print("Localization file not found.")
+            }
+
+            
+            
+          
             // Localization found in CustomLocalization.
             if result != localizationKey {
                 return result
