@@ -424,10 +424,19 @@ public class iPassSDK {
     
     public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
       
-        var selectedLanguage = "fr"
-        let path = Bundle.module.path(forResource: selectedLanguage, ofType: "lproj") 
-            let bundle = Bundle(path: path!)
-            let localizedText = bundle!.localizedString(forKey: selectedLanguage, value: selectedLanguage, table: nil)
+        DocReader.shared.localizationHandler = { localizationKey in
+            // This will look up localization in `CustomLocalization.strings`.
+            let result = NSLocalizedString(localizationKey, tableName: "CustomLocalization", comment: "")
+
+            // Localization found in CustomLocalization.
+            if result != localizationKey {
+                return result
+            }
+
+            // By returning nil we fallback to the default localization provided by SDK.
+            return nil
+        }
+        
         
         iPassSDKDataObjHandler.shared.userSelectedFlowId = type
         iPassSDKDataObjHandler.shared.authToken = userToken
