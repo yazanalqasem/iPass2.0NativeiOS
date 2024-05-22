@@ -361,7 +361,9 @@ public class iPassSDK {
                             iPassHandler.saveDataPostApi { data, error in
                                 
                                 if(error == nil) {
+                                    print(Date())
                                     iPassHandler.getDataFromAPI() { (data, error) in
+                                        print(Date())
                                         if let error = error {
                                             print("Error: \(error)")
                                             DispatchQueue.main.async {
