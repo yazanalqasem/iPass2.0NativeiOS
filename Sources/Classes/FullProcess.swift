@@ -426,7 +426,9 @@ public class iPassSDK {
       
         var translationDictionary = [String : String]()
        // ENG, AR, FR, SP, TURKISH, URDU, GERMAN, KURDISH
-        let currentLanguage = Locale.current.languageCode
+        var currentLanguage = Locale.current.languageCode
+        
+        currentLanguage = "ar"
        
         if(currentLanguage?.lowercased() == "en") {
             let dataValues = EnglishDataValues()
