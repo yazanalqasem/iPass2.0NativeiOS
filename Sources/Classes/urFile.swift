@@ -1,13 +1,13 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by MOBILE on 20/05/24.
 //
 
 import Foundation
 
-class EnglishDataValues {
+class UrduDataValues {
     func getDictionary() -> [String: String] {
         return [
             "RFID_Error_AlreadyDone" : "RFID: Requested operation is already done",
