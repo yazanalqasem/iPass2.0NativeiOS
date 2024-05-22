@@ -424,30 +424,73 @@ public class iPassSDK {
     
     public static func fullProcessScanning(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
       
-        let canadianCities = EnglishDataValues()
+        var translationDictionary = [String : String]()
+       // ENG, AR, FR, SP, TURKISH, URDU, GERMAN, KURDISH
+        let currentLanguage = Locale.current.languageCode
+       
+        if(currentLanguage?.lowercased() == "en") {
+            let dataValues = EnglishDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
         
-        let citiesByProvince = canadianCities.getDictionary()
+        else if(currentLanguage?.lowercased() == "ar") {
+            let dataValues = ArabicDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        
+        else if(currentLanguage?.lowercased() == "fr") {
+            let dataValues = FrenchDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        
+        else if(currentLanguage?.lowercased() == "sp") {
+            let dataValues = SpanishDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        
+        else if(currentLanguage?.lowercased() == "tr") {
+            let dataValues = TurkishDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        
+        else if(currentLanguage?.lowercased() == "ur") {
+            let dataValues = UrduDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        
+        else if(currentLanguage?.lowercased() == "de") {
+            let dataValues = GermanDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        
+        else if(currentLanguage?.lowercased() == "ku") {
+            let dataValues = KurdishDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        else {
+            let dataValues = EnglishDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
         
         DocReader.shared.localizationHandler = { localizationKey in
             // This will look up localization in `CustomLocalization.strings`.
-            let result = NSLocalizedString(localizationKey, tableName: "EnLocalizable", comment: "")
             
-        
-            
-            
-            if(result == "strPresentNextPage") {
-                print("ADSADSS")
-                print(citiesByProvince["strPresentNextPage"]!)
-                return citiesByProvince["strPresentNextPage"]!
-            }
-            if(localizationKey == "strPresentNextPage") {
-                print("ADSADSSrrr")
+            if let updatedString = translationDictionary[localizationKey] {
+                return updatedString
             }
             
-            
-            
-          
             return nil
+            
+//            let result = NSLocalizedString(localizationKey, tableName: "EnLocalizable", comment: "")
+//            if(result == "strPresentNextPage") {
+//                print("ADSADSS")
+//                print(translationDictionary[localizationKey]!)
+//                return translationDictionary[localizationKey]!
+//            }
+//            if(localizationKey == "strPresentNextPage") {
+//                print("ADSADSSrrr")
+//            }
+//            return nil
         }
         
         
@@ -470,7 +513,6 @@ public class iPassSDK {
                 if status == true {
                     DispatchQueue.main.async {
                         DocReader.shared.processParams.returnUncroppedImage = true
-                        DocReader.shared.accessibilityLanguage = "fr"
                         DocReader.shared.processParams.multipageProcessing = true
                         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkHolo = false
                         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = false
