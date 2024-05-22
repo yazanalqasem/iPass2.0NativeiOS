@@ -430,7 +430,7 @@ public class iPassSDK {
         
         
         if let preferredLanguageCode = Locale.preferredLanguages.first {
-            let currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
+             currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
             print("Device's preferred language code: \(currentLanguage)")
           
         } else {
