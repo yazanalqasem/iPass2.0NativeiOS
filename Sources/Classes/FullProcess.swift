@@ -428,7 +428,7 @@ public class iPassSDK {
        // ENG, AR, FR, SP, TURKISH, URDU, GERMAN, KURDISH
         var currentLanguage = Locale.current.languageCode
         
-        currentLanguage = "ar"
+        currentLanguage = "fr"
        
         if(currentLanguage?.lowercased() == "en") {
             let dataValues = EnglishDataValues()
