@@ -426,46 +426,55 @@ public class iPassSDK {
       
         var translationDictionary = [String : String]()
        // ENG, AR, FR, SP, TURKISH, URDU, GERMAN, KURDISH
-        var currentLanguage = Locale.current.languageCode
+        var currentLanguage = "en"
+        
+        
+        if let preferredLanguageCode = Locale.preferredLanguages.first {
+            let currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
+            print("Device's preferred language code: \(currentLanguage)")
+          
+        } else {
+            print("Unable to determine the device's preferred language code.")
+        }
         
       
        
-        if(currentLanguage?.lowercased() == "en") {
+        if(currentLanguage.lowercased() == "en") {
             let dataValues = EnglishDataValues()
             translationDictionary = dataValues.getDictionary()
         }
         
-        else if(currentLanguage?.lowercased() == "ar") {
+        else if(currentLanguage.lowercased() == "ar") {
             let dataValues = ArabicDataValues()
             translationDictionary = dataValues.getDictionary()
         }
         
-        else if(currentLanguage?.lowercased() == "fr") {
+        else if(currentLanguage.lowercased() == "fr") {
             let dataValues = FrenchDataValues()
             translationDictionary = dataValues.getDictionary()
         }
         
-        else if(currentLanguage?.lowercased() == "sp") {
+        else if(currentLanguage.lowercased() == "sp") {
             let dataValues = SpanishDataValues()
             translationDictionary = dataValues.getDictionary()
         }
         
-        else if(currentLanguage?.lowercased() == "tr") {
+        else if(currentLanguage.lowercased() == "tr") {
             let dataValues = TurkishDataValues()
             translationDictionary = dataValues.getDictionary()
         }
         
-        else if(currentLanguage?.lowercased() == "ur") {
+        else if(currentLanguage.lowercased() == "ur") {
             let dataValues = UrduDataValues()
             translationDictionary = dataValues.getDictionary()
         }
         
-        else if(currentLanguage?.lowercased() == "de") {
+        else if(currentLanguage.lowercased() == "de") {
             let dataValues = GermanDataValues()
             translationDictionary = dataValues.getDictionary()
         }
         
-        else if(currentLanguage?.lowercased() == "ku") {
+        else if(currentLanguage.lowercased() == "ku") {
             let dataValues = KurdishDataValues()
             translationDictionary = dataValues.getDictionary()
         }
