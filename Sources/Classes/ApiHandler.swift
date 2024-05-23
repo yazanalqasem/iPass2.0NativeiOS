@@ -266,6 +266,10 @@ public class iPassHandler {
             print("Invalid URL")
             return
         }
+        print("CHECK DETAILS FROM HERE")
+        
+        print(url)
+        print(params)
 
         // Create a URLRequest with the URL, setting the HTTP method to "POST"
         var request = URLRequest(url: url)

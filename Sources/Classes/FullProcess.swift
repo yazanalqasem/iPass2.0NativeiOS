@@ -145,7 +145,23 @@ public class iPassSDK {
     }
     
     
-    public static func fullProcessScanningTest(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
+    
+    public static func fullProcessScanningTest(userEmail:String, flowId: Int, controller: UIViewController, userToken:String, appToken:String) async {
+        iPassSDKDataObjHandler.shared.userSelectedFlowId = flowId
+        iPassSDKDataObjHandler.shared.authToken = userToken
+        iPassSDKDataObjHandler.shared.token = appToken
+        iPassSDKDataObjHandler.shared.sid = generateRandomTwoDigitNumber()
+        iPassSDKDataObjHandler.shared.email = userEmail
+        iPassSDKDataObjHandler.shared.controller = controller
+        iPassSDKDataObjHandler.shared.isCustom = false
+        createLivenessSession()
+     
+    }
+    
+   
+    
+    
+    public static func fullProcessScanningTestqwe(userEmail:String, type: Int, controller: UIViewController, userToken:String, appToken:String) async {
         iPassSDKDataObjHandler.shared.userSelectedFlowId = type
         iPassSDKDataObjHandler.shared.authToken = userToken
         iPassSDKDataObjHandler.shared.token = appToken
