@@ -400,10 +400,10 @@ public class iPassSDKManger {
         DispatchQueue.main.async {
             stopLoaderAnimation()
             var swiftUIView = FaceClass()
-            swiftUIView.sessoinIdValue = iPassSDKDataObjHandler.shared.sessionId
+            swiftUIView.sessoinIdValue = iPassSDKDataManager.shared.sessionId
             let hostingController = UIHostingController(rootView: swiftUIView)
             hostingController.modalPresentationStyle = .fullScreen
-            iPassSDKDataObjHandler.shared.controller.present(hostingController, animated: true)
+            iPassSDKDataManager.shared.controller.present(hostingController, animated: true)
           
             NotificationCenter.default.addObserver(forName: NSNotification.Name("dismissSwiftUI"), object: nil, queue: nil) { (data) in
                 NotificationCenter.default.removeObserver(self)
