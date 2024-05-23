@@ -142,8 +142,10 @@ public class iPassSDKManger {
     }
     
     public static func startScanningProcess(userEmail:String, flowId: Int, controller: UIViewController, userToken:String, appToken:String)  {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            addAnimationLoader()
+        }
       
-        addAnimationLoader()
         iPassSDKDataManager.shared.userSelectedFlowId = flowId
         iPassSDKDataManager.shared.authToken = userToken
         iPassSDKDataManager.shared.token = appToken
