@@ -285,7 +285,7 @@ public class iPassSDKManger {
                             DispatchQueue.main.async {
                                 iPassSDKDataObjHandler.shared.resultScanData = results!
                                 Task { @MainActor in
-                                   // await startCamera()
+                                    await startCamera()
                                 }
                             }
                         case .cancel:
@@ -295,7 +295,7 @@ public class iPassSDKManger {
                             DispatchQueue.main.async {
                                 iPassSDKDataObjHandler.shared.resultScanData = docResults!
                                 Task { @MainActor in
-                                   // await startCamera()
+                                    await startCamera()
                                 }
                             }
                             
@@ -308,7 +308,7 @@ public class iPassSDKManger {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                 iPassSDKDataObjHandler.shared.resultScanData = docResults!
                                 Task { @MainActor in
-                                    //await startCamera()
+                                    await startCamera()
                                 }
                             }
 
@@ -322,7 +322,7 @@ public class iPassSDKManger {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                 iPassSDKDataObjHandler.shared.resultScanData = docResults!
                                 Task { @MainActor in
-                                    //await startCamera()
+                                    await startCamera()
                                 }
                             }
                             
@@ -336,7 +336,7 @@ public class iPassSDKManger {
                     DispatchQueue.main.async {
                         iPassSDKDataObjHandler.shared.resultScanData = docResults!
                         Task { @MainActor in
-                            //await startCamera()
+                            await startCamera()
                         }
                     }
                 }
@@ -351,6 +351,75 @@ public class iPassSDKManger {
         }
     }
     
+    public static func startCamera() async {
+        await fetchCurrentAuthSession()
+    }
     
+    private static func fetchCurrentAuthSession() async {
+        DispatchQueue.main.async {
+                  addAnimationLoader()
+              }
+         do {
+             let session = try await Amplify.Auth.fetchAuthSession()
+             print("Is user signed in - \(session.isSignedIn)")
+             
+             print(session)
+             if(session.isSignedIn == true) {
+                 faceLivenessApi()
+             }
+             else {
+                 await signIn()
+             }
+             
+         } catch let error as AuthError {
+             print("Fetch session failed with error \(error)")
+         } catch {
+             print("Unexpected error: \(error)")
+         }
+     }
+    
+    private static func signIn() async {
+            do {
+                let signInResult = try await Amplify.Auth.signIn(
+                    username: "testuser",
+                    password: "Apple@123"
+                    )
+                if signInResult.isSignedIn {
+                    print("Sign in succeeded")
+                    await fetchCurrentAuthSession()
+                }
+            } catch let error as AuthError {
+                print("Sign in failed \(error)")
+            } catch {
+                print("Unexpected error: \(error)")
+            }
+        }
+    
+    private static func faceLivenessApi()  {
+     
+        DispatchQueue.main.async {
+            stopLoaderAnimation()
+            var swiftUIView = FaceClass()
+            swiftUIView.sessoinIdValue = iPassSDKDataObjHandler.shared.sessionId
+            let hostingController = UIHostingController(rootView: swiftUIView)
+            hostingController.modalPresentationStyle = .fullScreen
+            iPassSDKDataObjHandler.shared.controller.present(hostingController, animated: true)
+          
+            NotificationCenter.default.addObserver(forName: NSNotification.Name("dismissSwiftUI"), object: nil, queue: nil) { (data) in
+                NotificationCenter.default.removeObserver(self)
+                NotificationCenter.default.removeObserver(self, name: NSNotification.Name("dismissSwiftUI"), object: nil)
+
+                print("userInfo from swift ui class-->> ",data.userInfo?["status"] ?? "no status value")
+                hostingController.dismiss(animated: true, completion: nil)
+               
+               
+                DispatchQueue.main.async {
+                          addAnimationLoader()
+                      }
+                
+
+            }
+        }
+     }
     
 }
