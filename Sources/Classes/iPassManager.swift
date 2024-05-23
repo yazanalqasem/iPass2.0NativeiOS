@@ -52,43 +52,38 @@ public class iPassSDKManger {
     
     
     
-    private static func addAnimationLoader(controller: UIViewController) {
+    private static func addAnimationLoader() {
         
            // Set background color
         fullSizeView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
 
            // Add the view to the main view
-        controller.view.addSubview(fullSizeView)
+        iPassSDKDataManager.shared.controller.view.addSubview(fullSizeView)
 
            // Constrain the view to the edges of the superview
            fullSizeView.translatesAutoresizingMaskIntoConstraints = false
            NSLayoutConstraint.activate([
-               fullSizeView.topAnchor.constraint(equalTo: controller.view.topAnchor),
-               fullSizeView.bottomAnchor.constraint(equalTo: controller.view.bottomAnchor),
-               fullSizeView.leadingAnchor.constraint(equalTo: controller.view.leadingAnchor),
-               fullSizeView.trailingAnchor.constraint(equalTo: controller.view.trailingAnchor)
+            fullSizeView.topAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.topAnchor),
+               fullSizeView.bottomAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.bottomAnchor),
+               fullSizeView.leadingAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.leadingAnchor),
+               fullSizeView.trailingAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.trailingAnchor)
            ])
         
         
         activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.color = iPassSDKDataObjHandler.shared.loaderColor
-        activityIndicator.center =  controller.view.center
+        activityIndicator.center =  iPassSDKDataManager.shared.controller.view.center
         activityIndicator.hidesWhenStopped = true
         fullSizeView.addSubview(activityIndicator)
         activityIndicator.startAnimating()
         stopLoaderAnimation()
     }
     
-    public static func startLoaderAnimation() {
-        fullSizeView.isHidden = false
-        activityIndicator.startAnimating()
-    }
+   
     
     public static func stopLoaderAnimation() {
-        DispatchQueue.main.async {
-            fullSizeView.isHidden = true
-            activityIndicator.stopAnimating()
-        }
+        fullSizeView.removeFromSuperview()
+        activityIndicator.stopAnimating()
        
     }
     
@@ -149,9 +144,7 @@ public class iPassSDKManger {
     
     public static func startScanningProcess(userEmail:String, flowId: Int, controller: UIViewController, userToken:String, appToken:String)  {
       
-        DispatchQueue.main.async {
-            addAnimationLoader(controller: iPassSDKDataManager.shared.controller)
-        }
+        addAnimationLoader()
         iPassSDKDataManager.shared.userSelectedFlowId = flowId
         iPassSDKDataManager.shared.authToken = userToken
         iPassSDKDataManager.shared.token = appToken
