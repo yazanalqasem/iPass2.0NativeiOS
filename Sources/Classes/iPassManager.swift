@@ -75,7 +75,7 @@ public class iPassSDKManger {
         activityIndicator.center =  controller.view.center
         activityIndicator.hidesWhenStopped = true
         fullSizeView.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
+        
     }
     
     public static func startLoaderAnimation() {
@@ -147,6 +147,10 @@ public class iPassSDKManger {
     }
     
     public static func startScanningProcess(userEmail:String, flowId: Int, controller: UIViewController, userToken:String, appToken:String)  {
+      
+        DispatchQueue.main.async {
+            addAnimationLoader(controller: iPassSDKDataManager.shared.controller)
+        }
         iPassSDKDataManager.shared.userSelectedFlowId = flowId
         iPassSDKDataManager.shared.authToken = userToken
         iPassSDKDataManager.shared.token = appToken
@@ -160,9 +164,7 @@ public class iPassSDKManger {
     
     
     private static func createLivenessSessionID() {
-        DispatchQueue.main.async {
-            addAnimationLoader(controller: iPassSDKDataManager.shared.controller)
-        }
+        startLoaderAnimation()
         let parameters: [String: Any] = [
             CreateSessionApi.email: iPassSDKDataManager.shared.email,
             CreateSessionApi.auth_token: iPassSDKDataManager.shared.authToken
