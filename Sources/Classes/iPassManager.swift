@@ -141,7 +141,7 @@ public class iPassSDKManger {
         return "i"+randomValue+"OS" + randStr + dateString
     }
     
-    public static func startScanningProcess(userEmail:String, flowId: Int, controller: UIViewController, userToken:String, appToken:String) async  {
+    public static func startScanningProcess(userEmail:String, flowId: Int, controller: UIViewController, userToken:String, appToken:String)   {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             addAnimationLoader()
         }
@@ -155,10 +155,10 @@ public class iPassSDKManger {
         iPassSDKDataManager.shared.email = userEmail
         iPassSDKDataManager.shared.controller = controller
         if(flowId == 10031 || flowId == 10032 || flowId == 10011) {
-            await createLivenessSessionID()
+             createLivenessSessionID()
         }
         else {
-            await oPenDocumentScanner()
+             oPenDocumentScanner()
         }
     }
     
@@ -179,9 +179,8 @@ public class iPassSDKManger {
                     print("Response",jsonRes)
                     if let sessionId = jsonRes["sessionId"] as? String  {
                         iPassSDKDataManager.shared.sessionId = sessionId
-                        Task { @MainActor in
-                            await oPenDocumentScanner()
-                        }
+                             oPenDocumentScanner()
+                        
                     }
                     else {
                         self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
@@ -198,12 +197,12 @@ public class iPassSDKManger {
         }
     }
     
-    private static func oPenDocumentScanner() async {
-       await setDocumentScannerProperties()
-        startDocumentProcessing()
+    private static func oPenDocumentScanner()  {
+        setDocumentScannerProperties()
+        
     }
     
-    private static func setDocumentScannerProperties() async{
+    private static func setDocumentScannerProperties() {
         DocReader.shared.processParams.returnUncroppedImage = true
         DocReader.shared.processParams.multipageProcessing = true
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkHolo = false
@@ -262,7 +261,7 @@ public class iPassSDKManger {
             }
             return nil
         }
-        
+        startDocumentProcessing()
     }
     
     private static func startDocumentProcessing() {
