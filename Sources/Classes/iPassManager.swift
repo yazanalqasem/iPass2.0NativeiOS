@@ -141,7 +141,7 @@ public class iPassSDKManger {
         return "i"+randomValue+"OS" + randStr + dateString
     }
     
-    public static func startScanningProcess(userEmail:String, flowId: Int, controller: UIViewController, userToken:String, appToken:String)  {
+    public static func startScanningProcess(userEmail:String, flowId: Int, controller: UIViewController, userToken:String, appToken:String) async  {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             addAnimationLoader()
         }
@@ -155,10 +155,10 @@ public class iPassSDKManger {
         iPassSDKDataManager.shared.email = userEmail
         iPassSDKDataManager.shared.controller = controller
         if(flowId == 10031 || flowId == 10032 || flowId == 10011) {
-            createLivenessSessionID()
+            await createLivenessSessionID()
         }
         else {
-            oPenDocumentScanner()
+            await oPenDocumentScanner()
         }
     }
     
@@ -179,7 +179,9 @@ public class iPassSDKManger {
                     print("Response",jsonRes)
                     if let sessionId = jsonRes["sessionId"] as? String  {
                         iPassSDKDataManager.shared.sessionId = sessionId
-                        oPenDocumentScanner()
+                        Task { @MainActor in
+                            await oPenDocumentScanner()
+                        }
                     }
                     else {
                         self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
@@ -332,7 +334,7 @@ public class iPassSDKManger {
                     DispatchQueue.main.async {
                         iPassSDKDataObjHandler.shared.resultScanData = docResults!
                         Task { @MainActor in
-                            await startCamera()
+                            //await startCamera()
                         }
                     }
                 }
