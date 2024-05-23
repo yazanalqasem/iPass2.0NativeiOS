@@ -27,3 +27,17 @@ struct CreateSessionApi {
     static let auth_token = "auth_token"
 }
 
+
+// Save Data Api
+struct SaveDataApi {
+    static let baseApi = (Apis.baseUrl) + "initiate/process/sdk?token="
+    static let sessionId = "sessionId"
+    static let randomid = "randomid"
+    static let social_media_email = "social_media_email"
+    static let phone_number = "phone_number"
+    static let ipadd = "ipadd"
+    static let email = "email"
+    static let workflow = "workflow"
+    static let idv_data = "idv_data"
+}
+
