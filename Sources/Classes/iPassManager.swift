@@ -121,5 +121,77 @@ public class iPassSDKManger {
         
     }
     
+    private static func generateRandomTwoDigitNumber() -> String {
+        let lowerBound = 10
+        let upperBound = 999999999
+        
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        
+        var randStr =  String((0..<10).map{ _ in letters.randomElement()! })
+        
+        
+        var randomValue = String(Int(arc4random_uniform(UInt32((upperBound - lowerBound + 1)))) + lowerBound)
+        
+        let currentDate = Date()
+
+        // Step 2: Create a DateFormatter instance
+        let dateFormatter = DateFormatter()
+
+        // Step 3: Set the desired date format
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+
+        // Step 4: Convert the date to a string
+        let dateString = dateFormatter.string(from: currentDate)
+        
+        return "i"+randomValue+"OS" + randStr + dateString
+    }
+    
+    public static func startScanningProcess(userEmail:String, flowId: Int, controller: UIViewController, userToken:String, appToken:String) async {
+        iPassSDKDataManager.shared.userSelectedFlowId = flowId
+        iPassSDKDataManager.shared.authToken = userToken
+        iPassSDKDataManager.shared.token = appToken
+        iPassSDKDataManager.shared.sid = generateRandomTwoDigitNumber()
+        iPassSDKDataManager.shared.email = userEmail
+        iPassSDKDataManager.shared.controller = controller
+        if(flowId == 10031 || flowId == 10032 || flowId == 10011) {
+            createLivenessSessionID()
+        }
+    }
+    
+    
+    private static func createLivenessSessionID() {
+        DispatchQueue.main.async {
+            addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
+        }
+        let parameters: [String: Any] = [
+            CreateSessionApi.email: iPassSDKDataManager.shared.email,
+            CreateSessionApi.auth_token: iPassSDKDataManager.shared.authToken
+        ]
+        iPassHandler.methodForPost(url: CreateSessionApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
+            DispatchQueue.main.async {
+                stopLoaderAnimation()
+            }
+            if(error != "") {
+                print("Response",response as Any)
+                if let jsonRes = response as? [String: Any] {
+                    print("Response",jsonRes)
+                    if let sessionId = jsonRes["sessionId"] as? String  {
+                        iPassSDKDataObjHandler.shared.sessionId = sessionId
+                      //  openDocumentScanner()
+                    }
+                    else {
+                        self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
+                    }
+                }
+                else {
+                    self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
+                }
+            }
+            else {
+                self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
+            }
+            
+        }
+    }
     
 }
