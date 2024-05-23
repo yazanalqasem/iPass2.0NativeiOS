@@ -146,6 +146,8 @@ public class iPassSDKManger {
             addAnimationLoader()
         }
       
+        
+        
         iPassSDKDataManager.shared.userSelectedFlowId = flowId
         iPassSDKDataManager.shared.authToken = userToken
         iPassSDKDataManager.shared.token = appToken
@@ -154,6 +156,9 @@ public class iPassSDKManger {
         iPassSDKDataManager.shared.controller = controller
         if(flowId == 10031 || flowId == 10032 || flowId == 10011) {
             createLivenessSessionID()
+        }
+        else {
+            oPenDocumentScanner()
         }
     }
     
@@ -174,7 +179,7 @@ public class iPassSDKManger {
                     print("Response",jsonRes)
                     if let sessionId = jsonRes["sessionId"] as? String  {
                         iPassSDKDataManager.shared.sessionId = sessionId
-                      //  openDocumentScanner()
+                        oPenDocumentScanner()
                     }
                     else {
                         self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
@@ -190,5 +195,158 @@ public class iPassSDKManger {
             
         }
     }
+    
+    private static func oPenDocumentScanner() async {
+       await setDocumentScannerProperties()
+        startDocumentProcessing()
+    }
+    
+    private static func setDocumentScannerProperties() async{
+        DocReader.shared.processParams.returnUncroppedImage = true
+        DocReader.shared.processParams.multipageProcessing = true
+        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkHolo = false
+        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = false
+        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = false
+        
+        var translationDictionary = [String : String]()
+       // ENG, AR, FR, SP, TURKISH, URDU, GERMAN, KURDISH
+        var currentLanguage = "en"
+        if let preferredLanguageCode = Locale.preferredLanguages.first {
+             currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
+            print("Device's preferred language code: \(currentLanguage)")
+          
+        } else {
+            print("Unable to determine the device's preferred language code.")
+        }
+        if(currentLanguage.lowercased() == "en") {
+            let dataValues = EnglishDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        else if(currentLanguage.lowercased() == "ar") {
+            let dataValues = ArabicDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        else if(currentLanguage.lowercased() == "fr") {
+            let dataValues = FrenchDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        else if(currentLanguage.lowercased() == "sp") {
+            let dataValues = SpanishDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        else if(currentLanguage.lowercased() == "tr") {
+            let dataValues = TurkishDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        else if(currentLanguage.lowercased() == "ur") {
+            let dataValues = UrduDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        else if(currentLanguage.lowercased() == "de") {
+            let dataValues = GermanDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        else if(currentLanguage.lowercased() == "ku") {
+            let dataValues = KurdishDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        else {
+            let dataValues = EnglishDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        DocReader.shared.localizationHandler = { localizationKey in
+            if let updatedString = translationDictionary[localizationKey] {
+                return updatedString
+            }
+            return nil
+        }
+        
+    }
+    
+    private static func startDocumentProcessing() {
+        
+        let config = DocReader.ScannerConfig(scenario: "")
+        config.scenario = RGL_SCENARIO_FULL_AUTH
+        DocReader.shared.showScanner(presenter: iPassSDKDataManager.shared.controller, config: config) { [self] (action, docResults, error) in
+            if action == .complete || action == .processTimeout {
+               
+                if docResults?.chipPage != 0  {
+                    DocReader.shared.startRFIDReader(fromPresenter: iPassSDKDataManager.shared.controller, completion: {  []  (action, results, error) in
+                        switch action {
+                        case .complete:
+                            guard results != nil else {
+                                self.delegate?.getScanCompletionResult(result: "", error: "Document Scanning Error")
+                                return
+                            }
+                            DispatchQueue.main.async {
+                                iPassSDKDataObjHandler.shared.resultScanData = results!
+                                Task { @MainActor in
+                                   // await startCamera()
+                                }
+                            }
+                        case .cancel:
+                            guard docResults != nil else {
+                                return
+                            }
+                            DispatchQueue.main.async {
+                                iPassSDKDataObjHandler.shared.resultScanData = docResults!
+                                Task { @MainActor in
+                                   // await startCamera()
+                                }
+                            }
+                            
+                        case .processTimeout:
+                           
+                            iPassSDKDataObjHandler.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
+                            guard docResults != nil else {
+                                return
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                iPassSDKDataObjHandler.shared.resultScanData = docResults!
+                                Task { @MainActor in
+                                    //await startCamera()
+                                }
+                            }
+
+                            
+                        case .error:
+                            print("Error")
+                            iPassSDKDataObjHandler.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
+                            guard docResults != nil else {
+                                return
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                iPassSDKDataObjHandler.shared.resultScanData = docResults!
+                                Task { @MainActor in
+                                    //await startCamera()
+                                }
+                            }
+                            
+                        default:
+                            break
+                        }
+                    })
+                
+                }
+                else {
+                    DispatchQueue.main.async {
+                        iPassSDKDataObjHandler.shared.resultScanData = docResults!
+                        Task { @MainActor in
+                            await startCamera()
+                        }
+                    }
+                }
+                
+            }
+            else  if action == .cancel  {
+                self.delegate?.getScanCompletionResult(result: "", error: "Document Scanning Error")
+            }
+            else  if action == .processTimeout  {
+                self.delegate?.getScanCompletionResult(result: "", error: "Document Scanning Error")
+            }
+        }
+    }
+    
+    
     
 }
