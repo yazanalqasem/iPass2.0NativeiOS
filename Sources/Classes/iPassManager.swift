@@ -71,7 +71,7 @@ public class iPassSDKManger {
         
         
         activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = iPassSDKDataObjHandler.shared.loaderColor
+        activityIndicator.color = iPassSDKDataManager.shared.loaderColor
         activityIndicator.center =  iPassSDKDataManager.shared.controller.view.center
         activityIndicator.hidesWhenStopped = true
         fullSizeView.addSubview(activityIndicator)
@@ -283,7 +283,7 @@ public class iPassSDKManger {
                                 return
                             }
                             DispatchQueue.main.async {
-                                iPassSDKDataObjHandler.shared.resultScanData = results!
+                                iPassSDKDataManager.shared.resultScanData = results!
                                 Task { @MainActor in
                                     await startCamera()
                                 }
@@ -293,7 +293,7 @@ public class iPassSDKManger {
                                 return
                             }
                             DispatchQueue.main.async {
-                                iPassSDKDataObjHandler.shared.resultScanData = docResults!
+                                iPassSDKDataManager.shared.resultScanData = docResults!
                                 Task { @MainActor in
                                     await startCamera()
                                 }
@@ -301,12 +301,12 @@ public class iPassSDKManger {
                             
                         case .processTimeout:
                            
-                            iPassSDKDataObjHandler.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
+                            iPassSDKDataManager.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
                             guard docResults != nil else {
                                 return
                             }
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                iPassSDKDataObjHandler.shared.resultScanData = docResults!
+                                iPassSDKDataManager.shared.resultScanData = docResults!
                                 Task { @MainActor in
                                     await startCamera()
                                 }
@@ -315,12 +315,12 @@ public class iPassSDKManger {
                             
                         case .error:
                             print("Error")
-                            iPassSDKDataObjHandler.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
+                            iPassSDKDataManager.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
                             guard docResults != nil else {
                                 return
                             }
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                iPassSDKDataObjHandler.shared.resultScanData = docResults!
+                                iPassSDKDataManager.shared.resultScanData = docResults!
                                 Task { @MainActor in
                                     await startCamera()
                                 }
@@ -334,7 +334,7 @@ public class iPassSDKManger {
                 }
                 else {
                     DispatchQueue.main.async {
-                        iPassSDKDataObjHandler.shared.resultScanData = docResults!
+                        iPassSDKDataManager.shared.resultScanData = docResults!
                         Task { @MainActor in
                             await startCamera()
                         }
