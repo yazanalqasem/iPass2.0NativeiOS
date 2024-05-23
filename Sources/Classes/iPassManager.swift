@@ -261,7 +261,10 @@ public class iPassSDKManger {
             }
             return nil
         }
-        startDocumentProcessing()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            startDocumentProcessing()
+        }
+        
     }
     
     private static func startDocumentProcessing() {
