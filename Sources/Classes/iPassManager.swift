@@ -76,7 +76,6 @@ public class iPassSDKManger {
         activityIndicator.hidesWhenStopped = true
         fullSizeView.addSubview(activityIndicator)
         activityIndicator.startAnimating()
-        stopLoaderAnimation()
     }
     
    
