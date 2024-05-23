@@ -138,7 +138,7 @@ public class iPassSDKManger {
         let dateFormatter = DateFormatter()
 
         // Step 3: Set the desired date format
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        dateFormatter.dateFormat = "yyyy-MM-ddHH:mm"
 
         // Step 4: Convert the date to a string
         let dateString = dateFormatter.string(from: currentDate)
