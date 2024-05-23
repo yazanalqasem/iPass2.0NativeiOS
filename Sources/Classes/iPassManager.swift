@@ -396,7 +396,6 @@ public class iPassSDKManger {
         }
     
     private static func faceLivenessApi()  {
-     
         DispatchQueue.main.async {
             stopLoaderAnimation()
             var swiftUIView = FaceClass()
@@ -411,15 +410,68 @@ public class iPassSDKManger {
 
                 print("userInfo from swift ui class-->> ",data.userInfo?["status"] ?? "no status value")
                 hostingController.dismiss(animated: true, completion: nil)
-               
-               
                 DispatchQueue.main.async {
                           addAnimationLoader()
-                      }
-                
-
+                }
+                startSavingDataToPanel()
             }
         }
      }
     
+    private static func startSavingDataToPanel() {
+        let documentDataJson = convertStringToJSON(iPassSDKDataManager.shared.resultScanData.rawResult)
+        let parameters: [String: Any] = [
+            SaveDataApi.sessionId: iPassSDKDataManager.shared.sessionId,
+            SaveDataApi.randomid: iPassSDKDataManager.shared.sid,
+            SaveDataApi.social_media_email: "ipass@gmail.com",
+            SaveDataApi.phone_number: "+919584584585",
+            SaveDataApi.ipadd: "140303525",
+            SaveDataApi.email: iPassSDKDataManager.shared.email,
+            SaveDataApi.workflow: String(iPassSDKDataManager.shared.userSelectedFlowId),
+            SaveDataApi.idv_data: documentDataJson ?? "",
+        ]
+        iPassHandler.methodForPost(url: SaveDataApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
+            DispatchQueue.main.async {
+                stopLoaderAnimation()
+            }
+            if(error != "") {
+                print("Response",response as Any)
+                if let jsonRes = response as? [String: Any] {
+                    print("Response",jsonRes)
+                    if let sessionId = jsonRes["sessionId"] as? String  {
+                        iPassSDKDataManager.shared.sessionId = sessionId
+                             oPenDocumentScanner()
+                        
+                    }
+                    else {
+                        self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
+                    }
+                }
+                else {
+                    self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
+                }
+            }
+            else {
+                self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
+            }
+            
+        }
+    }
+    
+    private static func convertStringToJSON(_ jsonString: String) -> Any? {
+        // Convert the string to Data
+        guard let jsonData = jsonString.data(using: .utf8) else {
+            print("Failed to convert string to response data")
+            return nil
+        }
+        
+        // Use JSONSerialization to parse the data into a JSON object (Dictionary or Array)
+        do {
+            let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
+            return jsonObject
+        } catch {
+            print("Error converting JSON data: \(error)")
+            return nil
+        }
+    }
 }
