@@ -161,7 +161,7 @@ public class iPassSDKManger {
     
     private static func createLivenessSessionID() {
         DispatchQueue.main.async {
-            addAnimationLoader(controller: iPassSDKDataObjHandler.shared.controller)
+            addAnimationLoader(controller: iPassSDKDataManager.shared.controller)
         }
         let parameters: [String: Any] = [
             CreateSessionApi.email: iPassSDKDataManager.shared.email,
@@ -176,7 +176,7 @@ public class iPassSDKManger {
                 if let jsonRes = response as? [String: Any] {
                     print("Response",jsonRes)
                     if let sessionId = jsonRes["sessionId"] as? String  {
-                        iPassSDKDataObjHandler.shared.sessionId = sessionId
+                        iPassSDKDataManager.shared.sessionId = sessionId
                       //  openDocumentScanner()
                     }
                     else {
