@@ -75,7 +75,8 @@ public class iPassSDKManger {
         activityIndicator.center =  controller.view.center
         activityIndicator.hidesWhenStopped = true
         fullSizeView.addSubview(activityIndicator)
-        
+        activityIndicator.startAnimating()
+        stopLoaderAnimation()
     }
     
     public static func startLoaderAnimation() {
@@ -164,7 +165,7 @@ public class iPassSDKManger {
     
     
     private static func createLivenessSessionID() {
-        startLoaderAnimation()
+        
         let parameters: [String: Any] = [
             CreateSessionApi.email: iPassSDKDataManager.shared.email,
             CreateSessionApi.auth_token: iPassSDKDataManager.shared.authToken
