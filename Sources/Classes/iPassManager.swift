@@ -82,7 +82,7 @@ public class iPassSDKManger {
     
     public static func stopLoaderAnimation() {
         fullSizeView.removeFromSuperview()
-        activityIndicator.stopAnimating()
+       
        
     }
     
