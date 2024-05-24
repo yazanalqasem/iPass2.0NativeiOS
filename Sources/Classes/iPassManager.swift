@@ -420,6 +420,7 @@ public class iPassSDKManger {
     
     private static func startSavingDataToPanel() {
         let documentDataJson = convertStringToJSON(iPassSDKDataManager.shared.resultScanData.rawResult)
+        
         let parameters: [String: Any] = [
             SaveDataApi.sessionId: iPassSDKDataManager.shared.sessionId,
             SaveDataApi.randomid: iPassSDKDataManager.shared.sid,
