@@ -42,3 +42,8 @@ struct SaveDataApi {
     static let source = "source"
 }
 
+// Save Data Api
+struct GetDataApi {
+    static let baseApi = (Apis.baseUrl) + "sdk/getAll/data?token="
+    static let sesid = "&sesid="
+}

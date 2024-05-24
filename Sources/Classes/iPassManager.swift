@@ -434,31 +434,38 @@ public class iPassSDKManger {
             
         ]
         iPassHandler.methodForPost(url: SaveDataApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
-            DispatchQueue.main.async {
-                stopLoaderAnimation()
-            }
             if(error != "") {
                 print("Response",response as Any)
-                if let jsonRes = response as? [String: Any] {
-                    print("Response",jsonRes)
-                    if let sessionId = jsonRes["sessionId"] as? String  {
-                        iPassSDKDataManager.shared.sessionId = sessionId
-                             oPenDocumentScanner()
-                        
-                    }
-                    else {
-                        self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
-                    }
-                }
-                else {
-                    self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
-                }
+                startDataFetching()
             }
             else {
-                self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
+                DispatchQueue.main.async {
+                    stopLoaderAnimation()
+                }
+                self.delegate?.getScanCompletionResult(result: "", error: "Data processing error")
             }
             
         }
+    }
+    
+    private static func startDataFetching() {
+        iPassHandler.methodForGet(urlStr: "") { response, error in
+            if(error != "") {
+                print("Response",response as Any)
+                DispatchQueue.main.async {
+                    stopLoaderAnimation()
+                }
+                self.delegate?.getScanCompletionResult(result: response as! String, error: "")
+            }
+            else {
+                DispatchQueue.main.async {
+                    stopLoaderAnimation()
+                }
+                self.delegate?.getScanCompletionResult(result: GetDataApi.baseApi + iPassSDKDataManager.shared.token + GetDataApi.sesid + iPassSDKDataManager.shared.sid , error: "Data processing error")
+            }
+            
+        }
+        
     }
     
     private static func convertStringToJSON(_ jsonString: String) -> Any? {
