@@ -310,7 +310,7 @@ public class iPassHandler {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     print(json)
-                    completion(json, error?.localizedDescription)
+                    completion(json, "")
                 } catch {
                     print("Error parsing JSON: \(error.localizedDescription)")
                     completion("", error.localizedDescription)
