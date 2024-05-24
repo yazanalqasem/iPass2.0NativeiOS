@@ -350,9 +350,17 @@ public class iPassHandler {
             if let data = data {
                 // Process the data, e.g., convert it to a Swift object
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                    completion(data, error?.localizedDescription)
+                    let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+                                    let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted])
+                                    if let jsonString = String(data: jsonData, encoding: .utf8) {
+                                        print("JSON Response: \(jsonString)")
+                                        completion(jsonString, "")
+                                    }
+                    else {
+                        completion("", error?.localizedDescription)
+                    }
+                    
+                    
                 } catch {
                     print("Error parsing JSON: \(error.localizedDescription)")
                     completion("", error.localizedDescription)
