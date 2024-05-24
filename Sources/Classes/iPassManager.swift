@@ -23,6 +23,8 @@ public class iPassSDKDataManager {
     var resultScanData = DocumentReaderResults()
     var authToken = String()
     var userSelectedFlowId = Int()
+    var userPhoneNumber = String()
+    var userSocialMediaId = String()
     var token = String()
     var email = String()
     var sid = String()
@@ -141,7 +143,7 @@ public class iPassSDKManger {
         return "i"+randomValue+"OS" + randStr + dateString
     }
     
-    public static func startScanningProcess(userEmail:String, flowId: Int, controller: UIViewController, userToken:String, appToken:String)   {
+    public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String)   {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             addAnimationLoader()
         }
@@ -149,6 +151,8 @@ public class iPassSDKManger {
         
         
         iPassSDKDataManager.shared.userSelectedFlowId = flowId
+        iPassSDKDataManager.shared.userSocialMediaId = socialMediaEmail
+        iPassSDKDataManager.shared.userPhoneNumber = phoneNumber
         iPassSDKDataManager.shared.authToken = userToken
         iPassSDKDataManager.shared.token = appToken
         iPassSDKDataManager.shared.sid = generateRandomTwoDigitNumber()
