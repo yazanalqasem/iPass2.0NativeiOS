@@ -450,18 +450,16 @@ public class iPassSDKManger {
     
     private static func startDataFetching() {
         iPassHandler.methodForGet(urlStr: GetDataApi.baseApi + iPassSDKDataManager.shared.token + GetDataApi.sesid + iPassSDKDataManager.shared.sid) { response, error in
+            DispatchQueue.main.async {
+                stopLoaderAnimation()
+            }
             if(error != "") {
                 print("Response",response as Any)
-                DispatchQueue.main.async {
-                    stopLoaderAnimation()
-                }
-                self.delegate?.getScanCompletionResult(result: response as! String , error: "")
+                self.delegate?.getScanCompletionResult(result: "" , error: "Data processing error")
             }
             else {
-                DispatchQueue.main.async {
-                    stopLoaderAnimation()
-                }
-                self.delegate?.getScanCompletionResult(result: "" , error: "Data processing error")
+                
+                self.delegate?.getScanCompletionResult(result: response as! String, error: "Data processing error")
             }
             
         }
