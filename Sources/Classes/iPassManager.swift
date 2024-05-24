@@ -458,8 +458,7 @@ public class iPassSDKManger {
                 self.delegate?.getScanCompletionResult(result: "" , error: "Data processing error")
             }
             else {
-                
-                self.delegate?.getScanCompletionResult(result: response as! String, error: "Data processing error")
+                self.delegate?.getScanCompletionResult(result: response as! String, error: "")
             }
             
         }
