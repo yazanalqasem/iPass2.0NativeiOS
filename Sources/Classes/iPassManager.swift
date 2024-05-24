@@ -215,14 +215,14 @@ public class iPassSDKManger {
         
         var translationDictionary = [String : String]()
        // ENG, AR, FR, SP, TURKISH, URDU, GERMAN, KURDISH
-        var currentLanguage = "en"
-        if let preferredLanguageCode = Locale.preferredLanguages.first {
-             currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
-            print("Device's preferred language code: \(currentLanguage)")
-          
-        } else {
-            print("Unable to determine the device's preferred language code.")
-        }
+        var currentLanguage = "ar"
+//        if let preferredLanguageCode = Locale.preferredLanguages.first {
+//             currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
+//            print("Device's preferred language code: \(currentLanguage)")
+//          
+//        } else {
+//            print("Unable to determine the device's preferred language code.")
+//        }
         if(currentLanguage.lowercased() == "en") {
             let dataValues = EnglishDataValues()
             translationDictionary = dataValues.getDictionary()
