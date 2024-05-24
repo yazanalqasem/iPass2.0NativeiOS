@@ -323,9 +323,9 @@ public class iPassHandler {
     }
     
     
-    public func methodForGet(completion: @escaping (Any?, String?) -> Void) {
+    public static func methodForGet(urlStr: String, completion: @escaping (Any?, String?) -> Void) {
         // Create a URL for the API endpoint
-        guard let url = URL(string: "https://api.example.com/data") else {
+        guard let url = URL(string: urlStr) else {
             print("Invalid URL")
             return
         }
