@@ -446,14 +446,14 @@ public class iPassSDKManger {
         ]
         iPassHandler.methodForPost(url: SaveDataApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
             if(error != "") {
-                print("Response",response as Any)
-                startDataFetching()
-            }
-            else {
                 DispatchQueue.main.async {
                     stopLoaderAnimation()
                 }
                 self.delegate?.getScanCompletionResult(result: "", error: "Data processing error")
+            }
+            else {
+                print("Response",response as Any)
+                startDataFetching()
             }
             
         }
