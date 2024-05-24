@@ -181,6 +181,9 @@ public class iPassSDKManger {
                 stopLoaderAnimation()
             }
             if(error != "") {
+                self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
+            }
+            else {
                 print("Response",response as Any)
                 if let jsonRes = response as? [String: Any] {
                     print("Response",jsonRes)
@@ -196,9 +199,6 @@ public class iPassSDKManger {
                 else {
                     self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
                 }
-            }
-            else {
-                self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
             }
             
         }
