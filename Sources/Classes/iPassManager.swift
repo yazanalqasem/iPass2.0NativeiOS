@@ -215,7 +215,7 @@ public class iPassSDKManger {
         
         var translationDictionary = [String : String]()
        // ENG, AR, FR, SP, TURKISH, URDU, GERMAN, KURDISH
-        var currentLanguage = "ar"
+        var currentLanguage = "ku"
 //        if let preferredLanguageCode = Locale.preferredLanguages.first {
 //             currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
 //            print("Device's preferred language code: \(currentLanguage)")
