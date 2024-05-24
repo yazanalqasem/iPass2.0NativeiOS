@@ -39,5 +39,6 @@ struct SaveDataApi {
     static let email = "email"
     static let workflow = "workflow"
     static let idv_data = "idv_data"
+    static let source = "source"
 }
 
