@@ -24,7 +24,7 @@ public class iPassSDKDataManager {
     var authToken = String()
     var userSelectedFlowId = Int()
     var userPhoneNumber = String()
-    var userSocialMediaId = String()
+    var userSocialMediaEmail = String()
     var token = String()
     var email = String()
     var sid = String()
@@ -151,7 +151,7 @@ public class iPassSDKManger {
         
         
         iPassSDKDataManager.shared.userSelectedFlowId = flowId
-        iPassSDKDataManager.shared.userSocialMediaId = socialMediaEmail
+        iPassSDKDataManager.shared.userSocialMediaEmail = socialMediaEmail
         iPassSDKDataManager.shared.userPhoneNumber = phoneNumber
         iPassSDKDataManager.shared.authToken = userToken
         iPassSDKDataManager.shared.token = appToken
@@ -435,8 +435,8 @@ public class iPassSDKManger {
         let parameters: [String: Any] = [
             SaveDataApi.sessionId: iPassSDKDataManager.shared.sessionId,
             SaveDataApi.randomid: iPassSDKDataManager.shared.sid,
-            SaveDataApi.social_media_email: "ipassmobios@yopmail.com",
-            SaveDataApi.phone_number: "+919584584585",
+            SaveDataApi.social_media_email:  iPassSDKDataManager.shared.userSocialMediaEmail ,
+            SaveDataApi.phone_number:  iPassSDKDataManager.shared.userPhoneNumber ,
             SaveDataApi.ipadd: userIpAddress,
             SaveDataApi.email: iPassSDKDataManager.shared.email,
             SaveDataApi.workflow: String(iPassSDKDataManager.shared.userSelectedFlowId),
