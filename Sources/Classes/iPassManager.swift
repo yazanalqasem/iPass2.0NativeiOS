@@ -455,7 +455,7 @@ public class iPassSDKManger {
                 DispatchQueue.main.async {
                     stopLoaderAnimation()
                 }
-                self.delegate?.getScanCompletionResult(result: response , error: "")
+                self.delegate?.getScanCompletionResult(result: response as! String , error: "")
             }
             else {
                 DispatchQueue.main.async {
