@@ -96,6 +96,9 @@ public class iPassSDKManger {
         ]
         iPassHandler.methodForPost(url: UserLoginApi.baseApi, params: parameters) { response, error in
             if(error != "") {
+                completion(false, "User Login Issue")
+            }
+            else {
                 print("Response",response as Any)
                 if let json = response as? [String: Any] {
                     if let user = json["user"] as? [String: Any] {
