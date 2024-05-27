@@ -164,8 +164,11 @@ public class iPassSDKManger {
         if(flowId == 10031 || flowId == 10032 || flowId == 10011) {
              createLivenessSessionID()
         }
-        else {
+        else   if(flowId == 10015 ) {
              oPenDocumentScanner()
+        }
+        else {
+            self.delegate?.getScanCompletionResult(result: "", error: "Work flow id is not valid")
         }
     }
     
