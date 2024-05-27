@@ -219,9 +219,8 @@ public class iPassSDKManger {
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = false
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = false
         
-        var translationDictionary = [String : String]()
-       // ENG, AR, FR, SP, TURKISH, URDU, GERMAN, KURDISH
-        var currentLanguage = "ku"
+//        var translationDictionary = [String : String]()
+//       // ENG, AR, FR, SP, TURKISH, URDU, GERMAN, KURDISH
 //        if let preferredLanguageCode = Locale.preferredLanguages.first {
 //             currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
 //            print("Device's preferred language code: \(currentLanguage)")
@@ -229,48 +228,48 @@ public class iPassSDKManger {
 //        } else {
 //            print("Unable to determine the device's preferred language code.")
 //        }
-        if(currentLanguage.lowercased() == "en") {
-            let dataValues = EnglishDataValues()
-            translationDictionary = dataValues.getDictionary()
-        }
-        else if(currentLanguage.lowercased() == "ar") {
-            let dataValues = ArabicDataValues()
-            translationDictionary = dataValues.getDictionary()
-        }
-        else if(currentLanguage.lowercased() == "fr") {
-            let dataValues = FrenchDataValues()
-            translationDictionary = dataValues.getDictionary()
-        }
-        else if(currentLanguage.lowercased() == "sp") {
-            let dataValues = SpanishDataValues()
-            translationDictionary = dataValues.getDictionary()
-        }
-        else if(currentLanguage.lowercased() == "tr") {
-            let dataValues = TurkishDataValues()
-            translationDictionary = dataValues.getDictionary()
-        }
-        else if(currentLanguage.lowercased() == "ur") {
-            let dataValues = UrduDataValues()
-            translationDictionary = dataValues.getDictionary()
-        }
-        else if(currentLanguage.lowercased() == "de") {
-            let dataValues = GermanDataValues()
-            translationDictionary = dataValues.getDictionary()
-        }
-        else if(currentLanguage.lowercased() == "ku") {
-            let dataValues = KurdishDataValues()
-            translationDictionary = dataValues.getDictionary()
-        }
-        else {
-            let dataValues = EnglishDataValues()
-            translationDictionary = dataValues.getDictionary()
-        }
-        DocReader.shared.localizationHandler = { localizationKey in
-            if let updatedString = translationDictionary[localizationKey] {
-                return updatedString
-            }
-            return nil
-        }
+//        if(currentLanguage.lowercased() == "en") {
+//            let dataValues = EnglishDataValues()
+//            translationDictionary = dataValues.getDictionary()
+//        }
+//        else if(currentLanguage.lowercased() == "ar") {
+//            let dataValues = ArabicDataValues()
+//            translationDictionary = dataValues.getDictionary()
+//        }
+//        else if(currentLanguage.lowercased() == "fr") {
+//            let dataValues = FrenchDataValues()
+//            translationDictionary = dataValues.getDictionary()
+//        }
+//        else if(currentLanguage.lowercased() == "sp") {
+//            let dataValues = SpanishDataValues()
+//            translationDictionary = dataValues.getDictionary()
+//        }
+//        else if(currentLanguage.lowercased() == "tr") {
+//            let dataValues = TurkishDataValues()
+//            translationDictionary = dataValues.getDictionary()
+//        }
+//        else if(currentLanguage.lowercased() == "ur") {
+//            let dataValues = UrduDataValues()
+//            translationDictionary = dataValues.getDictionary()
+//        }
+//        else if(currentLanguage.lowercased() == "de") {
+//            let dataValues = GermanDataValues()
+//            translationDictionary = dataValues.getDictionary()
+//        }
+//        else if(currentLanguage.lowercased() == "ku") {
+//            let dataValues = KurdishDataValues()
+//            translationDictionary = dataValues.getDictionary()
+//        }
+//        else {
+//            let dataValues = EnglishDataValues()
+//            translationDictionary = dataValues.getDictionary()
+//        }
+//        DocReader.shared.localizationHandler = { localizationKey in
+//            if let updatedString = translationDictionary[localizationKey] {
+//                return updatedString
+//            }
+//            return nil
+//        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             startDocumentProcessing()
         }
