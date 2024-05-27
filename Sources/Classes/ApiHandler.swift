@@ -341,6 +341,10 @@ public class iPassHandler {
                 return
             }
             
+            let httpResponseee = response as? HTTPURLResponse
+     let statusCode = httpResponseee?.statusCode
+     print("HTTP Response Code: \(statusCode ?? 121212)")
+            
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
                 print("Invalid response")
                 completion("", error?.localizedDescription)
