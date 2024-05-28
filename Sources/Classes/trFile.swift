@@ -591,7 +591,7 @@ class TurkishDataValues {
             "strHairColor" : "Hair color",
             "strHealthNumber" : "Health insurance number",
             "strHeight" : "Height",
-            "strHoldDocumentStraight" : "Hold the document straight",
+            "strHoldDocumentStraight" : "Belgeyi düz tutun",
             "strHoloSimple" : "Hologram availability",
             "strHoloVerifyDinamic" : "Verify dynamic hologram",
             "strHoloVerifyMultiStatic" : "Verify Multi Static Hologram",

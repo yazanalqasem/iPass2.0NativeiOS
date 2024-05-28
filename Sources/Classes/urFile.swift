@@ -591,7 +591,7 @@ class UrduDataValues {
             "strHairColor" : "Hair color",
             "strHealthNumber" : "Health insurance number",
             "strHeight" : "Height",
-            "strHoldDocumentStraight" : "Hold the document straight",
+            "strHoldDocumentStraight" : "دستاویز کو سیدھا رکھیں",
             "strHoloSimple" : "Hologram availability",
             "strHoloVerifyDinamic" : "Verify dynamic hologram",
             "strHoloVerifyMultiStatic" : "Verify Multi Static Hologram",
