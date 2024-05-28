@@ -33,11 +33,11 @@ let package = Package(
 
             path: "Sources",
             resources: [
-                .process("Classes/en.lproj"),
-                .process("Classes/fr.lproj"),
-                .process("Classes/hi.lproj"),
+                .process("Sources/Classes/en.lproj"),
+                .process("Sources/Classes/ca.lproj"),
+                .process("Sources/Classes/hi.lproj"),
                 .process("en.lproj"),
-                .process("fr.lproj"),
+                .process("ca.lproj"),
                 .process("hi.lproj"),
                 .process("Media.xcassets"),
                 .process("Certificates.bundle"),
