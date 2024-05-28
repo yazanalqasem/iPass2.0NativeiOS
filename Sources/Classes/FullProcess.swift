@@ -219,6 +219,19 @@ public class iPassSDK {
             DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = false
             DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = false
             
+            DocReader.shared.localizationHandler = { localizationKey in
+                // This will look up localization in `CustomLocalization.strings`.
+                let result = NSLocalizedString(localizationKey, tableName: "CustomLocalization", comment: "")
+
+                // Localization found in CustomLocalization.
+                if result != localizationKey {
+                    return result
+                }
+
+                // By returning nil we fallback to the default localization provided by SDK.
+                return nil
+            }
+            
             let config = DocReader.ScannerConfig(scenario: "")
             
            config.scenario = RGL_SCENARIO_FULL_AUTH
