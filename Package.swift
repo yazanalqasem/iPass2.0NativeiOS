@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "iPass2.0NativeiOS",
+    defaultLocalization: "en",
     platforms: [
        .macOS(.v10_13), .iOS(.v14),
     ],
