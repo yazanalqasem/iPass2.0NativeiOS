@@ -22,7 +22,7 @@
 "amplify_ui_liveness_challenge_instruction_multiple_faces_detected" = "Only one face per check----";
 "amplify_ui_liveness_challenge_instruction_hold_still" = "Hold still----";
 
-"amplify_ui_liveness_challenge_connecting" = "Connecting...----";
+"amplify_ui_liveness_challenge_connecting" = "Connecting...----++";
 "amplify_ui_liveness_challenge_verifying" = "Verifying----";
 "amplify_ui_liveness_challenge_cancel_a11y" = "Cancel Challenge----";
 

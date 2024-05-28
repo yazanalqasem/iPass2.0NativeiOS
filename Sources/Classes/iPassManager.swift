@@ -212,8 +212,12 @@ public class iPassSDKManger {
     
     private static func oPenDocumentScanner()  {
         
-        
-    
+        guard let currentLanguage = Locale.current.languageCode else { return }
+                
+                let textToTranslate = "Hello, world!"
+                let targetLanguage = "es" // Ex
+   
+//    
         
 //
         let title = NSLocalizedString ("amplify_ui_liveness_challenge_connecting", bundle: Bundle.module, comment: "amplify_ui_liveness_challenge_connecting")
