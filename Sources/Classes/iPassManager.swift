@@ -353,9 +353,13 @@ public class iPassSDKManger {
                 
             }
             else  if action == .cancel  {
+                DispatchQueue.main.async {
+                    stopLoaderAnimation()}
                 self.delegate?.getScanCompletionResult(result: "", error: "Document Scanning Error")
             }
             else  if action == .processTimeout  {
+                DispatchQueue.main.async {
+                    stopLoaderAnimation()}
                 self.delegate?.getScanCompletionResult(result: "", error: "Document Scanning Error")
             }
         }
