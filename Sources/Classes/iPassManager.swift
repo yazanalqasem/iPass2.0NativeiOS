@@ -279,6 +279,19 @@ public class iPassSDKManger {
     
     private static func startDocumentProcessing() {
         
+        DocReader.shared.localizationHandler = { localizationKey in
+            // This will look up localization in `CustomLocalization.strings`.
+            let result = NSLocalizedString(localizationKey, tableName: "CustomLocalization", comment: "")
+
+            // Localization found in CustomLocalization.
+            if result != localizationKey {
+                return result
+            }
+
+            // By returning nil we fallback to the default localization provided by SDK.
+            return nil
+        }
+        
         let config = DocReader.ScannerConfig(scenario: "")
         config.scenario = RGL_SCENARIO_FULL_AUTH
         DocReader.shared.showScanner(presenter: iPassSDKDataManager.shared.controller, config: config) { [self] (action, docResults, error) in
