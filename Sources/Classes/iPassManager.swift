@@ -282,7 +282,8 @@ public class iPassSDKManger {
         DocReader.shared.localizationHandler = { localizationKey in
             // This will look up localization in `CustomLocalization.strings`.
             let result = NSLocalizedString(localizationKey, tableName: "CustomLocalization", comment: "")
-
+            print("key " + localizationKey)
+            print("result " + result)
             // Localization found in CustomLocalization.
             if result != localizationKey {
                 return result
