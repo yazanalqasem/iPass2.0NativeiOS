@@ -1,10 +1,3 @@
-/* 
-  Localizable.strings
-  
-
-  Created by MOBILE on 28/05/24.
-  
-*/
 //
 // Copyright Amazon.com Inc. or its affiliates.
 // All Rights Reserved.
@@ -24,8 +17,8 @@
 "amplify_ui_liveness_challenge_instruction_hold_face_during_countdown" = "Hold face position during countdown.";
 "amplify_ui_liveness_challenge_instruction_hold_face_during_freshness" = "Hold face in oval for colored lights.";
 "amplify_ui_liveness_challenge_instruction_move_face_back" = "Move back";
-"amplify_ui_liveness_challenge_instruction_move_face_closer" = "Move closer--------";
-"amplify_ui_liveness_challenge_instruction_move_face_in_front_of_camera" = "تحريك الوجه أمام الكاميرا";
+"amplify_ui_liveness_challenge_instruction_move_face_closer" = "Move closer";
+"amplify_ui_liveness_challenge_instruction_move_face_in_front_of_camera" = "Move face in front of camera";
 "amplify_ui_liveness_challenge_instruction_multiple_faces_detected" = "Only one face per check";
 "amplify_ui_liveness_challenge_instruction_hold_still" = "Hold still";
 
@@ -48,11 +41,11 @@
 
 "amplify_ui_liveness_face_not_prepared_reason_pendingCheck" = " ";
 "amplify_ui_liveness_face_not_prepared_reason_not_in_oval" = "Move face to fit in oval";
-"amplify_ui_liveness_face_not_prepared_reason_move_face_closer" = "Move closer-------";
+"amplify_ui_liveness_face_not_prepared_reason_move_face_closer" = "Move closer";
 "amplify_ui_liveness_face_not_prepared_reason_move_face_right" = "Move face right";
 "amplify_ui_liveness_face_not_prepared_reason_move_face_left" = "Move face left";
 "amplify_ui_liveness_face_not_prepared_reason_move_to_dimmer_area" = "Move to dimmer area";
 "amplify_ui_liveness_face_not_prepared_reason_move_to_brighter_area" = "Move to brighter area";
-"amplify_ui_liveness_face_not_prepared_reason_no_face" = "تحريك الوجه أمام الكاميرا";
+"amplify_ui_liveness_face_not_prepared_reason_no_face" = "Move face in front of camera";
 "amplify_ui_liveness_face_not_prepared_reason_multiple_faces" = "Only one face per check";
 "amplify_ui_liveness_face_not_prepared_reason_face_too_close" = "Move face farther away";
