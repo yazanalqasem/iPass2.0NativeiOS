@@ -591,7 +591,7 @@ class KurdishDataValues {
             "strHairColor" : "Hair color",
             "strHealthNumber" : "Health insurance number",
             "strHeight" : "Height",
-            "strHoldDocumentStraight" : "Hold the document straight",
+            "strHoldDocumentStraight" : "Belge rast bigrin",
             "strHoloSimple" : "Hologram availability",
             "strHoloVerifyDinamic" : "Verify dynamic hologram",
             "strHoloVerifyMultiStatic" : "Verify Multi Static Hologram",

@@ -591,7 +591,7 @@ class GermanDataValues {
             "strHairColor" : "Hair color",
             "strHealthNumber" : "Health insurance number",
             "strHeight" : "Height",
-            "strHoldDocumentStraight" : "Hold the document straight",
+            "strHoldDocumentStraight" : "Halten Sie das Dokument gerade",
             "strHoloSimple" : "Hologram availability",
             "strHoloVerifyDinamic" : "Verify dynamic hologram",
             "strHoloVerifyMultiStatic" : "Verify Multi Static Hologram",
