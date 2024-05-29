@@ -171,7 +171,7 @@ public class iPassSDKManger {
                  self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is requried")
                  return
              }
-           else if(isValidEmail(socialMediaEmail)) {
+           else if(isValidEmail(socialMediaEmail) == false) {
                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email format is not correct")
                 return
             }
