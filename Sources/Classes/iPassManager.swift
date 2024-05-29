@@ -157,7 +157,27 @@ public class iPassSDKManger {
         startDataFetching()
     }
     
+    
+    
     public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String)   {
+        
+        
+        if(flowId == 10031) {
+            if(socialMediaEmail == "" || phoneNumber == "") {
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email is requried")
+                return
+            }
+           else if(isValidEmail(socialMediaEmail)) {
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email format is not correct")
+                return
+            }
+            else if(phoneNumber.count < 4) {
+                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is not valid")
+                 return
+             }
+        }
+       
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             addAnimationLoader()
         }
@@ -183,6 +203,13 @@ public class iPassSDKManger {
         }
     }
     
+    
+    private static func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
     
     private static func createLivenessSessionID() {
         
