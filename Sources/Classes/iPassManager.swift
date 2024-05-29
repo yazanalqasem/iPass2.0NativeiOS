@@ -163,10 +163,14 @@ public class iPassSDKManger {
         
         
         if(flowId == 10031) {
-            if(socialMediaEmail == "" || phoneNumber == "") {
+            if(socialMediaEmail == "" ) {
                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email is requried")
                 return
             }
+            else if(phoneNumber == "" ) {
+                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is requried")
+                 return
+             }
            else if(isValidEmail(socialMediaEmail)) {
                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email format is not correct")
                 return
