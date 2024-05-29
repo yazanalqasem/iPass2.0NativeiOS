@@ -40,7 +40,7 @@ public class configIpassSdk {
 }
 
 public protocol iPassSDKManagerDelegate : AnyObject {
-    func getScanCompletionResult(result : String, error : String)
+    func getScanCompletionResult(result : String, transactionId : String, error : String)
 }
 
 public class iPassSDKManger {
@@ -168,7 +168,7 @@ public class iPassSDKManger {
              oPenDocumentScanner()
         }
         else {
-            self.delegate?.getScanCompletionResult(result: "", error: "Work flow id is not valid")
+            self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Work flow id is not valid")
         }
     }
     
@@ -184,7 +184,7 @@ public class iPassSDKManger {
                 stopLoaderAnimation()
             }
             if(error != "") {
-                self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Error in creating session")
             }
             else {
                 print("Response",response as Any)
@@ -196,11 +196,11 @@ public class iPassSDKManger {
                         
                     }
                     else {
-                        self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
+                        self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Error in creating session")
                     }
                 }
                 else {
-                    self.delegate?.getScanCompletionResult(result: "", error: "Error in creating session")
+                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Error in creating session")
                 }
             }
             
@@ -302,7 +302,7 @@ public class iPassSDKManger {
                         switch action {
                         case .complete:
                             guard results != nil else {
-                                self.delegate?.getScanCompletionResult(result: "", error: "Document Scanning Error")
+                                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Document Scanning Error")
                                 return
                             }
                             DispatchQueue.main.async {
@@ -368,12 +368,12 @@ public class iPassSDKManger {
             else  if action == .cancel  {
                 DispatchQueue.main.async {
                     stopLoaderAnimation()}
-                self.delegate?.getScanCompletionResult(result: "", error: "Document Scanning Error")
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Document Scanning Error")
             }
             else  if action == .processTimeout  {
                 DispatchQueue.main.async {
                     stopLoaderAnimation()}
-                self.delegate?.getScanCompletionResult(result: "", error: "Document Scanning Error")
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Document Scanning Error")
             }
         }
     }
@@ -483,7 +483,7 @@ public class iPassSDKManger {
                 DispatchQueue.main.async {
                     stopLoaderAnimation()
                 }
-                self.delegate?.getScanCompletionResult(result: "", error: "Data processing error")
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Data processing error")
             }
             else {
                 print("Response",response as Any)
@@ -500,10 +500,10 @@ public class iPassSDKManger {
             }
             if(error != "") {
                 print("Response",response as Any)
-                self.delegate?.getScanCompletionResult(result: "" , error: "Data processing error")
+                self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
             }
             else {
-                self.delegate?.getScanCompletionResult(result: response as! String, error: "")
+                self.delegate?.getScanCompletionResult(result: response as! String, transactionId: iPassSDKDataManager.shared.sid, error: "")
             }
             
         }
