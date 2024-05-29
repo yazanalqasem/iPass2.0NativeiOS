@@ -379,7 +379,18 @@ public class iPassSDKManger {
     }
     
     public static func startCamera() async {
-        await fetchCurrentAuthSession()
+        
+        if( iPassSDKDataManager.shared.userSelectedFlowId == 10031 ||  iPassSDKDataManager.shared.userSelectedFlowId == 10032 ||  iPassSDKDataManager.shared.userSelectedFlowId == 10011) {
+            await fetchCurrentAuthSession()
+        }
+        else   {
+            DispatchQueue.main.async {
+                      addAnimationLoader()
+            }
+            startSavingDataToPanel()
+        }
+        
+      
     }
     
     private static func fetchCurrentAuthSession() async {
