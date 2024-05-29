@@ -146,6 +146,17 @@ public class iPassSDKManger {
         return "i"+randomValue+"OS" + randStr + dateString + String(iPassSDKDataManager.shared.userSelectedFlowId)
     }
     
+    
+    public static func startScanningProcess(transactionId:String, controller: UIViewController, appToken:String)   {
+        iPassSDKDataManager.shared.sid = transactionId
+        iPassSDKDataManager.shared.controller = controller
+        iPassSDKDataManager.shared.token = appToken
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            addAnimationLoader()
+        }
+        startDataFetching()
+    }
+    
     public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String)   {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             addAnimationLoader()
