@@ -179,7 +179,7 @@ public class iPassSDKManger {
                  self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is not valid")
                  return
              }
-            else if(isNumeric(phoneNumber)) {
+            else if(isNumeric(phoneNumber) == false) {
                  self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Only numbers are allowed in phone number")
                  return
              }
