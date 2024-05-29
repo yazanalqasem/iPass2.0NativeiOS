@@ -143,7 +143,7 @@ public class iPassSDKManger {
         // Step 4: Convert the date to a string
         let dateString = dateFormatter.string(from: currentDate)
         
-        return "i"+randomValue+"OS" + randStr + dateString
+        return "i"+randomValue+"OS" + randStr + dateString + String(iPassSDKDataManager.shared.userSelectedFlowId)
     }
     
     public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String)   {
@@ -211,14 +211,8 @@ public class iPassSDKManger {
         
     
     private static func oPenDocumentScanner()  {
-        
-        guard let currentLanguage = Locale.current.languageCode else { return }
-                
-                let textToTranslate = "Hello, world!"
-                let targetLanguage = "es" // Ex
-   
-//    
-        
+                        
+             
 //
         let title = NSLocalizedString ("amplify_ui_liveness_challenge_connecting", bundle: Bundle.module, comment: "amplify_ui_liveness_challenge_connecting")
         
