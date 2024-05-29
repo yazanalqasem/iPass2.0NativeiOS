@@ -147,7 +147,7 @@ public class iPassSDKManger {
     }
     
     
-    public static func startScanningProcess(transactionId:String, controller: UIViewController, appToken:String)   {
+    public static func fetchTransaction(transactionId:String, controller: UIViewController, appToken:String)   {
         iPassSDKDataManager.shared.sid = transactionId
         iPassSDKDataManager.shared.controller = controller
         iPassSDKDataManager.shared.token = appToken
