@@ -179,6 +179,10 @@ public class iPassSDKManger {
                  self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is not valid")
                  return
              }
+            else if(isNumeric(phoneNumber)) {
+                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Only numbers are allowed in phone number")
+                 return
+             }
         }
        
         
@@ -207,6 +211,11 @@ public class iPassSDKManger {
         }
     }
     
+    private static func isNumeric(_ input: String) -> Bool {
+        let regex = "^[0-9]+$"
+        let test = NSPredicate(format:"SELF MATCHES %@", regex)
+        return test.evaluate(with: input)
+    }
     
     private static func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
