@@ -35,13 +35,17 @@ public class iPassSDKDataManager {
     var controller = UIViewController()
     var sessionId = String()
     var loaderColor = UIColor(red: 126/255, green:87/255, blue: 196/255, alpha: 1.0)
+    var needHologram = true
 }
 
 
 
 public class configProperties {
-    public static func setLoaderColor(color:UIColor) {
+    public static func setLoaderColor(color: UIColor) {
         iPassSDKDataManager.shared.loaderColor = color
+    }
+    public static func needHologramDetection(value: Bool) {
+        iPassSDKDataManager.shared.needHologram = value
     }
 }
 
@@ -295,14 +299,28 @@ public class iPassSDKManger {
         DocReader.shared.processParams.multipageProcessing = true
         DocReader.shared.processParams.authenticityParams = AuthenticityParams.default()
         DocReader.shared.processParams.authenticityParams?.livenessParams = LivenessParams.default()
-        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkHolo = false
-        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = false
-        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkED = false
-        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = false
-        DocReader.shared.processParams.authenticityParams?.checkImagePatterns = false
-        DocReader.shared.processParams.authenticityParams?.checkPhotoEmbedding = false
-        DocReader.shared.processParams.authenticityParams?.checkUVLuminiscence = false
-
+        
+        print("CHECK HOLOGRAMMM")
+        print(NSNumber(value: iPassSDKDataManager.shared.needHologram))
+        print( iPassSDKDataManager.shared.needHologram)
+        
+        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkHolo = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkED = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.checkImagePatterns = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.checkPhotoEmbedding = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.checkBarcodeFormat = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.checkPhotoComparison = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.checkUVLuminiscence = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.checkFibers = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.checkExtMRZ = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.checkExtOCR = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.checkIRB900 = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.checkIRVisibility = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.checkIPI = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.checkAxial = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        DocReader.shared.processParams.authenticityParams?.checkLetterScreen = NSNumber(value: iPassSDKDataManager.shared.needHologram)
 
 
         
