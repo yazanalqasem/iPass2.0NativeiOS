@@ -292,7 +292,7 @@ public class iPassSDKManger {
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = false
         DocReader.shared.processParams.authenticityParams?.checkImagePatterns = false
         DocReader.shared.processParams.authenticityParams?.checkPhotoEmbedding = false
-        DocReader.shared.processParams.authenticityParams?.checkUVLuminiscence = true
+        DocReader.shared.processParams.authenticityParams?.checkUVLuminiscence = false
 
 
 
