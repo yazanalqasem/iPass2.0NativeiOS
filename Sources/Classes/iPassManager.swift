@@ -162,6 +162,11 @@ public class iPassSDKManger {
         return "i"+randomValue+"OS" + randStr + dateString + String(iPassSDKDataManager.shared.userSelectedFlowId)
     }
     
+
+    public static func getWorkFlows() -> [[String: Any]] {
+        let res = getListOfFlows()
+        return res
+    }
     
     public static func fetchTransaction(transactionId:String, controller: UIViewController, appToken:String)   {
         iPassSDKDataManager.shared.sid = transactionId
