@@ -289,10 +289,10 @@ public class iPassSDKManger {
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkHolo = false
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = false
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkED = false
-        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = false
-        DocReader.shared.processParams.authenticityParams?.checkImagePatterns = false
-        DocReader.shared.processParams.authenticityParams?.checkPhotoEmbedding = false
-        DocReader.shared.processParams.authenticityParams?.checkUVLuminiscence = true
+//        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = false
+//        DocReader.shared.processParams.authenticityParams?.checkImagePatterns = false
+//        DocReader.shared.processParams.authenticityParams?.checkPhotoEmbedding = false
+//        DocReader.shared.processParams.authenticityParams?.checkUVLuminiscence = true
 
 
 
