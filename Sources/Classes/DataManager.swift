@@ -35,12 +35,7 @@ func getListOfFlows() -> [[String: Any]] {
     dictionary4["Description"] = "This flow includes Document Scanning, Document Authenticity, User Liveness and User Face Matching"
     arrayOfDictionaries.append(dictionary4)
     
-    var dictionary5 = [String: Any]()
-    dictionary5["flow"] = "IDV Only"
-    dictionary5["flowId"] = 11111
-    dictionary5["Description"] = "This flow includes Document Scanning and Document Authenticity"
-    arrayOfDictionaries.append(dictionary5)
-    
+   
    
 
     return arrayOfDictionaries
