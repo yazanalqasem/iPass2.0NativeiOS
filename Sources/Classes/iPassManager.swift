@@ -56,7 +56,7 @@ public class iPassSDKManger {
     
     public static  let fullSizeView = UIView()
     
-    public var needsHologram = false
+    public dynamic var needsHologram = false
     
     
     
