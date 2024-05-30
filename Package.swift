@@ -44,7 +44,7 @@ let package = Package(
                 .process("en.lproj"),
                 .process("ca.lproj"),
                 .process("hi.lproj"),
-                .process("Classes/fr.lproj"),
+                .process("fr.lproj"),
                 .process("Media.xcassets"),
                 .process("Certificates.bundle"),
                 .process("CertificatesPA.bundle"),
