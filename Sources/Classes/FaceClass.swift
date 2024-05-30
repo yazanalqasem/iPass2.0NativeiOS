@@ -39,6 +39,7 @@ public struct FaceClass: View {
             region: "us-east-1",
             disableStartView: true,
             isPresented: $isPresentingLiveness,
+            
             onCompletion: { result in
                 switch result {
                 case .success:
