@@ -56,6 +56,11 @@ public class iPassSDKManger {
     
     public static  let fullSizeView = UIView()
     
+    public var needsHologram = false
+    
+    
+    
+    
     
     
     private static func addAnimationLoader() {
@@ -91,6 +96,8 @@ public class iPassSDKManger {
        
        
     }
+    
+    
     
     
     public  static func UserOnboardingProcess(email: String, password: String, completion: @escaping (Bool?, String?) -> Void) {
