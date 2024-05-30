@@ -37,7 +37,9 @@ public class iPassSDKDataManager {
     var loaderColor = UIColor(red: 126/255, green:87/255, blue: 196/255, alpha: 1.0)
 }
 
-public class configIpassSdk {
+
+
+public class setProperties {
     public static func setLoaderColor(color:UIColor) {
         iPassSDKDataManager.shared.loaderColor = color
     }
@@ -56,7 +58,6 @@ public class iPassSDKManger {
     
     public static  let fullSizeView = UIView()
     
-    public dynamic var needsHologram = false
     
     
     
@@ -172,6 +173,7 @@ public class iPassSDKManger {
     
     public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String)   {
         
+        print("THIS IS HOLOGRAM")
         
         if(flowId == 10031) {
             if(socialMediaEmail == "" ) {
