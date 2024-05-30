@@ -39,7 +39,7 @@ public class iPassSDKDataManager {
 
 
 
-public class setProperties {
+public class configProperties {
     public static func setLoaderColor(color:UIColor) {
         iPassSDKDataManager.shared.loaderColor = color
     }
