@@ -265,9 +265,12 @@ public class iPassSDKManger {
                         
              
 //
-        let title = NSLocalizedString ("amplify_ui_liveness_challenge_connecting", bundle: Bundle.module, comment: "amplify_ui_liveness_challenge_connecting")
+      
         
-        print(title)
+        let localizedString = NSLocalizedString("amplify_ui_liveness_challenge_connecting", bundle: Bundle.module, comment: "")
+
+        
+        print(localizedString)
         print("233232332232332232323")
         
         setDocumentScannerProperties()
