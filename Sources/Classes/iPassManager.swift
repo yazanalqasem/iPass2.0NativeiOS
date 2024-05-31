@@ -587,6 +587,9 @@ public class iPassSDKManger {
      }
     
     private static func startSavingDataToPanel() {
+        DispatchQueue.main.async {
+            stopLoaderAnimation()
+        }
         self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Data processing error")
         return
         
