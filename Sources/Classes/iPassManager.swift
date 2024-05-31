@@ -242,10 +242,7 @@ public class iPassSDKManger {
                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email format is not correct")
                 return
             }
-            else if(phoneNumber.count < 4) {
-                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is not valid")
-                 return
-             }
+            
             else if(isNumeric(phoneNumber) == false) {
                  self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Only numbers are allowed in phone number")
                  return
