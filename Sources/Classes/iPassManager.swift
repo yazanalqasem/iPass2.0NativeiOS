@@ -504,11 +504,7 @@ public class iPassSDKManger {
                     stopLoaderAnimation()}
                 self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Document Scanning Error")
             }
-            else  if action == .processTimeout  {
-                DispatchQueue.main.async {
-                    stopLoaderAnimation()}
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Document Scanning Error")
-            }
+            
         }
     }
     
