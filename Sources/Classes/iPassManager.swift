@@ -589,11 +589,6 @@ public class iPassSDKManger {
                     iPassSDKDataManager.shared.alreadyReturned = true
                     startSavingDataToPanel()
                 }
-                
-                
-                
-                
-                
             }
         }
      }
