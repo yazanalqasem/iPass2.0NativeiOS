@@ -572,10 +572,22 @@ public class iPassSDKManger {
             hostingController.modalPresentationStyle = .fullScreen
             iPassSDKDataManager.shared.controller.present(hostingController, animated: true)
           
+            
+            var notificationObservers: [Any] = []
+            for observer in notificationObservers {
+                NotificationCenter.default.removeObserver(observer)
+            }
+            notificationObservers.removeAll()
+          
             NotificationCenter.default.addObserver(forName: NSNotification.Name("dismissSwiftUI"), object: nil, queue: nil) { (data) in
                 NotificationCenter.default.removeObserver(self)
                 NotificationCenter.default.removeObserver(self, name: NSNotification.Name("dismissSwiftUI"), object: nil)
-
+                var notificationObservers: [Any] = []
+                for observer in notificationObservers {
+                    NotificationCenter.default.removeObserver(observer)
+                }
+                notificationObservers.removeAll()
+              
                 print("userInfo from swift ui class-->> ",data.userInfo?["status"] ?? "no status value")
                 hostingController.dismiss(animated: true, completion: nil)
                 DispatchQueue.main.async {
@@ -585,6 +597,9 @@ public class iPassSDKManger {
             }
         }
      }
+    
+    
+
     
     private static func startSavingDataToPanel() {
         DispatchQueue.main.async {
