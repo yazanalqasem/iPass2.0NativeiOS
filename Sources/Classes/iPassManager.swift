@@ -573,33 +573,27 @@ public class iPassSDKManger {
             iPassSDKDataManager.shared.controller.present(hostingController, animated: true)
           
             
-            var notificationObservers: [Any] = []
-            for observer in notificationObservers {
-                NotificationCenter.default.removeObserver(observer)
-            }
-            notificationObservers.removeAll()
+            NotificationCenter.default.addObserver(self, selector: #selector(methodName(notification:)), name: Notification.Name("dismissSwiftUI"), object: nil)
           
-            NotificationCenter.default.addObserver(forName: NSNotification.Name("dismissSwiftUI"), object: nil, queue: nil) { (data) in
-                NotificationCenter.default.removeObserver(self)
-                NotificationCenter.default.removeObserver(self, name: NSNotification.Name("dismissSwiftUI"), object: nil)
-                var notificationObservers: [Any] = []
-                for observer in notificationObservers {
-                    NotificationCenter.default.removeObserver(observer)
-                }
-                notificationObservers.removeAll()
-              
-                print("userInfo from swift ui class-->> ",data.userInfo?["status"] ?? "no status value")
+//            NotificationCenter.default.addObserver(forName: NSNotification.Name("dismissSwiftUI"), object: nil, queue: nil) { (data) in
+//                NotificationCenter.default.removeObserver(self)
+//                NotificationCenter.default.removeObserver(self, name: NSNotification.Name("dismissSwiftUI"), object: nil)
+               
+//                print("userInfo from swift ui class-->> ",data.userInfo?["status"] ?? "no status value")
                 hostingController.dismiss(animated: true, completion: nil)
                 DispatchQueue.main.async {
                           addAnimationLoader()
                 }
                 startSavingDataToPanel()
-            }
+           // }
         }
      }
     
     
-
+    @objc func methodName(notification: Notification) {
+           NotificationCenter.default.removeObserver(self, name: Notification.Name("redirectNotificationCenter"), object: nil)
+        print("userInfo from swift ui class-->> ",notification.userInfo?["status"] ?? "no status value")
+     }
     
     private static func startSavingDataToPanel() {
         DispatchQueue.main.async {
