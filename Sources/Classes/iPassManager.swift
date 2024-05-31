@@ -179,6 +179,24 @@ public class iPassSDKManger {
     }
     
     
+    private static func checkUserPermission() {
+        iPassHandler.methodForGet(urlStr: getPermissionStatus.baseApi + iPassSDKDataManager.shared.token ) { response, error in
+            DispatchQueue.main.async {
+                stopLoaderAnimation()
+            }
+            if(error != "") {
+                print("Response",response as Any)
+                self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
+            }
+            else {
+                self.delegate?.getScanCompletionResult(result: response as! String, transactionId: iPassSDKDataManager.shared.sid, error: "")
+            }
+            
+        }
+        
+    }
+
+    
     
     public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String)   {
         
@@ -222,10 +240,13 @@ public class iPassSDKManger {
         iPassSDKDataManager.shared.sid = generateRandomTwoDigitNumber()
         iPassSDKDataManager.shared.email = userEmail
         iPassSDKDataManager.shared.controller = controller
+        
+        
+        
         if(flowId == 10031 || flowId == 10032 || flowId == 10011) {
              createLivenessSessionID()
         }
-        else   if(flowId == 10015 ) {
+        else if(flowId == 10015 ) {
              oPenDocumentScanner()
         }
         else {
