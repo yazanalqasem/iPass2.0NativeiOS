@@ -566,14 +566,15 @@ public class iPassSDKManger {
     private static func faceLivenessApi()  {
         DispatchQueue.main.async {
             stopLoaderAnimation()
+            NotificationCenter.default.removeObserver(self, name: Notification.Name("dismissSwiftUI"), object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(methodName(notification:)), name: Notification.Name("dismissSwiftUI"), object: nil)
             var swiftUIView = FaceClass()
             swiftUIView.sessoinIdValue = iPassSDKDataManager.shared.sessionId
             let hostingController = UIHostingController(rootView: swiftUIView)
             hostingController.modalPresentationStyle = .fullScreen
             iPassSDKDataManager.shared.controller.present(hostingController, animated: true)
           
-            
-            NotificationCenter.default.addObserver(self, selector: #selector(methodName(notification:)), name: Notification.Name("dismissSwiftUI"), object: nil)
+           
           
 //            NotificationCenter.default.addObserver(forName: NSNotification.Name("dismissSwiftUI"), object: nil, queue: nil) { (data) in
 //                NotificationCenter.default.removeObserver(self)
