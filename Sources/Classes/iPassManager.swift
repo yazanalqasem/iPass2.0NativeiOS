@@ -188,7 +188,7 @@ public class iPassSDKManger {
     private static func checkUserPermission() {
         iPassHandler.methodForGetWithErrorMessages(urlStr: getPermissionStatus.baseApi + iPassSDKDataManager.shared.token ) { response, error in
             if(error != "") {
-                DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     stopLoaderAnimation()
                 }
                 var tempDict = [String: String]()
