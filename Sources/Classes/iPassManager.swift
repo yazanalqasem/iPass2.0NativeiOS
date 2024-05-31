@@ -591,7 +591,7 @@ public class iPassSDKManger {
     
     
     @objc func methodName(notification: Notification) {
-           NotificationCenter.default.removeObserver(self, name: Notification.Name("redirectNotificationCenter"), object: nil)
+           NotificationCenter.default.removeObserver(self, name: Notification.Name("dismissSwiftUI"), object: nil)
         print("userInfo from swift ui class-->> ",notification.userInfo?["status"] ?? "no status value")
      }
     

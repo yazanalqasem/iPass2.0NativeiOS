@@ -52,7 +52,10 @@ public struct FaceClass: View {
                         var dictStatus = [AnyHashable:Any]()
                         dictStatus["value"] = "1"
                         dictStatus["status"] = "success"
-                        NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil, userInfo: dictStatus)
+                       // NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil, userInfo: dictStatus)
+                        
+                        NotificationCenter.default.post(name: Notification.Name("dismissSwiftUI"), object: nil)
+                        
                     }
                 case .failure(_):
                     print("Failure")
@@ -63,7 +66,8 @@ public struct FaceClass: View {
                         var dictStatus = [AnyHashable:Any]()
                         dictStatus["value"] = "0"
                         dictStatus["status"] = "failure"
-                        NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil, userInfo: dictStatus)
+                       // NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil, userInfo: dictStatus)
+                        NotificationCenter.default.post(name: Notification.Name("dismissSwiftUI"), object: nil)
                     }
                 }
             }
