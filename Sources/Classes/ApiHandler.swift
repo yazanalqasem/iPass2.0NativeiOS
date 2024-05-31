@@ -20,11 +20,8 @@ public class iPassHandler {
                 for: username,
                 confirmationCode: confirmationCode
             )
-            print("Confirm sign up result completed: \(confirmSignUpResult.isSignUpComplete)")
         } catch let error as AuthError {
-            print("An error occurred while confirming sign up \(error)")
         } catch {
-            print("Unexpected error: \(error)")
         }
     }
     
@@ -39,14 +36,10 @@ public class iPassHandler {
                 options: options
             )
             if case let .confirmUser(deliveryDetails, _, userId) = signUpResult.nextStep {
-                print("Delivery details \(String(describing: deliveryDetails)) for userId: \(String(describing: userId))")
             } else {
-                print("SignUp Complete")
             }
         } catch let error as AuthError {
-            print("An error occurred while registering a user \(error)")
         } catch {
-            print("Unexpected error: \(error)")
         }
     }
     
@@ -56,7 +49,6 @@ public class iPassHandler {
     private static func convertStringToJSON(_ jsonString: String) -> Any? {
         // Convert the string to Data
         guard let jsonData = jsonString.data(using: .utf8) else {
-            print("Failed to convert string to response data")
             return nil
         }
         
@@ -65,7 +57,6 @@ public class iPassHandler {
             let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
             return jsonObject
         } catch {
-            print("Error converting JSON data: \(error)")
             return nil
         }
     }
@@ -96,20 +87,17 @@ public class iPassHandler {
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         } catch let error {
-            print("Error serializing parameters: \(error.localizedDescription)")
             completion("", error)
             return
         }
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
-                print("Error: \(error?.localizedDescription ?? "Unknown error")")
                 completion("", error)
                 return
             }
             
             let status = response.statusCode
-            print("Response status code: \(status)")
             
             if status == 200 {
                 do {
@@ -118,16 +106,13 @@ public class iPassHandler {
                         completion("data", nil)
                     
                     } else {
-                        print("Failed to parse JSON response")
                         completion("", error)
                     }
                 } catch let error {
-                    print("Error parsing JSON response: \(error.localizedDescription)")
                     completion("", error)
                 }
                 
             } else {
-                print("Unexpected status code: \(status)")
                 completion("", error)
             }
         }
@@ -146,28 +131,23 @@ public class iPassHandler {
             "email": email,
             "password": password
         ]
-//        print("loginPostApi",apiURL)
-//        print("login parameters",parameters)
+
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         } catch let error {
-            print("Error serializing parameters: \(error.localizedDescription)")
         }
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
-                print("Error: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
 
             let status = response.statusCode
-            print("Response status code: \(status)")
 
             if status == 200 {
                 do {
     
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        print("Response",json)
                         if let user = json["user"] as? [String: Any] {
                             if let email = user["email"] as? String, let token = user["token"] as? String {
                                 DispatchQueue.main.async {
@@ -208,49 +188,40 @@ public class iPassHandler {
             "auth_token": iPassSDKDataObjHandler.shared.authToken
         ]
         
-        print("create session api url -->> ", apiURL)
-        print("parameters-> ", parameters)
+  
         
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         } catch let error {
-            print("Error serializing parameters: \(error.localizedDescription)")
             return
         }
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
-                print("Error: \(error?.localizedDescription ?? "Unknown error")")
                 completion(false)
                 return
             }
             
             let status = response.statusCode
-            print("Response status code: \(status)")
             
             if status == 200 {
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        print("createSessionApi response -->> ",json)
                         
                         if let sessionId = json["sessionId"] as? String {
                             DispatchQueue.main.async {
                                 iPassSDKDataObjHandler.shared.sessionId = sessionId
                             }
-                            print("sessionId ------>> ",sessionId)
                             completion(true)
                         }
                         // presentSwiftUIView()
                     } else {
-                        print("Failed to parse JSON response")
                         completion(false)
                     }
                 } catch let error {
-                    print("Error parsing JSON response: \(error.localizedDescription)")
                     completion(false)
                 }
             } else {
-                print("Unexpected status code: \(status)")
                 completion(false)
             }
         }
@@ -263,14 +234,10 @@ public class iPassHandler {
     public static func methodForPost(url: String, params: [String: Any], completion: @escaping (Any?, String?) -> Void) {
         // Create a URL for the API endpoint
         guard let url = URL(string: url) else {
-            print("Invalid URL")
             return
         }
-        print("CHECK DETAILS FROM HERE")
         
-        print(url)
-        print(params)
-
+      
         // Create a URLRequest with the URL, setting the HTTP method to "POST"
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -279,7 +246,6 @@ public class iPassHandler {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         guard let jsonData = try? JSONSerialization.data(withJSONObject: params) else {
-            print("Error encoding parameters")
             completion("", "Error")
             return
         }
@@ -290,17 +256,14 @@ public class iPassHandler {
         // Create a URLSessionDataTask with the request
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error.localizedDescription)")
                 completion("", error.localizedDescription)
                 return
             }
             
                    let httpResponseee = response as? HTTPURLResponse
             let statusCode = httpResponseee?.statusCode
-            print("HTTP Response Code: \(statusCode ?? 121212)")
             
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
                 completion("", error?.localizedDescription)
                 return
             }
@@ -309,10 +272,8 @@ public class iPassHandler {
                 // Process the data, e.g., convert it to a Swift object
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
                     completion(json, "")
                 } catch {
-                    print("Error parsing JSON: \(error.localizedDescription)")
                     completion("", error.localizedDescription)
                 }
             }
@@ -326,7 +287,6 @@ public class iPassHandler {
     public static func methodForGet(urlStr: String, completion: @escaping (Any?, String?) -> Void) {
         // Create a URL for the API endpoint
         guard let url = URL(string: urlStr) else {
-            print("Invalid URL")
             return
         }
 
@@ -336,17 +296,14 @@ public class iPassHandler {
         // Create a URLSessionDataTask with the request
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error.localizedDescription)")
                 completion("", error.localizedDescription)
                 return
             }
             
             let httpResponseee = response as? HTTPURLResponse
      let statusCode = httpResponseee?.statusCode
-     print("HTTP Response Code: \(statusCode ?? 121212)")
             
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
                 completion("", error?.localizedDescription)
                 return
             }
@@ -357,7 +314,6 @@ public class iPassHandler {
                     let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
                                     let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted])
                                     if let jsonString = String(data: jsonData, encoding: .utf8) {
-                                        print("JSON Response: \(jsonString)")
                                         completion(jsonString, "")
                                     }
                     else {
@@ -366,7 +322,6 @@ public class iPassHandler {
                     
                     
                 } catch {
-                    print("Error parsing JSON: \(error.localizedDescription)")
                     completion("", error.localizedDescription)
                 }
             }
@@ -382,7 +337,6 @@ public class iPassHandler {
     public static func methodForGetWithErrorMessages(urlStr: String, completion: @escaping (String?, String?) -> Void) {
         // Create a URL for the API endpoint
         guard let url = URL(string: urlStr) else {
-            print("Invalid URL")
             return
         }
 
@@ -392,17 +346,14 @@ public class iPassHandler {
         // Create a URLSessionDataTask with the request
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error.localizedDescription)")
                 completion("", "you have reached your transaction limit or you dont have access for transaction")
                 return
             }
             
             let httpResponseee = response as? HTTPURLResponse
      let statusCode = httpResponseee?.statusCode
-     print("HTTP Response Code: \(statusCode ?? 121212)")
             
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
                 
                 if let data = data {
                     // Process the data, e.g., convert it to a Swift object
@@ -410,7 +361,6 @@ public class iPassHandler {
                         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
                                         let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted])
                                         if let jsonString = String(data: jsonData, encoding: .utf8) {
-                                            print("JSON Response: \(jsonString)")
                                             completion("", jsonString)
                                             return
                                         }
@@ -421,7 +371,6 @@ public class iPassHandler {
                         
                         
                     } catch {
-                        print("Error parsing JSON: \(error.localizedDescription)")
                         completion("", "you have reached your transaction limit or you dont have access for transaction")
                         return
                     }
@@ -439,7 +388,6 @@ public class iPassHandler {
                     let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
                                     let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted])
                                     if let jsonString = String(data: jsonData, encoding: .utf8) {
-                                        print("JSON Response: \(jsonString)")
                                         completion(jsonString, "")
                                     }
                     else {
@@ -449,7 +397,6 @@ public class iPassHandler {
                     
                     
                 } catch {
-                    print("Error parsing JSON: \(error.localizedDescription)")
                     completion("", "you have reached your transaction limit or you dont have access for transaction")
                     return
                 }
@@ -544,7 +491,6 @@ public class iPassHandler {
         
         guard let apiURL = URL(string: "https://plusapi.ipass-mena.com/api/v1/ipass/plus/session/result?sessionId=\(iPassSDKDataObjHandler.shared.sessionId)&sid=\(iPassSDKDataObjHandler.shared.sid)&email=\(iPassSDKDataObjHandler.shared.email)&token=\(iPassSDKDataObjHandler.shared.token)&auth_token=\(iPassSDKDataObjHandler.shared.authToken)") else { return }
 
-        print(apiURL)
         var request = URLRequest(url: apiURL)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -567,12 +513,10 @@ public class iPassHandler {
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
-                print("Error: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
 
             let status = response.statusCode
-            print("Response status code: \(status)")
 
             if status == 200 {
                 DispatchQueue.main.async {
@@ -598,7 +542,6 @@ public class iPassHandler {
                 URLQueryItem(name: "token", value: iPassSDKDataObjHandler.shared.token),
                 URLQueryItem(name: "auth_token", value: iPassSDKDataObjHandler.shared.authToken)
             ]
-            print("getresultliveness URL----->> ", urlComponents)
             if let url = urlComponents.url {
                 let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                     DispatchQueue.main.async {
