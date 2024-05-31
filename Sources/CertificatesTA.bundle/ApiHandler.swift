@@ -20,11 +20,8 @@ public class iPassHandler {
                 for: username,
                 confirmationCode: confirmationCode
             )
-            print("Confirm sign up result completed: \(confirmSignUpResult.isSignUpComplete)")
         } catch let error as AuthError {
-            print("An error occurred while confirming sign up \(error)")
         } catch {
-            print("Unexpected error: \(error)")
         }
     }
     
@@ -39,14 +36,10 @@ public class iPassHandler {
                 options: options
             )
             if case let .confirmUser(deliveryDetails, _, userId) = signUpResult.nextStep {
-                print("Delivery details \(String(describing: deliveryDetails)) for userId: \(String(describing: userId))")
             } else {
-                print("SignUp Complete")
             }
         } catch let error as AuthError {
-            print("An error occurred while registering a user \(error)")
         } catch {
-            print("Unexpected error: \(error)")
         }
     }
     
@@ -63,27 +56,22 @@ public class iPassHandler {
             "email": email,
             "password": password
         ]
-//        print("loginPostApi",apiURL)
-//        print("login parameters",parameters)
+
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         } catch let error {
-            print("Error serializing parameters: \(error.localizedDescription)")
         }
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
-                print("Error: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
 
             let status = response.statusCode
-            print("Response status code: \(status)")
 
             if status == 200 {
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        print("Response",json)
                         if let user = json["user"] as? [String: Any] {
                             if let email = user["email"] as? String, let token = user["token"] as? String {
                                 DispatchQueue.main.async {
@@ -124,48 +112,40 @@ public class iPassHandler {
             "auth_token": iPassSDKDataObjHandler.shared.authToken
         ]
         
-        print("create session api url -->> ", apiURL)
-        print("parameters-> ", parameters)
+       
         
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         } catch let error {
-            print("Error serializing parameters: \(error.localizedDescription)")
             return
         }
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
-                print("Error: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
             
             let status = response.statusCode
-            print("Response status code: \(status)")
+         
             
             if status == 200 {
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        print("createSessionApi response -->> ",json)
                         
                         if let sessionId = json["sessionId"] as? String {
                             DispatchQueue.main.async {
                                 iPassSDKDataObjHandler.shared.sessionId = sessionId
                             }
-                            print("sessionId ------>> ",sessionId)
                             completion(true)
                         }
                         // presentSwiftUIView()
                     } else {
-                        print("Failed to parse JSON response")
                         completion(false)
                     }
                 } catch let error {
-                    print("Error parsing JSON response: \(error.localizedDescription)")
                     completion(false)
                 }
             } else {
-                print("Unexpected status code: \(status)")
                 completion(false)
             }
         }
@@ -254,7 +234,6 @@ public class iPassHandler {
         
         guard let apiURL = URL(string: "https://plusapi.ipass-mena.com/api/v1/ipass/plus/session/result?sessionId=\(iPassSDKDataObjHandler.shared.sessionId)&sid=\(iPassSDKDataObjHandler.shared.sid)&email=\(iPassSDKDataObjHandler.shared.email)&token=\(iPassSDKDataObjHandler.shared.token)&auth_token=\(iPassSDKDataObjHandler.shared.authToken)") else { return }
 
-        print(apiURL)
         var request = URLRequest(url: apiURL)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -277,12 +256,10 @@ public class iPassHandler {
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
-                print("Error: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
 
             let status = response.statusCode
-            print("Response status code: \(status)")
 
             if status == 200 {
                 DispatchQueue.main.async {
@@ -308,7 +285,6 @@ public class iPassHandler {
                 URLQueryItem(name: "token", value: iPassSDKDataObjHandler.shared.token),
                 URLQueryItem(name: "auth_token", value: iPassSDKDataObjHandler.shared.authToken)
             ]
-            print("getresultliveness URL----->> ", urlComponents)
             if let url = urlComponents.url {
                 let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                     DispatchQueue.main.async {

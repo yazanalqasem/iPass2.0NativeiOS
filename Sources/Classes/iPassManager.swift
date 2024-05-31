@@ -122,7 +122,6 @@ public class iPassSDKManger {
                 completion(false, "User Login Issue")
             }
             else {
-                print("Response",response as Any)
                 if let json = response as? [String: Any] {
                     if let user = json["user"] as? [String: Any] {
                         if let token = user["token"] as? String {
@@ -300,9 +299,7 @@ public class iPassSDKManger {
                 self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Error in creating session")
             }
             else {
-                print("Response",response as Any)
                 if let jsonRes = response as? [String: Any] {
-                    print("Response",jsonRes)
                     if let sessionId = jsonRes["sessionId"] as? String  {
                         iPassSDKDataManager.shared.sessionId = sessionId
                              oPenDocumentScanner()
@@ -341,9 +338,6 @@ public class iPassSDKManger {
         DocReader.shared.processParams.authenticityParams = AuthenticityParams.default()
         DocReader.shared.processParams.authenticityParams?.livenessParams = LivenessParams.default()
         
-        print("CHECK HOLOGRAMMM")
-        print(NSNumber(value: iPassSDKDataManager.shared.needHologram))
-        print( iPassSDKDataManager.shared.needHologram)
         
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkHolo = NSNumber(value: iPassSDKDataManager.shared.needHologram)
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = NSNumber(value: iPassSDKDataManager.shared.needHologram)
@@ -474,7 +468,6 @@ public class iPassSDKManger {
 
                             
                         case .error:
-                            print("Error")
                             iPassSDKDataManager.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
                             guard docResults != nil else {
                                 return
@@ -532,9 +525,7 @@ public class iPassSDKManger {
               }
          do {
              let session = try await Amplify.Auth.fetchAuthSession()
-             print("Is user signed in - \(session.isSignedIn)")
              
-             print(session)
              if(session.isSignedIn == true) {
                  faceLivenessApi()
              }
@@ -543,9 +534,7 @@ public class iPassSDKManger {
              }
              
          } catch let error as AuthError {
-             print("Fetch session failed with error \(error)")
          } catch {
-             print("Unexpected error: \(error)")
          }
      }
     
@@ -556,13 +545,10 @@ public class iPassSDKManger {
                     password: "Apple@123"
                     )
                 if signInResult.isSignedIn {
-                    print("Sign in succeeded")
                     await fetchCurrentAuthSession()
                 }
             } catch let error as AuthError {
-                print("Sign in failed \(error)")
             } catch {
-                print("Unexpected error: \(error)")
             }
         }
     
@@ -579,7 +565,6 @@ public class iPassSDKManger {
                 NotificationCenter.default.removeObserver(self)
                 NotificationCenter.default.removeObserver(self, name: NSNotification.Name("dismissSwiftUI"), object: nil)
 
-                print("userInfo from swift ui class-->> ",data.userInfo?["status"] ?? "no status value")
                 hostingController.dismiss(animated: true, completion: nil)
                
                 
@@ -607,7 +592,6 @@ public class iPassSDKManger {
         var userIpAddress = "Unable to get IP Address"
         
         if let ipAddress = getIPAddress() {
-            print("IP Address: \(ipAddress)")
             userIpAddress = ipAddress
         }
         
@@ -631,7 +615,6 @@ public class iPassSDKManger {
                 self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Data processing error")
             }
             else {
-                print("Response",response as Any)
                 startDataFetching()
             }
             
@@ -644,7 +627,6 @@ public class iPassSDKManger {
                 stopLoaderAnimation()
             }
             if(error != "") {
-                print("Response",response as Any)
                 self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
             }
             else {
@@ -694,7 +676,6 @@ public class iPassSDKManger {
     private static func convertStringToJSON(_ jsonString: String) -> Any? {
         // Convert the string to Data
         guard let jsonData = jsonString.data(using: .utf8) else {
-            print("Failed to convert string to response data")
             return nil
         }
         
@@ -703,7 +684,6 @@ public class iPassSDKManger {
             let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
             return jsonObject
         } catch {
-            print("Error converting JSON data: \(error)")
             return nil
         }
     }
@@ -715,7 +695,6 @@ extension String {
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [String: String]
             } catch {
-                print(error.localizedDescription)
             }
         }
         return nil

@@ -21,7 +21,6 @@ public class DataBaseDownloading{
             
            // try Amplify.configure()
         } catch {
-            print("An error occurred setting up Amplify: \(error)")
         }
         
         // Custom path to your configuration file
@@ -32,21 +31,17 @@ public class DataBaseDownloading{
 
         if let configFileURL = Bundle.module.url(forResource: configFileName, withExtension: nil) {
             let configFilePath = configFileURL.path
-            print("Configuration file path: \(configFilePath)")
             if let amplifyConfig = loadAmplifyConfiguration(from: configFilePath) {
                 // Configure Amplify with the loaded configuration
                 do {
                     try Amplify.configure(amplifyConfig)
                 }
                 catch {
-                    print("Failed to configure Amplify with custom configuration.")
                 }
             } else {
                 // Handle error loading or decoding configuration
-                print("Failed to configure Amplify with custom configuration.")
             }
         } else {
-            print("Failed to locate configuration file '\(configFileName)' in Bundle.module")
         }
         
         
@@ -68,7 +63,6 @@ public class DataBaseDownloading{
                 break
             case .error(let text):
                 validationError = text
-                print(text)
             }
             completion(progressValue, status, validationError)
         })
@@ -78,7 +72,6 @@ public class DataBaseDownloading{
     public static  func loadAmplifyConfiguration(from path: String) -> AmplifyConfiguration? {
         // Read configuration data from the custom path
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
-            print("Failed to read configuration data from path: \(path)")
             return nil
         }
 
@@ -87,7 +80,6 @@ public class DataBaseDownloading{
             let configuration = try JSONDecoder().decode(AmplifyConfiguration.self, from: data)
             return configuration
         } catch {
-            print("Failed to decode configuration data: \(error)")
             return nil
         }
     }
