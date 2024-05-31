@@ -379,7 +379,7 @@ public class iPassHandler {
     
     
     
-    public static func methodForGetWithErrorMessages(urlStr: String, completion: @escaping (Any?, String?) -> Void) {
+    public static func methodForGetWithErrorMessages(urlStr: String, completion: @escaping (String?, String?) -> Void) {
         // Create a URL for the API endpoint
         guard let url = URL(string: urlStr) else {
             print("Invalid URL")
@@ -393,7 +393,7 @@ public class iPassHandler {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
-                completion("", error.localizedDescription)
+                completion("", "you have reached your transaction limit or you dont have access for transaction")
                 return
             }
             
@@ -429,7 +429,7 @@ public class iPassHandler {
                 
                 
                 
-                completion("", error?.localizedDescription)
+                completion("", "you have reached your transaction limit or you dont have access for transaction")
                 return
             }
             

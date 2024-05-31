@@ -97,7 +97,13 @@ public class iPassSDKManger {
    
     
     public static func stopLoaderAnimation() {
-        fullSizeView.removeFromSuperview()
+        if fullSizeView.superview == nil {
+            // The view has been removed from its superview
+        } else {
+            // The view is still in the view hierarchy
+            fullSizeView.removeFromSuperview()
+        }
+      
        
        
     }
@@ -181,20 +187,35 @@ public class iPassSDKManger {
     
     private static func checkUserPermission() {
         iPassHandler.methodForGetWithErrorMessages(urlStr: getPermissionStatus.baseApi + iPassSDKDataManager.shared.token ) { response, error in
-            DispatchQueue.main.async {
-                stopLoaderAnimation()
-            }
             if(error != "") {
-                
+                DispatchQueue.main.async {
+                    stopLoaderAnimation()
+                }
                 var tempDict = [String: String]()
-                
                 tempDict = error?.convertToDictionary() ?? [:]
-                print(tempDict["message"] as Any)
-                
-                self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
+                self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? "you have reached your transaction limit or you dont have access for transaction")
             }
             else {
-                self.delegate?.getScanCompletionResult(result: response as! String, transactionId: iPassSDKDataManager.shared.sid, error: "")
+                
+                var tempDict = [String: String]()
+                tempDict = response?.convertToDictionary() ?? [:]
+                if(tempDict["message"]?.lowercased() == "sucess") {
+                    if(iPassSDKDataManager.shared.userSelectedFlowId == 10031 || iPassSDKDataManager.shared.userSelectedFlowId == 10032 || iPassSDKDataManager.shared.userSelectedFlowId == 10011) {
+                         createLivenessSessionID()
+                    }
+                    else if(iPassSDKDataManager.shared.userSelectedFlowId == 10015 ) {
+                        
+                         oPenDocumentScanner()
+                    }
+                    else {
+                        self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Work flow id is not valid")
+                    }
+                }
+                else {
+                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? "you have reached your transaction limit or you dont have access for transaction")
+                }
+                
+                
             }
             
         }
@@ -208,36 +229,34 @@ public class iPassSDKManger {
       
         
         
-//        if(flowId == 10031) {
-//            if(socialMediaEmail == "" ) {
-//                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email is requried")
-//                return
-//            }
-//            else if(phoneNumber == "" ) {
-//                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is requried")
-//                 return
-//             }
-//           else if(isValidEmail(socialMediaEmail) == false) {
-//                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email format is not correct")
-//                return
-//            }
-//            else if(phoneNumber.count < 4) {
-//                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is not valid")
-//                 return
-//             }
-//            else if(isNumeric(phoneNumber) == false) {
-//                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Only numbers are allowed in phone number")
-//                 return
-//             }
-//        }
-//       
-//        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-//            addAnimationLoader()
-//        }
-//      
-//        
-//        
+        if(flowId == 10031) {
+            if(socialMediaEmail == "" ) {
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email is requried")
+                return
+            }
+            else if(phoneNumber == "" ) {
+                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is requried")
+                 return
+             }
+           else if(isValidEmail(socialMediaEmail) == false) {
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email format is not correct")
+                return
+            }
+            else if(phoneNumber.count < 4) {
+                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is not valid")
+                 return
+             }
+            else if(isNumeric(phoneNumber) == false) {
+                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Only numbers are allowed in phone number")
+                 return
+             }
+        }
+       
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            addAnimationLoader()
+        }
+        
         iPassSDKDataManager.shared.userSelectedFlowId = flowId
         iPassSDKDataManager.shared.userSocialMediaEmail = socialMediaEmail
         iPassSDKDataManager.shared.userPhoneNumber = phoneNumber
@@ -247,18 +266,8 @@ public class iPassSDKManger {
         iPassSDKDataManager.shared.email = userEmail
         iPassSDKDataManager.shared.controller = controller
         checkUserPermission()
-//
-//        
-//        
-//        if(flowId == 10031 || flowId == 10032 || flowId == 10011) {
-//             createLivenessSessionID()
-//        }
-//        else if(flowId == 10015 ) {
-//             oPenDocumentScanner()
-//        }
-//        else {
-//            self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Work flow id is not valid")
-//        }
+    
+
     }
     
     private static func isNumeric(_ input: String) -> Bool {
@@ -317,11 +326,7 @@ public class iPassSDKManger {
 //
       
         
-        let localizedString = NSLocalizedString("amplify_ui_liveness_challenge_connecting", bundle: Bundle.module, comment: "")
-
         
-        print(localizedString)
-        print("233232332232332232323")
         
         setDocumentScannerProperties()
         
@@ -417,7 +422,9 @@ public class iPassSDKManger {
     
     private static func startDocumentProcessing() {
         
-       
+        DispatchQueue.main.async {
+            stopLoaderAnimation()
+        }
         
         let config = DocReader.ScannerConfig(scenario: "")
         config.scenario = RGL_SCENARIO_FULL_AUTH
