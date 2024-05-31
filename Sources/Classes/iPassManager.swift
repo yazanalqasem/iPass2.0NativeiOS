@@ -189,6 +189,7 @@ public class iPassSDKManger {
                 var tempDict = [String: String]()
                 
                 tempDict = error?.convertToDictionary() ?? [:]
+                print(tempDict["message"] as Any)
                 
                 self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
             }
