@@ -587,6 +587,9 @@ public class iPassSDKManger {
      }
     
     private static func startSavingDataToPanel() {
+        
+        return
+        
         let documentDataJson = convertStringToJSON(iPassSDKDataManager.shared.resultScanData.rawResult)
         
         var userIpAddress = "Unable to get IP Address"
