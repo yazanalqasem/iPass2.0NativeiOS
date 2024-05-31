@@ -47,3 +47,8 @@ struct GetDataApi {
     static let baseApi = (Apis.baseUrl) + "sdk/getAll/data?token="
     static let sesid = "&sesid="
 }
+
+// Check Permission Api
+struct getPermissionStatus {
+    static let baseApi = (Apis.baseUrl) + "customer/access?token="
+}
