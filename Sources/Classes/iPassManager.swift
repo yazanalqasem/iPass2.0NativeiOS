@@ -580,11 +580,11 @@ public class iPassSDKManger {
 //                NotificationCenter.default.removeObserver(self, name: NSNotification.Name("dismissSwiftUI"), object: nil)
                
 //                print("userInfo from swift ui class-->> ",data.userInfo?["status"] ?? "no status value")
-                hostingController.dismiss(animated: true, completion: nil)
-                DispatchQueue.main.async {
-                          addAnimationLoader()
-                }
-                startSavingDataToPanel()
+              //  hostingController.dismiss(animated: true, completion: nil)
+               // DispatchQueue.main.async {
+                    //      addAnimationLoader()
+               // }
+               // startSavingDataToPanel()
            // }
         }
      }
