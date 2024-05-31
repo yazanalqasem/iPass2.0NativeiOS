@@ -200,38 +200,39 @@ public class iPassSDKManger {
     
     public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String)   {
         
-        print("THIS IS HOLOGRAM")
-        
-        if(flowId == 10031) {
-            if(socialMediaEmail == "" ) {
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email is requried")
-                return
-            }
-            else if(phoneNumber == "" ) {
-                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is requried")
-                 return
-             }
-           else if(isValidEmail(socialMediaEmail) == false) {
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email format is not correct")
-                return
-            }
-            else if(phoneNumber.count < 4) {
-                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is not valid")
-                 return
-             }
-            else if(isNumeric(phoneNumber) == false) {
-                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Only numbers are allowed in phone number")
-                 return
-             }
-        }
-       
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            addAnimationLoader()
-        }
       
         
         
+//        if(flowId == 10031) {
+//            if(socialMediaEmail == "" ) {
+//                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email is requried")
+//                return
+//            }
+//            else if(phoneNumber == "" ) {
+//                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is requried")
+//                 return
+//             }
+//           else if(isValidEmail(socialMediaEmail) == false) {
+//                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email format is not correct")
+//                return
+//            }
+//            else if(phoneNumber.count < 4) {
+//                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is not valid")
+//                 return
+//             }
+//            else if(isNumeric(phoneNumber) == false) {
+//                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Only numbers are allowed in phone number")
+//                 return
+//             }
+//        }
+//       
+//        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+//            addAnimationLoader()
+//        }
+//      
+//        
+//        
         iPassSDKDataManager.shared.userSelectedFlowId = flowId
         iPassSDKDataManager.shared.userSocialMediaEmail = socialMediaEmail
         iPassSDKDataManager.shared.userPhoneNumber = phoneNumber
@@ -240,18 +241,19 @@ public class iPassSDKManger {
         iPassSDKDataManager.shared.sid = generateRandomTwoDigitNumber()
         iPassSDKDataManager.shared.email = userEmail
         iPassSDKDataManager.shared.controller = controller
-        
-        
-        
-        if(flowId == 10031 || flowId == 10032 || flowId == 10011) {
-             createLivenessSessionID()
-        }
-        else if(flowId == 10015 ) {
-             oPenDocumentScanner()
-        }
-        else {
-            self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Work flow id is not valid")
-        }
+        checkUserPermission()
+//
+//        
+//        
+//        if(flowId == 10031 || flowId == 10032 || flowId == 10011) {
+//             createLivenessSessionID()
+//        }
+//        else if(flowId == 10015 ) {
+//             oPenDocumentScanner()
+//        }
+//        else {
+//            self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Work flow id is not valid")
+//        }
     }
     
     private static func isNumeric(_ input: String) -> Bool {
