@@ -377,6 +377,87 @@ public class iPassHandler {
     }
     
     
+    
+    
+    public static func methodForGetWithErrorMessages(urlStr: String, completion: @escaping (Any?, String?) -> Void) {
+        // Create a URL for the API endpoint
+        guard let url = URL(string: urlStr) else {
+            print("Invalid URL")
+            return
+        }
+
+        // Create a URLRequest with the URL
+        let request = URLRequest(url: url)
+
+        // Create a URLSessionDataTask with the request
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                completion("", error.localizedDescription)
+                return
+            }
+            
+            let httpResponseee = response as? HTTPURLResponse
+     let statusCode = httpResponseee?.statusCode
+     print("HTTP Response Code: \(statusCode ?? 121212)")
+            
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                print("Invalid response")
+                
+                if let data = data {
+                    // Process the data, e.g., convert it to a Swift object
+                    do {
+                        let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+                                        let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted])
+                                        if let jsonString = String(data: jsonData, encoding: .utf8) {
+                                            print("JSON Response: \(jsonString)")
+                                            completion("", jsonString)
+                                            return
+                                        }
+                        else {
+                            completion("", "you have reached your transaction limit or you dont have access for transaction")
+                            return
+                        }
+                        
+                        
+                    } catch {
+                        print("Error parsing JSON: \(error.localizedDescription)")
+                        completion("", "you have reached your transaction limit or you dont have access for transaction")
+                        return
+                    }
+                }
+                
+                
+                
+                completion("", error?.localizedDescription)
+                return
+            }
+            
+            if let data = data {
+                // Process the data, e.g., convert it to a Swift object
+                do {
+                    let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+                                    let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted])
+                                    if let jsonString = String(data: jsonData, encoding: .utf8) {
+                                        print("JSON Response: \(jsonString)")
+                                        completion(jsonString, "")
+                                    }
+                    else {
+                        completion("", error?.localizedDescription)
+                    }
+                    
+                    
+                } catch {
+                    print("Error parsing JSON: \(error.localizedDescription)")
+                    completion("", error.localizedDescription)
+                }
+            }
+        }
+
+        // Resume the data task to initiate the request
+        task.resume()
+    }
+    
     public static func getDataFromAPI(completion: @escaping (Data?, Error?) -> Void) {
       
         if var urlComponents = URLComponents(string: iPassSDKDataObjHandler.shared.isCustom
