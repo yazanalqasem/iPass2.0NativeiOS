@@ -15,7 +15,7 @@ public class DataBaseDownloading{
     public static func initialization(completion: @escaping (String, String, String) -> Void) {
         
         do {
-            Amplify.Logging.logLevel = .verbose
+           // Amplify.Logging.logLevel = .verbose
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
             
             
