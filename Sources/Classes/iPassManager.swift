@@ -185,7 +185,11 @@ public class iPassSDKManger {
                 stopLoaderAnimation()
             }
             if(error != "") {
-                print("Response",response as Any)
+                
+                var tempDict = [String: String]()
+                
+                tempDict = error?.convertToDictionary() ?? [:]
+                
                 self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
             }
             else {
@@ -683,5 +687,18 @@ public class iPassSDKManger {
             print("Error converting JSON data: \(error)")
             return nil
         }
+    }
+}
+
+extension String {
+    func convertToDictionary() -> [String: String]? {
+        if let data = self.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: String]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
     }
 }
