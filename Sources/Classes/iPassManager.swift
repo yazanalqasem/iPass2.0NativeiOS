@@ -273,7 +273,8 @@ public class iPassSDKManger {
     }
     
     private static func isNumeric(_ input: String) -> Bool {
-        let regex = "^[0-9]+$"
+        //let regex = "^[0-9]+$"
+        let regex = "^\\d{3}-\\d{3}-\\d{4}$"
         let test = NSPredicate(format:"SELF MATCHES %@", regex)
         return test.evaluate(with: input)
     }
