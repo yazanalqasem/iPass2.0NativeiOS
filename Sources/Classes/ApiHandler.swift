@@ -301,6 +301,18 @@ public class iPassHandler {
             
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
                 print("Invalid response")
+                if let data = data {
+                
+                    // Process the data, e.g., convert it to a Swift object
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        print(json)
+                        completion(json, "")
+                    } catch {
+                        print("Error parsing JSON: \(error.localizedDescription)")
+                        completion("", error.localizedDescription)
+                    }
+                }
                 completion("", error?.localizedDescription)
                 return
             }
@@ -443,13 +455,15 @@ public class iPassHandler {
                                         completion(jsonString, "")
                                     }
                     else {
-                        completion("", error?.localizedDescription)
+                        completion("", "you have reached your transaction limit or you dont have access for transaction")
+                        return
                     }
                     
                     
                 } catch {
                     print("Error parsing JSON: \(error.localizedDescription)")
-                    completion("", error.localizedDescription)
+                    completion("", "you have reached your transaction limit or you dont have access for transaction")
+                    return
                 }
             }
         }
