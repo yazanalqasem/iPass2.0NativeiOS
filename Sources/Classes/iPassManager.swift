@@ -180,7 +180,7 @@ public class iPassSDKManger {
     
     
     private static func checkUserPermission() {
-        iPassHandler.methodForGet(urlStr: getPermissionStatus.baseApi + iPassSDKDataManager.shared.token ) { response, error in
+        iPassHandler.methodForGetWithErrorMessages(urlStr: getPermissionStatus.baseApi + iPassSDKDataManager.shared.token ) { response, error in
             DispatchQueue.main.async {
                 stopLoaderAnimation()
             }
