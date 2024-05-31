@@ -45,29 +45,26 @@ public struct FaceClass: View {
                 case .success:
                    
                     print("Success")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                    DispatchQueue.main.async {
                         self.faceLivenessStringValue = "1" // Now you can modify this
                         UserDefaults.standard.set(faceLivenessStringValue, forKey: "faceLiveness")
                         self.isPresentingUserInfo = true
                         var dictStatus = [AnyHashable:Any]()
                         dictStatus["value"] = "1"
                         dictStatus["status"] = "success"
-                       // NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil, userInfo: dictStatus)
-                        
-                        NotificationCenter.default.post(name: Notification.Name("dismissSwiftUI"), object: nil, userInfo: nil)
-                    })
+                        NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil, userInfo: dictStatus)
+                    }
                 case .failure(_):
                     print("Failure")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                    DispatchQueue.main.async {
                         self.faceLivenessStringValue = "0" // Now you can modify this
                         UserDefaults.standard.set(faceLivenessStringValue, forKey: "isFaceLiveness")
                         self.isPresentingUserInfo = true
                         var dictStatus = [AnyHashable:Any]()
                         dictStatus["value"] = "0"
                         dictStatus["status"] = "failure"
-                       // NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil, userInfo: dictStatus)
-                        NotificationCenter.default.post(name: Notification.Name("dismissSwiftUI"), object: nil, userInfo: nil)
-                    })
+                        NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil, userInfo: dictStatus)
+                    }
                 }
             }
         )
