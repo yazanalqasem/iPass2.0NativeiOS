@@ -587,7 +587,7 @@ public class iPassSDKManger {
      }
     
     private static func startSavingDataToPanel() {
-        
+        self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Data processing error")
         return
         
         let documentDataJson = convertStringToJSON(iPassSDKDataManager.shared.resultScanData.rawResult)
