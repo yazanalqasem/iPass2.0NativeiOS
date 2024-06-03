@@ -242,10 +242,10 @@ public class iPassSDKManger {
                 return
             }
             
-            else if(isNumeric(phoneNumber) == false) {
-                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Only numbers are allowed in phone number")
-                 return
-             }
+//            else if(isNumeric(phoneNumber) == false) {
+//                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Only numbers are allowed in phone number")
+//                 return
+//             }
         }
        
         
