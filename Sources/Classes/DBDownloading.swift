@@ -49,6 +49,8 @@ public class DataBaseDownloading{
        
         DocReader.shared.removeDatabase { (success, error) in
             
+            DocReader.shared.cancelDBUpdate()
+            
             DocumentReaderService.shared.initializeDatabaseAndAPI(progress: { state in
                 var progressValue = ""
                 var status = ""
