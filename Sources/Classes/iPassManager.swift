@@ -227,11 +227,7 @@ public class iPassSDKManger {
     public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String) async   {
         
       
-        if await (isAuthorized == false) {
-            self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Please allow for camera permissions ")
-            return
-        }
-        
+       
         if(flowId == 10031) {
             if(socialMediaEmail == "" ) {
                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email is requried")
