@@ -224,10 +224,13 @@ public class iPassSDKManger {
 
     
     
-    public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String)   {
+    public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String) async   {
         
       
-        
+        if await (isAuthorized == false) {
+            self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Please allow for camera permissions ")
+            return
+        }
         
         if(flowId == 10031) {
             if(socialMediaEmail == "" ) {
@@ -266,6 +269,23 @@ public class iPassSDKManger {
         checkUserPermission()
     
 
+    }
+    
+    private static var isAuthorized: Bool {
+        get async {
+            let status = AVCaptureDevice.authorizationStatus(for: .video)
+            
+            // Determine if the user previously authorized camera access.
+            var isAuthorized = status == .authorized
+            
+            // If the system hasn't determined the user's authorization status,
+            // explicitly prompt them for approval.
+            if status == .notDetermined {
+                isAuthorized = await AVCaptureDevice.requestAccess(for: .video)
+            }
+            
+            return isAuthorized
+        }
     }
     
     private static func isNumeric(_ input: String) -> Bool {
