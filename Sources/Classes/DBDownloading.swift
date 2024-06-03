@@ -41,65 +41,31 @@ public class DataBaseDownloading{
             } else {
                 // Handle error loading or decoding configuration
             }
-        } 
-        else {
+        } else {
         }
         
         
-        
-        DispatchQueue.main.async {
-            DocReader.shared.cancelDBUpdate()
-            DocReader.shared.removeDatabase { (success, error) in
-                
-                if(success) {
-                    DocumentReaderService.shared.initializeDatabaseAndAPI(progress: { state in
-                        var progressValue = ""
-                        var status = ""
-                        var validationError = ""
-                        switch state {
-                        case .downloadingDatabase(progress: let progress):
-                            let progressString = String(format: "%.1f", progress * 100)
-                            progressValue = "Downloading database: \(progressString)%"
-                        case .initializingAPI:
-                            status = "Start Now"
-                        case .completed:
-                            break
-                        case .error(let text):
-                            validationError = text
-                        }
-                        completion(progressValue, status, validationError)
-                    })
-                }
-        }
-        
-     
-            
-         
-            
-
-        }
-        
-        
+       
      
         
         
-//        DocumentReaderService.shared.initializeDatabaseAndAPI(progress: { state in
-//            var progressValue = ""
-//            var status = ""
-//            var validationError = ""
-//            switch state {
-//            case .downloadingDatabase(progress: let progress):
-//                let progressString = String(format: "%.1f", progress * 100)
-//                progressValue = "Downloading database: \(progressString)%"
-//            case .initializingAPI:
-//                status = "Start Now"
-//            case .completed:
-//                break
-//            case .error(let text):
-//                validationError = text
-//            }
-//            completion(progressValue, status, validationError)
-//        })
+        DocumentReaderService.shared.initializeDatabaseAndAPI(progress: { state in
+            var progressValue = ""
+            var status = ""
+            var validationError = ""
+            switch state {
+            case .downloadingDatabase(progress: let progress):
+                let progressString = String(format: "%.1f", progress * 100)
+                progressValue = "Downloading database: \(progressString)%"
+            case .initializingAPI:
+                status = "Start Now"
+            case .completed:
+                break
+            case .error(let text):
+                validationError = text
+            }
+            completion(progressValue, status, validationError)
+        })
     }
     
     
