@@ -639,7 +639,6 @@ public class iPassSDKManger {
     
     private static func startDataFetching() {
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             iPassHandler.methodForGet(urlStr: GetDataApi.baseApi + iPassSDKDataManager.shared.token + GetDataApi.sesid + iPassSDKDataManager.shared.sid) { response, error in
                 DispatchQueue.main.async {
                     stopLoaderAnimation()
@@ -652,7 +651,7 @@ public class iPassSDKManger {
                 }
                 
             }
-        }
+        
         
       
         
