@@ -638,18 +638,23 @@ public class iPassSDKManger {
     }
     
     private static func startDataFetching() {
-        iPassHandler.methodForGet(urlStr: GetDataApi.baseApi + iPassSDKDataManager.shared.token + GetDataApi.sesid + iPassSDKDataManager.shared.sid) { response, error in
-            DispatchQueue.main.async {
-                stopLoaderAnimation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            iPassHandler.methodForGet(urlStr: GetDataApi.baseApi + iPassSDKDataManager.shared.token + GetDataApi.sesid + iPassSDKDataManager.shared.sid) { response, error in
+                DispatchQueue.main.async {
+                    stopLoaderAnimation()
+                }
+                if(error != "") {
+                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
+                }
+                else {
+                    self.delegate?.getScanCompletionResult(result: response as! String, transactionId: iPassSDKDataManager.shared.sid, error: "")
+                }
+                
             }
-            if(error != "") {
-                self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
-            }
-            else {
-                self.delegate?.getScanCompletionResult(result: response as! String, transactionId: iPassSDKDataManager.shared.sid, error: "")
-            }
-            
         }
+        
+      
         
     }
     
