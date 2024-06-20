@@ -1,3 +1,7 @@
+#### Updates in new version
+- Added new date format method in Sdk Configuration. For more details please check the step `SDK Properties`
+
+
 # Steps of using iPASS iOS Package
 
 To explain how a user can use the iPASS Package in steps, you can outline the process as follows:
@@ -17,7 +21,7 @@ Steps to add the package:
 
 Import the package in your required view controller.
 
-```swift
+```ruby
 import iPass2_0NativeiOS
 ```
 ### Configure Permissions in Info.plist
