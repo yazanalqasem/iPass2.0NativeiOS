@@ -37,6 +37,7 @@ public class iPassSDKDataManager {
     var loaderColor = UIColor(red: 126/255, green:87/255, blue: 196/255, alpha: 1.0)
     var needHologram = true
     var alreadyReturned = false
+    var documentDateFormat = "dd-mm-yyyy"
 }
 
 
@@ -47,6 +48,9 @@ public class configProperties {
     }
     public static func needHologramDetection(value: Bool) {
         iPassSDKDataManager.shared.needHologram = value
+    }
+    public static func setDateFormat(format: String) {
+        iPassSDKDataManager.shared.documentDateFormat = format
     }
 }
 
@@ -347,6 +351,7 @@ public class iPassSDKManger {
     
     private static func setDocumentScannerProperties() {
         DocReader.shared.processParams.returnUncroppedImage = true
+        DocReader.shared.processParams.dateFormat = iPassSDKDataManager.shared.documentDateFormat
         DocReader.shared.processParams.multipageProcessing = true
         DocReader.shared.customization.cameraFrameDefaultColor  = UIColor(red: 126/255, green: 87/255, blue: 196/255, alpha: 1)
         DocReader.shared.customization.tintColor  = UIColor(red: 126/255, green: 87/255, blue: 196/255, alpha: 1)
