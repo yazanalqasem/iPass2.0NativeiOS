@@ -600,6 +600,34 @@ public class iPassSDKManger {
      }
     
     
+    
+    private static func fetchPublicIPAddress(completion: @escaping (String?) -> Void) {
+        let url = URL(string: "https://api.ipify.org?format=json")!
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Error fetching public IP address: \(error?.localizedDescription ?? "Unknown error")")
+                completion(nil)
+                return
+            }
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                   let ipAddress = json["ip"] as? String {
+                    completion(ipAddress)
+                } else {
+                    completion(nil)
+                }
+            } catch {
+                print("Error parsing JSON: \(error.localizedDescription)")
+                completion(nil)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
 
     
     private static func startSavingDataToPanel() {
@@ -611,34 +639,50 @@ public class iPassSDKManger {
         
         var userIpAddress = "Unable to get IP Address"
         
-        if let ipAddress = getIPAddress() {
-            userIpAddress = ipAddress
+        
+        
+        fetchPublicIPAddress { ipAddress in
+            if let ipAddress = ipAddress {
+                print("IP Address 3 \(ipAddress)")
+                userIpAddress = ipAddress
+            } else {
+                print("Unable to fetch public IP Address")
+                userIpAddress = ""
+            }
+            
+            let parameters: [String: Any] = [
+                SaveDataApi.sessionId: iPassSDKDataManager.shared.sessionId,
+                SaveDataApi.randomid: iPassSDKDataManager.shared.sid,
+                SaveDataApi.social_media_email:  iPassSDKDataManager.shared.userSocialMediaEmail ,
+                SaveDataApi.phone_number:  iPassSDKDataManager.shared.userPhoneNumber ,
+                SaveDataApi.ipadd: userIpAddress,
+                SaveDataApi.email: iPassSDKDataManager.shared.email,
+                SaveDataApi.workflow: String(iPassSDKDataManager.shared.userSelectedFlowId),
+                SaveDataApi.idv_data: documentDataJson ?? "",
+                SaveDataApi.source: "iOS",
+                
+            ]
+            iPassHandler.methodForPost(url: SaveDataApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
+                if(error != "") {
+                    DispatchQueue.main.async {
+                        stopLoaderAnimation()
+                    }
+                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Data processing error")
+                }
+                else {
+                    startDataFetching()
+                }
+                
+            }
+            
+            
+            
         }
         
-        let parameters: [String: Any] = [
-            SaveDataApi.sessionId: iPassSDKDataManager.shared.sessionId,
-            SaveDataApi.randomid: iPassSDKDataManager.shared.sid,
-            SaveDataApi.social_media_email:  iPassSDKDataManager.shared.userSocialMediaEmail ,
-            SaveDataApi.phone_number:  iPassSDKDataManager.shared.userPhoneNumber ,
-            SaveDataApi.ipadd: userIpAddress,
-            SaveDataApi.email: iPassSDKDataManager.shared.email,
-            SaveDataApi.workflow: String(iPassSDKDataManager.shared.userSelectedFlowId),
-            SaveDataApi.idv_data: documentDataJson ?? "",
-            SaveDataApi.source: "iOS",
-            
-        ]
-        iPassHandler.methodForPost(url: SaveDataApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
-            if(error != "") {
-                DispatchQueue.main.async {
-                    stopLoaderAnimation()
-                }
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Data processing error")
-            }
-            else {
-                startDataFetching()
-            }
-            
-        }
+        
+       
+        
+       
     }
     
     private static func startDataFetching() {
