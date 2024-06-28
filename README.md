@@ -1,5 +1,5 @@
 #### Updates in new version
-- Added new date format method in Sdk Configuration. For more details please check the step `SDK Properties`
+-  Updated user liveness
 
 
 # Steps of using iPASS iOS Package
