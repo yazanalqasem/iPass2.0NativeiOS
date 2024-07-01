@@ -536,7 +536,23 @@ public class iPassSDKManger {
             startSavingDataToPanel()
         }
         
-      
+    }
+    
+    
+    public static func addLivenessInfoView() {
+        
+        let fullScreenView = FullScreenView(frame: iPassSDKDataManager.shared.controller.view.bounds)
+        iPassSDKDataManager.shared.controller.view.addSubview(fullScreenView)
+                
+                // Set fullScreenView to fill the entire screen
+                fullScreenView.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    fullScreenView.topAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.topAnchor),
+                    fullScreenView.bottomAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.bottomAnchor),
+                    fullScreenView.leadingAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.leadingAnchor),
+                    fullScreenView.trailingAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.trailingAnchor)
+                ])
+        
     }
     
     private static func fetchCurrentAuthSession() async {
@@ -770,3 +786,4 @@ extension String {
         return nil
     }
 }
+
