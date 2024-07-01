@@ -45,6 +45,7 @@ class FullScreenView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .red
         setupView()
     }
     
@@ -53,7 +54,7 @@ class FullScreenView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = .white
+        backgroundColor = .gray
         
         // Add subviews
         addSubview(crossButton)
