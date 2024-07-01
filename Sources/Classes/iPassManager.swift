@@ -539,20 +539,25 @@ public class iPassSDKManger {
     }
     
     
-    public static func addLivenessInfoView() {
+    public static func addLivenessInfoView(ctrl : UIViewController) {
         
-        let fullScreenView = FullScreenView(frame: iPassSDKDataManager.shared.controller.view.bounds)
-        iPassSDKDataManager.shared.controller.view.addSubview(fullScreenView)
-        iPassSDKDataManager.shared.controller.view.bringSubviewToFront(fullScreenView)
+        let fullScreenView = FullScreenView(frame: ctrl.view.bounds)
+        ctrl.view.addSubview(fullScreenView)
+    //    iPassSDKDataManager.shared.controller.view.bringSubviewToFront(fullScreenView)
+        
+        
+        
+    
+    
 
                 
                 // Set fullScreenView to fill the entire screen
                 fullScreenView.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.activate([
-                    fullScreenView.topAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.topAnchor),
-                    fullScreenView.bottomAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.bottomAnchor),
-                    fullScreenView.leadingAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.leadingAnchor),
-                    fullScreenView.trailingAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.trailingAnchor)
+                    fullScreenView.topAnchor.constraint(equalTo: ctrl.view.topAnchor),
+                    fullScreenView.bottomAnchor.constraint(equalTo: ctrl.view.bottomAnchor),
+                    fullScreenView.leadingAnchor.constraint(equalTo: ctrl.view.leadingAnchor),
+                    fullScreenView.trailingAnchor.constraint(equalTo: ctrl.view.trailingAnchor)
                 ])
         
     }
