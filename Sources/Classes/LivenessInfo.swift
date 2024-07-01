@@ -71,7 +71,7 @@ class FullScreenView: UIView {
         // Set constraints
         NSLayoutConstraint.activate([
             // Cross button constraints
-            crossButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15),
+            crossButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
             crossButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             
             // Center image view constraints
