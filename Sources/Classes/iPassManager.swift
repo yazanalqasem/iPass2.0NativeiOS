@@ -543,6 +543,8 @@ public class iPassSDKManger {
         
         let fullScreenView = FullScreenView(frame: iPassSDKDataManager.shared.controller.view.bounds)
         iPassSDKDataManager.shared.controller.view.addSubview(fullScreenView)
+        iPassSDKDataManager.shared.controller.view.bringSubviewToFront(fullScreenView)
+
                 
                 // Set fullScreenView to fill the entire screen
                 fullScreenView.translatesAutoresizingMaskIntoConstraints = false
