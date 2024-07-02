@@ -17,6 +17,7 @@ class FullScreenView: UIView {
         return button
     }()
     
+    
     private let centerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .red
