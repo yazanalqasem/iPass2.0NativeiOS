@@ -587,9 +587,9 @@ public class iPassSDKManger {
                     username: "testuser",
                     password: "Apple@123"
                     )
-                if signInResult.isSignedIn {
-                    await fetchCurrentAuthSession()
-                }
+//                if signInResult.isSignedIn {
+//                    await fetchCurrentAuthSession()
+//                }
             } catch let error as AuthError {
             } catch {
             }
