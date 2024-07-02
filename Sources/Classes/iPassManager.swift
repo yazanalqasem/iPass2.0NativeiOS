@@ -563,23 +563,25 @@ public class iPassSDKManger {
     }
     
     private static func fetchCurrentAuthSession() async {
-        DispatchQueue.main.async {
-                  addAnimationLoader()
-              }
-         do {
-             let session = try await Amplify.Auth.fetchAuthSession()
-             
-             if(session.isSignedIn == true) {
-                 faceLivenessApi()
-             }
-             else {
-                 await signIn()
-             }
-             
-         } catch let error as AuthError {
-         } catch {
-         }
-     }
+        
+        faceLivenessApi()
+//        DispatchQueue.main.async {
+//            addAnimationLoader()
+//        }
+//        do {
+//            let session = try await Amplify.Auth.fetchAuthSession()
+//            
+//            if(session.isSignedIn == true) {
+//                faceLivenessApi()
+//            }
+//            else {
+//                await signIn()
+//            }
+//            
+//        } catch let error as AuthError {
+//        } catch {
+//        }
+    }
     
     private static func signIn() async {
             do {
@@ -587,9 +589,9 @@ public class iPassSDKManger {
                     username: "testuser",
                     password: "Apple@123"
                     )
-//                if signInResult.isSignedIn {
-//                    await fetchCurrentAuthSession()
-//                }
+                if signInResult.isSignedIn {
+                    await fetchCurrentAuthSession()
+                }
             } catch let error as AuthError {
             } catch {
             }
