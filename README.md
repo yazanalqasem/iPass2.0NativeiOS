@@ -45,6 +45,10 @@ crime, internet firms must know and trust that their
 clients are who they say they are – and that they will
 remain trustworthy. 
 
+<p align="center">
+  <img src="https://github.com/yazanalqasem/iPass2.0NativeiOS/blob/liveness_update/sam4.png" alt="Logo" />
+</p>
+
 ---
 
 ## Steps of using iPASS iOS Package
