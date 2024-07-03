@@ -5,11 +5,11 @@
 
 [![License](https://img.shields.io/badge/License-Commercial-blue.svg)](LICENSE)
 [![iPass](https://img.shields.io/badge/iPass-lightgreen)](https://ipass-mena.com)
-![Swift](https://img.shields.io/badge/Swift-3x,%204x,%205x-red.svg)(https://developer.apple.com/swift/)
+[![Swift](https://img.shields.io/badge/Swift-3x,%204x,%205x-red.svg)](https://developer.apple.com/swift/)
 ![platform](https://img.shields.io/badge/Platforms-ios-orange)
 ![eKYC](https://img.shields.io/badge/eKYC-red)
 ![AI-powered identity verification](https://img.shields.io/badge/identity%20verification-black)
-![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20manager-compatible-orange)(https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app)
+[![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20manager-compatible-orange)](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app)
 
 # Table of Contents
 - [Overview](#overview)
