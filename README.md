@@ -1,6 +1,8 @@
 ![Logo](https://github.com/yazanalqasem/iPass2.0NativeiOS/blob/liveness_update/lg.png)
 
-
+<p align="center">
+  <img src="https://github.com/yazanalqasem/iPass2.0NativeiOS/blob/liveness_update/lg.png" alt="Logo" />
+</p>
 
 [![License](https://img.shields.io/badge/License-Commercial-blue.svg)](LICENSE)
 [![iPass](https://img.shields.io/badge/iPass-lightgreen)](https://ipass-mena.com)
