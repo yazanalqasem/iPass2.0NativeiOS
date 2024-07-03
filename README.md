@@ -1,4 +1,3 @@
-![Logo](https://github.com/yazanalqasem/iPass2.0NativeiOS/blob/liveness_update/lg.png)
 
 <p align="center">
   <img src="https://github.com/yazanalqasem/iPass2.0NativeiOS/blob/liveness_update/lg.png" alt="Logo" />
