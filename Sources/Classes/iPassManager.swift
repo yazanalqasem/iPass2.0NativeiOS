@@ -626,6 +626,7 @@ public class iPassSDKManger {
     
     
     
+    
     private static func fetchPublicIPAddress(completion: @escaping (String?) -> Void) {
         let url = URL(string: "https://api.ipify.org?format=json")!
         
