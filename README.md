@@ -177,8 +177,7 @@ iPassSDKManger.startScanningProcess(userEmail: "sam@gmail.com", flowId: 10031, s
 ### SDK Properties
  ```ruby
 configProperties.setLoaderColor(color: UIColor.red)
-configProperties.needHologramDetection(value: true)
-configProperties.needHologramDetection(value: true)
+configProperties.needHologramDetection(value: false)
 configProperties.setDateFormat(format: "dd/mm/yyyy")
 ```
 - "setLoaderColor" property is used to change the color of the loader.
