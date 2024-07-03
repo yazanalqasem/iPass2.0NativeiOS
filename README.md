@@ -33,7 +33,8 @@
 
 
 #### Updates in new version
--  Updated user liveness
+- Better user experience 
+- Improved Results 
 
 # Overview
 AI-powered identity verification, eKYC, and
