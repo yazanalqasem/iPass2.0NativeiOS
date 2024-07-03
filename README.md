@@ -50,8 +50,7 @@ remain trustworthy.
 
 ## Steps of using iPASS iOS Package
 
-To explain how a user can use the iPASS Package in steps, you can outline the process as follows. you can also check our sample code from the below link:
-[Code link](https://github.com/yazanalqasem/iPass2.0NativeiOS)
+To explain how a user can use the iPASS Package in steps, you can outline the process as follows. you can also check our [sample code.](https://github.com/yazanalqasem/iPass2.0NativeiOS)
 
 ## Steps to use iPASS iOS Package
 
