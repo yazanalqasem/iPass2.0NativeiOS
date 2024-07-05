@@ -265,6 +265,17 @@ public class iPassHandler {
             let statusCode = httpResponseee?.statusCode
             
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                
+                if let data = data {
+                    // Process the data, e.g., convert it to a Swift object
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        completion(json, "")
+                    } catch {
+                        completion("", error.localizedDescription)
+                    }
+                }
+                
                 completion("", error?.localizedDescription)
                 return
             }
