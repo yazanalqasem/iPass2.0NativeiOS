@@ -274,18 +274,22 @@ public class iPassHandler {
                             if let message = jsonObject["message"] as? String {
                                 print("Message: \(message)")
                                 completion("", message + "++")
+                                return
                                 // Use the message as needed
                             } else {
                                 completion("", error?.localizedDescription)
+                                return
                             }
                         }
                         else {
                             completion("", error?.localizedDescription)
+                            return
                         }
                         
                     } 
                     catch {
                         completion("", error.localizedDescription)
+                        return
                     }
                 }
                 
