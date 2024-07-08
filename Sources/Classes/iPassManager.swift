@@ -148,15 +148,15 @@ public class iPassSDKManger {
                             completion(true, token)
                         }
                         else {
-                            completion(false, "")
+                            completion(false, "User Login Issue")
                         }
                     }
                     else {
-                        completion(false, "")
+                        completion(false, "User Login Issue")
                     }
                 }
                 else {
-                    completion(false, "")
+                    completion(false, "User Login Issue")
                 }
             }
         }
