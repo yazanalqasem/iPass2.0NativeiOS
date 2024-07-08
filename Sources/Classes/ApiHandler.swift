@@ -272,7 +272,7 @@ public class iPassHandler {
                         let json = try JSONSerialization.jsonObject(with: data, options: [])
                         if let jsonObject = json as? [String: Any] {
                             if let message = jsonObject["message"] as? String {
-                                print("Message: \(message)")
+                               
                                 completion("", message + "++")
                                 return
                                 // Use the message as needed
