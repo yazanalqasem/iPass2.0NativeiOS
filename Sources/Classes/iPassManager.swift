@@ -122,11 +122,25 @@ public class iPassSDKManger {
             UserLoginApi.password: password
         ]
         iPassHandler.methodForPost(url: UserLoginApi.baseApi, params: parameters) { response, error in
-            if(error != "") {
+//            if(error != "") {
+//                
+//                completion(false, ((error?.contains("++"))! ? error?.removePrefix("++") : "User Login Issue") ?? "User Login Issue")
+//                //completion(false, "User Login Issue")
+//            }
+            
+            if let error = error, !error.isEmpty {
+                let processedError: String
+                if error.contains("++") {
+                    processedError = error.replacingOccurrences(of: "++", with: "")
+                } else {
+                    processedError = "User Login Issue"
+                }
+                completion(false, processedError)
                 
-                completion(false, ((error?.contains("++"))! ? error?.removePrefix("++") : "User Login Issue") ?? "User Login Issue")
-                //completion(false, "User Login Issue")
             }
+          
+            
+            
             else {
                 if let json = response as? [String: Any] {
                     if let user = json["user"] as? [String: Any] {
@@ -314,15 +328,23 @@ public class iPassSDKManger {
             DispatchQueue.main.async {
                 stopLoaderAnimation()
             }
-            if(error != "") {
-               // self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Error in creating session")
-                
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: ((error?.contains("++"))! ? error?.removePrefix("++") : "Error in creating session") ?? "Error in creating session")
-                
-                
-               
-                
+//            if(error != "") {
+//               // self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Error in creating session")
+//                
+//                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: ((error?.contains("++"))! ? error?.removePrefix("++") : "Error in creating session") ?? "Error in creating session")
+//
+//            }
+            
+            if let error = error, !error.isEmpty {
+                let processedError: String
+                if error.contains("++") {
+                    processedError = error.replacingOccurrences(of: "++", with: "")
+                } else {
+                    processedError = "Error in creating session"
+                }
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: processedError)
             }
+            
             else {
                 if let jsonRes = response as? [String: Any] {
                     if let sessionId = jsonRes["sessionId"] as? String  {
@@ -696,12 +718,29 @@ public class iPassSDKManger {
                 
             ]
             iPassHandler.methodForPost(url: SaveDataApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
-                if(error != "") {
-                    DispatchQueue.main.async {
-                        stopLoaderAnimation()
+//                if(error != "") {
+//                    DispatchQueue.main.async {
+//                        stopLoaderAnimation()
+//                    }
+//                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: error)
+//                }
+               
+                
+                if let error = error, !error.isEmpty {
+                        DispatchQueue.main.async {
+                            stopLoaderAnimation()
+                        }
+                        
+                        let processedError: String
+                        if error.contains("++") {
+                            processedError = error.replacingOccurrences(of: "++", with: "")
+                        } else {
+                            processedError = "Data processing error"
+                        }
+                        
+                        self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: processedError)
                     }
-                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: ((error?.contains("++"))! ? error : "Data Processing Error") ?? "Data Processing Error")
-                }
+                
                 else {
                     startDataFetching()
                 }
