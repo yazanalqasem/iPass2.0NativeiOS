@@ -270,8 +270,21 @@ public class iPassHandler {
                     // Process the data, e.g., convert it to a Swift object
                     do {
                         let json = try JSONSerialization.jsonObject(with: data, options: [])
-                        completion(json, "")
-                    } catch {
+                        if let jsonObject = json as? [String: Any] {
+                            if let message = jsonObject["message"] as? String {
+                                print("Message: \(message)")
+                                completion("", message)
+                                // Use the message as needed
+                            } else {
+                                completion("", error?.localizedDescription)
+                            }
+                        }
+                        else {
+                            completion("", error?.localizedDescription)
+                        }
+                        
+                    } 
+                    catch {
                         completion("", error.localizedDescription)
                     }
                 }
