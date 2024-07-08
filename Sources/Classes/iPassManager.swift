@@ -593,7 +593,9 @@ public class iPassSDKManger {
     }
     
     private static func fetchCurrentAuthSession() async {
-        
+        DispatchQueue.main.async {
+                   addAnimationLoader()
+               }
         faceLivenessApi()
         
 //        DispatchQueue.main.async {
