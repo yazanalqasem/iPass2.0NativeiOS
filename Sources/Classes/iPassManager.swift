@@ -123,7 +123,9 @@ public class iPassSDKManger {
         ]
         iPassHandler.methodForPost(url: UserLoginApi.baseApi, params: parameters) { response, error in
             if(error != "") {
-                completion(false, "User Login Issue")
+                
+                completion(false, ((error?.contains("++"))! ? error?.removePrefix("++") : "User Login Issue") ?? "User Login Issue")
+                //completion(false, "User Login Issue")
             }
             else {
                 if let json = response as? [String: Any] {
@@ -313,7 +315,13 @@ public class iPassSDKManger {
                 stopLoaderAnimation()
             }
             if(error != "") {
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Error in creating session")
+               // self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Error in creating session")
+                
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: ((error?.contains("++"))! ? error?.removePrefix("++") : "Error in creating session") ?? "Error in creating session")
+                
+                
+               
+                
             }
             else {
                 if let jsonRes = response as? [String: Any] {
@@ -692,7 +700,7 @@ public class iPassSDKManger {
                     DispatchQueue.main.async {
                         stopLoaderAnimation()
                     }
-                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error:  (error == nil ? "Data processing error" : error) ?? "Data processing error")
+                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: ((error?.contains("++"))! ? error : "Data Processing Error") ?? "Data Processing Error")
                 }
                 else {
                     startDataFetching()
