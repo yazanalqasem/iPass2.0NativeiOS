@@ -273,7 +273,7 @@ public class iPassHandler {
                         if let jsonObject = json as? [String: Any] {
                             if let message = jsonObject["message"] as? String {
                                 print("Message: \(message)")
-                                completion("", message)
+                                completion("", message + "++")
                                 // Use the message as needed
                             } else {
                                 completion("", error?.localizedDescription)
