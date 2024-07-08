@@ -763,9 +763,25 @@ public class iPassSDKManger {
                 DispatchQueue.main.async {
                     stopLoaderAnimation()
                 }
-                if(error != "") {
-                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
-                }
+//                if(error != "") {
+//                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
+//                }
+                
+                if let error = error, !error.isEmpty {
+                        DispatchQueue.main.async {
+                            stopLoaderAnimation()
+                        }
+                        
+                        let processedError: String
+                        if error.contains("++") {
+                            processedError = error.replacingOccurrences(of: "++", with: "")
+                        } else {
+                            processedError = "Data processing error"
+                        }
+                        
+                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: processedError)
+                    }
+                
                 else {
                     self.delegate?.getScanCompletionResult(result: response as! String, transactionId: iPassSDKDataManager.shared.sid, error: "")
                 }

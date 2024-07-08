@@ -333,8 +333,40 @@ public class iPassHandler {
      let statusCode = httpResponseee?.statusCode
             
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+//                completion("", error?.localizedDescription)
+//                return
+                
+                
+                if let data = data {
+                    // Process the data, e.g., convert it to a Swift object
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        if let jsonObject = json as? [String: Any] {
+                            if let message = jsonObject["message"] as? String {
+                               
+                                completion("", message + "++")
+                                return
+                                // Use the message as needed
+                            } else {
+                                completion("", error?.localizedDescription)
+                                return
+                            }
+                        }
+                        else {
+                            completion("", error?.localizedDescription)
+                            return
+                        }
+                        
+                    }
+                    catch {
+                        completion("", error.localizedDescription)
+                        return
+                    }
+                }
+                
                 completion("", error?.localizedDescription)
                 return
+            
             }
             
             if let data = data {
