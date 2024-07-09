@@ -13,6 +13,8 @@ import Amplify
 import SwiftUI
 import Amplify
 import AWSCognitoAuthPlugin
+import AWSCognitoIdentity
+
 
 
 public class iPassSDKDataManager {
@@ -598,6 +600,10 @@ public class iPassSDKManger {
 //            faceLivenessApi()
 //               }
      
+        
+        
+        
+        
         
         DispatchQueue.main.async {
             addAnimationLoader()
