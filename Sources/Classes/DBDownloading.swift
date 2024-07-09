@@ -67,10 +67,8 @@ public class DataBaseDownloading{
             case .downloadingDatabase(progress: let progress):
                 let progressString = String(format: "%.1f", progress * 100)
                 progressValue = "Downloading database: \(progressString)%"
-                print("printBBBB")
             case .initializingAPI:
                 status = "Start Now"
-                print("printCCCC")
             case .completed:
                 break
             case .error(let text):
