@@ -595,32 +595,32 @@ public class iPassSDKManger {
     }
     
     private static func fetchCurrentAuthSession() async {
-        DispatchQueue.main.async {
-                   addAnimationLoader()
-            faceLivenessApi()
-               }
+//        DispatchQueue.main.async {
+//                   addAnimationLoader()
+//            faceLivenessApi()
+//               }
      
         
         
         
         
         
-//        DispatchQueue.main.async {
-//            addAnimationLoader()
-//        }
-//        do {
-//            let session = try await Amplify.Auth.fetchAuthSession()
-//            
-//            if(session.isSignedIn == true) {
-//                faceLivenessApi()
-//            }
-//            else {
-//                await signIn()
-//            }
-//            
-//        } catch let error as AuthError {
-//        } catch {
-//        }
+        DispatchQueue.main.async {
+            addAnimationLoader()
+        }
+        do {
+            let session = try await Amplify.Auth.fetchAuthSession()
+            
+            if(session.isSignedIn == true) {
+                faceLivenessApi()
+            }
+            else {
+                await signIn()
+            }
+            
+        } catch let error as AuthError {
+        } catch {
+        }
     }
     
     private static func signIn() async {
