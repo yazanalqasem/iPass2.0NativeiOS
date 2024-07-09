@@ -82,41 +82,9 @@ public struct FaceClass: View {
                     
                 }
                 
-            }.onAppear(){
-                DispatchQueue.main.async {
-                    FaceClass.addAnimationLoader()
-                    
-                }
             }
         }
         
     }
     
-    private static func addAnimationLoader() {
-           var activityIndicator: UIActivityIndicatorView!
-        
-           let fullSizeView = UIView()
-           // Set background color
-        fullSizeView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
-
-           // Add the view to the main view
-        iPassSDKDataManager.shared.controller.view.addSubview(fullSizeView)
-
-           // Constrain the view to the edges of the superview
-           fullSizeView.translatesAutoresizingMaskIntoConstraints = false
-           NSLayoutConstraint.activate([
-            fullSizeView.topAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.topAnchor),
-               fullSizeView.bottomAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.bottomAnchor),
-               fullSizeView.leadingAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.leadingAnchor),
-               fullSizeView.trailingAnchor.constraint(equalTo: iPassSDKDataManager.shared.controller.view.trailingAnchor)
-           ])
-        
-        
-        activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = iPassSDKDataManager.shared.loaderColor
-        activityIndicator.center =  iPassSDKDataManager.shared.controller.view.center
-        activityIndicator.hidesWhenStopped = true
-        fullSizeView.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-    }
 }
