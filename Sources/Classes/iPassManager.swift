@@ -391,10 +391,16 @@ public class iPassSDKManger {
         DocReader.shared.processParams.authenticityParams = AuthenticityParams.default()
         DocReader.shared.processParams.authenticityParams?.livenessParams = LivenessParams.default()
         
-        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkHolo = NSNumber(value: iPassSDKDataManager.shared.needHologram)
-        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = NSNumber(value: iPassSDKDataManager.shared.needHologram)
-        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkED = NSNumber(value: iPassSDKDataManager.shared.needHologram)
-        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+        
+        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkHolo = true
+        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = true
+        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkED = true
+        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = true
+        
+//        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkHolo = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+//        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+//        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkED = NSNumber(value: iPassSDKDataManager.shared.needHologram)
+//        DocReader.shared.processParams.authenticityParams?.livenessParams?.checkMLI = NSNumber(value: iPassSDKDataManager.shared.needHologram)
         DocReader.shared.processParams.authenticityParams?.checkImagePatterns = NSNumber(value: iPassSDKDataManager.shared.needHologram)
         DocReader.shared.processParams.authenticityParams?.checkPhotoEmbedding = NSNumber(value: iPassSDKDataManager.shared.needHologram)
         DocReader.shared.processParams.authenticityParams?.checkBarcodeFormat = NSNumber(value: iPassSDKDataManager.shared.needHologram)
