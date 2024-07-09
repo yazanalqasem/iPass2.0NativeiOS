@@ -82,7 +82,7 @@ public struct FaceClass: View {
                     }
                 ) .onAppear {
                     // Change the background color when the view appears
-                    print("PrintFFFF")
+                   
                 }
                 .sheet(isPresented: $isPresentingUserInfo) {
                     
