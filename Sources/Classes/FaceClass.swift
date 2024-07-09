@@ -37,7 +37,7 @@ public struct FaceClass: View {
         
         
         ZStack {
-            Color.blue // Set the background color to blue
+            Color.black // Set the background color to blue
                 .edgesIgnoringSafeArea(.all) // Make the color cover the entire screen
             
             VStack {
