@@ -37,8 +37,14 @@ public struct FaceClass: View {
         
         
         ZStack {
-            Color.black // Set the background color to blue
-                .edgesIgnoringSafeArea(.all) // Make the color cover the entire screen
+            Text("Loading...")
+                             .font(.largeTitle)
+                             .foregroundColor(.white)
+                             .opacity(0.5) // Slightly transparent to make it less obtrusive
+                         
+                         // Black background
+                         Color.black
+                             .edgesIgnoringSafeArea(.all)
             
             VStack {
                 FaceLivenessDetectorView(
