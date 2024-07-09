@@ -34,6 +34,7 @@ public struct FaceClass: View {
     var isScanningTypeIndex:Int?
 
     public var body: some View {
+       
         FaceLivenessDetectorView(
             sessionID: sessoinIdValue,
             region: "us-east-1",
@@ -67,7 +68,10 @@ public struct FaceClass: View {
                     }
                 }
             }
-        )
+        ) .onAppear {
+            // Change the background color when the view appears
+           print("PrintFFFF")
+        }
         .sheet(isPresented: $isPresentingUserInfo) {
 
         }
