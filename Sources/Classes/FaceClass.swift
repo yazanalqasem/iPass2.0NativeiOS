@@ -34,46 +34,56 @@ public struct FaceClass: View {
     var isScanningTypeIndex:Int?
 
     public var body: some View {
-       
-        FaceLivenessDetectorView(
-            sessionID: sessoinIdValue,
-            region: "us-east-1",
-            disableStartView: true,
-            isPresented: $isPresentingLiveness,
+        
+        
+        ZStack {
+            Color.blue // Set the background color to blue
+                .edgesIgnoringSafeArea(.all) // Make the color cover the entire screen
             
-            onCompletion: { result in
-                switch result {
-                case .success:
-                   
-                    print("Success")
-                    DispatchQueue.main.async {
-                        self.faceLivenessStringValue = "1" // Now you can modify this
-                        UserDefaults.standard.set(faceLivenessStringValue, forKey: "faceLiveness")
-                        self.isPresentingUserInfo = true
-                        var dictStatus = [AnyHashable:Any]()
-                        dictStatus["value"] = "1"
-                        dictStatus["status"] = "success"
-                        NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil, userInfo: dictStatus)
+            VStack {
+                FaceLivenessDetectorView(
+                    sessionID: sessoinIdValue,
+                    region: "us-east-1",
+                    disableStartView: true,
+                    isPresented: $isPresentingLiveness,
+                    
+                    onCompletion: { result in
+                        switch result {
+                        case .success:
+                           
+                            print("Success")
+                            DispatchQueue.main.async {
+                                self.faceLivenessStringValue = "1" // Now you can modify this
+                                UserDefaults.standard.set(faceLivenessStringValue, forKey: "faceLiveness")
+                                self.isPresentingUserInfo = true
+                                var dictStatus = [AnyHashable:Any]()
+                                dictStatus["value"] = "1"
+                                dictStatus["status"] = "success"
+                                NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil, userInfo: dictStatus)
+                            }
+                        case .failure(_):
+                            print("Failure")
+                            DispatchQueue.main.async {
+                                self.faceLivenessStringValue = "0" // Now you can modify this
+                                UserDefaults.standard.set(faceLivenessStringValue, forKey: "isFaceLiveness")
+                                self.isPresentingUserInfo = true
+                                var dictStatus = [AnyHashable:Any]()
+                                dictStatus["value"] = "0"
+                                dictStatus["status"] = "failure"
+                                NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil, userInfo: dictStatus)
+                            }
+                        }
                     }
-                case .failure(_):
-                    print("Failure")
-                    DispatchQueue.main.async {
-                        self.faceLivenessStringValue = "0" // Now you can modify this
-                        UserDefaults.standard.set(faceLivenessStringValue, forKey: "isFaceLiveness")
-                        self.isPresentingUserInfo = true
-                        var dictStatus = [AnyHashable:Any]()
-                        dictStatus["value"] = "0"
-                        dictStatus["status"] = "failure"
-                        NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil, userInfo: dictStatus)
-                    }
+                ) .onAppear {
+                    // Change the background color when the view appears
+                   print("PrintFFFF")
                 }
-            }
-        ) .onAppear {
-            // Change the background color when the view appears
-           print("PrintFFFF")
-        }
-        .sheet(isPresented: $isPresentingUserInfo) {
+                .sheet(isPresented: $isPresentingUserInfo) {
 
+                }
+
+            }
         }
-    }
+       
+            }
 }
