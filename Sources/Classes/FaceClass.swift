@@ -40,7 +40,7 @@ public struct FaceClass: View {
             Text("Loading...")
                              .font(.largeTitle)
                              .foregroundColor(.white)
-                             .opacity(0.5) // Slightly transparent to make it less obtrusive
+                             .opacity(1) // Slightly transparent to make it less obtrusive
                          
                          // Black background
                          Color.black
