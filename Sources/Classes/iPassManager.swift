@@ -657,7 +657,7 @@ public class iPassSDKManger {
                
                 
                 if(iPassSDKDataManager.shared.alreadyReturned == false) {
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                               addAnimationLoader()
                     }
                     iPassSDKDataManager.shared.alreadyReturned = true
