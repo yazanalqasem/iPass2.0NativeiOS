@@ -643,7 +643,7 @@ public class iPassSDKManger {
     
     private static func faceLivenessApi()  {
         DispatchQueue.main.async {
-            stopLoaderAnimation()
+           // stopLoaderAnimation()
             var swiftUIView = FaceClass()
             swiftUIView.sessoinIdValue = iPassSDKDataManager.shared.sessionId
             let hostingController = UIHostingController(rootView: swiftUIView)
@@ -658,7 +658,7 @@ public class iPassSDKManger {
                 
                 if(iPassSDKDataManager.shared.alreadyReturned == false) {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                              addAnimationLoader()
+                            //  addAnimationLoader()
                     }
                     iPassSDKDataManager.shared.alreadyReturned = true
                     startSavingDataToPanel()
