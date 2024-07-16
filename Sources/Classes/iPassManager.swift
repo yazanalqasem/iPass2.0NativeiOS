@@ -643,7 +643,7 @@ public class iPassSDKManger {
     
     private static func faceLivenessApi()  {
         DispatchQueue.main.async {
-           // stopLoaderAnimation()
+            stopLoaderAnimation()
             var swiftUIView = FaceClass()
             swiftUIView.sessoinIdValue = iPassSDKDataManager.shared.sessionId
             let hostingController = UIHostingController(rootView: swiftUIView)
