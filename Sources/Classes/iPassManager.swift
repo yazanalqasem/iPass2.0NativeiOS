@@ -32,6 +32,7 @@ public class iPassSDKDataManager {
     var userPhoneNumber = String()
     var userSocialMediaEmail = String()
     var token = String()
+    var deviceCurrentLangauge = String()
     var email = String()
     var sid = String()
     var controller = UIViewController()
@@ -416,6 +417,8 @@ public class iPassSDKManger {
         } else {
             print("Unable to determine the device's preferred language code.")
         }
+        iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
+        
         if(currentLanguage.lowercased() == "en") {
             let dataValues = EnglishDataValues()
             translationDictionary = dataValues.getDictionary()
