@@ -89,6 +89,9 @@ public struct FaceClass: View {
                 }
                 
             }
+            // Transparent overlay
+            Color.red.opacity(1.0)
+                           .edgesIgnoringSafeArea(.all)
         }
         
     }
