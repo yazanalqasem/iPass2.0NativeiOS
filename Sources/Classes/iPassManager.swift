@@ -218,7 +218,6 @@ public class iPassSDKManger {
                 self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? "you have reached your transaction limit or you dont have access for transaction")
             }
             else {
-                
                 var tempDict = [String: String]()
                 tempDict = response?.convertToDictionary() ?? [:]
                 if(tempDict["message"]?.lowercased() == "sucess") {
@@ -226,7 +225,6 @@ public class iPassSDKManger {
                          createLivenessSessionID()
                     }
                     else if(iPassSDKDataManager.shared.userSelectedFlowId == 10015 ) {
-                        
                          oPenDocumentScanner()
                     }
                     else {
@@ -236,8 +234,6 @@ public class iPassSDKManger {
                 else {
                     self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? "you have reached your transaction limit or you dont have access for transaction")
                 }
-                
-                
             }
             
         }
@@ -371,12 +367,7 @@ public class iPassSDKManger {
     
     private static func oPenDocumentScanner()  {
                         
-             
-//
-      
-        
-        
-        
+ 
         setDocumentScannerProperties()
         
     }

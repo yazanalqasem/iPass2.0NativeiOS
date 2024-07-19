@@ -315,9 +315,7 @@ public class iPassHandler {
     
     public static func methodForGet(urlStr: String, completion: @escaping (Any?, String?) -> Void) {
         // Create a URL for the API endpoint
-        guard let url = URL(string: urlStr) else {
-            return
-        }
+        let url = URL(string: urlStr)! 
 
         // Create a URLRequest with the URL
         let request = URLRequest(url: url)
