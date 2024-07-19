@@ -90,7 +90,7 @@ public struct FaceClass: View {
                 
             }
             // Transparent overlay
-            Color.red.opacity(1.0)
+            Color.white.opacity(0.0)
                            .edgesIgnoringSafeArea(.all)
         }
         
