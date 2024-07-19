@@ -315,11 +315,17 @@ public class iPassHandler {
     
     public static func methodForGet(urlStr: String, completion: @escaping (Any?, String?) -> Void) {
         // Create a URL for the API endpoint
-        let url = URL(string: urlStr)! 
-
+        
+        
+        if let encodedStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+           let url = URL(string: encodedStr) {
+            // Now you can use 'url' safely
+            print(url)
+        
+        
         // Create a URLRequest with the URL
         let request = URLRequest(url: url)
-
+        
         // Create a URLSessionDataTask with the request
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
@@ -328,11 +334,11 @@ public class iPassHandler {
             }
             
             let httpResponseee = response as? HTTPURLResponse
-     let statusCode = httpResponseee?.statusCode
+            let statusCode = httpResponseee?.statusCode
             
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-//                completion("", error?.localizedDescription)
-//                return
+                //                completion("", error?.localizedDescription)
+                //                return
                 
                 
                 if let data = data {
@@ -341,7 +347,7 @@ public class iPassHandler {
                         let json = try JSONSerialization.jsonObject(with: data, options: [])
                         if let jsonObject = json as? [String: Any] {
                             if let message = jsonObject["message"] as? String {
-                               
+                                
                                 completion("", message + "++")
                                 return
                                 // Use the message as needed
@@ -364,17 +370,17 @@ public class iPassHandler {
                 
                 completion("", error?.localizedDescription)
                 return
-            
+                
             }
             
             if let data = data {
                 // Process the data, e.g., convert it to a Swift object
                 do {
                     let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
-                                    let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted])
-                                    if let jsonString = String(data: jsonData, encoding: .utf8) {
-                                        completion(jsonString, "")
-                                    }
+                    let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted])
+                    if let jsonString = String(data: jsonData, encoding: .utf8) {
+                        completion(jsonString, "")
+                    }
                     else {
                         completion("", error?.localizedDescription)
                     }
@@ -385,9 +391,14 @@ public class iPassHandler {
                 }
             }
         }
-
+        
         // Resume the data task to initiate the request
         task.resume()
+    }
+        else {
+            // Handle error
+            completion("", "Data Processing Error")
+        }
     }
     
     
