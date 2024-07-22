@@ -75,7 +75,6 @@ public class iPassSDKManger {
     
     
     
-    
     private static func addAnimationLoader() {
         
            // Set background color
@@ -136,7 +135,7 @@ public class iPassSDKManger {
                 if error.contains("++") {
                     processedError = error.replacingOccurrences(of: "++", with: "")
                 } else {
-                    processedError = "User Login Issue"
+                    processedError = LocalizationManager.shared.localizedString(forKey: "user_login_issue")
                 }
                 completion(false, processedError)
                 
@@ -151,15 +150,15 @@ public class iPassSDKManger {
                             completion(true, token)
                         }
                         else {
-                            completion(false, "User Login Issue")
+                            completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
                         }
                     }
                     else {
-                        completion(false, "User Login Issue")
+                        completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
                     }
                 }
                 else {
-                    completion(false, "User Login Issue")
+                    completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
                 }
             }
         }
@@ -209,14 +208,14 @@ public class iPassSDKManger {
     
     
     private static func checkUserPermission() {
-        iPassHandler.methodForGetWithErrorMessages(urlStr: getPermissionStatus.baseApi + iPassSDKDataManager.shared.token ) { response, error in
+        iPassHandler.methodForGetWithErrorMessages(urlStr: getPermissionStatus.baseApi + iPassSDKDataManager.shared.token + "&language=" + iPassSDKDataManager.shared.deviceCurrentLangauge ) { response, error in
             if(error != "") {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     stopLoaderAnimation()
                 }
                 var tempDict = [String: String]()
                 tempDict = error?.convertToDictionary() ?? [:]
-                self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? "you have reached your transaction limit or you dont have access for transaction")
+                self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? LocalizationManager.shared.localizedString(forKey: "limit_over"))
             }
             else {
                 var tempDict = [String: String]()
@@ -229,11 +228,11 @@ public class iPassSDKManger {
                          oPenDocumentScanner()
                     }
                     else {
-                        self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Work flow id is not valid")
+                        self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: LocalizationManager.shared.localizedString(forKey: "invalid_workflowid"))
                     }
                 }
                 else {
-                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? "you have reached your transaction limit or you dont have access for transaction")
+                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? LocalizationManager.shared.localizedString(forKey: "limit_over"))
                 }
             }
             
@@ -249,15 +248,15 @@ public class iPassSDKManger {
        
         if(flowId == 10031) {
             if(socialMediaEmail == "" ) {
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email is requried")
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: LocalizationManager.shared.localizedString(forKey: "social_media_email"))
                 return
             }
             else if(phoneNumber == "" ) {
-                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is requried")
+                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: LocalizationManager.shared.localizedString(forKey: "phone_number_requried"))
                  return
              }
            else if(isValidEmail(socialMediaEmail) == false) {
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email format is not correct")
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: LocalizationManager.shared.localizedString(forKey: "email_format"))
                 return
             }
             
@@ -339,7 +338,7 @@ public class iPassSDKManger {
                 if error.contains("++") {
                     processedError = error.replacingOccurrences(of: "++", with: "")
                 } else {
-                    processedError = "Error in creating session"
+                    processedError = LocalizationManager.shared.localizedString(forKey: "session_error")
                 }
                 self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: processedError)
             }
@@ -352,11 +351,11 @@ public class iPassSDKManger {
                         
                     }
                     else {
-                        self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Error in creating session")
+                        self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "session_error"))
                     }
                 }
                 else {
-                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Error in creating session")
+                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "session_error"))
                 }
             }
             
@@ -419,6 +418,7 @@ public class iPassSDKManger {
         }
         iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
         
+        
         if(currentLanguage.lowercased() == "en") {
             let dataValues = EnglishDataValues()
             translationDictionary = dataValues.getDictionary()
@@ -431,7 +431,7 @@ public class iPassSDKManger {
             let dataValues = FrenchDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "sp") {
+        else if(currentLanguage.lowercased() == "es") {
             let dataValues = SpanishDataValues()
             translationDictionary = dataValues.getDictionary()
         }
@@ -483,7 +483,7 @@ public class iPassSDKManger {
                         switch action {
                         case .complete:
                             guard results != nil else {
-                                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Document Scanning Error")
+                                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "document_scanning_error"))
                                 return
                             }
                             DispatchQueue.main.async {
@@ -505,7 +505,7 @@ public class iPassSDKManger {
                             
                         case .processTimeout:
                            
-                            iPassSDKDataManager.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
+                            iPassSDKDataManager.shared.controller.view.showToast(toastMessage: LocalizationManager.shared.localizedString(forKey: "nfc_issue"), duration: 2)
                             guard docResults != nil else {
                                 return
                             }
@@ -518,7 +518,7 @@ public class iPassSDKManger {
 
                             
                         case .error:
-                            iPassSDKDataManager.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
+                            iPassSDKDataManager.shared.controller.view.showToast(toastMessage: LocalizationManager.shared.localizedString(forKey: "nfc_issue"), duration: 2)
                             guard docResults != nil else {
                                 return
                             }
@@ -548,7 +548,7 @@ public class iPassSDKManger {
             else  if action == .cancel  {
                 DispatchQueue.main.async {
                     stopLoaderAnimation()}
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Document Scanning Error")
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "document_scanning_error"))
             }
             
         }
@@ -722,6 +722,7 @@ public class iPassSDKManger {
                 SaveDataApi.email: iPassSDKDataManager.shared.email,
                 SaveDataApi.workflow: String(iPassSDKDataManager.shared.userSelectedFlowId),
                 SaveDataApi.idv_data: documentDataJson ?? "",
+                SaveDataApi.language : iPassSDKDataManager.shared.deviceCurrentLangauge,
                 SaveDataApi.source: "iOS v1.0.4",
                 
             ]
@@ -743,7 +744,7 @@ public class iPassSDKManger {
                         if error.contains("++") {
                             processedError = error.replacingOccurrences(of: "++", with: "")
                         } else {
-                            processedError = "Data processing error"
+                            processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error")
                         }
                         
                         self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: processedError)
@@ -784,7 +785,7 @@ public class iPassSDKManger {
                         if error.contains("++") {
                             processedError = error.replacingOccurrences(of: "++", with: "")
                         } else {
-                            processedError = "Data processing error"
+                            processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error")
                         }
                         
                     self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: processedError)

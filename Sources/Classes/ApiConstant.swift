@@ -9,7 +9,8 @@
 import Foundation
 
 struct Apis {
-    static let baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
+   // static let baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
+    static let baseUrl = "http://192.168.11.48:4088"
 }
 
 // MARK: - FORM
@@ -40,6 +41,7 @@ struct SaveDataApi {
     static let workflow = "workflow"
     static let idv_data = "idv_data"
     static let source = "source"
+    static var language = "language"
 }
 
 // Save Data Api

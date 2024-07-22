@@ -36,7 +36,8 @@ class LocalizationManager {
                 "document_scanning_error": "Document Scanning Error",
                 "nfc_issue": "Something went wrong with NFC.",
                 "data_processing_error": "Data processing error",
-                "internet_connection_error": "Internet Connection not found"
+                "internet_connection_error": "Internet Connection not found",
+                "invalid_workflowid": "Work flow id is not valid"
             ],
             "ar": [
                 "limit_over": "لقد وصلت إلى حد المعاملات الخاص بك أو ليس لديك حق الوصول للمعاملات",
@@ -50,7 +51,8 @@ class LocalizationManager {
                 "document_scanning_error": "خطأ في مسح الوثيقة",
                 "nfc_issue": "حدث خطأ في NFC",
                 "data_processing_error": "خطأ في معالجة البيانات",
-                "internet_connection_error": "لم يتم العثور على اتصال بالإنترنت"
+                "internet_connection_error": "لم يتم العثور على اتصال بالإنترنت",
+                "invalid_workflowid": "معرف تدفق العمل غير صالح"
             ],
             "fr": [
                 "limit_over": "vous avez atteint votre limite de transaction ou vous n'avez pas accès à la transaction",
@@ -64,9 +66,10 @@ class LocalizationManager {
                 "document_scanning_error": "Erreur de numérisation de document",
                 "nfc_issue": "Une erreur est survenue avec NFC",
                 "data_processing_error": "Erreur de traitement des données",
-                "internet_connection_error": "Connexion Internet non trouvée"
+                "internet_connection_error": "Connexion Internet non trouvée",
+                "invalid_workflowid": "L'identifiant du flux de travail n'est pas valide"
             ],
-            "sp": [
+            "es": [
                 "limit_over": "has alcanzado tu límite de transacción o no tienes acceso para transacciones",
                 "start_now": "Comienza ahora",
                 "downloading_database": "Descargando base de datos",
@@ -78,7 +81,8 @@ class LocalizationManager {
                 "document_scanning_error": "Error al escanear el documento",
                 "nfc_issue": "Algo salió mal con NFC",
                 "data_processing_error": "Error en el procesamiento de datos",
-                "internet_connection_error": "No se encontró conexión a Internet"
+                "internet_connection_error": "No se encontró conexión a Internet",
+                "invalid_workflowid": "La identificación del flujo de trabajo no es válida"
             ],
             "tr": [
                 "limit_over": "işlem limitinize ulaştınız veya işlem için erişiminiz yok",
@@ -92,7 +96,8 @@ class LocalizationManager {
                 "document_scanning_error": "Belge Tarama Hatası",
                 "nfc_issue": "NFC ile ilgili bir sorun oluştu.",
                 "data_processing_error": "Veri işleme hatası",
-                "internet_connection_error": "İnternet bağlantısı bulunamadı"
+                "internet_connection_error": "İnternet bağlantısı bulunamadı",
+                "invalid_workflowid": "İş akışı kimliği geçerli değil"
             ],
             "ur": [
                 "limit_over": "آپ نے اپنے ٹرانزیکشن حد کو پہنچ گئے ہیں یا آپ کے پاس ٹرانزیکشن کی رسائی نہیں ہے",
@@ -106,7 +111,8 @@ class LocalizationManager {
                 "document_scanning_error": "دستاویز اسکین کرنے میں خرابی",
                 "nfc_issue": "NFC کے ساتھ کچھ غلط ہو گیا",
                 "data_processing_error": "ڈیٹا پروسیسنگ میں خرابی",
-                "internet_connection_error": "انٹرنیٹ کنکشن نہیں ملا"
+                "internet_connection_error": "انٹرنیٹ کنکشن نہیں ملا",
+                "invalid_workflowid": "ورک فلو آئی ڈی درست نہیں ہے۔"
             ],
             "de": [
                 "limit_over": "Sie haben Ihr Transaktionslimit erreicht oder Sie haben keinen Zugriff auf Transaktionen",
@@ -120,7 +126,8 @@ class LocalizationManager {
                 "document_scanning_error": "Fehler beim Dokumentenscan",
                 "nfc_issue": "Etwas ist mit NFC schiefgelaufen",
                 "data_processing_error": "Datenverarbeitungsfehler",
-                "internet_connection_error": "Internetverbindung nicht gefunden"
+                "internet_connection_error": "Internetverbindung nicht gefunden",
+                "invalid_workflowid": "Die Workflow-ID ist ungültig"
             ],
             "ku": [
                 "limit_over": "گەیشتووی سنووری مامەڵەکەت یان تۆ دەسەڵاتی مامەڵە نیە",
@@ -134,7 +141,8 @@ class LocalizationManager {
                 "document_scanning_error": "هەڵە لە سکانکردنی بەڵگەنامە",
                 "nfc_issue": "هەڵەیەک ڕوویدا لەگەڵ NFC",
                 "data_processing_error": "هەڵە لە پڕۆسەکردنی زانیاری",
-                "internet_connection_error": "هەڵەیەک ڕوویدا لەگەڵ بەرزەخ"
+                "internet_connection_error": "هەڵەیەک ڕوویدا لەگەڵ بەرزەخ",
+                "invalid_workflowid": "نەسنامەیا هێریکینا خەباتە نە دەرباسدار ئی"
             ],
             // Add more languages and strings as needed
         ]
