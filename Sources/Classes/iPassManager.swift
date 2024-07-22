@@ -280,6 +280,18 @@ public class iPassSDKManger {
         iPassSDKDataManager.shared.email = userEmail
         iPassSDKDataManager.shared.controller = controller
         iPassSDKDataManager.shared.alreadyReturned = false
+        
+        var currentLanguage = "en"
+        if let preferredLanguageCode = Locale.preferredLanguages.first {
+             currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
+            print("Device's preferred language code: \(currentLanguage)")
+          
+        } else {
+            print("Unable to determine the device's preferred language code.")
+        }
+        iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
+        
+        
         checkUserPermission()
     
 
@@ -408,46 +420,37 @@ public class iPassSDKManger {
         
         var translationDictionary = [String : String]()
        // ENG, AR, FR, SP, TURKISH, URDU, GERMAN, KURDISH
-        var currentLanguage = "en"
-        if let preferredLanguageCode = Locale.preferredLanguages.first {
-             currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
-            print("Device's preferred language code: \(currentLanguage)")
-          
-        } else {
-            print("Unable to determine the device's preferred language code.")
-        }
-        iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
         
         
-        if(currentLanguage.lowercased() == "en") {
+        if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "en") {
             let dataValues = EnglishDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "ar") {
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "ar") {
             let dataValues = ArabicDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "fr") {
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "fr") {
             let dataValues = FrenchDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "es") {
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "es") {
             let dataValues = SpanishDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "tr") {
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "tr") {
             let dataValues = TurkishDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "ur") {
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "ur") {
             let dataValues = UrduDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "de") {
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "de") {
             let dataValues = GermanDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "ku") {
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "ku") {
             let dataValues = KurdishDataValues()
             translationDictionary = dataValues.getDictionary()
         }
