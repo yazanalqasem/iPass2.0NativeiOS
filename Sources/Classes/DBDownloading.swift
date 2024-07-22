@@ -68,7 +68,7 @@ public class DataBaseDownloading{
                 let progressString = String(format: "%.1f", progress * 100)
                 progressValue = "\(LocalizationManager.shared.localizedString(forKey: "downloading_database")): \(progressString)%"
             case .initializingAPI:
-                status = LocalizationManager.shared.localizedString(forKey: "start_now")
+                status = "Start Now"
             case .completed:
                 break
             case .error(let text):
