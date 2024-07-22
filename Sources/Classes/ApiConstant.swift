@@ -10,7 +10,7 @@ import Foundation
 
 struct Apis {
    // static let baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
-    static let baseUrl = "http://192.168.11.48:4088"
+    static let baseUrl = "http://192.168.11.48:4088/api/v1/ipass/"
 }
 
 // MARK: - FORM
@@ -54,3 +54,4 @@ struct GetDataApi {
 struct getPermissionStatus {
     static let baseApi = (Apis.baseUrl) + "customer/access?token="
 }
+
