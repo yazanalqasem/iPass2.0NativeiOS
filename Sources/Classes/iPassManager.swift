@@ -270,30 +270,31 @@ public class iPassSDKManger {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             addAnimationLoader()
+            iPassSDKDataManager.shared.userSelectedFlowId = flowId
+            iPassSDKDataManager.shared.userSocialMediaEmail = socialMediaEmail
+            iPassSDKDataManager.shared.userPhoneNumber = phoneNumber
+            iPassSDKDataManager.shared.authToken = userToken
+            iPassSDKDataManager.shared.token = appToken
+            iPassSDKDataManager.shared.sid = generateRandomTwoDigitNumber()
+            iPassSDKDataManager.shared.email = userEmail
+            iPassSDKDataManager.shared.controller = controller
+            iPassSDKDataManager.shared.alreadyReturned = false
+            
+            var currentLanguage = "en"
+            if let preferredLanguageCode = Locale.preferredLanguages.first {
+                 currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
+                print("Device's preferred language code: \(currentLanguage)")
+              
+            } else {
+                print("Unable to determine the device's preferred language code.")
+            }
+            iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
+            
+            
+            checkUserPermission()
         }
         
-        iPassSDKDataManager.shared.userSelectedFlowId = flowId
-        iPassSDKDataManager.shared.userSocialMediaEmail = socialMediaEmail
-        iPassSDKDataManager.shared.userPhoneNumber = phoneNumber
-        iPassSDKDataManager.shared.authToken = userToken
-        iPassSDKDataManager.shared.token = appToken
-        iPassSDKDataManager.shared.sid = generateRandomTwoDigitNumber()
-        iPassSDKDataManager.shared.email = userEmail
-        iPassSDKDataManager.shared.controller = controller
-        iPassSDKDataManager.shared.alreadyReturned = false
         
-        var currentLanguage = "en"
-        if let preferredLanguageCode = Locale.preferredLanguages.first {
-             currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
-            print("Device's preferred language code: \(currentLanguage)")
-          
-        } else {
-            print("Unable to determine the device's preferred language code.")
-        }
-        iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
-        
-        
-        checkUserPermission()
     
 
     }
