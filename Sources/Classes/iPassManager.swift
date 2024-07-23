@@ -210,12 +210,12 @@ public class iPassSDKManger {
     private static func checkUserPermission() {
         iPassHandler.methodForGetWithErrorMessages(urlStr: getPermissionStatus.baseApi + iPassSDKDataManager.shared.token + "&language=" + iPassSDKDataManager.shared.deviceCurrentLangauge ) { response, error in
             if(error != "") {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                  //  stopLoaderAnimation()
+               // DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                  stopLoaderAnimation()
                     var tempDict = [String: String]()
                     tempDict = error?.convertToDictionary() ?? [:]
                     self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? LocalizationManager.shared.localizedString(forKey: "limit_over"))
-                }
+               // }
                
             }
             else {
@@ -279,9 +279,9 @@ public class iPassSDKManger {
         iPassSDKDataManager.shared.controller = controller
         iPassSDKDataManager.shared.alreadyReturned = false
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+       // DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             addAnimationLoader()
-        }
+       // }
         var currentLanguage = "en"
         if let preferredLanguageCode = Locale.preferredLanguages.first {
              currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
