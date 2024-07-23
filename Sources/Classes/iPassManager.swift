@@ -212,10 +212,11 @@ public class iPassSDKManger {
             if(error != "") {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     stopLoaderAnimation()
+                    var tempDict = [String: String]()
+                    tempDict = error?.convertToDictionary() ?? [:]
+                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? LocalizationManager.shared.localizedString(forKey: "limit_over"))
                 }
-                var tempDict = [String: String]()
-                tempDict = error?.convertToDictionary() ?? [:]
-                self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? LocalizationManager.shared.localizedString(forKey: "limit_over"))
+               
             }
             else {
                 var tempDict = [String: String]()
