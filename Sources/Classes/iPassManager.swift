@@ -279,9 +279,9 @@ public class iPassSDKManger {
         iPassSDKDataManager.shared.controller = controller
         iPassSDKDataManager.shared.alreadyReturned = false
         
-       // DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             addAnimationLoader()
-       // }
+        }
         var currentLanguage = "en"
         if let preferredLanguageCode = Locale.preferredLanguages.first {
              currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
