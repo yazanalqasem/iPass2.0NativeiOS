@@ -213,14 +213,14 @@ public class iPassSDKManger {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                   stopLoaderAnimation()
                     var tempDict = [String: String]()
-                    tempDict = error?.convertToDictionary() ?? [:]
+                    tempDict = error?.iPassconvertToDictionary() ?? [:]
                     self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? LocalizationManager.shared.localizedString(forKey: "limit_over"))
                 }
                
             }
             else {
                 var tempDict = [String: String]()
-                tempDict = response?.convertToDictionary() ?? [:]
+                tempDict = response?.iPassconvertToDictionary() ?? [:]
                 if(tempDict["message"]?.lowercased() == "sucess") {
                     if(iPassSDKDataManager.shared.userSelectedFlowId == 10031 || iPassSDKDataManager.shared.userSelectedFlowId == 10032 || iPassSDKDataManager.shared.userSelectedFlowId == 10011) {
                          createLivenessSessionID()
@@ -509,7 +509,7 @@ public class iPassSDKManger {
                             
                         case .processTimeout:
                            
-                            iPassSDKDataManager.shared.controller.view.showToast(toastMessage: LocalizationManager.shared.localizedString(forKey: "nfc_issue"), duration: 2)
+                            iPassSDKDataManager.shared.controller.view.iPassgetMinimum(toastMessage: LocalizationManager.shared.localizedString(forKey: "nfc_issue"), duration: 2)
                             guard docResults != nil else {
                                 return
                             }
@@ -522,7 +522,7 @@ public class iPassSDKManger {
 
                             
                         case .error:
-                            iPassSDKDataManager.shared.controller.view.showToast(toastMessage: LocalizationManager.shared.localizedString(forKey: "nfc_issue"), duration: 2)
+                            iPassSDKDataManager.shared.controller.view.iPassgetMinimum(toastMessage: LocalizationManager.shared.localizedString(forKey: "nfc_issue"), duration: 2)
                             guard docResults != nil else {
                                 return
                             }
@@ -861,7 +861,7 @@ public class iPassSDKManger {
 }
 
 extension String {
-    func convertToDictionary() -> [String: String]? {
+    func iPassconvertToDictionary() -> [String: String]? {
         if let data = self.data(using: .utf8) {
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [String: String]

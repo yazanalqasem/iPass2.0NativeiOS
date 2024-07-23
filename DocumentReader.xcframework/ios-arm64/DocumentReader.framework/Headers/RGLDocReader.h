@@ -292,6 +292,14 @@ RGL_EMPTY_INIT_UNAVAILABLE
  */
 @property(nonatomic, strong, nullable) NSString *tag;
 /**
+ Customer name
+ */
+@property(nonatomic, strong, nullable) NSString *tenant;
+/**
+ Environment type
+ */
+@property(nonatomic, strong, nullable) NSString *env;
+/**
  It should be used when you add Document Reader SDK inside yours and do localization
  */
 @property(nonatomic, strong) _Nullable Class localizationClassName;
