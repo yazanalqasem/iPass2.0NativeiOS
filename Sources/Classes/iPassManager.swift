@@ -268,9 +268,9 @@ public class iPassSDKManger {
         }
        
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+    //    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             addAnimationLoader()
-        }
+       // }
         
         iPassSDKDataManager.shared.userSelectedFlowId = flowId
         iPassSDKDataManager.shared.userSocialMediaEmail = socialMediaEmail
