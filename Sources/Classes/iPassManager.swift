@@ -210,12 +210,12 @@ public class iPassSDKManger {
     private static func checkUserPermission() {
         iPassHandler.methodForGetWithErrorMessages(urlStr: getPermissionStatus.baseApi + iPassSDKDataManager.shared.token + "&language=" + iPassSDKDataManager.shared.deviceCurrentLangauge ) { response, error in
             if(error != "") {
-               // DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                   stopLoaderAnimation()
                     var tempDict = [String: String]()
                     tempDict = error?.convertToDictionary() ?? [:]
                     self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? LocalizationManager.shared.localizedString(forKey: "limit_over"))
-               // }
+                }
                
             }
             else {
