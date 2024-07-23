@@ -30,6 +30,9 @@ final class DocumentReaderService {
     
     func initializeDatabaseAndAPI(progress: @escaping (State) -> Void) {
         
+        
+        
+        
       //  guard let licensePath = Bundle(for: type(of: self)).path(forResource: kiPassLicenseFile, ofType: nil) else {
         
       //  if let url = Bundle.module.url(forResource: "LICENSE", withExtension: "txt"),
