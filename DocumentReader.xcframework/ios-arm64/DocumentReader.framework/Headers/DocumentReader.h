@@ -121,5 +121,6 @@ FOUNDATION_EXPORT const unsigned char DocumentReaderVersionString[];
 #import <DocumentReader/RGLBackendProcessingConfig.h>
 #import <DocumentReader/RGLTransactionInfo.h>
 #import <DocumentReader/RGLUIConfiguration.h>
+#import <DocumentReader/RGLMRZDetectMode.h>
 
 #import <DocumentReader/RGLBluetooth.h>
