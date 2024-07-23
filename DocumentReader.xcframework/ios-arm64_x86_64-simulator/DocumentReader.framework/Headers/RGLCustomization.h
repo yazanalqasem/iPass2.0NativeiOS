@@ -131,10 +131,10 @@ NS_SWIFT_NAME(Customization)
 /// Allows you to specify how a view of the help animation adjusts its content when its size changes. Default: UIViewContentModeScaleAspectFit.
 @property(nonatomic, assign) UIViewContentMode helpAnimationImageContentMode;
 
-/// Allows you to specify how a view of the multipage animation (front side) adjusts its content when its size changes. Default: UIViewContentModeScaleToFill.
+/// Allows you to specify how a view of the multipage animation (front side) adjusts its content when its size changes. Default: UIViewContentModeScaleAspectFit.
 @property(nonatomic, assign) UIViewContentMode multipageAnimationFrontImageContentMode;
 
-/// Allows you to specify how a view of the multipage animation (back side) adjusts its content when its size changes. Default: UIViewContentModeScaleToFill.
+/// Allows you to specify how a view of the multipage animation (back side) adjusts its content when its size changes. Default: UIViewContentModeScaleAspectFit.
 @property(nonatomic, assign) UIViewContentMode multipageAnimationBackImageContentMode;
 
 /// Allows you to specify how a view within the camera frame adjusts its content when its size changes. Default: UIViewContentModeScaleAspectFit.

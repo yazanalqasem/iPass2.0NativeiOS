@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <DocumentReader/RGLMacros.h>
+#import <DocumentReader/RGLLogLevel.h>
 
 @class RGLImageQA;
 @class RGLTextProcessing;
@@ -75,6 +76,9 @@ NS_SWIFT_NAME(ProcessParams)
 /// Type: Bool.
 @property (nonatomic, strong, nullable) NSNumber *logs;
 
+// Sets the level of logs detalization when used together with `log` parameter.
+@property (nonatomic, strong, nullable) RGLLogLevel logLevel;
+
 /// If set to `true`, processing of more than one page of the document (if they exist) will be triggered, otherwise, only one page will be processed.
 /// Type: Bool.
 @property (nonatomic, strong, nullable) NSNumber *multipageProcessing;
@@ -145,6 +149,11 @@ NS_SWIFT_NAME(ProcessParams)
 /// Setting value to `0` means infinity.
 /// Type: `NSTimeInterval`.
 @property (nonatomic, strong, nullable) NSNumber *timeoutFromFirstDocType;
+
+/// Start the countdown from the moment the document liveness authenticity check is started (in seconds)
+/// Setting value to `0` means infinity.
+/// Type: `NSTimeInterval`.
+@property (nonatomic, strong, nullable) NSNumber *timeoutLiveness;
 
 /// Allows to build an integral image, taking into account the quality of fixation of each of the individual images.
 /// Type: Bool.
@@ -326,6 +335,15 @@ NS_SWIFT_NAME(ProcessParams)
 /// Enable the CAN (Card Access Number) detection when using scenarios with document location
 /// and MRZ reading, such as the MrzAndLocate scenario.
 @property (nonatomic, strong, nullable) NSNumber *doDetectCan;
+
+/// Make better MRZ detection on complex noisy backgrounds, like BW photocopy of some documents.
+/// Works only in the single-frame processing.
+/// Accepts `RGLMRZDetectMode` value.
+@property (nonatomic, strong, nullable) NSNumber *mrzDetectMode;
+
+/// This parameter is used to generate numeric representation for issuing state and nationality codes.
+/// Type: Bool.
+@property (nonatomic, strong, nullable) NSNumber *generateNumericCodes;
 
 /// Custom RFID params. See `RGLRFIDParams` for more information.
 @property (nonatomic, strong, nullable) RGLRFIDParams *rfidParams;

@@ -1278,8 +1278,32 @@ typedef NS_ENUM(NSInteger, RGLFieldType) {
     // Document status
     RGLFieldTypeFt_Document_Status = 682,
 
-    // SIgnature
+    // Signature
     RGLFieldTypeFt_Signature = 683,
+
+    // Unique certificate identifier
+    RGLFieldTypeFt_UniqueCertificateIdentifier = 684,
+
+    // Email
+    RGLFieldTypeFt_Email = 685,
+
+    // Date of specimen collection
+    RGLFieldTypeFt_Date_of_SpecimenCollection = 686,
+
+    // Type of testing
+    RGLFieldTypeFt_TypeOfTesting = 687,
+
+    // Result of testing
+    RGLFieldTypeFt_ResultOfTesting = 688,
+
+    // Method of testing
+    RGLFieldTypeFt_MethodOfTesting = 689,
+
+    // Digital travel authorization number
+    RGLFieldTypeFt_Digital_Travel_Authorization_Number = 690,
+
+    // Date of first positive test result
+    RGLFieldTypeFt_Date_of_First_Positive_Test_Result = 691,
 
 } NS_SWIFT_NAME(FieldType);
 

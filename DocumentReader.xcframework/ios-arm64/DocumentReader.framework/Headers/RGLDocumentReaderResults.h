@@ -262,6 +262,8 @@ typedef NS_ENUM(NSInteger, RGLAuthenticity) {
     RGLAuthenticityOCR                            =   4194304,
     /// Checks the correctness of the size of the MRZ lines, their relative position, absence of signs that the image was edited
     RGLAuthenticityMRZ                            =   8388608,
+    /// Encrypted IPI
+    RGLAuthenticityEncryptedIPI                   =   16777216,
     ///
     RGLAuthenticityStatusOnly                     =   2147483648,
     ///
@@ -885,6 +887,14 @@ typedef NS_ENUM(NSInteger, RGLCheckDiagnose) {
      */
     RGLCheckDiagnoseFalseIPIParameters = 65,
     /**
+     Encrypted IPI not found, information not decoded
+     */
+    RGLCheckDiagnoseEncryptedIPINotFound = 66,
+    /**
+     Decoded data don't match to other data sources
+     */
+    RGLCheckDiagnoseEncryptedIPIDataDontMatch = 67,
+    /**
      IR image too bright
      */
     RGLCheckDiagnoseFieldPosCorrector_Highlight_IR = 80,
@@ -896,6 +906,18 @@ typedef NS_ENUM(NSInteger, RGLCheckDiagnose) {
      * Photo replaced
      */
     RGLCheckDiagnoseFieldPosCorrector_PhotoReplaced = 82,
+    /**
+     Facial landmarks (eyes) check error
+     */
+    RGLCheckDiagnoseFieldPosCorrector_LandmarksCheckError = 83,
+    /**
+     No facial image found
+     */
+    RGLCheckDiagnoseFieldPosCorrector_FacePresenceCheckError = 84,
+    /**
+     Facial image is found
+     */
+    RGLCheckDiagnoseFieldPosCorrector_FaceAbsenceCheckError = 85,
     /**
      OVI object is not visible in IR
      */
@@ -1148,9 +1170,9 @@ typedef NS_ENUM(NSInteger, RGLCheckDiagnose) {
      */
     RGLCheckDiagnoseICAOIDBCertificateMustNotBePresent = 248,
     /**
-     For internal use
+     Incorrect Object color
      */
-    RGLCheckDiagnoseLastDiagnoseValue = 250,
+    RGLCheckDiagnoseIncorrectObjectColor = 250,
 } NS_SWIFT_NAME(CheckDiagnose);
 
 /// Enumeration contains identifiers that determine the processing finish status
