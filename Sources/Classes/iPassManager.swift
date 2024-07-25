@@ -740,8 +740,10 @@ public class iPassSDKManger {
                
                 
                 if let error = error, !error.isEmpty {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        addAnimationLoader()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            stopLoaderAnimation()
+                        }
+                        
                         let processedError: String
                         if error.contains("++") {
                             processedError = error.replacingOccurrences(of: "++", with: "")
@@ -750,9 +752,6 @@ public class iPassSDKManger {
                         }
                         
                         self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: processedError)
-                    }
-                        
-                     
                     }
                 
                 else {
