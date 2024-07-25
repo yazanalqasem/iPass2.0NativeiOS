@@ -187,7 +187,7 @@ public class iPassSDKManger {
         // Step 4: Convert the date to a string
         let dateString = dateFormatter.string(from: currentDate)
         
-        return "i"+randomValue+"OS" + randStr + dateString + String(iPassSDKDataManager.shared.userSelectedFlowId)
+        return ("i"+randomValue+"OS" + randStr + dateString + String(iPassSDKDataManager.shared.userSelectedFlowId)).replacingOccurrences(of: " ", with: "")
     }
     
 
