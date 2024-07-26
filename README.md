@@ -25,6 +25,7 @@
   - [Add Delegate to Get Response](#add-delegate-to-get-response)
   - [SDK Properties](#sdk-properties)
   - [Language Localization](#add-multiple-languages-optional)
+  - [Configuring Webhook URL](#web_hook)
 - [Support](#support)
 - [Licenses](#licenses)
 - [Contact](#contact)
@@ -207,6 +208,17 @@ You need to add the multi languages files from the xcode for requried languages 
    Language Files
   </a>
 
+-----
+
+### Configuring Webhook URL
+
+Your iPass account can be set up to send an HTTP POST request with JSON data to a specified URL upon the completion of an onboarding process. This URL can be configured in the account profile section of the iPass web application.
+
+Steps to Configure the Webhook URL:
+
+- Log in to your iPass dashboard.
+- Navigate to the "My Profile" section
+- Click the "Edit" button, enter your webhook URL in the designated field, and click "Update." Your webhook URL will now be added.
 -----
 
 # Support
