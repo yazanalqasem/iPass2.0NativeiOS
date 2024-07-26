@@ -32,8 +32,8 @@
 
 
 #### Updates in new version
-- Better user experience 
-- Improved Results 
+- Supports multilingual messages 
+- Improved user experience 
 
 # Overview
 AI-powered identity verification, eKYC, and
