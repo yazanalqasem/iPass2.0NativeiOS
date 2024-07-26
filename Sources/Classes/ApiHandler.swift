@@ -156,7 +156,7 @@ public class iPassHandler {
         if let encodedStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
            let url = URL(string: encodedStr) {
             // Now you can use 'url' safely
-            print(url)
+           
         
         
         // Create a URLRequest with the URL
