@@ -196,6 +196,7 @@ Applications supports following langauges
 - French
 - German
 - Kurdish
+- Kurdish, Sorani
 - Spanish
 - Turkish
 - Urdu
