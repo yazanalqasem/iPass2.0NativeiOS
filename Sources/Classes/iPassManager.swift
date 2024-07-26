@@ -451,6 +451,10 @@ public class iPassSDKManger {
             let dataValues = KurdishDataValues()
             translationDictionary = dataValues.getDictionary()
         }
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "ckb") {
+            let dataValues = CkbDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
         else {
             let dataValues = EnglishDataValues()
             translationDictionary = dataValues.getDictionary()

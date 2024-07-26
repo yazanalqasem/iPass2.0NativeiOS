@@ -130,6 +130,21 @@ class LocalizationManager {
                 "invalid_workflowid": "Die Workflow-ID ist ungültig"
             ],
             "ku": [
+                "limit_over": "we gihîştiye sînorê danûstendina xwe an jî gihîştina we ji bo danûstendinê tune",
+                "start_now": "Destpêk Niha",
+                "downloading_database": "Daxistina databasê",
+                "user_login_issue": "Pirsgirêka Têketina Bikarhêner",
+                "social_media_email": "E-nameya medya civakî tê xwestin",
+                "phone_number_requried": "Hejmara têlefonê tê xwestin",
+                "email_format": "Forma e-nameya medyaya civakî ne rast e",
+                "session_error": "Di afirandina danişînê de çewtî",
+                "document_scanning_error": "Çewtiya şopandina belgeyê",
+                "nfc_issue": "Tiştek bi NFC re xelet bû.",
+                "data_processing_error": "Çewtiya hilberandina daneyan",
+                "internet_connection_error": "Têkiliya Înternetê nehat dîtin",
+                "invalid_workflowid": "Nasnameya herikîna xebatê ne derbasdar e"
+            ],
+            "ckb": [
                 "limit_over": "گەیشتووی سنووری مامەڵەکەت یان تۆ دەسەڵاتی مامەڵە نیە",
                 "start_now": "ئێستا دەست پێبکە",
                 "downloading_database": "داتابەیس داکرێتەوە",
