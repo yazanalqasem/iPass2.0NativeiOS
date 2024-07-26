@@ -25,7 +25,7 @@
   - [Add Delegate to Get Response](#add-delegate-to-get-response)
   - [SDK Properties](#sdk-properties)
   - [Language Localization](#add-multiple-languages-optional)
-  - [Configuring Webhook URL](#web_hook)
+  - [Configuring Webhook URL](#Configuring-Webhook-URL)
 - [Support](#support)
 - [Licenses](#licenses)
 - [Contact](#contact)
