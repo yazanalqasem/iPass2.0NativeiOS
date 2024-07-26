@@ -336,41 +336,37 @@ public class iPassSDKManger {
             CreateSessionApi.auth_token: iPassSDKDataManager.shared.authToken
         ]
         iPassHandler.methodForPost(url: CreateSessionApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 stopLoaderAnimation()
-            }
-//            if(error != "") {
-//               // self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Error in creating session")
-//                
-//                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: ((error?.contains("++"))! ? error?.removePrefix("++") : "Error in creating session") ?? "Error in creating session")
-//
-//            }
-            
-            if let error = error, !error.isEmpty {
-                let processedError: String
-                if error.contains("++") {
-                    processedError = error.replacingOccurrences(of: "++", with: "")
-                } else {
-                    processedError = LocalizationManager.shared.localizedString(forKey: "session_error")
+                if let error = error, !error.isEmpty {
+                    let processedError: String
+                    if error.contains("++") {
+                        processedError = error.replacingOccurrences(of: "++", with: "")
+                    } else {
+                        processedError = LocalizationManager.shared.localizedString(forKey: "session_error")
+                    }
+                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: processedError)
                 }
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: processedError)
-            }
-            
-            else {
-                if let jsonRes = response as? [String: Any] {
-                    if let sessionId = jsonRes["sessionId"] as? String  {
-                        iPassSDKDataManager.shared.sessionId = sessionId
-                             oPenDocumentScanner()
-                        
+                
+                else {
+                    if let jsonRes = response as? [String: Any] {
+                        if let sessionId = jsonRes["sessionId"] as? String  {
+                            iPassSDKDataManager.shared.sessionId = sessionId
+                                 oPenDocumentScanner()
+                            
+                        }
+                        else {
+                            self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "session_error"))
+                        }
                     }
                     else {
                         self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "session_error"))
                     }
                 }
-                else {
-                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "session_error"))
-                }
             }
+
+            
+           
             
         }
     }
