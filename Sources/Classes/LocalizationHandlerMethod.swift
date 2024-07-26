@@ -86,7 +86,7 @@ class LocalizationManager {
             ],
             "tr": [
                 "limit_over": "işlem limitinize ulaştınız veya işlem için erişiminiz yok",
-                "start_now": "Şimdi Başla",
+                "start_now": "Şimdi Başlayın",
                 "downloading_database": "Veritabanı indiriliyor",
                 "user_login_issue": "Kullanıcı Giriş Sorunu",
                 "social_media_email": "Sosyal medya e-postası gereklidir",
@@ -94,9 +94,9 @@ class LocalizationManager {
                 "email_format": "Sosyal medya e-posta formatı doğru değil",
                 "session_error": "Oturum oluşturma hatası",
                 "document_scanning_error": "Belge Tarama Hatası",
-                "nfc_issue": "NFC ile ilgili bir sorun oluştu.",
+                "nfc_issue": "NFC ile ilgili bir sorun oluştu",
                 "data_processing_error": "Veri işleme hatası",
-                "internet_connection_error": "İnternet bağlantısı bulunamadı",
+                "internet_connection_error": "İnternet Bağlantısı Bulunamadı",
                 "invalid_workflowid": "İş akışı kimliği geçerli değil"
             ],
             "ur": [
