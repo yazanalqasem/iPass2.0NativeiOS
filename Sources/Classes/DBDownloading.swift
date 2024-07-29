@@ -13,18 +13,7 @@ import AWSCognitoAuthPlugin
 public class DataBaseDownloading{
     
     
-    public static func testDBIssue() {
-        DocReader.shared.runAutoUpdate(databaseID: "Full", progressHandler: { (progress) in
-            let progressString111 = String(format: "%.1f", progress.fractionCompleted * 100)
-            print(progressString111) // progress block
-        }, completion: { (success, error) in
-            if success {
-                print(success) // Success state
-            } else {
-                print(error) // Error status
-            }
-        })
-    }
+ 
     
     
     public static func initialization(completion: @escaping (String, String, String) -> Void) {
