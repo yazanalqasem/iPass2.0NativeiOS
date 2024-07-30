@@ -59,30 +59,38 @@ final class DocumentReaderService {
 
         
         DispatchQueue.global().async {
-            DocReader.shared.prepareDatabase(
-                databaseID: self.kiPassDatabaseId,
-                progressHandler: { (inprogress) in
-                    progress(.downloadingDatabase(progress: inprogress.fractionCompleted))
-                },
-                completion: { (success, error) in
-                    if let error = error, !success {
-                        progress(.error("Database error: \(error.localizedDescription)"))
-                        return
-                    }
-                    let config = DocReader.Config(license: licenseData)
-                    DocReader.shared.initializeReader(config: config, completion: { (success, error) in
-                        DispatchQueue.main.async {
-                            progress(.initializingAPI)
-                            if success {
-                                progress(.completed)
-                            } else {
-                                progress(.error("Initialization error: \(error?.localizedDescription ?? "nil")"))
-                                
-                            }
+            
+            DocReader.shared.checkDatabaseUpdate(databaseID: self.kiPassDatabaseId) { update in
+                print("fsdfsdfsdfsdfsdfsd")
+                print(update)
+                DocReader.shared.prepareDatabase(
+                    databaseID: self.kiPassDatabaseId,
+                    progressHandler: { (inprogress) in
+                        progress(.downloadingDatabase(progress: inprogress.fractionCompleted))
+                    },
+                    completion: { (success, error) in
+                        if let error = error, !success {
+                            progress(.error("Database error: \(error.localizedDescription)"))
+                            return
                         }
-                    })
-                }
-            )
+                        let config = DocReader.Config(license: licenseData)
+                        DocReader.shared.initializeReader(config: config, completion: { (success, error) in
+                            DispatchQueue.main.async {
+                                progress(.initializingAPI)
+                                if success {
+                                    progress(.completed)
+                                } else {
+                                    progress(.error("Initialization error: \(error?.localizedDescription ?? "nil")"))
+                                    
+                                }
+                            }
+                        })
+                    }
+                )
+            }
+            
+            
+       
         }
         
     }
