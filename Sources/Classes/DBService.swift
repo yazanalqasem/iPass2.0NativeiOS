@@ -11,8 +11,8 @@ import DocumentReader
 final class DocumentReaderService {
     let kiPassLicenseFile = "iPass.license"
     //let kiPassDatabaseId = "Full"
-    let kiPassDatabaseId = "Full_authOther"
-    //let kiPassDatabaseId = "Full_authOther_Passport_ID_DL"
+   // let kiPassDatabaseId = "Full_authOther"
+    let kiPassDatabaseId = "Full_authOther_Passport_ID_DL"
     
     enum State {
         case downloadingDatabase(progress: Double)
@@ -92,7 +92,6 @@ final class DocumentReaderService {
             else {
                 
                 DocReader.shared.removeDatabase { (success, error) in
-                    if success {
                         DocReader.shared.runAutoUpdate(
                             databaseID: self.kiPassDatabaseId,
                             progressHandler: { (inprogress) in
@@ -118,9 +117,7 @@ final class DocumentReaderService {
                                 })
                             }
                         )
-                    } else {
-                        progress(.error("Database error: \(String(describing: error?.localizedDescription))"))
-                    }
+                   
                 }
                 
             }
