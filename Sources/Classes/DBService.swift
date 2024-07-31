@@ -60,18 +60,18 @@ final class DocumentReaderService {
         
         DispatchQueue.global().async {
             
-            if let databaseKey: String = IpassUserDefaultsManager.shared.getValue(forKey: "databaseidkey") {
-                print("Database key: \(databaseKey)")
-            } 
+            var  currentDatabaseKey = ""
             
-            else {
-                print("No value found for the key 'databaseidkey'")
+            
+            if let databasekey: String? = IpassUserDefaultsManager.shared.getValue(forKey: "databaseidkey") {
+                currentDatabaseKey = databasekey ?? ""
             }
             
+          
             
-            let databasekey: String? = IpassUserDefaultsManager.shared.getValue(forKey: "databaseidkey")
             
-            if(databasekey == self.kiPassDatabaseId) {
+            
+            if(currentDatabaseKey == self.kiPassDatabaseId) {
                 DocReader.shared.runAutoUpdate(
                     databaseID: self.kiPassDatabaseId,
                     progressHandler: { (inprogress) in
