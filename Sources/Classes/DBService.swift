@@ -11,8 +11,8 @@ import DocumentReader
 final class DocumentReaderService {
     let kiPassLicenseFile = "iPass.license"
     //let kiPassDatabaseId = "Full"
-  //  let kiPassDatabaseId = "Full_authOther"
-    let kiPassDatabaseId = "Full_authOther_Passport_ID_DL"
+    let kiPassDatabaseId = "Full_authOther"
+   // let kiPassDatabaseId = "Full_authOther_Passport_ID_DL"
     
     enum State {
         case downloadingDatabase(progress: Double)
@@ -60,9 +60,10 @@ final class DocumentReaderService {
         
         DispatchQueue.global().async {
             
+            let databasekey: String? = IpassUserDefaultsManager.shared.getValue(forKey: "databaseidkey")
+
             
-            
-            DocReader.shared.prepareDatabase(
+            DocReader.shared.runAutoUpdate(
                 databaseID: self.kiPassDatabaseId,
                 progressHandler: { (inprogress) in
                     progress(.downloadingDatabase(progress: inprogress.fractionCompleted))
@@ -77,6 +78,7 @@ final class DocumentReaderService {
                         DispatchQueue.main.async {
                             progress(.initializingAPI)
                             if success {
+                                IpassUserDefaultsManager.shared.save(value: self.kiPassDatabaseId, forKey: "databaseidkey")
                                 progress(.completed)
                             } else {
                                 progress(.error("Initialization error: \(error?.localizedDescription ?? "nil")"))
