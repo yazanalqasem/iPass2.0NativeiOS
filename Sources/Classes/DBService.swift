@@ -60,6 +60,15 @@ final class DocumentReaderService {
         
         DispatchQueue.global().async {
             
+            if let databaseKey: String = IpassUserDefaultsManager.shared.getValue(forKey: "databaseidkey") {
+                print("Database key: \(databaseKey)")
+            } 
+            
+            else {
+                print("No value found for the key 'databaseidkey'")
+            }
+            
+            
             let databasekey: String? = IpassUserDefaultsManager.shared.getValue(forKey: "databaseidkey")
             
             if(databasekey == self.kiPassDatabaseId) {
