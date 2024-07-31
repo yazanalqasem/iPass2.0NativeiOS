@@ -5,6 +5,9 @@
 //  Created by MOBILE on 31/07/24.
 //
 
+
+
+
 import Foundation
 
 class IpassUserDefaultsManager {
@@ -43,5 +46,11 @@ class IpassUserDefaultsManager {
     
     func removeValue(forKey key: String) {
         defaults.removeObject(forKey: key)
+    }
+    
+    // MARK: - Retrieve Data with Default Value
+    
+    func getValue<T>(forKey key: String, defaultValue: T) -> T {
+        return defaults.value(forKey: key) as? T ?? defaultValue
     }
 }
