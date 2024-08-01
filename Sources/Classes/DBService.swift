@@ -69,8 +69,6 @@ final class DocumentReaderService {
             
           
             
-            
-            
             if(currentDatabaseKey == self.kiPassDatabaseId) {
                 DocReader.shared.runAutoUpdate(
                     databaseID: self.kiPassDatabaseId,
