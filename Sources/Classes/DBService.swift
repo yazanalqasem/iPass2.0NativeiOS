@@ -12,8 +12,11 @@ final class DocumentReaderService {
     let kiPassLicenseFile = "iPass.license"
     //let kiPassDatabaseId = "Full"
    // let kiPassDatabaseId = "Full_authOther"
-    let kiPassDatabaseId = "Full_authOther_Passport_ID_DL"
+    let kiPassDatabaseId = "JOR_AllPassports"
     
+//    "id": "JOR_AllPassports"
+//    "id": "JOR_AllPassports_authOther"
+//    
     enum State {
         case downloadingDatabase(progress: Double)
         case initializingAPI
