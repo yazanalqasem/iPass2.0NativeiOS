@@ -384,6 +384,8 @@ public class iPassSDKManger {
     private static func setDocumentScannerProperties() {
         
         DocReader.shared.processParams.debugSaveLogs = true
+        DocReader.shared.processParams.debugSaveCroppedImages = true
+        DocReader.shared.processParams.debugSaveRFIDSession = true
         
         DocReader.shared.processParams.returnUncroppedImage = true
         DocReader.shared.processParams.dateFormat = iPassSDKDataManager.shared.documentDateFormat
@@ -774,6 +776,8 @@ public class iPassSDKManger {
     }
     
     private static func startDataFetching() {
+        let path = DocReader.shared.processParams.sessionLogFolder
+        print("Path-------: \(path ?? "nil")")
         
             iPassHandler.methodForGet(urlStr: GetDataApi.baseApi + iPassSDKDataManager.shared.token + GetDataApi.sesid + iPassSDKDataManager.shared.sid) { response, error in
                 DispatchQueue.main.async {
