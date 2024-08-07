@@ -382,6 +382,9 @@ public class iPassSDKManger {
     }
     
     private static func setDocumentScannerProperties() {
+        
+        DocReader.shared.processParams.debugSaveLogs = true
+        
         DocReader.shared.processParams.returnUncroppedImage = true
         DocReader.shared.processParams.dateFormat = iPassSDKDataManager.shared.documentDateFormat
         DocReader.shared.processParams.multipageProcessing = true
