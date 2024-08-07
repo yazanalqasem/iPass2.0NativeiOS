@@ -58,7 +58,6 @@ final class DocumentReaderService {
                 DispatchQueue.main.async {
                     progress(.initializingAPI)
                     if success {
-                        IpassUserDefaultsManager.shared.save(value: self.kiPassDatabaseId, forKey: "databaseidkey")
                         progress(.completed)
                     } else {
                         progress(.error("Initialization error: \(error?.localizedDescription ?? "nil")"))
