@@ -226,6 +226,7 @@ const generateSignature = (uid, secret) => { return crypto.createHmac('sha256', 
 const uid = { uid(uid that will sent you on webhook) }; const secretKey = 'secret-key which we share you securely'; const signature = generateSignature(uid, secretKey);
 
 From our side you can get the signature in the header of webhook.
+
 -----
 
 # Support
