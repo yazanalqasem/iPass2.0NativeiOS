@@ -83,6 +83,7 @@ final class DocumentReaderService {
                             progress(.error("Database error: \(error.localizedDescription)"))
                             return
                         }
+                        
                         let config = DocReader.Config(license: licenseData)
                         DocReader.shared.initializeReader(config: config, completion: { (success, error) in
                             DispatchQueue.main.async {
