@@ -52,6 +52,8 @@ let package = Package(
                 .process("iPass.license"),
                 .process("amplifyconfiguration.json"),
                 .process("awsconfiguration.json"),
+                .process("db.dat"),
+                .process("db"),
                 .process("Certificates"),
                 .process("CertificatesPA"),
                 .process("CertificatesTA"),
