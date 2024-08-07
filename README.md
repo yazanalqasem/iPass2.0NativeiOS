@@ -219,6 +219,14 @@ Steps to Configure the Webhook URL:
 - Log in to your iPass dashboard.
 - Navigate to the "My Profile" section
 - Click the "Edit" button, enter your webhook URL in the designated field, and click "Update." Your webhook URL will now be added.
+
+We also provide the webhook signature verification here are the instructions to generate the signature in the node js.
+
+const generateSignature = (uid, secret) => { return crypto.createHmac('sha256', secret) .update(JSON.stringify(data)) .digest('hex'); };
+
+const uid = { uid(uid that will sent you on webhook) }; const secretKey = 'secret-key which we share you securely'; const signature = generateSignature(uid, secretKey);
+
+From our side you can get the signature in the header of webhook.
 -----
 
 # Support
