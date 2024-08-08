@@ -14,9 +14,14 @@ public class DataBaseDownloading{
     
     
  
+  public enum availableDataSources {
+        case basic
+        case fullAuth
+    }
     
     
-    public static func initialization(completion: @escaping (String, String) -> Void) {
+    
+    public static func initialization(dbType: availableDataSources, completion: @escaping (String, String) -> Void) {
         
         var currentLanguage = "en"
         if let preferredLanguageCode = Locale.preferredLanguages.first {
@@ -58,7 +63,10 @@ public class DataBaseDownloading{
         else {
         }
         
-        DocumentReaderService.shared.initializeDatabaseAndAPI(status: { statusValue, errorValue in
+        
+       
+        
+        DocumentReaderService.shared.initializeDatabaseAndAPI(dbType: "dbType", status: { statusValue, errorValue in
             var progressValue = ""
             var status = ""
             var validationError = ""
