@@ -12,7 +12,7 @@ final class DocumentReaderService {
     let kiPassLicenseFile = "iPass.license"
     //let kiPassDatabaseId = "Full"
    // let kiPassDatabaseId = "Full_authOther"
-    let kiPassDatabaseId = "JOR_AllPassports"
+  //  let kiPassDatabaseId = "JOR_AllPassports"
     
 //    "id": "JOR_AllPassports"
 //    "id": "JOR_AllPassports_authOther"
@@ -65,7 +65,7 @@ final class DocumentReaderService {
                     DispatchQueue.main.async {
                         status("Processing Started", "")
                         if success {
-                            IpassUserDefaultsManager.shared.save(value: self.kiPassDatabaseId, forKey: "databaseidkey")
+                            IpassUserDefaultsManager.shared.save(value: dbType, forKey: "databaseidkey")
                             status("Start Now", "")
                         } else {
                             status("", error?.localizedDescription ?? "Error")
@@ -83,7 +83,7 @@ final class DocumentReaderService {
                         DispatchQueue.main.async {
                             status("Processing Started", "")
                             if success {
-                                IpassUserDefaultsManager.shared.save(value: self.kiPassDatabaseId, forKey: "databaseidkey")
+                                IpassUserDefaultsManager.shared.save(value: dbType, forKey: "databaseidkey")
                                 status("Start Now", "")
                             } else {
                                 status("", error?.localizedDescription ?? "Error")
