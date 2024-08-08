@@ -50,9 +50,12 @@ final class DocumentReaderService {
         
         DispatchQueue.global().async {
             
+           
+            
+            
             let config = DocReader.Config(license: licenseData)
             
-            config.databasePath = Bundle.module.path(forResource: "db.dat", ofType: nil)
+            config.databasePath = Bundle.module.path(forResource: dbType, ofType: nil)
             
             DocReader.shared.initializeReader(config: config, completion: { (success, error) in
                 DispatchQueue.main.async {
