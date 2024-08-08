@@ -34,16 +34,16 @@ final class DocumentReaderService {
     
     
     
-    func initializeDatabaseAndAPI(progress: @escaping (State) -> Void) {
+    func initializeDatabaseAndAPI(status: @escaping (String, String) -> Void) {
         
             guard let licensePath = Bundle.module.url(forResource: "iPass", withExtension: "license") else {
-            progress(.error("Missing License File in Framework Bundle"))
+                status("", "Missing License File in Framework Bundle")
             return
         }
         
     
                 guard let licenseData = try? Data(contentsOf: licensePath) else {
-                    progress(.error("Unable to read License File"))
+                    status("", "Missing License File in Framework Bundle")
                     return
                 }
 
@@ -56,11 +56,11 @@ final class DocumentReaderService {
             
             DocReader.shared.initializeReader(config: config, completion: { (success, error) in
                 DispatchQueue.main.async {
-                    progress(.initializingAPI)
+                    status("Processing Started", "")
                     if success {
-                        progress(.completed)
+                        status("Start Now", "")
                     } else {
-                        progress(.error("Initialization error: \(error?.localizedDescription ?? "nil")"))
+                        status("", error?.localizedDescription ?? "Error")
                         
                     }
                 }
