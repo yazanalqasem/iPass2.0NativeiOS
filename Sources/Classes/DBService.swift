@@ -50,24 +50,52 @@ final class DocumentReaderService {
         
         DispatchQueue.global().async {
             
-           
+            var  currentDatabaseKey = ""
             
+            
+            if let databasekey: String? = IpassUserDefaultsManager.shared.getValue(forKey: "databaseidkey") {
+                currentDatabaseKey = databasekey ?? ""
+            }
             
             let config = DocReader.Config(license: licenseData)
             
-            config.databasePath = Bundle.module.path(forResource: dbType, ofType: nil)
-            
-            DocReader.shared.initializeReader(config: config, completion: { (success, error) in
-                DispatchQueue.main.async {
-                    status("Processing Started", "")
-                    if success {
-                        status("Start Now", "")
-                    } else {
-                        status("", error?.localizedDescription ?? "Error")
-                        
+            if(currentDatabaseKey == dbType) {
+                config.databasePath = Bundle.module.path(forResource: dbType, ofType: nil)
+                DocReader.shared.initializeReader(config: config, completion: { (success, error) in
+                    DispatchQueue.main.async {
+                        status("Processing Started", "")
+                        if success {
+                            IpassUserDefaultsManager.shared.save(value: self.kiPassDatabaseId, forKey: "databaseidkey")
+                            status("Start Now", "")
+                        } else {
+                            status("", error?.localizedDescription ?? "Error")
+                            
+                        }
                     }
+                })
+            }
+            
+            else {
+                
+                DocReader.shared.removeDatabase { (success, error) in
+                    config.databasePath = Bundle.module.path(forResource: dbType, ofType: nil)
+                    DocReader.shared.initializeReader(config: config, completion: { (success, error) in
+                        DispatchQueue.main.async {
+                            status("Processing Started", "")
+                            if success {
+                                IpassUserDefaultsManager.shared.save(value: self.kiPassDatabaseId, forKey: "databaseidkey")
+                                status("Start Now", "")
+                            } else {
+                                status("", error?.localizedDescription ?? "Error")
+                                
+                            }
+                        }
+                    })
                 }
-            })
+            }
+            
+            
+           
             
 
             
