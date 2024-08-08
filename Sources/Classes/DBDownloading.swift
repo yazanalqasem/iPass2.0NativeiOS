@@ -63,10 +63,17 @@ public class DataBaseDownloading{
         else {
         }
         
+        var requriedDatabaseName = ""
         
-       
+        switch dbType {
+            case .basic:
+            requriedDatabaseName = "db.dat"
+            case .fullAuth:
+            requriedDatabaseName = "fulldb.dat"
+           
+            }
         
-        DocumentReaderService.shared.initializeDatabaseAndAPI(dbType: "dbType", status: { statusValue, errorValue in
+        DocumentReaderService.shared.initializeDatabaseAndAPI(dbType:requriedDatabaseName, status: { statusValue, errorValue in
             var progressValue = ""
             var status = ""
             var validationError = ""
