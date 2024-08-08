@@ -34,7 +34,7 @@ final class DocumentReaderService {
     
     
     
-    func initializeDatabaseAndAPI(status: @escaping (String, String) -> Void) {
+    func initializeDatabaseAndAPI(dbType: String, status: @escaping (String, String) -> Void) {
         
             guard let licensePath = Bundle.module.url(forResource: "iPass", withExtension: "license") else {
                 status("", "Missing License File in Framework Bundle")
