@@ -134,8 +134,6 @@ For the FullAuth database, you need to enable hologram detection using the follo
 configProperties.needHologramDetection(value: true)
 ```
 
-Once the status is Start Now, You can start the onboarding process
-
 -----
 
 ### Get User Login Token
