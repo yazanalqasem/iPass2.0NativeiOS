@@ -715,10 +715,8 @@ public class iPassSDKManger {
         
         fetchPublicIPAddress { ipAddress in
             if let ipAddress = ipAddress {
-                print("IP Address 3 \(ipAddress)")
                 userIpAddress = ipAddress
             } else {
-                print("Unable to fetch public IP Address")
                 userIpAddress = ""
             }
             
@@ -776,8 +774,6 @@ public class iPassSDKManger {
     }
     
     private static func startDataFetching() {
-        let path = DocReader.shared.processParams.sessionLogFolder
-        print("Path-------: \(path ?? "nil")")
         
             iPassHandler.methodForGet(urlStr: GetDataApi.baseApi + iPassSDKDataManager.shared.token + GetDataApi.sesid + iPassSDKDataManager.shared.sid) { response, error in
                 DispatchQueue.main.async {
