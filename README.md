@@ -119,10 +119,10 @@ Add following items to above array item
                 })
 ```
 
-You to choose between two types of databases:
+System allows you to choose between two types of databases:
 
-DataBaseDownloading.availableDataSources.basic
-DataBaseDownloading.availableDataSources.fullAuth
+-> DataBaseDownloading.availableDataSources.basic
+-> DataBaseDownloading.availableDataSources.fullAuth
 
 The basic database option provides a streamlined version of the database, focusing on essential data without incorporating any authenticity parameters. This option is suitable if your application does not require advanced security features and you want faster access to core data.
 
