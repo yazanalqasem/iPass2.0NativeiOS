@@ -120,9 +120,6 @@ Add following items to above array item
                 })
 ```
 
-Once the status is Start Now, You can start the onboarding process
-
-Database Options
 You to choose between two types of databases:
 
 DataBaseDownloading.availableDataSources.basic
@@ -136,6 +133,9 @@ For the FullAuth database, you need to enable hologram detection using the follo
 ```ruby
 configProperties.needHologramDetection(value: true)
 ```
+
+Once the status is Start Now, You can start the onboarding process
+
 -----
 
 ### Get User Login Token
