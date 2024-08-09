@@ -115,7 +115,7 @@ Add following items to above array item
 - In this step progress object can be used to track the downloading percentage.
 - Once the database is downloaded 100% and status is Start Now, user can start the next step.
 ```ruby
- DataBaseDownloading.initialization(completion:{progres, status, error in
+    DataBaseDownloading.initialization(dbType: DataBaseDownloading.availableDataSources.basic, completion:{status, error in
                     print(progres, status, error)
                 })
 ```
