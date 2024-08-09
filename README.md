@@ -121,6 +121,21 @@ Add following items to above array item
 ```
 
 Once the status is Start Now, You can start the onboarding process
+
+Database Options
+You to choose between two types of databases:
+
+DataBaseDownloading.availableDataSources.basic
+DataBaseDownloading.availableDataSources.fullAuth
+
+The basic database option provides a streamlined version of the database, focusing on essential data without incorporating any authenticity parameters. This option is suitable if your application does not require advanced security features and you want faster access to core data.
+
+The fullAuth database option is designed for applications that need enhanced security and authenticity features. This version includes additional parameters that ensure the authenticity of the document, making it ideal for scenarios where data integrity and security are critical.
+For the FullAuth database, you need to enable hologram detection using the following code:
+
+```ruby
+configProperties.needHologramDetection(value: true)
+```
 -----
 
 ### Get User Login Token
