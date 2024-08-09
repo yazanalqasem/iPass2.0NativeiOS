@@ -112,8 +112,7 @@ Add following items to above array item
 -----
 ### Initialize Database
 - To start the process user need to download the database using following code.
-- In this step progress object can be used to track the downloading percentage.
-- Once the database is downloaded 100% and status is Start Now, user can start the next step.
+- When the status is Start Now, user can start the next step.
 ```ruby
     DataBaseDownloading.initialization(dbType: DataBaseDownloading.availableDataSources.fullAuth, completion:{status, error in
                                 print(status, error)
