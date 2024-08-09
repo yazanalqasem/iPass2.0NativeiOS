@@ -116,9 +116,11 @@ Add following items to above array item
 - Once the database is downloaded 100% and status is Start Now, user can start the next step.
 ```ruby
     DataBaseDownloading.initialization(dbType: DataBaseDownloading.availableDataSources.fullAuth, completion:{status, error in
-                    print(progres, status, error)
+                                print(status, error)
                 })
 ```
+
+Once the status is Start Now, You can start the onboarding process
 -----
 
 ### Get User Login Token
