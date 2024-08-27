@@ -11,11 +11,8 @@ import DocumentReader
 final class DocumentReaderService {
     let kiPassLicenseFile = "iPass.license"
     //let kiPassDatabaseId = "Full"
-   // let kiPassDatabaseId = "Full_authOther"
-  //  let kiPassDatabaseId = "JOR_AllPassports"
-    
-//    "id": "JOR_AllPassports"
-//    "id": "JOR_AllPassports_authOther"
+    let kiPassDatabaseId = "Full_authOther"
+
 //    
     enum State {
         case downloadingDatabase(progress: Double)
@@ -103,6 +100,101 @@ final class DocumentReaderService {
         }
         
     }
+    
+    
+    
+    func fullDBinitializeDatabaseAndAPI(progress: @escaping (State) -> Void) {
+           
+               guard let licensePath = Bundle.module.url(forResource: "iPass", withExtension: "license") else {
+               progress(.error("Missing License File in Framework Bundle"))
+               return
+           }
+           
+        
+                   
+                   guard let licenseData = try? Data(contentsOf: licensePath) else {
+                       progress(.error("Unable to read License File"))
+                       return
+                   }
+
+           
+           DispatchQueue.global().async {
+               
+               var  currentDatabaseKey = ""
+               
+            
+               if let databasekey: String? = IpassUserDefaultsManager.shared.getValue(forKey: "databaseidkey") {
+                   currentDatabaseKey = databasekey ?? ""
+               }
+               
+             
+               
+               if(currentDatabaseKey == self.kiPassDatabaseId) {
+                   DocReader.shared.runAutoUpdate(
+                       databaseID: self.kiPassDatabaseId,
+                       progressHandler: { (inprogress) in
+                           progress(.downloadingDatabase(progress: inprogress.fractionCompleted))
+                       },
+                       completion: { (success, error) in
+                           if let error = error, !success {
+                               progress(.error("Database error: \(error.localizedDescription)"))
+                               return
+                           }
+                           
+                           let config = DocReader.Config(license: licenseData)
+                           DocReader.shared.initializeReader(config: config, completion: { (success, error) in
+                               DispatchQueue.main.async {
+                                   progress(.initializingAPI)
+                                   if success {
+                                       IpassUserDefaultsManager.shared.save(value: self.kiPassDatabaseId, forKey: "databaseidkey")
+                                       progress(.completed)
+                                   } else {
+                                       progress(.error("Initialization error: \(error?.localizedDescription ?? "nil")"))
+                                       
+                                   }
+                               }
+                           })
+                       }
+                   )
+               }
+               else {
+                   
+                   DocReader.shared.removeDatabase { (success, error) in
+                           DocReader.shared.runAutoUpdate(
+                               databaseID: self.kiPassDatabaseId,
+                               progressHandler: { (inprogress) in
+                                   progress(.downloadingDatabase(progress: inprogress.fractionCompleted))
+                               },
+                               completion: { (success, error) in
+                                   if let error = error, !success {
+                                       progress(.error("Database error: \(error.localizedDescription)"))
+                                       return
+                                   }
+                                   let config = DocReader.Config(license: licenseData)
+                                   DocReader.shared.initializeReader(config: config, completion: { (success, error) in
+                                       DispatchQueue.main.async {
+                                           progress(.initializingAPI)
+                                           if success {
+                                               IpassUserDefaultsManager.shared.save(value: self.kiPassDatabaseId, forKey: "databaseidkey")
+                                               progress(.completed)
+                                           } else {
+                                               progress(.error("Initialization error: \(error?.localizedDescription ?? "nil")"))
+                                               
+                                           }
+                                       }
+                                   })
+                               }
+                           )
+                      
+                   }
+                   
+               }
+
+               
+              
+           }
+           
+       }
     
     
     
