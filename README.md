@@ -123,6 +123,8 @@ To start the process user need to download the database. iPass sdk supports two 
  ### Dynamic Database:
  This type of database is not included in the initial app package but is instead downloaded from a remote server when the app is launched or when certain conditions are met. The server-side database can be updated independently of the app, allowing for more dynamic content and real-time data management. In this database downloading time depends on the internet speed.
  
+ ----
+ 
  
 - When the status is Start Now, user can start the next step.
 ```ruby
