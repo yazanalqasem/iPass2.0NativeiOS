@@ -132,6 +132,8 @@ To start the process user need to download the database. iPass sdk supports two 
                                 print(status, error)
                 })
 ```
+      -> In the completion, When the status is Start Now, you can start the next step.
+
 
 - In the Pre-packaged Database, System allows you to choose between two types of databases:
 
@@ -145,13 +147,11 @@ The basic database option provides a streamlined version of the database, focusi
 #### fullAuth database:
 The fullAuth database option is designed for applications that need enhanced security and authenticity features. This version includes additional parameters that ensure the authenticity of the document, making it ideal for scenarios where data integrity and security are critical.
 
-  - For the FullAuth database, you need to enable hologram detection using the following code:
+- For the FullAuth database, you need to enable hologram detection using the following code:
 
 ```ruby
 configProperties.needHologramDetection(value: true)
 ```
-
-- In the completion, When the status is Start Now, you can start the next step.
 
 -----
 
