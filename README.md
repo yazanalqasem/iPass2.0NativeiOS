@@ -132,7 +132,8 @@ To start the process user need to download the database. iPass sdk supports two 
                                 print(status, error)
                 })
 ```
-    ### In the completion, When the status is Start Now, you can start the next step.
+    
+### In the completion, When the status is Start Now, you can start the next step.
     
         
 - In the Pre-packaged Database, System allows you to choose between two types of databases:
