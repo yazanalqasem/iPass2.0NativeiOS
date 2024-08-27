@@ -84,7 +84,7 @@ public class DataBaseDownloading{
     
     
     
-    public static func fullDbInitialization(completion: @escaping (String, String, String) -> Void) {
+    public static func initializeOnelineDb(completion: @escaping (String, String, String) -> Void) {
             
             var currentLanguage = "en"
             if let preferredLanguageCode = Locale.preferredLanguages.first {
