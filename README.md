@@ -141,6 +141,7 @@ To start the process user need to download the database. iPass sdk supports two 
 #### Basic Database: 
 The basic database option provides a streamlined version of the database, focusing on essential data without incorporating any authenticity parameters. This option is suitable if your application does not require advanced security features and you want faster access to core data.
 
+
 #### fullAuth database:
 The fullAuth database option is designed for applications that need enhanced security and authenticity features. This version includes additional parameters that ensure the authenticity of the document, making it ideal for scenarios where data integrity and security are critical.
 
