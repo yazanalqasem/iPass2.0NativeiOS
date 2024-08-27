@@ -125,19 +125,18 @@ To start the process user need to download the database. iPass sdk supports two 
  
  ----
  
+ ### Pre-packaged Database Implementation:
  
-- When the status is Start Now, user can start the next step.
 ```ruby
     DataBaseDownloading.initialization(dbType: DataBaseDownloading.availableDataSources.fullAuth, completion:{status, error in
                                 print(status, error)
                 })
 ```
 
-System allows you to choose between two types of databases:
+- In the Pre-packaged Database, System allows you to choose between two types of databases:
 
-DataBaseDownloading.availableDataSources.basic
-
-DataBaseDownloading.availableDataSources.fullAuth
+     - DataBaseDownloading.availableDataSources.basic
+     - DataBaseDownloading.availableDataSources.fullAuth
 
 The basic database option provides a streamlined version of the database, focusing on essential data without incorporating any authenticity parameters. This option is suitable if your application does not require advanced security features and you want faster access to core data.
 
@@ -147,6 +146,8 @@ For the FullAuth database, you need to enable hologram detection using the follo
 ```ruby
 configProperties.needHologramDetection(value: true)
 ```
+
+- When the status is Start Now, user can start the next step.
 
 -----
 
