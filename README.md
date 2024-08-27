@@ -154,6 +154,17 @@ The fullAuth database option is designed for applications that need enhanced sec
 configProperties.needHologramDetection(value: true)
 ```
 
+
+ ### Dynamic Database Implementation:
+ 
+ ```ruby
+            DataBaseDownloading.initializeOnelineDb(completion:{progres, status, error in
+            print(progres, status, error)
+        })
+```
+
+- In this step progress object can be used to track the downloading percentage.
+- Once the database is downloaded 100% and status is Start Now, user can start the next step.
 -----
 
 ### Get User Login Token
