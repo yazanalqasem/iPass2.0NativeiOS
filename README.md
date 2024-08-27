@@ -117,7 +117,7 @@ Add following items to above array item
  - Pre-packaged Database
  - Dynamic Database
  
- ###Pre-packaged Database: This type of database is bundled within the SDK itself. It is a pre-configured and read-only database that comes as part of the app's installation package. Since the database is local to the app, querying this database is generally faster, as it does not involve network latency.
+ ### Pre-packaged Database: This type of database is bundled within the SDK itself. It is a pre-configured and read-only database that comes as part of the app's installation package. Since the database is local to the app, querying this database is generally faster, as it does not involve network latency.
  
 - When the status is Start Now, user can start the next step.
 ```ruby
