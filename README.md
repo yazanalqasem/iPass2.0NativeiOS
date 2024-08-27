@@ -163,7 +163,7 @@ configProperties.needHologramDetection(value: true)
         })
 ```
 
-- In this step progress object can be used to track the downloading percentage.
+- From the completion, Progress object can be used to track the downloading percentage.
 - Once the database is downloaded 100% and status is Start Now, user can start the next step.
 -----
 
