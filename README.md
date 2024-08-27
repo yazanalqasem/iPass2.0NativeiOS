@@ -117,12 +117,11 @@ To start the process user need to download the database. iPass sdk supports two 
  - Pre-packaged Database
  - Dynamic Database
  
- ### <u>Pre-packaged Database:</u>
-This type of database is bundled within the SDK itself. It is a pre-configured and read-only database that comes as part of the app's installation package. Since the database is local to the app, querying this database is generally faster, as it does not involve network latency.
-
- 
-### <u>Pre-packaged Database:</u> 
+### Pre-packaged Database:
  This type of database is bundled within the SDK itself. It is a pre-configured and read-only database that comes as part of the app's installation package. Since the database is local to the app, querying this database is generally faster, as it does not involve network latency.
+ 
+ ### Dynamic Database:
+ This type of database is not included in the initial app package but is instead downloaded from a remote server when the app is launched or when certain conditions are met. The server-side database can be updated independently of the app, allowing for more dynamic content and real-time data management. In this database downloading time depends on the internet speed.
  
  
 - When the status is Start Now, user can start the next step.
