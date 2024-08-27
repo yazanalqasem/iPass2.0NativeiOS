@@ -158,7 +158,7 @@ configProperties.needHologramDetection(value: true)
  ### Dynamic Database Implementation:
  
  ```ruby
-            DataBaseDownloading.initializeOnelineDb(completion:{progres, status, error in
+            DataBaseDownloading.initializeDynamicDb(completion:{progres, status, error in
             print(progres, status, error)
         })
 ```
