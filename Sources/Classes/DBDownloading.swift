@@ -70,7 +70,6 @@ public class DataBaseDownloading{
             requriedDatabaseName = "db.dat"
             case .fullAuthJordan:
             requriedDatabaseName = "fulldb.dat"
-           
             }
         
         DocumentReaderService.shared.initializeDatabaseAndAPI(dbType:requriedDatabaseName, status: { statusValue, errorValue in
