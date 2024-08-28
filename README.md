@@ -128,7 +128,7 @@ To start the process user need to download the database. iPass sdk supports two 
  ### Pre-packaged Database Implementation:
  
 ```ruby
-    DataBaseDownloading.initialization(dbType: DataBaseDownloading.availableDataSources.fullAuth, completion:{status, error in
+    DataBaseDownloading.initialization(dbType: DataBaseDownloading.availableDataSources.fullAuthJordan, completion:{status, error in
                                 print(status, error)
                 })
 ```
@@ -136,17 +136,17 @@ To start the process user need to download the database. iPass sdk supports two 
 - In the completion, When the status is Start Now, you can start the next step.
     
         
-- In the Pre-packaged Database, System allows you to choose between two types of databases:
+- In the Pre-packaged Database, System allows you to choose between two types of databases. Currenlty this database only allows to scan Jordanian ID cards as well as passports from other countries.
 
-     - DataBaseDownloading.availableDataSources.basic
-     - DataBaseDownloading.availableDataSources.fullAuth
+     - DataBaseDownloading.availableDataSources.basicJordan
+     - DataBaseDownloading.availableDataSources.fullAuthJordan
 
 #### Basic Database: 
-The basic database option provides a streamlined version of the database, focusing on essential data without incorporating any authenticity parameters. This option is suitable if your application does not require advanced security features and you want faster access to core data. In this database, you can scan Jordanian ID cards as well as passports from other countries.
+The basic database option provides a streamlined version of the database, focusing on essential data without incorporating any authenticity parameters. This option is suitable if your application does not require advanced security features and you want faster access to core data.
 
 
 #### fullAuth database:
-The fullAuth database option is designed for applications that need enhanced security and authenticity features. This version includes additional parameters that ensure the authenticity of the document, making it ideal for scenarios where data integrity and security are critical. In this database, you can scan Jordanian ID cards as well as passports from other countries.
+The fullAuth database option is designed for applications that need enhanced security and authenticity features. This version includes additional parameters that ensure the authenticity of the document, making it ideal for scenarios where data integrity and security are critical.
 
 - For the FullAuth database, you need to enable hologram detection using the following code:
 
