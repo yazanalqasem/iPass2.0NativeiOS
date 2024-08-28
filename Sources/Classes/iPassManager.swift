@@ -39,7 +39,7 @@ public class iPassSDKDataManager {
     var sessionId = String()
     var loaderColor = UIColor(red: 126/255, green:87/255, blue: 196/255, alpha: 1.0)
     var needHologram = true
-    var alreadyReturned = false
+    var alreadyReturned = true
     var documentDateFormat = "dd-mm-yyyy"
 }
 
@@ -477,7 +477,6 @@ public class iPassSDKManger {
     }
     
     private static func startDocumentProcessing() {
-        iPassSDKDataManager.shared.alreadyReturned = false
         DispatchQueue.main.async {
             stopLoaderAnimation()
         }
