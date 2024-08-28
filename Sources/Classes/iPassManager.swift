@@ -644,6 +644,7 @@ public class iPassSDKManger {
         }
     
     private static func faceLivenessApi()  {
+        iPassSDKDataManager.shared.alreadyReturned = true
         DispatchQueue.main.async {
             stopLoaderAnimation()
             var swiftUIView = FaceClass()
