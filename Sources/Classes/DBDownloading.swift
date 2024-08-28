@@ -15,8 +15,8 @@ public class DataBaseDownloading{
     
  
   public enum availableDataSources {
-        case basic
-        case fullAuth
+        case basicJordan
+        case fullAuthJordan
     }
     
     
@@ -66,9 +66,9 @@ public class DataBaseDownloading{
         var requriedDatabaseName = ""
         
         switch dbType {
-            case .basic:
+            case .basicJordan:
             requriedDatabaseName = "db.dat"
-            case .fullAuth:
+            case .fullAuthJordan:
             requriedDatabaseName = "fulldb.dat"
            
             }
