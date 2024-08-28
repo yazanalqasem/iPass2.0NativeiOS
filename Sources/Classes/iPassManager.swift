@@ -663,6 +663,7 @@ public class iPassSDKManger {
                
                 
                 if(iPassSDKDataManager.shared.alreadyReturned == false) {
+                    print("3443433434----------")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                               addAnimationLoader()
                     }
