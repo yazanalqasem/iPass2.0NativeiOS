@@ -277,7 +277,7 @@ public class iPassSDKManger {
         iPassSDKDataManager.shared.sid = generateRandomTwoDigitNumber()
         iPassSDKDataManager.shared.email = userEmail
         iPassSDKDataManager.shared.controller = controller
-        iPassSDKDataManager.shared.alreadyReturned = false
+        
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             addAnimationLoader()
