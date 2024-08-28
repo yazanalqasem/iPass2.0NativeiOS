@@ -477,6 +477,7 @@ public class iPassSDKManger {
     }
     
     private static func startDocumentProcessing() {
+        iPassSDKDataManager.shared.resultScanData = DocumentReaderResults()
         DispatchQueue.main.async {
             stopLoaderAnimation()
         }
