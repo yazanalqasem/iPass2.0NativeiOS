@@ -118,7 +118,7 @@ To start the process user need to download the database. iPass sdk supports two 
  - Dynamic Database
  
 ### Pre-packaged Database:
- This type of database is bundled within the SDK itself. It is a pre-configured and read-only database that comes as part of the app's installation package. Since the database is local to the app, querying this database is generally faster, as it does not involve network latency. This database only able to process Jordan Id cards along with the passports for rest of the world.  
+ This type of database is bundled within the SDK itself. It is a pre-configured and read-only database that comes as part of the app's installation package. Since the database is local to the app, querying this database is generally faster, as it does not involve network latency. This is a custom database which is created according to requriments. You can also request custom database according to your requriments from our support team with info@ipass-mena.com 
  
  ### Dynamic Database:
  This type of database is not included in the initial app package but is instead downloaded from a remote server when the app is launched or when certain conditions are met. The server-side database can be updated independently of the app, allowing for more dynamic content and real-time data management. In this database downloading time depends on the internet speed.
@@ -142,11 +142,11 @@ To start the process user need to download the database. iPass sdk supports two 
      - DataBaseDownloading.availableDataSources.fullAuth
 
 #### Basic Database: 
-The basic database option provides a streamlined version of the database, focusing on essential data without incorporating any authenticity parameters. This option is suitable if your application does not require advanced security features and you want faster access to core data.
+The basic database option provides a streamlined version of the database, focusing on essential data without incorporating any authenticity parameters. This option is suitable if your application does not require advanced security features and you want faster access to core data. In this database you can only scan Jordan Id cards along with the passports for rest of the world
 
 
 #### fullAuth database:
-The fullAuth database option is designed for applications that need enhanced security and authenticity features. This version includes additional parameters that ensure the authenticity of the document, making it ideal for scenarios where data integrity and security are critical.
+The fullAuth database option is designed for applications that need enhanced security and authenticity features. This version includes additional parameters that ensure the authenticity of the document, making it ideal for scenarios where data integrity and security are critical. In this database you can only scan Jordan Id cards along with the passports for rest of the world
 
 - For the FullAuth database, you need to enable hologram detection using the following code:
 
