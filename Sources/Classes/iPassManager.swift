@@ -477,6 +477,9 @@ public class iPassSDKManger {
     }
     
     private static func startDocumentProcessing() {
+        
+        iPassSDKDataManager.shared.alreadyReturned = true
+        
         iPassSDKDataManager.shared.resultScanData = DocumentReaderResults()
         DispatchQueue.main.async {
             stopLoaderAnimation()
@@ -607,7 +610,7 @@ public class iPassSDKManger {
             
                }
      
-        
+        iPassSDKDataManager.shared.alreadyReturned = false
         faceLivenessApi()
         
         
@@ -645,7 +648,7 @@ public class iPassSDKManger {
         }
     
     private static func faceLivenessApi()  {
-        iPassSDKDataManager.shared.alreadyReturned = true
+        
         DispatchQueue.main.async {
             stopLoaderAnimation()
             var swiftUIView = FaceClass()
