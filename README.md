@@ -128,7 +128,7 @@ To start the process user need to download the database. iPass sdk supports two 
  ### Pre-packaged Database Implementation:
  
 ```ruby
-    DataBaseDownloading.initialization(dbType: DataBaseDownloading.availableDataSources.fullAuthJordan, completion:{status, error in
+    DataBaseDownloading.initializePreProcessedDb(dbType: DataBaseDownloading.availableDataSources.fullAuthJordan, completion:{status, error in
                                 print(status, error)
                 })
 ```
