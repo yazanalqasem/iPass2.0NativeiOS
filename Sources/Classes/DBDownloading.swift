@@ -21,7 +21,7 @@ public class DataBaseDownloading{
     
     
     
-    public static func initialization(dbType: availableDataSources, completion: @escaping (String, String) -> Void) {
+    public static func initializePreProcessedDb(dbType: availableDataSources, completion: @escaping (String, String) -> Void) {
         
         var currentLanguage = "en"
         if let preferredLanguageCode = Locale.preferredLanguages.first {
