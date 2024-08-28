@@ -653,6 +653,9 @@ public class iPassSDKManger {
             hostingController.modalPresentationStyle = .fullScreen
             iPassSDKDataManager.shared.controller.present(hostingController, animated: true)
             NotificationCenter.default.addObserver(forName: NSNotification.Name("dismissSwiftUI"), object: nil, queue: nil) { (data) in
+                
+                print(data)
+                print("3443433434")
                 NotificationCenter.default.removeObserver(self)
                 NotificationCenter.default.removeObserver(self, name: NSNotification.Name("dismissSwiftUI"), object: nil)
 
