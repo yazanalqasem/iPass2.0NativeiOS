@@ -59,7 +59,6 @@ public struct FaceClass: View {
                             
                             print("Success")
                             DispatchQueue.main.async {
-                                iPassSDKDataManager.shared.alreadyReturned = false
                                 self.faceLivenessStringValue = "1" // Now you can modify this
                                 UserDefaults.standard.set(faceLivenessStringValue, forKey: "faceLiveness")
                                 self.isPresentingUserInfo = true
@@ -71,7 +70,6 @@ public struct FaceClass: View {
                         case .failure(_):
                             print("Failure")
                             DispatchQueue.main.async {
-                                iPassSDKDataManager.shared.alreadyReturned = false
                                 self.faceLivenessStringValue = "0" // Now you can modify this
                                 UserDefaults.standard.set(faceLivenessStringValue, forKey: "isFaceLiveness")
                                 self.isPresentingUserInfo = true
