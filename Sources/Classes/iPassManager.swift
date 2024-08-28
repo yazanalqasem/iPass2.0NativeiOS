@@ -658,8 +658,7 @@ public class iPassSDKManger {
             iPassSDKDataManager.shared.controller.present(hostingController, animated: true)
             NotificationCenter.default.addObserver(forName: NSNotification.Name("dismissSwiftUI"), object: nil, queue: nil) { (data) in
                 
-                print(data)
-                print("3443433434")
+              
                 NotificationCenter.default.removeObserver(self)
                 NotificationCenter.default.removeObserver(self, name: NSNotification.Name("dismissSwiftUI"), object: nil)
 
@@ -667,7 +666,6 @@ public class iPassSDKManger {
                
                 
                 if(iPassSDKDataManager.shared.alreadyReturned == false) {
-                    print("3443433434----------")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                               addAnimationLoader()
                     }
