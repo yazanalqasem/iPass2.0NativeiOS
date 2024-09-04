@@ -386,7 +386,7 @@ public class iPassSDKManger {
         DocReader.shared.processParams.debugSaveLogs = true
         DocReader.shared.processParams.debugSaveCroppedImages = true
         DocReader.shared.processParams.debugSaveRFIDSession = true
-        //--
+        
         DocReader.shared.processParams.returnUncroppedImage = true
         DocReader.shared.processParams.dateFormat = iPassSDKDataManager.shared.documentDateFormat
         DocReader.shared.processParams.multipageProcessing = true
