@@ -395,9 +395,10 @@ public class iPassSDKManger {
         DocReader.shared.functionality.showSkipNextPageButton = false
         DocReader.shared.processParams.authenticityParams = AuthenticityParams.default()
         DocReader.shared.processParams.authenticityParams?.livenessParams = LivenessParams.default()
+      
+        DocReader.shared.processParams.imageQA.colornessCheck = true
+    
         
-        
-       
         
         
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkHolo = NSNumber(value: iPassSDKDataManager.shared.needHologram)
