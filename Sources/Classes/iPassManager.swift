@@ -402,9 +402,9 @@ public class iPassSDKManger {
         DocReader.shared.processParams.imageQA.screenCapture = true
       //  DocReader.shared.processParams.imageQA.brightnessThreshold = true
         DocReader.shared.processParams.imageQA.documentPositionIndent = true
-        DocReader.shared.processParams.imageQA.brightnessThreshold = 1.5
+       // DocReader.shared.processParams.imageQA.brightnessThreshold = 1.5
 
-        DocReader.shared.processParams.respectImageQuality = true
+//        DocReader.shared.processParams.respectImageQuality = true
         DocReader.shared.processParams.imageQA.dpiThreshold = 400
 
        // DocReader.shared.processParams.minDPI = 400
