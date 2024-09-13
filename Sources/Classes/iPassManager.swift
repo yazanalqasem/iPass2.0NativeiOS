@@ -662,13 +662,14 @@ public class iPassSDKManger {
     
     private static func faceLivenessApi()  {
         
+        
+        
         DispatchQueue.main.async {
             stopLoaderAnimation()
             var swiftUIView = FaceClass()
             swiftUIView.sessoinIdValue = iPassSDKDataManager.shared.sessionId
             let hostingController = UIHostingController(rootView: swiftUIView)
-            hostingController.modalPresentationStyle = .fullScreen
-            iPassSDKDataManager.shared.controller.present(hostingController, animated: true)
+            
             NotificationCenter.default.addObserver(forName: NSNotification.Name("dismissSwiftUI"), object: nil, queue: nil) { (data) in
                 
               
@@ -686,6 +687,11 @@ public class iPassSDKManger {
                     startSavingDataToPanel()
                 }
             }
+            
+            
+            hostingController.modalPresentationStyle = .fullScreen
+            iPassSDKDataManager.shared.controller.present(hostingController, animated: true)
+       
         }
      }
     
