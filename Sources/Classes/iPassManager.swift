@@ -383,7 +383,7 @@ public class iPassSDKManger {
     
     private static func setDocumentScannerProperties() {
         
-        DocReader.shared.processParams.debugSaveLogs = true
+      //  DocReader.shared.processParams.debugSaveLogs = true
         DocReader.shared.processParams.debugSaveCroppedImages = true
         DocReader.shared.processParams.debugSaveRFIDSession = true
         
@@ -406,6 +406,10 @@ public class iPassSDKManger {
 
         DocReader.shared.processParams.respectImageQuality = true
         DocReader.shared.processParams.imageQA.dpiThreshold = 400
+        
+        
+        
+        
 
        // DocReader.shared.processParams.minDPI = 400
         DocReader.shared.processParams.authenticityParams?.useLivenessCheck = NSNumber(value: iPassSDKDataManager.shared.needHologram)
