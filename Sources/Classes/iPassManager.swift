@@ -489,6 +489,7 @@ public class iPassSDKManger {
         
     }
     
+    
     private static func startDocumentProcessing() {
         
         iPassSDKDataManager.shared.alreadyReturned = true
