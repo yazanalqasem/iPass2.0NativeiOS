@@ -186,10 +186,10 @@ public class iPassSDKManger {
         dateFormatter.dateFormat = "yyyy-MM-ddHH-mm"
 
         // Step 4: Convert the date to a string
-        var dateString = dateFormatter.string(from: currentDate)
+        let dateString = dateFormatter.string(from: currentDate)
         
         
-        return ("i"+randomValue+"OS" + randStr + dateString + String(iPassSDKDataManager.shared.userSelectedFlowId) + String(iPassSDKDataManager.shared.dbVariable)).replacingOccurrences(of: " ", with: "")
+        return ("i"+randomValue+"OS" + randStr + dateString + String(iPassSDKDataManager.shared.userSelectedFlowId)).replacingOccurrences(of: " ", with: "")
     }
     
 
