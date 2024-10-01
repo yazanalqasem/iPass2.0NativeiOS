@@ -41,6 +41,7 @@ public class iPassSDKDataManager {
     var needHologram = true
     var alreadyReturned = true
     var documentDateFormat = "dd-mm-yyyy"
+    var dbVariable = ""
 }
 
 
@@ -186,6 +187,8 @@ public class iPassSDKManger {
 
         // Step 4: Convert the date to a string
         let dateString = dateFormatter.string(from: currentDate)
+        
+        dateString = dateString +  + "-" + iPassSDKDataManager.shared.dbVariable + "-"
         
         return ("i"+randomValue+"OS" + randStr + dateString + String(iPassSDKDataManager.shared.userSelectedFlowId)).replacingOccurrences(of: " ", with: "")
     }
