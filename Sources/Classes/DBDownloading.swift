@@ -68,8 +68,10 @@ public class DataBaseDownloading{
         switch dbType {
             case .basicJordan:
             requriedDatabaseName = "db.dat"
+            iPassSDKDataManager.shared.dbVariable = "ld"
             case .fullAuthJordan:
             requriedDatabaseName = "fulldb.dat"
+            iPassSDKDataManager.shared.dbVariable = "lfd"
             }
         
         DocumentReaderService.shared.initializeDatabaseAndAPI(dbType:requriedDatabaseName, status: { statusValue, errorValue in
@@ -126,6 +128,7 @@ public class DataBaseDownloading{
             }
             
             DocumentReaderService.shared.fullDBinitializeDatabaseAndAPI(progress: { state in
+                iPassSDKDataManager.shared.dbVariable = "od"
                 var progressValue = ""
                 var status = ""
                 var validationError = ""
