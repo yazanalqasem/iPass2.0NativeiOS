@@ -186,7 +186,7 @@ public class iPassSDKManger {
         dateFormatter.dateFormat = "yyyy-MM-ddHH-mm"
 
         // Step 4: Convert the date to a string
-        let dateString = dateFormatter.string(from: currentDate)
+        var dateString = dateFormatter.string(from: currentDate)
         
         dateString = dateString + "-" + iPassSDKDataManager.shared.dbVariable + "-"
         
