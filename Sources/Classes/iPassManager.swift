@@ -190,7 +190,7 @@ public class iPassSDKManger {
         
         var dbDataName = String()
         
-        dbDataName = "dd" + iPassSDKDataManager.shared.dbVariable + "dd"
+        dbDataName = "cc" + iPassSDKDataManager.shared.dbVariable + "cc"
         
         
         return ("i"+randomValue+"OS" + randStr + dateString + dbDataName +  String(iPassSDKDataManager.shared.userSelectedFlowId)).replacingOccurrences(of: " ", with: "")
