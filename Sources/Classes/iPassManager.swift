@@ -38,7 +38,7 @@ public class iPassSDKDataManager {
     var controller = UIViewController()
     var sessionId = String()
     var loaderColor = UIColor(red: 126/255, green:87/255, blue: 196/255, alpha: 1.0)
-    var needHologram = true
+    var needHologram = false
     var alreadyReturned = true
     var documentDateFormat = "dd-mm-yyyy"
     var dbVariable = ""
