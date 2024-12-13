@@ -589,7 +589,7 @@ public class iPassSDKManger {
     public static func startCamera() async {
         
         
-        if(iPassSDKDataManager.shared.resultScanData.isResultsEmpty() == true) {
+        if(iPassSDKDataManager.shared.resultScanData.textResult.fields.count == 0) {
             self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "document_scanning_error"))
             return
         }
