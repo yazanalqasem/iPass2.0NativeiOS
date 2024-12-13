@@ -588,15 +588,26 @@ public class iPassSDKManger {
     
     public static func startCamera() async {
         
-        if( iPassSDKDataManager.shared.userSelectedFlowId == 10031 ||  iPassSDKDataManager.shared.userSelectedFlowId == 10032 ||  iPassSDKDataManager.shared.userSelectedFlowId == 10011) {
-            await fetchCurrentAuthSession()
+        
+        if(iPassSDKDataManager.shared.resultScanData.isResultsEmpty() == true) {
+            self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "document_scanning_error"))
+            return
         }
-        else   {
-            DispatchQueue.main.async {
-                      addAnimationLoader()
+        else {
+            if( iPassSDKDataManager.shared.userSelectedFlowId == 10031 ||  iPassSDKDataManager.shared.userSelectedFlowId == 10032 ||  iPassSDKDataManager.shared.userSelectedFlowId == 10011) {
+                await fetchCurrentAuthSession()
             }
-            startSavingDataToPanel()
+            else   {
+                DispatchQueue.main.async {
+                          addAnimationLoader()
+                }
+                startSavingDataToPanel()
+            }
         }
+        
+       
+        
+      
         
     }
     
