@@ -148,7 +148,7 @@ The basic database option provides a streamlined version of the database, focusi
 #### fullAuth database:
 The fullAuth database option is designed for applications that need enhanced security and authenticity features. This version includes additional parameters that ensure the authenticity of the document, making it ideal for scenarios where data integrity and security are critical.
 
-- For the FullAuth database, you need to enable hologram detection using the following code:
+- For more accurate results you can also enable hologram option by the following code:
 
 ```ruby
 configProperties.needHologramDetection(value: true)
