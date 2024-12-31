@@ -18,7 +18,7 @@ let package = Package(
     ],
     dependencies: [
 //        .package(url: "https://github.com/cesarferreira/SwiftEventBus.git", from: "5.1.0"),
-        .package(url: "https://github.com/aws-amplify/amplify-ui-swift-liveness", from: "1.2.11")
+        .package(url: "https://github.com/aws-amplify/amplify-ui-swift-liveness", from: "1.3.3")
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
