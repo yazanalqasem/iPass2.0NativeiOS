@@ -55,3 +55,4 @@ struct getPermissionStatus {
     static let baseApi = (Apis.baseUrl) + "customer/access?token="
 }
 
+
