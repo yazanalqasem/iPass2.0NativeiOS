@@ -141,6 +141,7 @@ public class iPassSDKManger {
             }
             else {
                 self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error:  LocalizationManager.shared.localizedString(forKey: "invalid_url"))
+                print("qewqw")
                 return;
             }
             
