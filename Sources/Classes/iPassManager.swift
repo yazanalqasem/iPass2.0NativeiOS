@@ -120,19 +120,18 @@ public class iPassSDKManger {
     private static func isValidURLMethod(_ urlString: String) -> Bool {
         // Check if the URL can be created
         guard let url = URL(string: urlString) else {
-            print("Invalid URL format")
+            
             return false
         }
         
         // Check if the scheme (e.g., http or https) and host are valid
         if url.scheme == nil || url.host == nil {
-            print("Invalid scheme or host")
             return false
         }
         
         // Optionally check if the URL has a port (in your case, 4087)
         if let port = url.port {
-            print("Port: \(port)")
+            
         }
 
         return true
@@ -154,7 +153,6 @@ public class iPassSDKManger {
             }
             else {
                 self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error:  LocalizationManager.shared.localizedString(forKey: "invalid_url"))
-                print("qewqw")
                 return;
             }
             
