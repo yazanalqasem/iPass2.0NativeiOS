@@ -117,7 +117,13 @@ public class iPassSDKManger {
     }
     
     
-    
+    private static func isValidURLMethod(_ urlString: String) -> Bool {
+        guard let url = URL(string: urlString) else {
+            return false // Invalid URL format
+        }
+        // Check if the scheme and host are not nil
+        return url.scheme != nil && url.host != nil
+    }
     
     public  static func UserOnboardingProcess(email: String, password: String, serverUrl: String, completion: @escaping (Bool?, String?) -> Void) {
         let parameters: [String: Any] = [
@@ -129,17 +135,20 @@ public class iPassSDKManger {
             Apis.baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
         }
         else {
-            Apis.baseUrl = serverUrl
+            
+            if isValidURLMethod(serverUrl) == true {
+                Apis.baseUrl = serverUrl
+            }
+            else {
+                self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error:  LocalizationManager.shared.localizedString(forKey: "invalid_url"))
+                return;
+            }
+            
+           
         }
         
         
         iPassHandler.methodForPost(url: UserLoginApi.baseApi, params: parameters) { response, error in
-//            if(error != "") {
-//                
-//                completion(false, ((error?.contains("++"))! ? error?.removePrefix("++") : "User Login Issue") ?? "User Login Issue")
-//                //completion(false, "User Login Issue")
-//            }
-            
             if let error = error, !error.isEmpty {
                 let processedError: String
                 if error.contains("++") {
