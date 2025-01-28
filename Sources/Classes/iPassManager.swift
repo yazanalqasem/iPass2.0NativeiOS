@@ -119,11 +119,20 @@ public class iPassSDKManger {
     
     
     
-    public  static func UserOnboardingProcess(email: String, password: String, completion: @escaping (Bool?, String?) -> Void) {
+    public  static func UserOnboardingProcess(email: String, password: String, serverUrl: String, completion: @escaping (Bool?, String?) -> Void) {
         let parameters: [String: Any] = [
             UserLoginApi.email: email,
             UserLoginApi.password: password
         ]
+        
+        if(serverUrl == "") {
+            Apis.baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
+        }
+        else {
+            Apis.baseUrl = serverUrl
+        }
+        
+        
         iPassHandler.methodForPost(url: UserLoginApi.baseApi, params: parameters) { response, error in
 //            if(error != "") {
 //                
