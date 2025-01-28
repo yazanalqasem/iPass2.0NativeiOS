@@ -118,11 +118,24 @@ public class iPassSDKManger {
     
     
     private static func isValidURLMethod(_ urlString: String) -> Bool {
+        // Check if the URL can be created
         guard let url = URL(string: urlString) else {
-            return false // Invalid URL format
+            print("Invalid URL format")
+            return false
         }
-        // Check if the scheme and host are not nil
-        return url.scheme != nil && url.host != nil
+        
+        // Check if the scheme (e.g., http or https) and host are valid
+        if url.scheme == nil || url.host == nil {
+            print("Invalid scheme or host")
+            return false
+        }
+        
+        // Optionally check if the URL has a port (in your case, 4087)
+        if let port = url.port {
+            print("Port: \(port)")
+        }
+
+        return true
     }
     
     public  static func UserOnboardingProcess(email: String, password: String, serverUrl: String, completion: @escaping (Bool?, String?) -> Void) {
