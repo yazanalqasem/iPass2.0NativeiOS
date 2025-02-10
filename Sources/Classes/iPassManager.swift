@@ -303,7 +303,7 @@ public class iPassSDKManger {
        
   
         if(userEmail.isEmpty || userToken.isEmpty || appToken.isEmpty) {
-            self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: LocalizationManager.shared.localizedString(forKey: "data_processing_error"))
+            self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: LocalizationManager.shared.localizedString(forKey: "param_requried"))
             return
         }
         
