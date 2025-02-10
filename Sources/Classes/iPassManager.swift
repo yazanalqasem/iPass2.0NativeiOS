@@ -282,6 +282,9 @@ public class iPassSDKManger {
     public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String) async   {
         
       
+        
+        
+        
        
         if(flowId == 10031) {
             if(socialMediaEmail == "" ) {
@@ -296,14 +299,13 @@ public class iPassSDKManger {
                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: LocalizationManager.shared.localizedString(forKey: "email_format"))
                 return
             }
-            
-//            else if(isNumeric(phoneNumber) == false) {
-//                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Only numbers are allowed in phone number")
-//                 return
-//             }
         }
        
   
+        if(userEmail.isEmpty || userToken.isEmpty || appToken.isEmpty) {
+            self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: LocalizationManager.shared.localizedString(forKey: "data_processing_error"))
+            return
+        }
         
         iPassSDKDataManager.shared.userSelectedFlowId = flowId
         iPassSDKDataManager.shared.userSocialMediaEmail = socialMediaEmail
