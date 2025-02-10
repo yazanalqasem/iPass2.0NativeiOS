@@ -38,7 +38,8 @@ class LocalizationManager {
                 "data_processing_error": "Data processing error",
                 "internet_connection_error": "Internet Connection not found",
                 "invalid_workflowid": "Work flow id is not valid",
-                "invalid_url": "Invalid server url"
+                "invalid_url": "Invalid server url",
+                "param_requried" : "Please check parameters"
             ],
             "ar": [
                 "limit_over": "لقد وصلت إلى حد المعاملات الخاص بك أو ليس لديك حق الوصول للمعاملات",
@@ -54,7 +55,8 @@ class LocalizationManager {
                 "data_processing_error": "خطأ في معالجة البيانات",
                 "internet_connection_error": "لم يتم العثور على اتصال بالإنترنت",
                 "invalid_workflowid": "معرف تدفق العمل غير صالح",
-                "invalid_url": "عنوان URL للخادم غير صالح"
+                "invalid_url": "عنوان URL للخادم غير صالح",
+                "param_requried" : "يرجى التحقق من المعلمات"
             ],
             "fr": [
                 "limit_over": "vous avez atteint votre limite de transaction ou vous n'avez pas accès à la transaction",
@@ -70,7 +72,8 @@ class LocalizationManager {
                 "data_processing_error": "Erreur de traitement des données",
                 "internet_connection_error": "Connexion Internet non trouvée",
                 "invalid_workflowid": "L'identifiant du flux de travail n'est pas valide",
-                "invalid_url": "URL du serveur invalide"
+                "invalid_url": "URL du serveur invalide",
+                "param_requried" : "Veuillez vérifier les paramètres."
             ],
             "es": [
                 "limit_over": "has alcanzado tu límite de transacción o no tienes acceso para transacciones",
@@ -86,7 +89,8 @@ class LocalizationManager {
                 "data_processing_error": "Error en el procesamiento de datos",
                 "internet_connection_error": "No se encontró conexión a Internet",
                 "invalid_workflowid": "La identificación del flujo de trabajo no es válida",
-                "invalid_url": "URL del servidor no válida"
+                "invalid_url": "URL del servidor no válida",
+                "param_requried" : "Por favor, verifica los parámetros."
             ],
             "tr": [
                 "limit_over": "işlem limitinize ulaştınız veya işlem için erişiminiz yok",
@@ -102,7 +106,8 @@ class LocalizationManager {
                 "data_processing_error": "Veri işleme hatası",
                 "internet_connection_error": "İnternet Bağlantısı Bulunamadı",
                 "invalid_workflowid": "İş akışı kimliği geçerli değil",
-                "invalid_url": "Geçersiz sunucu URL'si"
+                "invalid_url": "Geçersiz sunucu URL'si",
+                "param_requried" : "Lütfen parametreleri kontrol edin."
             ],
             "ur": [
                 "limit_over": "آپ نے اپنے ٹرانزیکشن حد کو پہنچ گئے ہیں یا آپ کے پاس ٹرانزیکشن کی رسائی نہیں ہے",
@@ -118,7 +123,8 @@ class LocalizationManager {
                 "data_processing_error": "ڈیٹا پروسیسنگ میں خرابی",
                 "internet_connection_error": "انٹرنیٹ کنکشن نہیں ملا",
                 "invalid_workflowid": "ورک فلو آئی ڈی درست نہیں ہے۔",
-                "invalid_url": "غلط سرور یو آر ایل"
+                "invalid_url": "غلط سرور یو آر ایل",
+                "param_requried" : "برائے مہربانی پیرامیٹرز چیک کریں۔"
             ],
             "de": [
                 "limit_over": "Sie haben Ihr Transaktionslimit erreicht oder Sie haben keinen Zugriff auf Transaktionen",
@@ -134,7 +140,8 @@ class LocalizationManager {
                 "data_processing_error": "Datenverarbeitungsfehler",
                 "internet_connection_error": "Internetverbindung nicht gefunden",
                 "invalid_workflowid": "Die Workflow-ID ist ungültig",
-                "invalid_url": "Ungültige Server-URL"
+                "invalid_url": "Ungültige Server-URL",
+                "param_requried" : "Bitte überprüfen Sie die Parameter."
             ],
             "ku": [
                 "limit_over": "we gihîştiye sînorê danûstendina xwe an jî gihîştina we ji bo danûstendinê tune",
@@ -150,7 +157,8 @@ class LocalizationManager {
                 "data_processing_error": "Çewtiya hilberandina daneyan",
                 "internet_connection_error": "Têkiliya Înternetê nehat dîtin",
                 "invalid_workflowid": "Nasnameya herikîna xebatê ne derbasdar e",
-                "invalid_url": "URL-ya serverê nederbasdar"
+                "invalid_url": "URL-ya serverê nederbasdar",
+                "param_requried" : "Ji kerema xwe parametre kontrol bikin"
             ],
             "ckb": [
                 "limit_over": "گەیشتووی سنووری مامەڵەکەت یان تۆ دەسەڵاتی مامەڵە نیە",
@@ -166,7 +174,8 @@ class LocalizationManager {
                 "data_processing_error": "هەڵە لە پڕۆسەکردنی زانیاری",
                 "internet_connection_error": "هەڵەیەک ڕوویدا لەگەڵ بەرزەخ",
                 "invalid_workflowid": "نەسنامەیا هێریکینا خەباتە نە دەرباسدار ئی",
-                "invalid_url": "ناونیشانی ڕاژە ناچالاکە"
+                "invalid_url": "ناونیشانی ڕاژە ناچالاکە",
+                "param_requried" : "ئەتوانی بگەیەنم بێ جێ بەجێکردن: تکایە پارامێترەکان بپشکنە"
             ],
             // Add more languages and strings as needed
         ]
