@@ -111,20 +111,7 @@ Add following items to above array item
 ### Add NFC Compatibility
 - Near Field Communication Tag Reading
 -----
-### Initialize Database
-To start the process user need to download the database. iPass sdk supports two type of database systems.
- 
- - Pre-packaged Database
- - Dynamic Database
- 
-### Pre-packaged Database:
- This type of database is bundled within the SDK itself. It is a pre-configured and read-only database that comes as part of the app's installation package. Since the database is local to the app, querying this database is generally faster, as it does not involve network latency. This is a custom database designed to meet specific requirements. If you need a custom database tailored to your needs, you can request one by contacting our support team at info@ipass-mena.com.
- 
- ### Dynamic Database:
- This type of database is not included in the initial app package but is instead downloaded from a remote server when the app is launched or when certain conditions are met. The server-side database can be updated independently of the app, allowing for more dynamic content and real-time data management. In this database downloading time depends on the internet speed.
- 
- ----
- 
+
   ### Before using the SDK, you need to set up the delegate to receive callbacks
  
 ```ruby
@@ -144,6 +131,20 @@ To start the process user need to download the database. iPass sdk supports two 
 - "transactionId" object will return the unique transcation number for completed transaction
 - "error" object will return the error description
 -----
+
+### Initialize Database
+To start the process user need to download the database. iPass sdk supports two type of database systems.
+ 
+ - Pre-packaged Database
+ - Dynamic Database
+ 
+### Pre-packaged Database:
+ This type of database is bundled within the SDK itself. It is a pre-configured and read-only database that comes as part of the app's installation package. Since the database is local to the app, querying this database is generally faster, as it does not involve network latency. This is a custom database designed to meet specific requirements. If you need a custom database tailored to your needs, you can request one by contacting our support team at info@ipass-mena.com.
+ 
+ ### Dynamic Database:
+ This type of database is not included in the initial app package but is instead downloaded from a remote server when the app is launched or when certain conditions are met. The server-side database can be updated independently of the app, allowing for more dynamic content and real-time data management. In this database downloading time depends on the internet speed.
+ 
+ ----
  
  ### Pre-packaged Database Implementation:
  
