@@ -57,7 +57,6 @@ public struct FaceClass: View {
                         switch result {
                         case .success:
                             
-                            print("Success")
                             DispatchQueue.main.async {
                                 self.faceLivenessStringValue = "1" // Now you can modify this
                                 UserDefaults.standard.set(faceLivenessStringValue, forKey: "faceLiveness")
@@ -68,7 +67,6 @@ public struct FaceClass: View {
                                 NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil, userInfo: dictStatus)
                             }
                         case .failure(_):
-                            print("Failure")
                             DispatchQueue.main.async {
                                 self.faceLivenessStringValue = "0" // Now you can modify this
                                 UserDefaults.standard.set(faceLivenessStringValue, forKey: "isFaceLiveness")
