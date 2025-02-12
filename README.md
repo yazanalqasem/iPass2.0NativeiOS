@@ -125,6 +125,26 @@ To start the process user need to download the database. iPass sdk supports two 
  
  ----
  
+  ### Before using the SDK, you need to set up the delegate to receive callbacks
+ 
+```ruby
+                    iPassSDKManger.delegate = self
+```
+ ### Add Delegate to Get Response
+ ```ruby
+   extension ViewController : iPassSDKManagerDelegate {
+        func getScanCompletionResult(result: String, transactionId: String, error: String) {
+            print(result)
+            print(transactionId)
+            print(error)
+        }
+    }
+```
+- "result" object will return the required json response
+- "transactionId" object will return the unique transcation number for completed transaction
+- "error" object will return the error description
+-----
+ 
  ### Pre-packaged Database Implementation:
  
 ```ruby
@@ -210,20 +230,6 @@ iPassSDKManger.startScanningProcess(userEmail: "sam@gmail.com", flowId: 10031, s
 - After the scanning process, Response will be available in package delegate.
 -----
 
-### Add Delegate to Get Response
- ```ruby
-   extension ViewController : iPassSDKManagerDelegate {
-        func getScanCompletionResult(result: String, transactionId: String, error: String) {
-            print(result)
-            print(transactionId)
-            print(error)
-        }
-    }
-```
-- "result" object will return the required json response
-- "transactionId" object will return the unique transcation number for completed transaction
-- "error" object will return the error description
------
 
 ### SDK Properties
  ```ruby

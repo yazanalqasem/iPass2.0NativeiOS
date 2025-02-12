@@ -323,10 +323,8 @@ public class iPassSDKManger {
         var currentLanguage = "en"
         if let preferredLanguageCode = Locale.preferredLanguages.first {
              currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
-            print("Device's preferred language code: \(currentLanguage)")
           
         } else {
-            print("Unable to determine the device's preferred language code.")
         }
         iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
         
@@ -747,7 +745,6 @@ public class iPassSDKManger {
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
-                print("Error fetching public IP address: \(error?.localizedDescription ?? "Unknown error")")
                 completion(nil)
                 return
             }

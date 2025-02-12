@@ -26,10 +26,8 @@ public class DataBaseDownloading{
         var currentLanguage = "en"
         if let preferredLanguageCode = Locale.preferredLanguages.first {
              currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
-            print("Device's preferred language code: \(currentLanguage)")
           
         } else {
-            print("Unable to determine the device's preferred language code.")
         }
         iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
         
@@ -90,10 +88,8 @@ public class DataBaseDownloading{
             var currentLanguage = "en"
             if let preferredLanguageCode = Locale.preferredLanguages.first {
                  currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
-                print("Device's preferred language code: \(currentLanguage)")
               
             } else {
-                print("Unable to determine the device's preferred language code.")
             }
             iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
             
