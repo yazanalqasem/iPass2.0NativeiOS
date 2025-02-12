@@ -229,7 +229,6 @@ iPassSDKManger.UserOnboardingProcess(email: emailStr, password: passwordStr, ser
 - Users can scan both the front and back sides of documents, but it totally depends on the document type.
 
  ```ruby
-iPassSDKManger.delegate = self
 iPassSDKManger.startScanningProcess(userEmail: "sam@gmail.com", flowId: 10031, socialMediaEmail :"samfb@gmail.com", phoneNumber : "978xxxxxx", controller: self, userToken: self.userToken, appToken: self.appToken)
 ```
 - usertoken will be the login token
