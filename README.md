@@ -189,10 +189,16 @@ configProperties.needHologramDetection(value: true)
 - Once the database is downloaded 100% and status is Start Now, user can start the next step.
 -----
 
-### Get User Login Token
-- Pass valid email id and password to get user token
+### Getting the User Login Token & On-Prem Server Setup
+- Retrieve User Login Token
+  - Pass a valid email and password to authenticate the user and obtain the login token.
+  
+- On-Prem Server Support
+  - iPass supports On-Prem server integration. To use an on-prem server, provide the server URL in the serverUrl parameter.
+     - If serverUrl is an empty string, the data will be saved on the iPass server.
+     - If serverUrl contains a valid URL, the data will be saved on your on-prem server.
 ```ruby
-iPassSDKManger.UserOnboardingProcess(email: emailStr, password: passwordStr) { status, tokenString in
+iPassSDKManger.UserOnboardingProcess(email: emailStr, password: passwordStr, serverUrl: "http://192.168.14.122/node/api/v1/ipass/") { status, tokenString in
     if(status == true) {
         self.userToken = tokenString!
     }
