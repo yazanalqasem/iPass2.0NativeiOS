@@ -198,13 +198,14 @@ configProperties.needHologramDetection(value: true)
      - If serverUrl is an empty string, the data will be saved on the iPass server.
      - If serverUrl contains a valid URL, the data will be saved on your on-prem server.
 ```ruby
-iPassSDKManger.UserOnboardingProcess(email: emailStr, password: passwordStr, serverUrl: "http://192.168.14.122/node/api/v1/ipass/") { status, tokenString in
+iPassSDKManger.UserOnboardingProcess(email: emailStr, password: passwordStr, serverUrl: "http://192.168.19.421/") { status, tokenString in
     if(status == true) {
         self.userToken = tokenString!
     }
 }
 ```
 - Once the user is logged in user token need to save because this will be used in document scanning process
+- Replace "http://192.168.19.421/" with your actual on-prem server URL if applicable.
 
 -----
   
