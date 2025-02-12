@@ -205,7 +205,7 @@ iPassSDKManger.UserOnboardingProcess(email: emailStr, password: passwordStr, ser
 }
 ```
 - Once the user is logged in user token need to save because this will be used in document scanning process
-- Replace "http://192.168.19.421/" with your actual on-prem server URL if applicable.
+- Replace 'http://192.168.19.421/' with your actual on-prem server URL if applicable.
 
 -----
   
