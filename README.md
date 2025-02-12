@@ -128,7 +128,7 @@ To start the process user need to download the database. iPass sdk supports two 
   ### Before using the SDK, you need to set up the delegate to receive callbacks
  
 ```ruby
-                    iPassSDKManger.delegate = self
+ iPassSDKManger.delegate = self
 ```
  ### Add Delegate to Get Response
  ```ruby
