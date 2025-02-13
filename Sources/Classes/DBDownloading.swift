@@ -21,7 +21,22 @@ public class DataBaseDownloading{
     
     
     
-    public static func initializePreProcessedDb(dbType: availableDataSources, completion: @escaping (String, String) -> Void) {
+    public static func initializePreProcessedDb(serverUrl: String, dbType: availableDataSources, completion: @escaping (String, String) -> Void) {
+        
+        
+        if(serverUrl == "" || serverUrl.isEmpty) {
+            Apis.baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
+        }
+        else {
+            
+            if isValidURLMethod(serverUrl) == true {
+                Apis.baseUrl = serverUrl
+            }
+            else {
+                completion("",  LocalizationManager.shared.localizedString(forKey: "invalid_url"))
+                return;
+            }
+        }
         
         var currentLanguage = "en"
         if let preferredLanguageCode = Locale.preferredLanguages.first {
@@ -82,9 +97,43 @@ public class DataBaseDownloading{
     }
     
     
-    
-    public static func initializeDynamicDb(completion: @escaping (String, String, String) -> Void) {
+    private static func isValidURLMethod(_ urlString: String) -> Bool {
+        // Check if the URL can be created
+        guard let url = URL(string: urlString) else {
             
+            return false
+        }
+        
+        // Check if the scheme (e.g., http or https) and host are valid
+        if url.scheme == nil || url.host == nil {
+            return false
+        }
+        
+        // Optionally check if the URL has a port (in your case, 4087)
+        if let port = url.port {
+            
+        }
+
+        return true
+    }
+    
+    public static func initializeDynamicDb(serverUrl: String, completion: @escaping (String, String, String) -> Void) {
+            
+        
+        if(serverUrl == "" || serverUrl.isEmpty) {
+            Apis.baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
+        }
+        else {
+            
+            if isValidURLMethod(serverUrl) == true {
+                Apis.baseUrl = serverUrl
+            }
+            else {
+                completion("", "", LocalizationManager.shared.localizedString(forKey: "invalid_url"))
+                return;
+            }
+        }
+        
             var currentLanguage = "en"
             if let preferredLanguageCode = Locale.preferredLanguages.first {
                  currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
