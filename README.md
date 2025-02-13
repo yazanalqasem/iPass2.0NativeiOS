@@ -117,25 +117,6 @@ Add App Transport Security Settings Dictionary
 - Near Field Communication Tag Reading
 -----
 
-  ### Before using the SDK, you need to set up the delegate to receive callbacks
- 
-```ruby
- iPassSDKManger.delegate = self
-```
- ### Add Delegate to Get Response
- ```ruby
-   extension ViewController : iPassSDKManagerDelegate {
-        func getScanCompletionResult(result: String, transactionId: String, error: String) {
-            print(result)
-            print(transactionId)
-            print(error)
-        }
-    }
-```
-- "result" object will return the required json response
-- "transactionId" object will return the unique transcation number for completed transaction
-- "error" object will return the error description
------
 
 ### Initialize Database
 To start the process user need to download the database. iPass sdk supports two type of database systems.
@@ -192,6 +173,26 @@ configProperties.needHologramDetection(value: true)
 
 - From the completion, Progress object can be used to track the downloading percentage.
 - Once the database is downloaded 100% and status is Start Now, user can start the next step.
+-----
+
+  ### Delegate Setup, you need to set up the delegate to receive callbacks
+ 
+```ruby
+ iPassSDKManger.delegate = self
+```
+ ### Add Delegate to Get Response
+ ```ruby
+   extension ViewController : iPassSDKManagerDelegate {
+        func getScanCompletionResult(result: String, transactionId: String, error: String) {
+            print(result)
+            print(transactionId)
+            print(error)
+        }
+    }
+```
+- "result" object will return the required json response
+- "transactionId" object will return the unique transcation number for completed transaction
+- "error" object will return the error description
 -----
 
 ### Getting the User Login Token & On-Prem Server Setup
