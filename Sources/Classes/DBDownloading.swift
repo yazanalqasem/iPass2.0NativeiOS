@@ -23,6 +23,14 @@ public class DataBaseDownloading{
     
     public static func initializePreProcessedDb(serverUrl: String, dbType: availableDataSources, completion: @escaping (String, String) -> Void) {
         
+        var currentLanguage = "en"
+        if let preferredLanguageCode = Locale.preferredLanguages.first {
+             currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
+          
+        } else {
+        }
+        iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
+        
         
         if(serverUrl == "" || serverUrl.isEmpty) {
             Apis.baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
@@ -38,13 +46,7 @@ public class DataBaseDownloading{
             }
         }
         
-        var currentLanguage = "en"
-        if let preferredLanguageCode = Locale.preferredLanguages.first {
-             currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
-          
-        } else {
-        }
-        iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
+       
         
         do {
            // Amplify.Logging.logLevel = .verbose
@@ -119,7 +121,13 @@ public class DataBaseDownloading{
     
     public static func initializeDynamicDb(serverUrl: String, completion: @escaping (String, String, String) -> Void) {
             
-        
+        var currentLanguage = "en"
+        if let preferredLanguageCode = Locale.preferredLanguages.first {
+             currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
+          
+        } else {
+        }
+        iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
         if(serverUrl == "" || serverUrl.isEmpty) {
             Apis.baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
         }
@@ -134,13 +142,7 @@ public class DataBaseDownloading{
             }
         }
         
-            var currentLanguage = "en"
-            if let preferredLanguageCode = Locale.preferredLanguages.first {
-                 currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
-              
-            } else {
-            }
-            iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
+           
             
             do {
                // Amplify.Logging.logLevel = .verbose
