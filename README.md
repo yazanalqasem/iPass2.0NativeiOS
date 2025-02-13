@@ -181,7 +181,7 @@ configProperties.needHologramDetection(value: true)
 - From the completion, Progress object can be used to track the downloading percentage.
 - Once the database is downloaded 100% and status is Start Now, user can start the next step.
 - Any type of error will be visible in error object
-- Replace "http://192.168.19.421/" with your actual on-prem server URL if applicable.
+- Replace http://192.168.19.421/ with your actual on-prem server URL if applicable.
 -----
 
   ### Delegate Setup, you need to set up the delegate to receive callbacks
