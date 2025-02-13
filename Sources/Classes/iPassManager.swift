@@ -71,6 +71,8 @@ public class iPassSDKManger {
     
     public static  let fullSizeView = UIView()
     
+    public static let serverUrlLink = String()
+    
     
     
     
@@ -117,47 +119,29 @@ public class iPassSDKManger {
     }
     
     
-    private static func isValidURLMethod(_ urlString: String) -> Bool {
-        // Check if the URL can be created
-        guard let url = URL(string: urlString) else {
-            
-            return false
-        }
-        
-        // Check if the scheme (e.g., http or https) and host are valid
-        if url.scheme == nil || url.host == nil {
-            return false
-        }
-        
-        // Optionally check if the URL has a port (in your case, 4087)
-        if let port = url.port {
-            
-        }
 
-        return true
-    }
     
-    public  static func UserOnboardingProcess(email: String, password: String, serverUrl: String, completion: @escaping (Bool?, String?) -> Void) {
+    public  static func UserOnboardingProcess(email: String, password: String, completion: @escaping (Bool?, String?) -> Void) {
         let parameters: [String: Any] = [
             UserLoginApi.email: email,
             UserLoginApi.password: password
         ]
         
-        if(serverUrl == "") {
-            Apis.baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
-        }
-        else {
-            
-            if isValidURLMethod(serverUrl) == true {
-                Apis.baseUrl = serverUrl
-            }
-            else {
-                self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error:  LocalizationManager.shared.localizedString(forKey: "invalid_url"))
-                return;
-            }
-            
-           
-        }
+//        if(serverUrl == "" || serverUrl.isEmpty) {
+//            Apis.baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
+//        }
+//        else {
+//            
+//            if isValidURLMethod(serverUrl) == true {
+//                Apis.baseUrl = serverUrl
+//            }
+//            else {
+//                self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error:  LocalizationManager.shared.localizedString(forKey: "invalid_url"))
+//                return;
+//            }
+//            
+//           
+//        }
         
         
         iPassHandler.methodForPost(url: UserLoginApi.baseApi, params: parameters) { response, error in
