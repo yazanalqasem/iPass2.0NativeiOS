@@ -118,8 +118,13 @@ Add App Transport Security Settings Dictionary
 -----
 
 
-### Initialize Database
-To start the process user need to download the database. iPass sdk supports two type of database systems.
+### Initialize Database and On-Prem Server setup
+
+- iPass supports On-Prem server integration. To use an on-prem server, provide the server URL in the serverUrl parameter.
+     - If serverUrl is an empty string, the data will be saved on the iPass server.
+     - If serverUrl contains a valid URL, the data will be saved on your on-prem server.
+     
+- To start the process user need to download the database. iPass sdk supports two type of database systems.
  
  - Pre-packaged Database
  - Dynamic Database
@@ -135,12 +140,13 @@ To start the process user need to download the database. iPass sdk supports two 
  ### Pre-packaged Database Implementation:
  
 ```ruby
-    DataBaseDownloading.initializePreProcessedDb(dbType: DataBaseDownloading.availableDataSources.fullAuthJordan, completion:{status, error in
+    DataBaseDownloading.initializePreProcessedDb(serverUrl: "http://192.168.19.421/", dbType: DataBaseDownloading.availableDataSources.fullAuthJordan, completion:{status, error in
                                 print(status, error)
                 })
 ```
     
 - In the completion, When the status is Start Now, you can start the next step.
+- Any type of error will be visible in error object
     
         
 - In the Pre-packaged Database, System allows you to choose between two types of databases. Currenlty this database only allows to scan Jordanian ID cards as well as passports from other countries.
@@ -166,13 +172,14 @@ configProperties.needHologramDetection(value: true)
  ### Dynamic Database Implementation:
  
  ```ruby
-            DataBaseDownloading.initializeDynamicDb(completion:{progres, status, error in
+            DataBaseDownloading.initializeDynamicDb(serverUrl: "http://192.168.19.421/", completion:{progres, status, error in
             print(progres, status, error)
         })
 ```
 
 - From the completion, Progress object can be used to track the downloading percentage.
 - Once the database is downloaded 100% and status is Start Now, user can start the next step.
+- Any type of error will be visible in error object
 -----
 
   ### Delegate Setup, you need to set up the delegate to receive callbacks
