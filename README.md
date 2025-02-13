@@ -147,7 +147,7 @@ Add App Transport Security Settings Dictionary
     
 - In the completion, When the status is Start Now, you can start the next step.
 - Any type of error will be visible in error object
-- Replace 'http://192.168.19.421/' with your actual on-prem server URL if applicable.
+- Replace http://192.168.19.421/ with your actual on-prem server URL if applicable.
     
         
 - In the Pre-packaged Database, System allows you to choose between two types of databases. Currenlty this database only allows to scan Jordanian ID cards as well as passports from other countries.
@@ -181,7 +181,7 @@ configProperties.needHologramDetection(value: true)
 - From the completion, Progress object can be used to track the downloading percentage.
 - Once the database is downloaded 100% and status is Start Now, user can start the next step.
 - Any type of error will be visible in error object
-- Replace 'http://192.168.19.421/' with your actual on-prem server URL if applicable.
+- Replace "http://192.168.19.421/" with your actual on-prem server URL if applicable.
 -----
 
   ### Delegate Setup, you need to set up the delegate to receive callbacks
