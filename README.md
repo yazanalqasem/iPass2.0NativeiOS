@@ -126,8 +126,8 @@ Add App Transport Security Settings Dictionary
      
 - To start the process user need to download the database. iPass sdk supports two type of database systems.
  
- - Pre-packaged Database
- - Dynamic Database
+    - Pre-packaged Database
+    - Dynamic Database
  
 ### Pre-packaged Database:
  This type of database is bundled within the SDK itself. It is a pre-configured and read-only database that comes as part of the app's installation package. Since the database is local to the app, querying this database is generally faster, as it does not involve network latency. This is a custom database designed to meet specific requirements. If you need a custom database tailored to your needs, you can request one by contacting our support team at info@ipass-mena.com.
