@@ -54,6 +54,8 @@ let package = Package(
                 .process("awsconfiguration.json"),
                 .process("db.dat"), 
                 .process("fulldb.dat"),
+                .process("completedb.dat"),
+                .process("completedb"),
                 .process("fulldb"),
                 .process("db"),
                 .process("Certificates"),
