@@ -17,7 +17,7 @@ public class DataBaseDownloading{
   public enum availableDataSources {
         case basicJordan
         case fullAuthJordan
-        case fullWithoutAuth
+        case fullDb
     }
     
     
@@ -89,7 +89,7 @@ public class DataBaseDownloading{
             requriedDatabaseName = "fulldb.dat"
             iPassSDKDataManager.shared.dbVariable = "lfd"
             
-        case .fullWithoutAuth:
+        case .fullDb:
             requriedDatabaseName = "all_db.dat"
             iPassSDKDataManager.shared.dbVariable = "lcd"
             }
