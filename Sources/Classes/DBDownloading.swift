@@ -17,6 +17,7 @@ public class DataBaseDownloading{
   public enum availableDataSources {
         case basicJordan
         case fullAuthJordan
+        case fullWithoutAuth
     }
     
     
@@ -87,6 +88,10 @@ public class DataBaseDownloading{
             case .fullAuthJordan:
             requriedDatabaseName = "fulldb.dat"
             iPassSDKDataManager.shared.dbVariable = "lfd"
+            
+        case .fullWithoutAuth:
+            requriedDatabaseName = "all_db.dat"
+            iPassSDKDataManager.shared.dbVariable = "lcd"
             }
         
         DocumentReaderService.shared.initializeDatabaseAndAPI(dbType:requriedDatabaseName, status: { statusValue, errorValue in
