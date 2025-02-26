@@ -90,7 +90,7 @@ public class DataBaseDownloading{
             iPassSDKDataManager.shared.dbVariable = "lfd"
             
         case .fullDb:
-            requriedDatabaseName = "all_db.dat"
+            requriedDatabaseName = "completedb.dat"
             iPassSDKDataManager.shared.dbVariable = "lcd"
             }
         
