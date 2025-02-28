@@ -34,7 +34,7 @@ public class DataBaseDownloading{
         
         
         if(serverUrl == "" || serverUrl.isEmpty) {
-            Apis.baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
+            Apis.baseUrl = "https://plusapi.ipass-mena.com"
         }
         else {
             
