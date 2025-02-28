@@ -140,7 +140,7 @@ Add App Transport Security Settings Dictionary
  ### Pre-packaged Database Implementation:
  
 ```ruby
-    DataBaseDownloading.initializePreProcessedDb(serverUrl: "http://192.168.19.421/", dbType: DataBaseDownloading.availableDataSources.fullAuthJordan, completion:{status, error in
+    DataBaseDownloading.initializePreProcessedDb(serverUrl: "http://192.168.19.421/", dbType: DataBaseDownloading.availableDataSources.fullDb, completion:{status, error in
                                 print(status, error)
                 })
 ```
@@ -150,20 +150,19 @@ Add App Transport Security Settings Dictionary
 - Replace http://192.168.19.421/ with your actual on-prem server URL if applicable.
     
         
-- In the Pre-packaged Database, System allows you to choose between two types of databases. Currenlty this database only allows to scan Jordanian ID cards as well as passports from other countries.
+- In the Pre-packaged Database, System allows you to choose between three types of databases. Currenlty this database only allows to scan Jordanian ID cards as well as passports from other countries.
 
      - DataBaseDownloading.availableDataSources.basicJordan
+         - This database stores all types of documents for Jordan but only passports for other countries. It does not include authentication checks.
+         
      - DataBaseDownloading.availableDataSources.fullAuthJordan
+         - This database stores all types of documents for Jordan but only passports for other countries. It also includes authentication checks.
+         
+    - DataBaseDownloading.availableDataSources.fullDb
+         - This database stores all types of documents for all countries. It does not include authentication checks.
 
-#### Basic Database: 
-The basic database option provides a streamlined version of the database, focusing on essential data without incorporating any authenticity parameters. This option is suitable if your application does not require advanced security features and you want faster access to core data.
 
-
-#### fullAuth database:
-The fullAuth database option is designed for applications that need enhanced security and authenticity features. This version includes additional parameters that ensure the authenticity of the document, making it ideal for scenarios where data integrity and security are critical.
-
-- For more accurate results, you can enable the hologram option using the following code snippet. 
-By default, this option is disabled:
+- For authentication checks, you need to enable hologram option using the following code snippet. By default, this option is disabled:
 
 ```ruby
 configProperties.needHologramDetection(value: true)
