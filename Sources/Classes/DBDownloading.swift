@@ -39,7 +39,7 @@ public class DataBaseDownloading{
         else {
             
             if isValidURLMethod(serverUrl) == true {
-                Apis.baseUrl = serverUrl
+                Apis.baseUrl = serverUrl + "/node"
             }
             else {
                 completion("",  LocalizationManager.shared.localizedString(forKey: "invalid_url"))
@@ -134,12 +134,12 @@ public class DataBaseDownloading{
         }
         iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
         if(serverUrl == "" || serverUrl.isEmpty) {
-            Apis.baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
+            Apis.baseUrl = "https://plusapi.ipass-mena.com"
         }
         else {
             
             if isValidURLMethod(serverUrl) == true {
-                Apis.baseUrl = serverUrl
+                Apis.baseUrl = serverUrl + "/node"
             }
             else {
                 completion("", "", LocalizationManager.shared.localizedString(forKey: "invalid_url"))
