@@ -101,8 +101,8 @@ Add following items to above array item
 - A0000002480300
 - A00000045645444C2D3031
 
-- com.apple.developer.nfc.readersession.formats. - NFC reading formats
 
+- com.apple.developer.nfc.readersession.formats. - NFC reading formats
 
 
 Add following items to above array item
