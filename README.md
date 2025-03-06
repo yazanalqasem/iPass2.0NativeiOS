@@ -18,7 +18,7 @@
   - [General Requirements](#import-package)
   - [Permissions](#permissions)
   - [Add NFC Compatibility](#add-nfc-compatibility)
-  - [Initialize Database](#initialize-database)
+  - [Initialize Database and On-Prem Server setup](#initialize-database)
   - [Get User Login Token](#get-user-login-token)
   - [Get Supported Flows](#get-supported-flows)
   - [Document Scanning](#document-scanning)
@@ -100,6 +100,7 @@ Add following items to above array item
 - A0000002480200
 - A0000002480300
 - A00000045645444C2D3031
+
 - com.apple.developer.nfc.readersession.formats. - NFC reading formats
 
 
