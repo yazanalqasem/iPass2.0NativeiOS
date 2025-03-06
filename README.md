@@ -98,14 +98,14 @@ Add following items to above array item
       - A000000167455349474E
       - A0000002480100
       - A0000002480200
-      - A0000002480300
-      - A00000045645444C2D3031
+    - A0000002480300
+    - A00000045645444C2D3031
 
 - com.apple.developer.nfc.readersession.formats. - NFC reading formats
 
 Add following items to above array item
-     - NDEF
-     - TAG
+    - NDEF
+    - TAG
 
 - Add App Transport Security Settings Dictionary
     - Set Allow Arbitrary Loads bool True to above dictionary item
