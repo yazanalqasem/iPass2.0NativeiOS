@@ -84,9 +84,9 @@ import iPass2_0NativeiOS
 
 In this step user will give required permissions in the Info.plist file to enable the necessary device features:
 
--- Privacy - Camera Usage Description — Description for camera access.
-. Privacy - Photo Library Usage Description - Description for photo library access.
-. Privacy - Bluetooth Always Usage Description - Description for Bluetooth access.
+- Privacy - Camera Usage Description — Description for camera access.
+- Privacy - Photo Library Usage Description - Description for photo library access.
+- Privacy - Bluetooth Always Usage Description - Description for Bluetooth access.
 - Privacy - Speech Recognition Usage Description - Description for speech recognition.
 - Privacy - Privacy - NFC Scan Usage Description - Description for NFC usage.
 - ISO7816 application identifiers for NFC Tag Reader Session - For NFC features.
@@ -101,7 +101,7 @@ Add following items to above array item
   - A0000002480300
   - A00000045645444C2D3031
 
-- com.apple.developer.nfc.readersession.formats. - NFC reading formats
+=> com.apple.developer.nfc.readersession.formats. - NFC reading formats
 
 Add following items to above array item
 - NDEF
