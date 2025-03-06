@@ -93,17 +93,15 @@ In this step user will give required permissions in the Info.plist file to enabl
   
 
 Add following items to above array item
-- A0000002471001
-- E80704007F00070302
-- A000000167455349474E
-- A0000002480100
-- A0000002480200
-- A0000002480300
-- A00000045645444C2D3031
-
+  - A0000002471001
+  - E80704007F00070302
+  - A000000167455349474E
+  - A0000002480100
+  - A0000002480200
+  - A0000002480300
+  - A00000045645444C2D3031
 
 - com.apple.developer.nfc.readersession.formats. - NFC reading formats
-
 
 Add following items to above array item
 - NDEF
