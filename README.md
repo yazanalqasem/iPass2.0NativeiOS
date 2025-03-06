@@ -144,7 +144,7 @@ In this step user will give required permissions in the Info.plist file to enabl
 - Replace http://192.168.16.86 with your actual on-prem server URL if applicable.
     
         
-- In the Pre-packaged Database, System allows you to choose between three types of databases. Currenlty this database only allows to scan Jordanian ID cards as well as passports from other countries.
+- In the Pre-packaged Database, System allows you to choose between three types of databases.
 
      - DataBaseDownloading.availableDataSources.basicJordan
          - This database stores all types of documents for Jordan but only passports for other countries. It does not include authentication checks.
