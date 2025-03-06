@@ -102,7 +102,8 @@ Add following items to above array item
     - A00000045645444C2D3031
 
 - com.apple.developer.nfc.readersession.formats. - NFC reading formats
-
+    - NDEF
+    - TAG
 Add following items to above array item
     - NDEF
     - TAG
