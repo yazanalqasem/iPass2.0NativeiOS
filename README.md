@@ -33,9 +33,9 @@
 
 
 #### Updates in new version
-- Database downloading time issues.
-- Option to use different types of databases.
-- User experience.
+- Includes a ready-to-use database file for easier deployment and integration.
+- Now supports on-premise deployments, providing greater control and security.
+- Improved interface and performance for a more seamless and intuitive experience.
 
 # Overview
 AI-powered identity verification, eKYC, and
