@@ -27,7 +27,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on. "Starscream", "SwiftEventBus",
         .target(
             name: "iPass2.0NativeiOS",
-           dependencies: ["DocumentReader", "DocumentReaderCore", "RegulaCommon" ,
+           dependencies: ["DocumentReader", "DocumentReaderCore", "RegulaCommon" , "Facia",
             .product(name: "FaceLiveness", package: "amplify-ui-swift-liveness"),
         ],
 
@@ -80,5 +80,8 @@ let package = Package(
         .binaryTarget(
             name: "RegulaCommon",
             path: "RegulaCommon.xcframework"),
+        .binaryTarget(
+            name: "Facia",
+            path: "Facia.xcframework"),
     ]
 )
