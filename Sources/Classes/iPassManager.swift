@@ -14,6 +14,7 @@ import SwiftUI
 import Amplify
 import AWSCognitoAuthPlugin
 import AWSCognitoIdentity
+import Facia
 
 
 
@@ -227,9 +228,14 @@ public class iPassSDKManger {
         startDataFetching()
     }
     
-    public static func checkNewLiveness() {
+    public static func checkNewLiveness(controllerReference: UIViewController) {
         let facia = Facia()
-        facia.createRequest(parentViewController: self,
+        let config = [
+              "showConsent" : true,
+              "showVerificationType" : true,
+              "showResult" : true
+          ]
+        facia.createRequest(parentViewController: controllerReference,
                             accessToken: "ACCESS_TOKEN",
                             configs: config) { result in
             print(result)
