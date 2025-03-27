@@ -17,6 +17,7 @@ import AWSCognitoIdentity
 
 
 
+
 public class iPassSDKDataManager {
     public init() {}
     
@@ -224,6 +225,15 @@ public class iPassSDKManger {
             addAnimationLoader()
         }
         startDataFetching()
+    }
+    
+    public static func checkNewLiveness() {
+        let facia = Facia()
+        facia.createRequest(parentViewController: self,
+                            accessToken: "ACCESS_TOKEN",
+                            configs: config) { result in
+            print(result)
+        }
     }
     
     
