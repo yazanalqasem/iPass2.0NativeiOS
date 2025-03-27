@@ -18,8 +18,7 @@ let package = Package(
     ],
     dependencies: [
 //        .package(url: "https://github.com/cesarferreira/SwiftEventBus.git", from: "5.1.0"),
-        .package(url: "https://github.com/aws-amplify/amplify-ui-swift-liveness", from: "1.3.3"),
-        .package(url: "https://github.com/FaciaMobile/ios-core.git", from: "3.1.3")
+        .package(url: "https://github.com/aws-amplify/amplify-ui-swift-liveness", from: "1.3.3")
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0")
     ],
@@ -30,7 +29,6 @@ let package = Package(
             name: "iPass2.0NativeiOS",
            dependencies: ["DocumentReader", "DocumentReaderCore", "RegulaCommon" ,
             .product(name: "FaceLiveness", package: "amplify-ui-swift-liveness"),
-            .product(name: "Facia", package: "ios-core"),
         ],
 
             path: "Sources",
