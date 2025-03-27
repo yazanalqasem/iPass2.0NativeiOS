@@ -228,6 +228,24 @@ public class iPassSDKManger {
         startDataFetching()
     }
     
+    
+    
+    public static func fetchLiveness(controller: UIViewController)   {
+        let facia = Facia()
+        let config = [
+              "showConsent" : true,
+              "showVerificationType" : true,
+              "showResult" : true
+          ]
+        facia.createRequest(parentViewController: controller,
+                            accessToken: "ACCESS_TOKEN",
+                            configs: config) { result in
+            print(result)
+        }
+    }
+    
+    
+    
     public static func checkNewLiveness(controllerReference: UIViewController) {
         let facia = Facia()
         let config = [
