@@ -246,7 +246,7 @@ public class iPassSDKManger {
     
     
     
-    public static func checkNewLiveness(controllerReference: UIViewController) {
+    public static func checkNewLiveness(controllerReference: UIViewController, tkn: String) {
         let facia = Facia()
         let config = [
               "showConsent" : true,
