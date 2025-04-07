@@ -244,7 +244,7 @@ public class iPassSDKManger {
         }
     }
     
-    
+//    "ZXlKcGRpSTZJbE5IV0dkcE4ycFRkWGxzTW10NGMzQjRZa2xHV0hjOVBTSXNJblpoYkhWbElqb2lORGd6ZFV0allraEljbTgzVVdwek1qUXJkVGRzT1VjNFVrdDZiWFJZWW1OTVVrcG5aRmxuUzAxdE9IWnFNa2x0TmtKc2VTOWxiekEwZG1ReFkzUnJPV2gzY1V0aFoyUk1jVzQ0UVU1UVZHWnBVVTlNV2k5aVRYWmpOWGh2ZEhKM05HWnBkVzVhY2sxRVNGaGtOSEp0WW1sUGNXZEZiVWhaZVVoNU4weDVURzlvUjNKeFNsSXlRVkExT0ZaM2FVSXZZM1ExTVRSTmNIaGtRakpoVkV4SFdGbHRWVkF3T1RCbWJVaFVaV1J0T0M4eFJYaG1VemxFZEdweWRGTkthRFYySWl3aWJXRmpJam9pWTJWbU5UUTRPVGswTmprd1lUaGhOVGN5TURrNFlqRTRaR1UwT1RabVltVXhZMlZtTVRKbE1ESTVORGxoTURVMk9HWXpNelk0WmpjMk1tVmpOemM0TXlJc0luUmhaeUk2SWlKOQ=="
     
     public static func checkNewLiveness(controllerReference: UIViewController, tkn: String) {
         let facia = Facia()
@@ -254,7 +254,7 @@ public class iPassSDKManger {
               "showResult" : true
           ]
         facia.createRequest(parentViewController: controllerReference,
-                            accessToken: "ZXlKcGRpSTZJbE5IV0dkcE4ycFRkWGxzTW10NGMzQjRZa2xHV0hjOVBTSXNJblpoYkhWbElqb2lORGd6ZFV0allraEljbTgzVVdwek1qUXJkVGRzT1VjNFVrdDZiWFJZWW1OTVVrcG5aRmxuUzAxdE9IWnFNa2x0TmtKc2VTOWxiekEwZG1ReFkzUnJPV2gzY1V0aFoyUk1jVzQ0UVU1UVZHWnBVVTlNV2k5aVRYWmpOWGh2ZEhKM05HWnBkVzVhY2sxRVNGaGtOSEp0WW1sUGNXZEZiVWhaZVVoNU4weDVURzlvUjNKeFNsSXlRVkExT0ZaM2FVSXZZM1ExTVRSTmNIaGtRakpoVkV4SFdGbHRWVkF3T1RCbWJVaFVaV1J0T0M4eFJYaG1VemxFZEdweWRGTkthRFYySWl3aWJXRmpJam9pWTJWbU5UUTRPVGswTmprd1lUaGhOVGN5TURrNFlqRTRaR1UwT1RabVltVXhZMlZtTVRKbE1ESTVORGxoTURVMk9HWXpNelk0WmpjMk1tVmpOemM0TXlJc0luUmhaeUk2SWlKOQ==",
+                            accessToken: tkn,
                             configs: config) { result in
             print(result)
         }
