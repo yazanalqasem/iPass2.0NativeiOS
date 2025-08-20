@@ -142,6 +142,7 @@ public class DataBaseDownloading{
             
             if isValidURLMethod(serverUrl) == true {
                 Apis.baseUrl = serverUrl //+ "/node"
+                
             }
             else {
                 completion("", "", LocalizationManager.shared.localizedString(forKey: "invalid_url"))
