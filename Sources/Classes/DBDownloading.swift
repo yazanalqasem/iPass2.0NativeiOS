@@ -34,14 +34,14 @@ public class DataBaseDownloading{
         
         
         if(serverUrl == "" || serverUrl.isEmpty) {
-//            Apis.baseUrl = "https://plusapi.ipass-mena.com"
-            Apis.baseUrl = "https://staging.ipass-mena.com/stagapi"
+           Apis.baseUrl = "https://plusapi.ipass-mena.com"
+    
             
         }
         else {
             
             if isValidURLMethod(serverUrl) == true {
-                Apis.baseUrl = serverUrl + "/node"
+                Apis.baseUrl = serverUrl //+ "/node"
             }
             else {
                 completion("",  LocalizationManager.shared.localizedString(forKey: "invalid_url"))
