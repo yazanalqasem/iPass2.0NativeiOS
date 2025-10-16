@@ -13,6 +13,10 @@ import Amplify
 import SwiftUI
 import Amplify
 import AWSCognitoAuthPlugin
+import AWSCognitoIdentity
+import Facia
+
+
 
 
 public class iPassSDKDataManager {
@@ -30,13 +34,16 @@ public class iPassSDKDataManager {
     var userPhoneNumber = String()
     var userSocialMediaEmail = String()
     var token = String()
+    var deviceCurrentLangauge = String()
     var email = String()
     var sid = String()
     var controller = UIViewController()
     var sessionId = String()
     var loaderColor = UIColor(red: 126/255, green:87/255, blue: 196/255, alpha: 1.0)
-    var needHologram = true
-    var alreadyReturned = false
+    var needHologram = false
+    var alreadyReturned = true
+    var documentDateFormat = "dd-mm-yyyy"
+    var dbVariable = ""
 }
 
 
@@ -47,6 +54,9 @@ public class configProperties {
     }
     public static func needHologramDetection(value: Bool) {
         iPassSDKDataManager.shared.needHologram = value
+    }
+    public static func setDateFormat(format: String) {
+        iPassSDKDataManager.shared.documentDateFormat = format
     }
 }
 
@@ -63,6 +73,7 @@ public class iPassSDKManger {
     
     public static  let fullSizeView = UIView()
     
+    public static let serverUrlLink = String()
     
     
     
@@ -110,17 +121,45 @@ public class iPassSDKManger {
     }
     
     
-    
+
     
     public  static func UserOnboardingProcess(email: String, password: String, completion: @escaping (Bool?, String?) -> Void) {
         let parameters: [String: Any] = [
             UserLoginApi.email: email,
             UserLoginApi.password: password
         ]
+        
+//        if(serverUrl == "" || serverUrl.isEmpty) {
+//            Apis.baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
+//        }
+//        else {
+//            
+//            if isValidURLMethod(serverUrl) == true {
+//                Apis.baseUrl = serverUrl
+//            }
+//            else {
+//                self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error:  LocalizationManager.shared.localizedString(forKey: "invalid_url"))
+//                return;
+//            }
+//            
+//           
+//        }
+        
+        
         iPassHandler.methodForPost(url: UserLoginApi.baseApi, params: parameters) { response, error in
-            if(error != "") {
-                completion(false, "User Login Issue")
+            if let error = error, !error.isEmpty {
+                let processedError: String
+                if error.contains("++") {
+                    processedError = error.replacingOccurrences(of: "++", with: "")
+                } else {
+                    processedError = LocalizationManager.shared.localizedString(forKey: "user_login_issue")
+                }
+                completion(false, processedError)
+                
             }
+          
+            
+            
             else {
                 if let json = response as? [String: Any] {
                     if let user = json["user"] as? [String: Any] {
@@ -128,15 +167,15 @@ public class iPassSDKManger {
                             completion(true, token)
                         }
                         else {
-                            completion(false, "")
+                            completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
                         }
                     }
                     else {
-                        completion(false, "")
+                        completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
                     }
                 }
                 else {
-                    completion(false, "")
+                    completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
                 }
             }
         }
@@ -165,7 +204,12 @@ public class iPassSDKManger {
         // Step 4: Convert the date to a string
         let dateString = dateFormatter.string(from: currentDate)
         
-        return "i"+randomValue+"OS" + randStr + dateString + String(iPassSDKDataManager.shared.userSelectedFlowId)
+        var dbDataName = String()
+        
+        dbDataName = "cc" + iPassSDKDataManager.shared.dbVariable + "cc"
+        
+        
+        return ("i"+randomValue+"OS" + randStr + dateString + dbDataName +  String(iPassSDKDataManager.shared.userSelectedFlowId)).replacingOccurrences(of: " ", with: "")
     }
     
 
@@ -185,37 +229,68 @@ public class iPassSDKManger {
     }
     
     
+    
+    public static func fetchLiveness(controller: UIViewController)   {
+        let facia = Facia()
+        let config = [
+              "showConsent" : true,
+              "showVerificationType" : true,
+              "showResult" : true
+          ]
+        facia.createRequest(parentViewController: controller,
+                            accessToken: "ACCESS_TOKEN",
+                            configs: config) { result in
+            print(result)
+        }
+    }
+    
+//    "ZXlKcGRpSTZJbE5IV0dkcE4ycFRkWGxzTW10NGMzQjRZa2xHV0hjOVBTSXNJblpoYkhWbElqb2lORGd6ZFV0allraEljbTgzVVdwek1qUXJkVGRzT1VjNFVrdDZiWFJZWW1OTVVrcG5aRmxuUzAxdE9IWnFNa2x0TmtKc2VTOWxiekEwZG1ReFkzUnJPV2gzY1V0aFoyUk1jVzQ0UVU1UVZHWnBVVTlNV2k5aVRYWmpOWGh2ZEhKM05HWnBkVzVhY2sxRVNGaGtOSEp0WW1sUGNXZEZiVWhaZVVoNU4weDVURzlvUjNKeFNsSXlRVkExT0ZaM2FVSXZZM1ExTVRSTmNIaGtRakpoVkV4SFdGbHRWVkF3T1RCbWJVaFVaV1J0T0M4eFJYaG1VemxFZEdweWRGTkthRFYySWl3aWJXRmpJam9pWTJWbU5UUTRPVGswTmprd1lUaGhOVGN5TURrNFlqRTRaR1UwT1RabVltVXhZMlZtTVRKbE1ESTVORGxoTURVMk9HWXpNelk0WmpjMk1tVmpOemM0TXlJc0luUmhaeUk2SWlKOQ=="
+    
+    
+    
+    public static func checkNewLiveness(controllerReference: UIViewController, tkn: String) {
+        let facia = Facia()
+        let config = [
+              "showConsent" : true,
+              "showVerificationType" : true,
+              "showResult" : true
+          ]
+        facia.createRequest(parentViewController: controllerReference,
+                            accessToken: tkn,
+                            configs: config) { result in
+            print(result)
+        }
+    }
+    
+    
     private static func checkUserPermission() {
-        iPassHandler.methodForGetWithErrorMessages(urlStr: getPermissionStatus.baseApi + iPassSDKDataManager.shared.token ) { response, error in
+        iPassHandler.methodForGetWithErrorMessages(urlStr: getPermissionStatus.baseApi + iPassSDKDataManager.shared.token + "&language=" + iPassSDKDataManager.shared.deviceCurrentLangauge ) { response, error in
             if(error != "") {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    stopLoaderAnimation()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                  stopLoaderAnimation()
+                    var tempDict = [String: String]()
+                    tempDict = error?.iPassconvertToDictionary() ?? [:]
+                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? LocalizationManager.shared.localizedString(forKey: "limit_over"))
                 }
-                var tempDict = [String: String]()
-                tempDict = error?.convertToDictionary() ?? [:]
-                self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? "you have reached your transaction limit or you dont have access for transaction")
+               
             }
             else {
-                
                 var tempDict = [String: String]()
-                tempDict = response?.convertToDictionary() ?? [:]
+                tempDict = response?.iPassconvertToDictionary() ?? [:]
                 if(tempDict["message"]?.lowercased() == "sucess") {
                     if(iPassSDKDataManager.shared.userSelectedFlowId == 10031 || iPassSDKDataManager.shared.userSelectedFlowId == 10032 || iPassSDKDataManager.shared.userSelectedFlowId == 10011) {
                          createLivenessSessionID()
                     }
                     else if(iPassSDKDataManager.shared.userSelectedFlowId == 10015 ) {
-                        
                          oPenDocumentScanner()
                     }
                     else {
-                        self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Work flow id is not valid")
+                        self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: LocalizationManager.shared.localizedString(forKey: "invalid_workflowid"))
                     }
                 }
                 else {
-                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? "you have reached your transaction limit or you dont have access for transaction")
+                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? LocalizationManager.shared.localizedString(forKey: "limit_over"))
                 }
-                
-                
             }
             
         }
@@ -227,30 +302,29 @@ public class iPassSDKManger {
     public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String) async   {
         
       
+        
+        
+        
        
         if(flowId == 10031) {
             if(socialMediaEmail == "" ) {
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email is requried")
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: LocalizationManager.shared.localizedString(forKey: "social_media_email"))
                 return
             }
             else if(phoneNumber == "" ) {
-                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Phone number is requried")
+                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: LocalizationManager.shared.localizedString(forKey: "phone_number_requried"))
                  return
              }
            else if(isValidEmail(socialMediaEmail) == false) {
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Social media email format is not correct")
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: LocalizationManager.shared.localizedString(forKey: "email_format"))
                 return
             }
-            
-//            else if(isNumeric(phoneNumber) == false) {
-//                 self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: "Only numbers are allowed in phone number")
-//                 return
-//             }
         }
        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            addAnimationLoader()
+  
+        if(userEmail.isEmpty || userToken.isEmpty || appToken.isEmpty) {
+            self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: LocalizationManager.shared.localizedString(forKey: "param_requried"))
+            return
         }
         
         iPassSDKDataManager.shared.userSelectedFlowId = flowId
@@ -261,7 +335,20 @@ public class iPassSDKManger {
         iPassSDKDataManager.shared.sid = generateRandomTwoDigitNumber()
         iPassSDKDataManager.shared.email = userEmail
         iPassSDKDataManager.shared.controller = controller
-        iPassSDKDataManager.shared.alreadyReturned = false
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            addAnimationLoader()
+        }
+        var currentLanguage = "en"
+        if let preferredLanguageCode = Locale.preferredLanguages.first {
+             currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
+          
+        } else {
+        }
+        iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
+        
+        
         checkUserPermission()
     
 
@@ -305,27 +392,37 @@ public class iPassSDKManger {
             CreateSessionApi.auth_token: iPassSDKDataManager.shared.authToken
         ]
         iPassHandler.methodForPost(url: CreateSessionApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 stopLoaderAnimation()
-            }
-            if(error != "") {
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Error in creating session")
-            }
-            else {
-                if let jsonRes = response as? [String: Any] {
-                    if let sessionId = jsonRes["sessionId"] as? String  {
-                        iPassSDKDataManager.shared.sessionId = sessionId
-                             oPenDocumentScanner()
-                        
+                if let error = error, !error.isEmpty {
+                    let processedError: String
+                    if error.contains("++") {
+                        processedError = error.replacingOccurrences(of: "++", with: "")
+                    } else {
+                        processedError = LocalizationManager.shared.localizedString(forKey: "session_error")
+                    }
+                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: processedError)
+                }
+                
+                else {
+                    if let jsonRes = response as? [String: Any] {
+                        if let sessionId = jsonRes["sessionId"] as? String  {
+                            iPassSDKDataManager.shared.sessionId = sessionId
+                                 oPenDocumentScanner()
+                            
+                        }
+                        else {
+                            self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "session_error"))
+                        }
                     }
                     else {
-                        self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Error in creating session")
+                        self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "session_error"))
                     }
                 }
-                else {
-                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Error in creating session")
-                }
             }
+
+            
+           
             
         }
     }
@@ -335,26 +432,43 @@ public class iPassSDKManger {
     
     private static func oPenDocumentScanner()  {
                         
-             
-//
-      
-        
-        
-        
+ 
         setDocumentScannerProperties()
         
     }
     
     private static func setDocumentScannerProperties() {
+        
+      //  DocReader.shared.processParams.debugSaveLogs = true
+        DocReader.shared.processParams.debugSaveCroppedImages = true
+        DocReader.shared.processParams.debugSaveRFIDSession = true
+        
         DocReader.shared.processParams.returnUncroppedImage = true
+        DocReader.shared.processParams.dateFormat = iPassSDKDataManager.shared.documentDateFormat
         DocReader.shared.processParams.multipageProcessing = true
         DocReader.shared.customization.cameraFrameDefaultColor  = UIColor(red: 126/255, green: 87/255, blue: 196/255, alpha: 1)
         DocReader.shared.customization.tintColor  = UIColor(red: 126/255, green: 87/255, blue: 196/255, alpha: 1)
         DocReader.shared.functionality.showSkipNextPageButton = false
         DocReader.shared.processParams.authenticityParams = AuthenticityParams.default()
         DocReader.shared.processParams.authenticityParams?.livenessParams = LivenessParams.default()
+      
+        DocReader.shared.processParams.imageQA.colornessCheck = true
+        DocReader.shared.processParams.imageQA.focusCheck = true
+        DocReader.shared.processParams.imageQA.glaresCheck = true
+        DocReader.shared.processParams.imageQA.screenCapture = true
+      //  DocReader.shared.processParams.imageQA.brightnessThreshold = true
+        DocReader.shared.processParams.imageQA.documentPositionIndent = true
+       // DocReader.shared.processParams.imageQA.brightnessThreshold = 1.5
+        DocReader.shared.functionality.videoSessionPreset = AVCaptureSession.Preset.hd4K3840x2160
+        DocReader.shared.processParams.respectImageQuality = true
+//        DocReader.shared.processParams.imageQA.dpiThreshold = 400
         
         
+       
+        
+
+       // DocReader.shared.processParams.minDPI = 400
+        DocReader.shared.processParams.authenticityParams?.useLivenessCheck = NSNumber(value: iPassSDKDataManager.shared.needHologram)
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkHolo = NSNumber(value: iPassSDKDataManager.shared.needHologram)
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkOVI = NSNumber(value: iPassSDKDataManager.shared.needHologram)
         DocReader.shared.processParams.authenticityParams?.livenessParams?.checkED = NSNumber(value: iPassSDKDataManager.shared.needHologram)
@@ -377,44 +491,42 @@ public class iPassSDKManger {
         
         var translationDictionary = [String : String]()
        // ENG, AR, FR, SP, TURKISH, URDU, GERMAN, KURDISH
-        var currentLanguage = "en"
-        if let preferredLanguageCode = Locale.preferredLanguages.first {
-             currentLanguage = Locale(identifier: preferredLanguageCode).languageCode ?? "en"
-            print("Device's preferred language code: \(currentLanguage)")
-          
-        } else {
-            print("Unable to determine the device's preferred language code.")
-        }
-        if(currentLanguage.lowercased() == "en") {
+        
+        
+        if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "en") {
             let dataValues = EnglishDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "ar") {
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "ar") {
             let dataValues = ArabicDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "fr") {
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "fr") {
             let dataValues = FrenchDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "sp") {
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "es") {
             let dataValues = SpanishDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "tr") {
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "tr") {
             let dataValues = TurkishDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "ur") {
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "ur") {
             let dataValues = UrduDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "de") {
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "de") {
             let dataValues = GermanDataValues()
             translationDictionary = dataValues.getDictionary()
         }
-        else if(currentLanguage.lowercased() == "ku") {
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "ku") {
             let dataValues = KurdishDataValues()
+            translationDictionary = dataValues.getDictionary()
+        }
+        else if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "ckb") {
+            let dataValues = CkbDataValues()
             translationDictionary = dataValues.getDictionary()
         }
         else {
@@ -433,8 +545,12 @@ public class iPassSDKManger {
         
     }
     
+    
     private static func startDocumentProcessing() {
         
+        iPassSDKDataManager.shared.alreadyReturned = true
+        
+        iPassSDKDataManager.shared.resultScanData = DocumentReaderResults()
         DispatchQueue.main.async {
             stopLoaderAnimation()
         }
@@ -449,7 +565,7 @@ public class iPassSDKManger {
                         switch action {
                         case .complete:
                             guard results != nil else {
-                                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Document Scanning Error")
+                                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "document_scanning_error"))
                                 return
                             }
                             DispatchQueue.main.async {
@@ -471,7 +587,7 @@ public class iPassSDKManger {
                             
                         case .processTimeout:
                            
-                            iPassSDKDataManager.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
+                            iPassSDKDataManager.shared.controller.view.iPassgetMinimum(toastMessage: LocalizationManager.shared.localizedString(forKey: "nfc_issue"), duration: 2)
                             guard docResults != nil else {
                                 return
                             }
@@ -484,7 +600,7 @@ public class iPassSDKManger {
 
                             
                         case .error:
-                            iPassSDKDataManager.shared.controller.view.showToast(toastMessage: "Something went wrong with NFC.", duration: 2)
+                            iPassSDKDataManager.shared.controller.view.iPassgetMinimum(toastMessage: LocalizationManager.shared.localizedString(forKey: "nfc_issue"), duration: 2)
                             guard docResults != nil else {
                                 return
                             }
@@ -514,7 +630,7 @@ public class iPassSDKManger {
             else  if action == .cancel  {
                 DispatchQueue.main.async {
                     stopLoaderAnimation()}
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Document Scanning Error")
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "document_scanning_error"))
             }
             
         }
@@ -522,37 +638,81 @@ public class iPassSDKManger {
     
     public static func startCamera() async {
         
-        if( iPassSDKDataManager.shared.userSelectedFlowId == 10031 ||  iPassSDKDataManager.shared.userSelectedFlowId == 10032 ||  iPassSDKDataManager.shared.userSelectedFlowId == 10011) {
-            await fetchCurrentAuthSession()
+        
+        if(iPassSDKDataManager.shared.resultScanData.textResult.fields.count == 0) {
+            self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "document_scanning_error"))
+            return
         }
-        else   {
-            DispatchQueue.main.async {
-                      addAnimationLoader()
+        else {
+            if( iPassSDKDataManager.shared.userSelectedFlowId == 10031 ||  iPassSDKDataManager.shared.userSelectedFlowId == 10032 ||  iPassSDKDataManager.shared.userSelectedFlowId == 10011) {
+                await fetchCurrentAuthSession()
             }
-            startSavingDataToPanel()
+            else   {
+                DispatchQueue.main.async {
+                          addAnimationLoader()
+                }
+                startSavingDataToPanel()
+            }
         }
         
+       
+        
       
+        
+    }
+    
+    
+    public static func addLivenessInfoView(ctrl : UIViewController) {
+        
+        let fullScreenView = FullScreenView(frame: ctrl.view.bounds)
+        ctrl.view.addSubview(fullScreenView)
+    //    iPassSDKDataManager.shared.controller.view.bringSubviewToFront(fullScreenView)
+        
+        
+        
+    
+    
+
+                
+                // Set fullScreenView to fill the entire screen
+                fullScreenView.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    fullScreenView.topAnchor.constraint(equalTo: ctrl.view.topAnchor),
+                    fullScreenView.bottomAnchor.constraint(equalTo: ctrl.view.bottomAnchor),
+                    fullScreenView.leadingAnchor.constraint(equalTo: ctrl.view.leadingAnchor),
+                    fullScreenView.trailingAnchor.constraint(equalTo: ctrl.view.trailingAnchor)
+                ])
+        
     }
     
     private static func fetchCurrentAuthSession() async {
         DispatchQueue.main.async {
-                  addAnimationLoader()
-              }
-         do {
-             let session = try await Amplify.Auth.fetchAuthSession()
-             
-             if(session.isSignedIn == true) {
-                 faceLivenessApi()
-             }
-             else {
-                 await signIn()
-             }
-             
-         } catch let error as AuthError {
-         } catch {
-         }
-     }
+                   addAnimationLoader()
+            
+               }
+     
+        iPassSDKDataManager.shared.alreadyReturned = false
+        faceLivenessApi()
+        
+        
+        
+//        DispatchQueue.main.async {
+//            addAnimationLoader()
+//        }
+//        do {
+//            let session = try await Amplify.Auth.fetchAuthSession()
+//            
+//            if(session.isSignedIn == true) {
+//                faceLivenessApi()
+//            }
+//            else {
+//                await signIn()
+//            }
+//            
+//        } catch let error as AuthError {
+//        } catch {
+//        }
+    }
     
     private static func signIn() async {
             do {
@@ -569,6 +729,7 @@ public class iPassSDKManger {
         }
     
     private static func faceLivenessApi()  {
+        
         DispatchQueue.main.async {
             stopLoaderAnimation()
             var swiftUIView = FaceClass()
@@ -576,8 +737,9 @@ public class iPassSDKManger {
             let hostingController = UIHostingController(rootView: swiftUIView)
             hostingController.modalPresentationStyle = .fullScreen
             iPassSDKDataManager.shared.controller.present(hostingController, animated: true)
-            
             NotificationCenter.default.addObserver(forName: NSNotification.Name("dismissSwiftUI"), object: nil, queue: nil) { (data) in
+                
+              
                 NotificationCenter.default.removeObserver(self)
                 NotificationCenter.default.removeObserver(self, name: NSNotification.Name("dismissSwiftUI"), object: nil)
 
@@ -585,7 +747,7 @@ public class iPassSDKManger {
                
                 
                 if(iPassSDKDataManager.shared.alreadyReturned == false) {
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                               addAnimationLoader()
                     }
                     iPassSDKDataManager.shared.alreadyReturned = true
@@ -594,6 +756,34 @@ public class iPassSDKManger {
             }
         }
      }
+    
+    
+    
+    
+    private static func fetchPublicIPAddress(completion: @escaping (String?) -> Void) {
+        let url = URL(string: "https://api.ipify.org?format=json")!
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(nil)
+                return
+            }
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                   let ipAddress = json["ip"] as? String {
+                    completion(ipAddress)
+                } else {
+                    completion(nil)
+                }
+            } catch {
+                print("Error parsing JSON: \(error.localizedDescription)")
+                completion(nil)
+            }
+        }
+        
+        task.resume()
+    }
     
     
 
@@ -607,34 +797,66 @@ public class iPassSDKManger {
         
         var userIpAddress = "Unable to get IP Address"
         
-        if let ipAddress = getIPAddress() {
-            userIpAddress = ipAddress
+        
+        
+        fetchPublicIPAddress { ipAddress in
+            if let ipAddress = ipAddress {
+                userIpAddress = ipAddress
+            } else {
+                userIpAddress = ""
+            }
+            
+            let parameters: [String: Any] = [
+                SaveDataApi.sessionId: iPassSDKDataManager.shared.sessionId,
+                SaveDataApi.randomid: iPassSDKDataManager.shared.sid,
+                SaveDataApi.social_media_email:  iPassSDKDataManager.shared.userSocialMediaEmail ,
+                SaveDataApi.phone_number:  iPassSDKDataManager.shared.userPhoneNumber ,
+                SaveDataApi.ipadd: userIpAddress,
+                SaveDataApi.email: iPassSDKDataManager.shared.email,
+                SaveDataApi.workflow: String(iPassSDKDataManager.shared.userSelectedFlowId),
+                SaveDataApi.idv_data: documentDataJson ?? "",
+                SaveDataApi.language : iPassSDKDataManager.shared.deviceCurrentLangauge,
+                SaveDataApi.source: "iOS v1.0.5",
+                
+            ]
+            iPassHandler.methodForPost(url: SaveDataApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
+//                if(error != "") {
+//                    DispatchQueue.main.async {
+//                        stopLoaderAnimation()
+//                    }
+//                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: error)
+//                }
+               
+                
+                if let error = error, !error.isEmpty {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            stopLoaderAnimation()
+                        }
+                        
+                        let processedError: String
+                        if error.contains("++") {
+                            processedError = error.replacingOccurrences(of: "++", with: "")
+                        } else {
+                            processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error")
+                        }
+                        
+                        self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: processedError)
+                    }
+                
+                else {
+                    startDataFetching()
+                }
+                
+            }
+            
+            
+            
         }
         
-        let parameters: [String: Any] = [
-            SaveDataApi.sessionId: iPassSDKDataManager.shared.sessionId,
-            SaveDataApi.randomid: iPassSDKDataManager.shared.sid,
-            SaveDataApi.social_media_email:  iPassSDKDataManager.shared.userSocialMediaEmail ,
-            SaveDataApi.phone_number:  iPassSDKDataManager.shared.userPhoneNumber ,
-            SaveDataApi.ipadd: userIpAddress,
-            SaveDataApi.email: iPassSDKDataManager.shared.email,
-            SaveDataApi.workflow: String(iPassSDKDataManager.shared.userSelectedFlowId),
-            SaveDataApi.idv_data: documentDataJson ?? "",
-            SaveDataApi.source: "iOS",
-            
-        ]
-        iPassHandler.methodForPost(url: SaveDataApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
-            if(error != "") {
-                DispatchQueue.main.async {
-                    stopLoaderAnimation()
-                }
-                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: "Data processing error")
-            }
-            else {
-                startDataFetching()
-            }
-            
-        }
+        
+       
+        
+       
     }
     
     private static func startDataFetching() {
@@ -643,9 +865,25 @@ public class iPassSDKManger {
                 DispatchQueue.main.async {
                     stopLoaderAnimation()
                 }
-                if(error != "") {
-                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
-                }
+//                if(error != "") {
+//                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
+//                }
+                
+                if let error = error, !error.isEmpty {
+                        DispatchQueue.main.async {
+                            stopLoaderAnimation()
+                        }
+                        
+                        let processedError: String
+                        if error.contains("++") {
+                            processedError = error.replacingOccurrences(of: "++", with: "")
+                        } else {
+                            processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error")
+                        }
+                        
+                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: processedError)
+                    }
+                
                 else {
                     self.delegate?.getScanCompletionResult(result: response as! String, transactionId: iPassSDKDataManager.shared.sid, error: "")
                 }
@@ -712,7 +950,7 @@ public class iPassSDKManger {
 }
 
 extension String {
-    func convertToDictionary() -> [String: String]? {
+    func iPassconvertToDictionary() -> [String: String]? {
         if let data = self.data(using: .utf8) {
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [String: String]
@@ -722,3 +960,4 @@ extension String {
         return nil
     }
 }
+

@@ -18,7 +18,11 @@
   - [General Requirements](#import-package)
   - [Permissions](#permissions)
   - [Add NFC Compatibility](#add-nfc-compatibility)
+<<<<<<< HEAD
   - [Initialize Database](#initialize-database)
+=======
+  - [Initialize Database and On-Prem Server setup](#initialize-database)
+>>>>>>> ad4956ae6fc43f89d044f7087763039619e73788
   - [Get User Login Token](#get-user-login-token)
   - [Get Supported Flows](#get-supported-flows)
   - [Document Scanning](#document-scanning)
@@ -31,6 +35,15 @@
 - [Contact](#contact)
 - [Copyright](#copyright)
 
+<<<<<<< HEAD
+=======
+
+#### Updates in new version
+- Includes a ready-to-use database file for easier deployment and integration.
+- Now supports on-premise deployments, providing greater control and security.
+- Improved interface and performance for a more seamless and intuitive experience.
+
+>>>>>>> ad4956ae6fc43f89d044f7087763039619e73788
 # Overview
 AI-powered identity verification, eKYC, and
 transaction monitoring
@@ -84,6 +97,7 @@ In this step user will give required permissions in the Info.plist file to enabl
 - Privacy - Speech Recognition Usage Description - Description for speech recognition.
 - Privacy - Privacy - NFC Scan Usage Description - Description for NFC usage.
 - ISO7816 application identifiers for NFC Tag Reader Session - For NFC features.
+<<<<<<< HEAD
   
 
 Add following items to above array item
@@ -99,12 +113,29 @@ Add following items to above array item
 Add following items to above array item
 - NDEF
 - TAG
+=======
+    - A0000002471001
+    - E80704007F00070302
+    - A000000167455349474E
+    - A0000002480100
+    - A0000002480200
+    - A0000002480300
+    - A00000045645444C2D3031
+
+- com.apple.developer.nfc.readersession.formats. - NFC reading formats
+    - NDEF
+    - TAG
+
+- Add App Transport Security Settings Dictionary
+    - Set Allow Arbitrary Loads bool True to above dictionary item
+>>>>>>> ad4956ae6fc43f89d044f7087763039619e73788
 
 -----
 
 ### Add NFC Compatibility
 - Near Field Communication Tag Reading
 -----
+<<<<<<< HEAD
 ### Initialize Database
 - To start the process user need to download the database using following code.
 - In this step progress object can be used to track the downloading percentage.
@@ -118,6 +149,99 @@ Add following items to above array item
 
 ### Get User Login Token
 - Pass valid email id and password to get user token
+=======
+
+
+### Initialize Database and On-Prem Server setup
+
+- iPass supports On-Prem server integration. To use an on-prem server, provide the server URL in the serverUrl parameter.
+     - If serverUrl is an empty string, the data will be saved on the iPass server.
+     - If serverUrl contains a valid URL, the data will be saved on your on-prem server.
+     
+- To start the process user need to download the database. iPass sdk supports two type of database systems.
+ 
+    - Pre-packaged Database
+    - Dynamic Database
+ 
+### Pre-packaged Database:
+ This type of database is bundled within the SDK itself. It is a pre-configured and read-only database that comes as part of the app's installation package. Since the database is local to the app, querying this database is generally faster, as it does not involve network latency. This is a custom database designed to meet specific requirements. If you need a custom database tailored to your needs, you can request one by contacting our support team at info@ipass-mena.com.
+ 
+ ### Dynamic Database:
+ This type of database is not included in the initial app package but is instead downloaded from a remote server when the app is launched or when certain conditions are met. The server-side database can be updated independently of the app, allowing for more dynamic content and real-time data management. In this database downloading time depends on the internet speed.
+ 
+ ----
+ 
+ ### Pre-packaged Database Implementation:
+ 
+```ruby
+    DataBaseDownloading.initializePreProcessedDb(serverUrl: "http://192.168.16.86", dbType: DataBaseDownloading.availableDataSources.fullDb, completion:{status, error in
+                                print(status, error)
+                })
+```
+    
+- In the completion, When the status is Start Now, you can start the next step.
+- Any type of error will be visible in error object
+- Replace http://192.168.16.86 with your actual on-prem server URL if applicable.
+    
+        
+- In the Pre-packaged Database, System allows you to choose between three types of databases.
+
+     - DataBaseDownloading.availableDataSources.basicJordan
+         - This database stores all types of documents for Jordan but only passports for other countries. It does not include authentication checks.
+         
+     - DataBaseDownloading.availableDataSources.fullAuthJordan
+         - This database stores all types of documents for Jordan but only passports for other countries. It also includes authentication checks.
+         
+    - DataBaseDownloading.availableDataSources.fullDb
+         - This database stores all types of documents for all countries. It does not include authentication checks.
+
+
+- For authentication checks, you need to enable hologram option using the following code snippet. By default, this option is disabled:
+
+```ruby
+configProperties.needHologramDetection(value: true)
+```
+
+
+ ### Dynamic Database Implementation:
+ 
+ ```ruby
+            DataBaseDownloading.initializeDynamicDb(serverUrl: "http://192.168.14.86", completion:{progres, status, error in
+            print(progres, status, error)
+        })
+```
+
+- From the completion, Progress object can be used to track the downloading percentage.
+- Once the database is downloaded 100% and status is Start Now, user can start the next step.
+- Any type of error will be visible in error object
+- Replace http://192.168.14.86 with your actual on-prem server URL if applicable.
+-----
+
+  ### Delegate Setup, you need to set up the delegate to receive callbacks
+ 
+```ruby
+ iPassSDKManger.delegate = self
+```
+ ### Add Delegate to Get Response
+ ```ruby
+   extension ViewController : iPassSDKManagerDelegate {
+        func getScanCompletionResult(result: String, transactionId: String, error: String) {
+            print(result)
+            print(transactionId)
+            print(error)
+        }
+    }
+```
+- "result" object will return the required json response
+- "transactionId" object will return the unique transcation number for completed transaction
+- "error" object will return the error description
+-----
+
+### Getting the User Login Token 
+- Retrieve User Login Token
+  - Pass a valid email and password to authenticate the user and obtain the login token.
+  
+>>>>>>> ad4956ae6fc43f89d044f7087763039619e73788
 ```ruby
 iPassSDKManger.UserOnboardingProcess(email: emailStr, password: passwordStr) { status, tokenString in
     if(status == true) {
@@ -125,7 +249,10 @@ iPassSDKManger.UserOnboardingProcess(email: emailStr, password: passwordStr) { s
     }
 }
 ```
+<<<<<<< HEAD
 - Once the user is logged in user token need to save because this will be used in document scanning process
+=======
+>>>>>>> ad4956ae6fc43f89d044f7087763039619e73788
 
 -----
   
@@ -149,7 +276,10 @@ iPassSDKManger.UserOnboardingProcess(email: emailStr, password: passwordStr) { s
 - Users can scan both the front and back sides of documents, but it totally depends on the document type.
 
  ```ruby
+<<<<<<< HEAD
 iPassSDKManger.delegate = self
+=======
+>>>>>>> ad4956ae6fc43f89d044f7087763039619e73788
 iPassSDKManger.startScanningProcess(userEmail: "sam@gmail.com", flowId: 10031, socialMediaEmail :"samfb@gmail.com", phoneNumber : "978xxxxxx", controller: self, userToken: self.userToken, appToken: self.appToken)
 ```
 - usertoken will be the login token
@@ -158,6 +288,7 @@ iPassSDKManger.startScanningProcess(userEmail: "sam@gmail.com", flowId: 10031, s
 - After the scanning process, Response will be available in package delegate.
 -----
 
+<<<<<<< HEAD
 ### Add Delegate to Get Response
  ```ruby
    extension ViewController : iPassSDKManagerDelegate {
@@ -172,15 +303,25 @@ iPassSDKManger.startScanningProcess(userEmail: "sam@gmail.com", flowId: 10031, s
 - "transactionId" object will return the unique transcation number for completed transaction
 - "error" object will return the error description
 -----
+=======
+>>>>>>> ad4956ae6fc43f89d044f7087763039619e73788
 
 ### SDK Properties
  ```ruby
 configProperties.setLoaderColor(color: UIColor.red)
 configProperties.needHologramDetection(value: false)
+<<<<<<< HEAD
+=======
+configProperties.setDateFormat(format: "dd/mm/yyyy")
+>>>>>>> ad4956ae6fc43f89d044f7087763039619e73788
 ```
 - "setLoaderColor" property is used to change the color of the loader.
 - "needHologramDetection" property is used for Authenticity checks like detection of Electronic Device, Optically Variable Ink, Multiple Laser Images, Image Patterns.
 - By default hologram detection is enabled. you can disabled passing the false in hologram detection property.
+<<<<<<< HEAD
+=======
+- "setDateFormat" property is used to change the format of dates displayed in the results. The mask examples are "dd/mm/yyyy", "mm/dd/yyyy", "dd-mm-yyyy", "mm-dd-yyyy", "dd/mm/yy".
+>>>>>>> ad4956ae6fc43f89d044f7087763039619e73788
 -----
 
 ### Add Multiple Languages (Optional)

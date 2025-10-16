@@ -1,0 +1,46 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name Facia
+import AVFoundation
+import AVKit
+import CoreML
+import DeveloperToolsSupport
+@_exported import Facia
+import Foundation
+import Swift
+import SwiftUI
+import SystemConfiguration
+import UIKit
+import UniformTypeIdentifiers
+import Vision
+import VisionKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_inheritsConvenienceInitializers @objc public class Facia : ObjectiveC.NSObject {
+  public var face_detected_oval_color: UIKit.UIColor
+  public var face_not_detected_oval_color: UIKit.UIColor
+  public var dark_text_color: UIKit.UIColor
+  public var light_text_color: UIKit.UIColor
+  public var ql_instruction_bg_color: UIKit.UIColor
+  public var button_bg_color: UIKit.UIColor
+  public var button_text_color: UIKit.UIColor
+  public var dialog_button_text_color: UIKit.UIColor
+  @objc public func createRequest(parentViewController: UIKit.UIViewController, accessToken: Swift.String, configs: [Swift.String : Any]?, completion: @escaping (_ result: Any) -> ())
+  public func checkSimilarity(parentViewController: UIKit.UIViewController, accessToken: Swift.String, faceImage: UIKit.UIImage, idImage: UIKit.UIImage, configs: [Swift.String : Any]?, completion: @escaping (_ result: Any) -> ())
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum ReachabilityError : Swift.Error {
+  case failedToCreateWithAddress(Darwin.sockaddr, Swift.Int32)
+  case failedToCreateWithHostname(Swift.String, Swift.Int32)
+  case unableToSetCallback(Swift.Int32)
+  case unableToSetDispatchQueue(Swift.Int32)
+  case unableToGetFlags(Swift.Int32)
+}
+@available(*, unavailable, renamed: "Notification.Name.reachabilityChanged")
+public let ReachabilityChangedNotification: Foundation.NSNotification.Name
+extension Foundation.NSNotification.Name {
+  public static let reachabilityChanged: Foundation.Notification.Name
+}

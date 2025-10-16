@@ -9,20 +9,26 @@
 import Foundation
 
 struct Apis {
-    static let baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
+    static var baseUrl = ""
+    
+    // static let baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
+  //  static let baseUrl = "http://192.168.11.48:4088/api/v1/ipass/"
+    
+    
+    
 }
 
 // MARK: - FORM
 // Login Api
 struct UserLoginApi {
-    static let baseApi = (Apis.baseUrl) + "create/authenticate/login"
+    static let baseApi = (Apis.baseUrl) + "/api/v1/ipass/create/authenticate/login"
     static let email = "email"
     static let password = "password"
 }
 
 // Create Session Api
 struct CreateSessionApi {
-    static let baseApi = (Apis.baseUrl) + "plus/face/session/create?token="
+    static let baseApi = (Apis.baseUrl) + "/api/v1/ipass/plus/face/session/create?token="
     static let email = "email"
     static let auth_token = "auth_token"
 }
@@ -30,7 +36,7 @@ struct CreateSessionApi {
 
 // Save Data Api
 struct SaveDataApi {
-    static let baseApi = (Apis.baseUrl) + "initiate/process/sdk?token="
+    static let baseApi = (Apis.baseUrl) + "/api/v1/ipass/initiate/process/sdk?token="
     static let sessionId = "sessionId"
     static let randomid = "randomid"
     static let social_media_email = "social_media_email"
@@ -40,15 +46,18 @@ struct SaveDataApi {
     static let workflow = "workflow"
     static let idv_data = "idv_data"
     static let source = "source"
+    static var language = "language"
 }
 
 // Save Data Api
 struct GetDataApi {
-    static let baseApi = (Apis.baseUrl) + "idv/getAll/data?token="
+    static let baseApi = (Apis.baseUrl) + "/api/v1/ipass/idv/getAll/data?token="
     static let sesid = "&sesid="
 }
 
 // Check Permission Api
 struct getPermissionStatus {
-    static let baseApi = (Apis.baseUrl) + "customer/access?token="
+    static let baseApi = (Apis.baseUrl) + "/api/v1/ipass/customer/access?token="
 }
+
+

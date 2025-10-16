@@ -16,7 +16,8 @@ typedef NS_ENUM(NSInteger, RGLCustomizationColor) {
     RFIDProcessingScreenProgressLabelText = 203,
     RFIDProcessingScreenProgressBar = 204,
     RFIDProcessingScreenProgressBarBackground = 205,
-    RFIDProcessingScreenResultLabelText = 206
+    RFIDProcessingScreenResultLabelText = 206,
+    RFIDProcessingScreenLoadingBar = 207
 } NS_SWIFT_NAME(DocReader.CustomizationColor);
 
 typedef NS_ENUM(NSInteger, RGLCustomizationFont) {
