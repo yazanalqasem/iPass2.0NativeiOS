@@ -285,6 +285,9 @@ public class iPassSDKManger {
                     else if(iPassSDKDataManager.shared.userSelectedFlowId == 10015 ) {
                          oPenDocumentScanner()
                     }
+                    else if(iPassSDKDataManager.shared.userSelectedFlowId == 10016 ) {
+                         oPenDocumentScanner()
+                    }
                     else {
                         self.delegate?.getScanCompletionResult(result: "", transactionId: "",  error: LocalizationManager.shared.localizedString(forKey: "invalid_workflowid"))
                     }
