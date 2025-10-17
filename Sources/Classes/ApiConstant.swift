@@ -13,9 +13,6 @@ struct Apis {
     
    static let baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
 
-
-    
-    
     
 }
 
