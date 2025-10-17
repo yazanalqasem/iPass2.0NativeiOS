@@ -9,9 +9,9 @@
 import Foundation
 
 struct Apis {
-  static var baseUrl = ""
+  //static var baseUrl = ""
     
-   static let baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
+   static var baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
 
     
 }
