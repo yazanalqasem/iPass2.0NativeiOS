@@ -24,10 +24,6 @@ typedef NS_ERROR_ENUM(RGLCVideoRecorderErrorDomain, RGLCVideoRecorderErrorCode) 
 
 @interface RGLCVideoRecorder : NSObject
 
-/// The front camera returns flipped footage for landscape right mode,
-/// with the flag enabled it will flip back for correct video. Disabled by default.
-@property (nonatomic, assign) BOOL flipVerticallyForLandscapeOrientation;
-
 /// Records new frame at a given presentation time.
 ///
 /// @param imageBuffer The image buffer from camera stream.

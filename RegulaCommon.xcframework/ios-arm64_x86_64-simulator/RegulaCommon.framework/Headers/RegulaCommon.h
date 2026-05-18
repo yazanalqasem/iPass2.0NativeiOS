@@ -43,14 +43,11 @@
 
 // :MARK: Custom UI
 #import <RegulaCommon/RGLCustomUIViewBuilder.h>
-#import <RegulaCommon/RGLCBaseViewController.h>
 
 // :MARK: Internal
 #import <RegulaCommon/RGLCCameraDevice.h>
 #import <RegulaCommon/NSBundle+RGLCSDKBundle.h>
 #import <RegulaCommon/CIImage+RGLCUIInterfaceOrientation.h>
+#import <RegulaCommon/AVCaptureConnection+RGLCUIDeviceOrientation.h>
 #import <RegulaCommon/RGLCCameraOutput.h>
 #import <RegulaCommon/RGLCCameraCapturePhotoOutput.h>
-
-// :MARK: Helpers
-#import <RegulaCommon/RGLCUIKitHelper.h>
