@@ -1,6 +1,6 @@
 ---
 triple:          'x86_64-apple-darwin'
-binary-path:     '/Users/administratorregula/Library/Developer/Xcode/DerivedData/DocumentReader-axmbstdencsdyzfudsafjdblxmaj/Build/Intermediates.noindex/ArchiveIntermediates/DocumentReader/InstallationBuildProductsLocation/Library/Frameworks/DocumentReader.framework/DocumentReader'
+binary-path:     '/Users/administratorregula/Library/Developer/Xcode/DerivedData/DocumentReader-coeijmuysmdbruerkfqigyfnmofn/Build/Intermediates.noindex/ArchiveIntermediates/DocumentReader/InstallationBuildProductsLocation/Library/Frameworks/DocumentReader.framework/DocumentReader'
 relocations:
   - { offset: 0x87A34, size: 0x8, addend: 0x0, symName: _DocumentReaderVersionString, symObjAddr: 0x0, symBinAddr: 0x10D430, symSize: 0x0 }
   - { offset: 0x87A69, size: 0x8, addend: 0x0, symName: _DocumentReaderVersionNumber, symObjAddr: 0x38, symBinAddr: 0x10D468, symSize: 0x0 }
@@ -4231,9 +4231,9 @@ relocations:
   - { offset: 0x17CF28, size: 0x8, addend: 0x0, symName: '+[RGLMRZFormatValue formatFrom:]', symObjAddr: 0x2B9, symBinAddr: 0xE22AD, symSize: 0xE5 }
   - { offset: 0x17CFCB, size: 0x8, addend: 0x0, symName: '-[RGLMRZFormatValue rawValue]', symObjAddr: 0x39E, symBinAddr: 0xE2392, symSize: 0xA }
   - { offset: 0x17D07F, size: 0x8, addend: 0x0, symName: '-[RGLProcessParams init]', symObjAddr: 0x0, symBinAddr: 0xE239C, symSize: 0x117 }
-  - { offset: 0x17D099, size: 0x8, addend: 0x0, symName: __livePortait, symObjAddr: 0x68928, symBinAddr: 0x19E2B0, symSize: 0x0 }
-  - { offset: 0x17D0B4, size: 0x8, addend: 0x0, symName: __extPortait, symObjAddr: 0x68930, symBinAddr: 0x19E2B8, symSize: 0x0 }
-  - { offset: 0x17D0CA, size: 0x8, addend: 0x0, symName: __dtc, symObjAddr: 0x68938, symBinAddr: 0x19E2C0, symSize: 0x0 }
+  - { offset: 0x17D099, size: 0x8, addend: 0x0, symName: __livePortait, symObjAddr: 0x68920, symBinAddr: 0x19E2B0, symSize: 0x0 }
+  - { offset: 0x17D0B4, size: 0x8, addend: 0x0, symName: __extPortait, symObjAddr: 0x68928, symBinAddr: 0x19E2B8, symSize: 0x0 }
+  - { offset: 0x17D0CA, size: 0x8, addend: 0x0, symName: __dtc, symObjAddr: 0x68930, symBinAddr: 0x19E2C0, symSize: 0x0 }
   - { offset: 0x17DF54, size: 0x8, addend: 0x0, symName: '-[RGLProcessParams init]', symObjAddr: 0x0, symBinAddr: 0xE239C, symSize: 0x117 }
   - { offset: 0x17E00A, size: 0x8, addend: 0x0, symName: '-[RGLProcessParams processParamsDictionary]', symObjAddr: 0x117, symBinAddr: 0xE24B3, symSize: 0x203F }
   - { offset: 0x17F4E9, size: 0x8, addend: 0x0, symName: '-[RGLProcessParams rfidParamsDictionary]', symObjAddr: 0x2156, symBinAddr: 0xE44F2, symSize: 0xA8 }
