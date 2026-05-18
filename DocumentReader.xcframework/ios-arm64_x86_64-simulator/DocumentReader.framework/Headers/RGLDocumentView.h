@@ -22,9 +22,8 @@ NS_SWIFT_NAME(DocumentView)
 @property(nonatomic, weak, nullable) id<RGLDocumentViewDataSource> dataSource;
 
 @property(nonatomic, strong) UIImage * _Nullable helpAnimationImage;
-
-@property(nonatomic, strong) NSString * _Nullable multipageFrontImageName;
-@property(nonatomic, strong) NSString * _Nullable multipageBackImageName;
+@property(nonatomic, strong) UIImage * _Nullable multipageFrontAnimationImage;
+@property(nonatomic, strong) UIImage * _Nullable multipageBackAnimationImage;
 
 @property(nonatomic, assign) UIViewContentMode helpAnimationImageContentMode;
 @property(nonatomic, assign) UIViewContentMode multipageAnimationFrontImageContentMode;

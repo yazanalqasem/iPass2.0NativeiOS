@@ -139,18 +139,7 @@ typedef NS_ENUM(uint32_t, RGLRFIDNotificationCodes) {
 
   /// Event of the detection of real biometric data absence in DG3 or DG4 and random filling data usage.
   /// The `attachment` parameter contains a file identifier from `RFIDDataFileType`.
-  RGLRFIDNotificationCodesBiometricsEmptyPlaceholder = 0x000F0000,
-
-  /// Event of data update in session structure for a read file.
-  /// The `attachment` parameter contains a file identifier from `RFIDDataFileType`.
-  RGLRFIDNotificationCodesSessionFileDataUpdated = 0x00100000,
-    
-  /// Event indicating a TCC `GetCertificateChain` method invocation.
-  RGLRFIDNotificationCodesTCCTAResources = 0x00110000,
-    
-  /// Event indicating a TCC `GetTASignature` method invocation.
-  RGLRFIDNotificationCodesTCCTASignature = 0x00110001,
-    
+  RGLRFIDNotificationCodesBiometricsEmptyPlaceholder = 0x000F0000
 } NS_SWIFT_NAME(RFIDNotificationCodes);
 
 // eRFID_Application_Type

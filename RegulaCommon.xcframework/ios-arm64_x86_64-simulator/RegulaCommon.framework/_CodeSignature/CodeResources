@@ -112,10 +112,6 @@
 		<data>
 		/uYGkrc2FkfQ4HT4alseKNn/utc=
 		</data>
-		<key>Headers/RGLCUIKitHelper.h</key>
-		<data>
-		skmOrVyFUzplL3nVZ1x7/jwH5Oc=
-		</data>
 		<key>Headers/RGLCURLRequestInterceptor.h</key>
 		<data>
 		TL37MaY832Yh0Kwh6k2FNHXieyE=
@@ -146,15 +142,15 @@
 		</data>
 		<key>Headers/RegulaCommon.h</key>
 		<data>
-		GeDWThVUSX0Rf6amuVXoVZ27CJc=
+		CmqMIu73tXq1jxyDydvjw+cW35g=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ivEbKo1mMRULPH4k9i8C5c+R56k=
+		iMl08qxZeo6mW+alXZ+MGe29bSM=
 		</data>
 		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		chUDHfLK/JI6RUY/xJWhU3O4AoI=
+		xXR1z3TpORcLKecybjLr5NfXYSM=
 		</data>
 		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -170,11 +166,11 @@
 		</data>
 		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		TsIDTwJIDmKFKJIHcTwp2CYbtZg=
+		YQBovtV2+ZwSqg/HZsxH8FbktWk=
 		</data>
 		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		chUDHfLK/JI6RUY/xJWhU3O4AoI=
+		xXR1z3TpORcLKecybjLr5NfXYSM=
 		</data>
 		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -190,7 +186,7 @@
 		</data>
 		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		EeAZhQ0dzj7HoPJDEn5Mvy7hpFY=
+		mvfUJS0SdIORObfFmmQck1XdwXg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -396,13 +392,6 @@
 			zGYkXpfG3uT9J/96b7TUBEPvMg11l56SjZ4sTITU3GU=
 			</data>
 		</dict>
-		<key>Headers/RGLCUIKitHelper.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			VlRxUCckOIGwflX5443WBbMB69e6dCHuMS5oPrVOh8Q=
-			</data>
-		</dict>
 		<key>Headers/RGLCURLRequestInterceptor.h</key>
 		<dict>
 			<key>hash2</key>
@@ -456,14 +445,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PtljWbi90geZwmqgjGJbujWMs1ZfjlMHGi3knpNKito=
+			0CPg7z3C1KP0n0mbcaNU4Eqwk+Oe2FWeQXsr0SixzbU=
 			</data>
 		</dict>
 		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			q/R/zBvWj/kyk31TUJN15WGyN2DXTU77XBN/Vjd0kk4=
+			Pac7O21yOMDjtZ3shFJA7QUXIuxeIiLWdhXR7+SnQCc=
 			</data>
 		</dict>
 		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -491,14 +480,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nY6k0sXWU+wY2BcEfOGWl6BdFXPFLoRhGiZEwKpkTOQ=
+			EGZNda9C0XlXnVw7HB+/fG+DkLJCoLWVy9RoXlq8+WY=
 			</data>
 		</dict>
 		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			q/R/zBvWj/kyk31TUJN15WGyN2DXTU77XBN/Vjd0kk4=
+			Pac7O21yOMDjtZ3shFJA7QUXIuxeIiLWdhXR7+SnQCc=
 			</data>
 		</dict>
 		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -526,7 +515,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+vhnnq8phFsE9I2alINOCiwk58McYarrIhI3NbOigTI=
+			lc/x5RdzOP1vygJYPPeHlSHjW9pCV5lU8lAaTvfhBVg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

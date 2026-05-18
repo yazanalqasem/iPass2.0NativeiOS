@@ -403,10 +403,6 @@ NS_SWIFT_NAME(ProcessParams)
 /// Type: Bool.
 @property (nonatomic, strong, nullable) NSNumber *strictSecurityChecks;
 
-/// When disabled, date of expiry doesn't affect the mrz and text statuses.
-/// Type: Bool.
-@property (nonatomic, strong, nullable) NSNumber *strictExpiryDate;
-
 /// Allows transliteration to be turned on or off; by default, it is enabled.
 /// Type: Bool.
 @property (nonatomic, strong, nullable) NSNumber *returnTransliteratedFields;
@@ -415,11 +411,5 @@ NS_SWIFT_NAME(ProcessParams)
 @property (nonatomic, strong, nullable) NSNumber *checkCaptureProcessIntegrity;
 
 @property (nonatomic, strong, nullable) RGLBsi *bsiTr03135;
-
-@property (nonatomic, strong, nullable) NSNumber *debugSaveBinarySession;
-
-/// This parameter is used to enable Visible Digital Seal check.
-/// Type: Bool.
-@property (nonatomic, strong, nullable) NSNumber *checkVDS;
 
 @end
