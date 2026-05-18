@@ -1323,12 +1323,16 @@ typedef NS_ENUM(NSInteger, RGLFieldType) {
     RGLFieldTypeFt_First_Issue_Date_CheckDigit = 698,
 
     RGLFieldTypeFt_First_Issue_Date_Checksum = 699,
+    
+    RGLFieldTypeFt_Expiry_Timestamp = 700,
   
     RGLFieldTypeFt_Commercial_Indicator = 701,
   
     RGLFieldTypeFt_Non_Domiciled_Indicator = 702,
   
     RGLFieldTypeFt_Jurisdiction_Specific_Data = 703,
+    
+    RGLFieldTypeFt_Data_DateOfExpiry = 704,
 } NS_SWIFT_NAME(FieldType);
 
 FOUNDATION_EXPORT NSString *RGLFieldTypeGetStringValue(RGLFieldType type) CF_SWIFT_NAME(getter:FieldType.stringValue(self:));

@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/DocumentReader.h</key>
 		<data>
-		b4c+RB5p1ehwrF3y6XLb6hzYblw=
+		Lr5Y4ON1HgksZoV9wSmpiMsmKh4=
 		</data>
 		<key>Headers/RGLAccessControlProcedureType.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Headers/RGLBackendProcessingConfig.h</key>
 		<data>
-		5XjP3EwlUvzLUrF1L9jjQsuF6w0=
+		stYSsLqWrV0GyY5yPWsE+o7RSOc=
 		</data>
 		<key>Headers/RGLBarcodePosition.h</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Headers/RGLCustomization.h</key>
 		<data>
-		tMAuPTYusAEviUFQ8OYIM3AaKZc=
+		oHWzR2Vr+jiueo5/v9goWArjXuU=
 		</data>
 		<key>Headers/RGLDTCDataGroup.h</key>
 		<data>
@@ -138,7 +138,7 @@
 		</data>
 		<key>Headers/RGLDocReader.h</key>
 		<data>
-		JefNGhomZl9LuBaI/d+mpJPQAyg=
+		KvfXoAT0PR8Rxz5TUJXkaV/PjQs=
 		</data>
 		<key>Headers/RGLDocReaderCameraViewController.h</key>
 		<data>
@@ -150,7 +150,7 @@
 		</data>
 		<key>Headers/RGLDocReaderRFIDDelegate.h</key>
 		<data>
-		uZefH2nMZmO00y649Vg9MDTATR8=
+		rVypYeoDRNeYIpBywTYwNWA6o8c=
 		</data>
 		<key>Headers/RGLDocReaderVersion.h</key>
 		<data>
@@ -250,7 +250,7 @@
 		</data>
 		<key>Headers/RGLDocumentView.h</key>
 		<data>
-		EIUM5Rd35V5OdcINaOXFE0z5Sv4=
+		IdnJOVhrpesMpHVOEFq+Tcfv8yM=
 		</data>
 		<key>Headers/RGLElementRect.h</key>
 		<data>
@@ -274,7 +274,7 @@
 		</data>
 		<key>Headers/RGLFieldType.h</key>
 		<data>
-		4MCGMCrPevVYT7Lh96u3DW/1Eks=
+		w1NWl6wyIn6NjD8otlAR1XQlXMs=
 		</data>
 		<key>Headers/RGLFile.h</key>
 		<data>
@@ -286,7 +286,7 @@
 		</data>
 		<key>Headers/RGLFinalizeConfig.h</key>
 		<data>
-		ZlQPiwnUv/awGDyk20E/BoVJBLo=
+		wFRMT0s4RFHkY+TroqX6PEC2YXM=
 		</data>
 		<key>Headers/RGLFunctionality.h</key>
 		<data>
@@ -406,11 +406,19 @@
 		</data>
 		<key>Headers/RGLProcessParams.h</key>
 		<data>
-		e6GNO+L4Jb9U2ra+j9E3a0dYmKc=
+		eh1ss3eqWq1Ed5E3NBhqR1Yk62c=
+		</data>
+		<key>Headers/RGLRFIDAccessControlCA.h</key>
+		<data>
+		n7nM3WPL4HLi83TdShc555UESis=
+		</data>
+		<key>Headers/RGLRFIDAccessControlPACE.h</key>
+		<data>
+		UhJSWoAbMfdo3exz+XjmYCbfxMM=
 		</data>
 		<key>Headers/RGLRFIDNotify.h</key>
 		<data>
-		AFqWVg70KIsZ7HjHLBtJA9r/yRo=
+		Z9cewAjKjmfdQrZ+N3W7XaRnhbM=
 		</data>
 		<key>Headers/RGLRFIDParams.h</key>
 		<data>
@@ -486,7 +494,7 @@
 		</data>
 		<key>Headers/RGLUIConfiguration.h</key>
 		<data>
-		tkVpB4cxDxq7ssiqJBh6vTs0Sik=
+		SsUT0KGBzoXEejfnQH2DztUVaR0=
 		</data>
 		<key>Headers/RGLURLRequestInterceptingDelegate.h</key>
 		<data>
@@ -495,6 +503,10 @@
 		<key>Headers/RGLUVFiberElement.h</key>
 		<data>
 		AuSbBnBgDYDdu1CyCiz0CmKJJaI=
+		</data>
+		<key>Headers/RGLUniversalNFCTagTransport.h</key>
+		<data>
+		XIpH2Aw9ljflqg6sOiaTt+Q/Mu0=
 		</data>
 		<key>Headers/RGLVDSData.h</key>
 		<data>
@@ -546,7 +558,7 @@
 		</data>
 		<key>PrivateHeaders/RGLConstants.h</key>
 		<data>
-		10GCiei6YtcmFZxGwx+onVEVA98=
+		6JMw2Sb5msekw9yq6nrFX2HFnXc=
 		</data>
 		<key>PrivateHeaders/RGLCustomization+Private.h</key>
 		<data>
@@ -1274,7 +1286,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ncI7C8PJ/Jw/BaJNyDIcTI7ICrplUAq2KrgmDsN+KVU=
+			beLi3mI401bms3FRLhyXrxch5Unlfzj7unmMQBOlCg4=
 			</data>
 		</dict>
 		<key>Headers/RGLAccessControlProcedureType.h</key>
@@ -1337,7 +1349,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6XL8uWnSC8QqQf9u6sDPXi4OGBU+QQJHe+cIq6w1On0=
+			jli5jG54+oXWHzGjFoeQojdFXMOOQURI4yiRQgTt7GE=
 			</data>
 		</dict>
 		<key>Headers/RGLBarcodePosition.h</key>
@@ -1435,7 +1447,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AjdheE6ZgKci2z6WvgTcwvHsCxA6gqxNuVthrAEU27A=
+			GbAdXi0e7wHFRZnfpl9C3dUKI/IpaQjW8MmWjFgPyKg=
 			</data>
 		</dict>
 		<key>Headers/RGLDTCDataGroup.h</key>
@@ -1498,7 +1510,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IEjTQMa3mV3jR/+Tujz41rOJN2MFx7wevqEMn6iCylM=
+			cNo4st3iMp05XPDvMBadH7gz6oOKjUwT3zpLJO064YU=
 			</data>
 		</dict>
 		<key>Headers/RGLDocReaderCameraViewController.h</key>
@@ -1519,7 +1531,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4tHZnN8vtzijSC9EpkqhMKMfClc+bsvxiT2SyB6WOX0=
+			cs1DVBPBmqZ9/FOtdA4TSwHMRPsn3aB24PQg2QzrEag=
 			</data>
 		</dict>
 		<key>Headers/RGLDocReaderVersion.h</key>
@@ -1694,7 +1706,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EhForQHmCMKCqEMmZIJ3cCtEqhvPjqYU7h9QWjQKH+A=
+			nJ+VchAlJcAS6iGySzpX6IyeMtg+y3XRIR+4I9WZsiQ=
 			</data>
 		</dict>
 		<key>Headers/RGLElementRect.h</key>
@@ -1736,7 +1748,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pKCB0vKcNMz+9J8OKXRBIR/fsY0aohL1LIykavo4lOM=
+			33s/iFHpryk5lDweR8Uj3HnWYAj5GzkvjgPTEZH3318=
 			</data>
 		</dict>
 		<key>Headers/RGLFile.h</key>
@@ -1757,7 +1769,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cXrpZ1dIWnIEn4xdhQ8Jeg9+u6u1fJ1H74jPbVLK/U4=
+			+yvkHPlxvFvR/Ryd5iGdJsaVnfVhgzSx8PSo1WiXOok=
 			</data>
 		</dict>
 		<key>Headers/RGLFunctionality.h</key>
@@ -1967,14 +1979,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9VECF0RkPLwpHQEb0FnNGTnZivfY7/NhVHOW7g6hopE=
+			w4P0VIVOP3aLD4d2i/zLlT/kc56ok4RW2U9hVjcJ3EM=
+			</data>
+		</dict>
+		<key>Headers/RGLRFIDAccessControlCA.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			C1r0QgpMFEOFuNv5MEqh4Tb0vMN2iabanmW0jYNTS2U=
+			</data>
+		</dict>
+		<key>Headers/RGLRFIDAccessControlPACE.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			M+pP8N8L/gIe3JQ0xbi+R4zEIg7jfblVYaQp+ZjY2Rk=
 			</data>
 		</dict>
 		<key>Headers/RGLRFIDNotify.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NVcJIv6gMy3K7++IKbwuLPs2mVoUIAvckCmw8V/NkRY=
+			gJGOVN17ztrdJ5lhWGsDiUK2EPJJoy5u7zhldOqnqn8=
 			</data>
 		</dict>
 		<key>Headers/RGLRFIDParams.h</key>
@@ -2107,7 +2133,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			L/ixZVwnth3/Ct96cBxoW0x4qpLrDxcw7Y8RX4foCUM=
+			7RESV7UAeNL4NFSL1QaBTm5sczRz3ymdhQuolKzJDNE=
 			</data>
 		</dict>
 		<key>Headers/RGLURLRequestInterceptingDelegate.h</key>
@@ -2122,6 +2148,13 @@
 			<key>hash2</key>
 			<data>
 			ZJ2ZzaMoV/8oTfbczomvJ71FKsEr3C9nSOiQ8hCNnwA=
+			</data>
+		</dict>
+		<key>Headers/RGLUniversalNFCTagTransport.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QwWS0s4LELMlY+grJBV18EW1CBwq6s6Aoc7idicNmF8=
 			</data>
 		</dict>
 		<key>Headers/RGLVDSData.h</key>
@@ -2205,7 +2238,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VmaSnGGLbvEdSeTIOc8inkojh9vqH3oTCXKq24oheug=
+			3aqt/6iRFQX4ykknat4e9+y1+C905nhBaWfEjmsmdlk=
 			</data>
 		</dict>
 		<key>PrivateHeaders/RGLCustomization+Private.h</key>

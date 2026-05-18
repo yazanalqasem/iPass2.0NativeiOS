@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *rfidServerSideChipVerification;
 /// Timeout in seconds that can be configured for backend transaction creation and package finalization.
 @property(nonatomic, strong, nullable) NSNumber *timeoutConnection;
+@property(nonatomic, strong, nullable) NSNumber *mDLVerification;
 
 @end
 

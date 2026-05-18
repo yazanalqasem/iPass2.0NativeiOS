@@ -112,6 +112,10 @@
 		<data>
 		/uYGkrc2FkfQ4HT4alseKNn/utc=
 		</data>
+		<key>ios-arm64/RegulaCommon.framework/Headers/RGLCUIKitHelper.h</key>
+		<data>
+		skmOrVyFUzplL3nVZ1x7/jwH5Oc=
+		</data>
 		<key>ios-arm64/RegulaCommon.framework/Headers/RGLCURLRequestInterceptor.h</key>
 		<data>
 		TL37MaY832Yh0Kwh6k2FNHXieyE=
@@ -142,15 +146,15 @@
 		</data>
 		<key>ios-arm64/RegulaCommon.framework/Headers/RegulaCommon.h</key>
 		<data>
-		CmqMIu73tXq1jxyDydvjw+cW35g=
+		GeDWThVUSX0Rf6amuVXoVZ27CJc=
 		</data>
 		<key>ios-arm64/RegulaCommon.framework/Info.plist</key>
 		<data>
-		0OiujZLjERZ0CtAyGs0PjkPjolE=
+		mxG7aAR+yuHCIiByCEN6dumy3PM=
 		</data>
 		<key>ios-arm64/RegulaCommon.framework/Modules/RegulaCommon.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		xXR1z3TpORcLKecybjLr5NfXYSM=
+		chUDHfLK/JI6RUY/xJWhU3O4AoI=
 		</data>
 		<key>ios-arm64/RegulaCommon.framework/Modules/RegulaCommon.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
@@ -178,7 +182,7 @@
 		</data>
 		<key>ios-arm64/RegulaCommon.framework/RegulaCommon</key>
 		<data>
-		A84jScIGiiVYdlhQq7IFzv0880k=
+		YCYrq5zIXdT+TCzW7rHn2gIUDDY=
 		</data>
 		<key>ios-arm64/dSYMs/RegulaCommon.framework.dSYM/Contents/Info.plist</key>
 		<data>
@@ -186,11 +190,11 @@
 		</data>
 		<key>ios-arm64/dSYMs/RegulaCommon.framework.dSYM/Contents/Resources/DWARF/RegulaCommon</key>
 		<data>
-		hWuWlJ6/OruxJuD1JpS9fjak+zk=
+		tCj0zYPhFjN8YHUyTj5+6bnr+7Y=
 		</data>
 		<key>ios-arm64/dSYMs/RegulaCommon.framework.dSYM/Contents/Resources/Relocations/aarch64/RegulaCommon.yml</key>
 		<data>
-		CV2bBf4QKSktZ5iCJKC3cG827ZM=
+		ChQHSSs76eo8dqBvP/oiZoFcmvw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Headers/CIImage+RGLCUIInterfaceOrientation.h</key>
 		<data>
@@ -300,6 +304,10 @@
 		<data>
 		/uYGkrc2FkfQ4HT4alseKNn/utc=
 		</data>
+		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Headers/RGLCUIKitHelper.h</key>
+		<data>
+		skmOrVyFUzplL3nVZ1x7/jwH5Oc=
+		</data>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Headers/RGLCURLRequestInterceptor.h</key>
 		<data>
 		TL37MaY832Yh0Kwh6k2FNHXieyE=
@@ -330,15 +338,15 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Headers/RegulaCommon.h</key>
 		<data>
-		CmqMIu73tXq1jxyDydvjw+cW35g=
+		GeDWThVUSX0Rf6amuVXoVZ27CJc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Info.plist</key>
 		<data>
-		QOv39tbhzvM6ROUiGQH1Rdjs7qM=
+		iOr0zccZQ7TVrFzJxHyTKVwOwhM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		xXR1z3TpORcLKecybjLr5NfXYSM=
+		chUDHfLK/JI6RUY/xJWhU3O4AoI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -354,7 +362,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		xXR1z3TpORcLKecybjLr5NfXYSM=
+		chUDHfLK/JI6RUY/xJWhU3O4AoI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -382,11 +390,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/RegulaCommon</key>
 		<data>
-		rp6VuvorTbf2FUNpk0yrbb2kBzE=
+		572vxjHbo101S92aWRbkyDEW5bA=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/_CodeSignature/CodeResources</key>
 		<data>
-		XPoUyF6v8h2D6e/5CZRhiiC6sMw=
+		keYfKR/yn68Edeq9W+yqz4QT19Q=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RegulaCommon.framework.dSYM/Contents/Info.plist</key>
 		<data>
@@ -394,15 +402,15 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RegulaCommon.framework.dSYM/Contents/Resources/DWARF/RegulaCommon</key>
 		<data>
-		QG6YzW6RGnlQbizgIwSr7GMPllw=
+		mS7d/gK+cBHCt9wmquvWg+5NPRg=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RegulaCommon.framework.dSYM/Contents/Resources/Relocations/aarch64/RegulaCommon.yml</key>
 		<data>
-		mFlX4sPUhk5kDmlyAVkT5jWjuqE=
+		Zdf2Fe/Rit7kpWaT0d3YI9q8C0c=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RegulaCommon.framework.dSYM/Contents/Resources/Relocations/x86_64/RegulaCommon.yml</key>
 		<data>
-		w2/eJd6dv4L/TGcFvJLyCJk2X90=
+		W6RfkwnWvfvvaqQKMHm2ItwKSGE=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -704,6 +712,17 @@
 			zGYkXpfG3uT9J/96b7TUBEPvMg11l56SjZ4sTITU3GU=
 			</data>
 		</dict>
+		<key>ios-arm64/RegulaCommon.framework/Headers/RGLCUIKitHelper.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			skmOrVyFUzplL3nVZ1x7/jwH5Oc=
+			</data>
+			<key>hash2</key>
+			<data>
+			VlRxUCckOIGwflX5443WBbMB69e6dCHuMS5oPrVOh8Q=
+			</data>
+		</dict>
 		<key>ios-arm64/RegulaCommon.framework/Headers/RGLCURLRequestInterceptor.h</key>
 		<dict>
 			<key>hash</key>
@@ -785,33 +804,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CmqMIu73tXq1jxyDydvjw+cW35g=
+			GeDWThVUSX0Rf6amuVXoVZ27CJc=
 			</data>
 			<key>hash2</key>
 			<data>
-			0CPg7z3C1KP0n0mbcaNU4Eqwk+Oe2FWeQXsr0SixzbU=
+			PtljWbi90geZwmqgjGJbujWMs1ZfjlMHGi3knpNKito=
 			</data>
 		</dict>
 		<key>ios-arm64/RegulaCommon.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0OiujZLjERZ0CtAyGs0PjkPjolE=
+			mxG7aAR+yuHCIiByCEN6dumy3PM=
 			</data>
 			<key>hash2</key>
 			<data>
-			Wslva/16kOzlFEy6N8v41mTUXaotVn62XlO9gA1qaIY=
+			QFLyInSLYLxCYP4FywuOCb1V+ETnoahme4O7Q+9hQ4o=
 			</data>
 		</dict>
 		<key>ios-arm64/RegulaCommon.framework/Modules/RegulaCommon.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xXR1z3TpORcLKecybjLr5NfXYSM=
+			chUDHfLK/JI6RUY/xJWhU3O4AoI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Pac7O21yOMDjtZ3shFJA7QUXIuxeIiLWdhXR7+SnQCc=
+			q/R/zBvWj/kyk31TUJN15WGyN2DXTU77XBN/Vjd0kk4=
 			</data>
 		</dict>
 		<key>ios-arm64/RegulaCommon.framework/Modules/RegulaCommon.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
@@ -884,11 +903,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			A84jScIGiiVYdlhQq7IFzv0880k=
+			YCYrq5zIXdT+TCzW7rHn2gIUDDY=
 			</data>
 			<key>hash2</key>
 			<data>
-			5MIF088+7etW2uIuj0qTGO+8XrU+wQU+2cqQrMkr/rk=
+			wegyJyexnztYccGdvUUkEk6yk8e7eBPhlLpIto+MJ8c=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/RegulaCommon.framework.dSYM/Contents/Info.plist</key>
@@ -906,22 +925,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hWuWlJ6/OruxJuD1JpS9fjak+zk=
+			tCj0zYPhFjN8YHUyTj5+6bnr+7Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			1h2G5lqZN8qywmSNmn6b878czubbyrkxmqOz10TIjFo=
+			D+Csdlc3XXM/NRiH3CiMVwiH+fqeBlaz2IxoJUB6bwU=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/RegulaCommon.framework.dSYM/Contents/Resources/Relocations/aarch64/RegulaCommon.yml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CV2bBf4QKSktZ5iCJKC3cG827ZM=
+			ChQHSSs76eo8dqBvP/oiZoFcmvw=
 			</data>
 			<key>hash2</key>
 			<data>
-			z5TIuXSN7t7DaJMVhX97+L/+BOa3Zk9YounE0kcqHKY=
+			NXGm3a1PRRZ9vafTTxGaR/rGRaxOc0DUD19tmLeHfpE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Headers/CIImage+RGLCUIInterfaceOrientation.h</key>
@@ -1221,6 +1240,17 @@
 			zGYkXpfG3uT9J/96b7TUBEPvMg11l56SjZ4sTITU3GU=
 			</data>
 		</dict>
+		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Headers/RGLCUIKitHelper.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			skmOrVyFUzplL3nVZ1x7/jwH5Oc=
+			</data>
+			<key>hash2</key>
+			<data>
+			VlRxUCckOIGwflX5443WBbMB69e6dCHuMS5oPrVOh8Q=
+			</data>
+		</dict>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Headers/RGLCURLRequestInterceptor.h</key>
 		<dict>
 			<key>hash</key>
@@ -1302,33 +1332,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CmqMIu73tXq1jxyDydvjw+cW35g=
+			GeDWThVUSX0Rf6amuVXoVZ27CJc=
 			</data>
 			<key>hash2</key>
 			<data>
-			0CPg7z3C1KP0n0mbcaNU4Eqwk+Oe2FWeQXsr0SixzbU=
+			PtljWbi90geZwmqgjGJbujWMs1ZfjlMHGi3knpNKito=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QOv39tbhzvM6ROUiGQH1Rdjs7qM=
+			iOr0zccZQ7TVrFzJxHyTKVwOwhM=
 			</data>
 			<key>hash2</key>
 			<data>
-			suP+6BOclgG0zIFSxI5ansLcsXIap4Y/m5iZvG9Rhf4=
+			N25KiSPUpSr/Rg2WBYcFRlTPkJLW9t0wy8WnQmh7QqE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xXR1z3TpORcLKecybjLr5NfXYSM=
+			chUDHfLK/JI6RUY/xJWhU3O4AoI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Pac7O21yOMDjtZ3shFJA7QUXIuxeIiLWdhXR7+SnQCc=
+			q/R/zBvWj/kyk31TUJN15WGyN2DXTU77XBN/Vjd0kk4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -1368,11 +1398,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xXR1z3TpORcLKecybjLr5NfXYSM=
+			chUDHfLK/JI6RUY/xJWhU3O4AoI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Pac7O21yOMDjtZ3shFJA7QUXIuxeIiLWdhXR7+SnQCc=
+			q/R/zBvWj/kyk31TUJN15WGyN2DXTU77XBN/Vjd0kk4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -1445,22 +1475,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rp6VuvorTbf2FUNpk0yrbb2kBzE=
+			572vxjHbo101S92aWRbkyDEW5bA=
 			</data>
 			<key>hash2</key>
 			<data>
-			yNtRFlIYgdelEJWh6w/XbsY+CbPyHQ+F/IBBaKKQ9s0=
+			bq/CUOoeHMvYK67UAt2Cn6Wf6TeUs8DYSMFxkNH0tk4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RegulaCommon.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XPoUyF6v8h2D6e/5CZRhiiC6sMw=
+			keYfKR/yn68Edeq9W+yqz4QT19Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			cPdoZCXLrna3xFtxDKtFGJVFSr8BCzjJbEUWVFqdGmo=
+			hyxaepqucYKMhnX0axPVtB2MMqnxTkE6ppPJSNh3XwY=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RegulaCommon.framework.dSYM/Contents/Info.plist</key>
@@ -1478,33 +1508,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QG6YzW6RGnlQbizgIwSr7GMPllw=
+			mS7d/gK+cBHCt9wmquvWg+5NPRg=
 			</data>
 			<key>hash2</key>
 			<data>
-			/wtFueYC1pbZQb+XtxkCmWhRRc9TrA8HJW4Ik48yBO0=
+			BHsOnLTm/TPLczmKBiPY1TCbMxE3lmffD69b/vwbdps=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RegulaCommon.framework.dSYM/Contents/Resources/Relocations/aarch64/RegulaCommon.yml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			mFlX4sPUhk5kDmlyAVkT5jWjuqE=
+			Zdf2Fe/Rit7kpWaT0d3YI9q8C0c=
 			</data>
 			<key>hash2</key>
 			<data>
-			RmiY+83ScC5Qclb2u74M/14ZZ+KNb/AwmER/2gL55Xc=
+			/TFhXP3HdMvMMBHjESjNBlnXh1MN/0JS3Qt3ytq39EQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RegulaCommon.framework.dSYM/Contents/Resources/Relocations/x86_64/RegulaCommon.yml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			w2/eJd6dv4L/TGcFvJLyCJk2X90=
+			W6RfkwnWvfvvaqQKMHm2ItwKSGE=
 			</data>
 			<key>hash2</key>
 			<data>
-			qusyhsMnE2GfriHvsmkRsHZYSpqZSdDb+tfwcCrqgUA=
+			stoHau3k4f10OHNR2FxIs13Oq32desQqKO2Lq5QeLcQ=
 			</data>
 		</dict>
 	</dict>

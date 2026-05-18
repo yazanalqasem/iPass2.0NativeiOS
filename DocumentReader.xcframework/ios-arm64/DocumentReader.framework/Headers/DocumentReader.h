@@ -37,6 +37,7 @@ FOUNDATION_EXPORT const unsigned char DocumentReaderVersionString[];
 #import <DocumentReader/RGLImageQuality.h>
 #import <DocumentReader/RGLDocumentReaderAuthenticityResult.h>
 #import <DocumentReader/RGLRFIDSessionData.h>
+#import <DocumentReader/RGLUniversalNFCTagTransport.h>
 #import <DocumentReader/RGLRFIDNotify.h>
 #import <DocumentReader/RGLDocumentReaderGraphicField.h>
 #import <DocumentReader/RGLRFIDScenario.h>
@@ -142,3 +143,5 @@ FOUNDATION_EXPORT const unsigned char DocumentReaderVersionString[];
 #import <DocumentReader/RGLDetailsAge.h>
 #import <DocumentReader/RGLMDLEnums.h>
 #import <DocumentReader/RGLBsi.h>
+#import <DocumentReader/RGLRFIDAccessControlCA.h>
+#import <DocumentReader/RGLRFIDAccessControlPACE.h>

@@ -6,15 +6,15 @@
 	<dict>
 		<key>ios-arm64/DocumentReader.framework/Assets.car</key>
 		<data>
-		ZYSiSf2rJzfpeGSsxypEIMWY3l0=
+		cgZq1Dknrd4qWgcAMHZj+ii5JD8=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/DocumentReader</key>
 		<data>
-		vPxcYOQ/nXrtJzuTh9nhh+mGYks=
+		KWlApYJql5UvReWnPTwEQM2L6V4=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/DocumentReader.h</key>
 		<data>
-		b4c+RB5p1ehwrF3y6XLb6hzYblw=
+		Lr5Y4ON1HgksZoV9wSmpiMsmKh4=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLAccessControlProcedureType.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLBackendProcessingConfig.h</key>
 		<data>
-		5XjP3EwlUvzLUrF1L9jjQsuF6w0=
+		stYSsLqWrV0GyY5yPWsE+o7RSOc=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLBarcodePosition.h</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLCustomization.h</key>
 		<data>
-		tMAuPTYusAEviUFQ8OYIM3AaKZc=
+		oHWzR2Vr+jiueo5/v9goWArjXuU=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLDTCDataGroup.h</key>
 		<data>
@@ -142,7 +142,7 @@
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLDocReader.h</key>
 		<data>
-		JefNGhomZl9LuBaI/d+mpJPQAyg=
+		KvfXoAT0PR8Rxz5TUJXkaV/PjQs=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLDocReaderCameraViewController.h</key>
 		<data>
@@ -154,7 +154,7 @@
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLDocReaderRFIDDelegate.h</key>
 		<data>
-		uZefH2nMZmO00y649Vg9MDTATR8=
+		rVypYeoDRNeYIpBywTYwNWA6o8c=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLDocReaderVersion.h</key>
 		<data>
@@ -254,7 +254,7 @@
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLDocumentView.h</key>
 		<data>
-		EIUM5Rd35V5OdcINaOXFE0z5Sv4=
+		IdnJOVhrpesMpHVOEFq+Tcfv8yM=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLElementRect.h</key>
 		<data>
@@ -278,7 +278,7 @@
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLFieldType.h</key>
 		<data>
-		4MCGMCrPevVYT7Lh96u3DW/1Eks=
+		w1NWl6wyIn6NjD8otlAR1XQlXMs=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLFile.h</key>
 		<data>
@@ -290,7 +290,7 @@
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLFinalizeConfig.h</key>
 		<data>
-		ZlQPiwnUv/awGDyk20E/BoVJBLo=
+		wFRMT0s4RFHkY+TroqX6PEC2YXM=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLFunctionality.h</key>
 		<data>
@@ -410,11 +410,19 @@
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLProcessParams.h</key>
 		<data>
-		e6GNO+L4Jb9U2ra+j9E3a0dYmKc=
+		eh1ss3eqWq1Ed5E3NBhqR1Yk62c=
+		</data>
+		<key>ios-arm64/DocumentReader.framework/Headers/RGLRFIDAccessControlCA.h</key>
+		<data>
+		n7nM3WPL4HLi83TdShc555UESis=
+		</data>
+		<key>ios-arm64/DocumentReader.framework/Headers/RGLRFIDAccessControlPACE.h</key>
+		<data>
+		UhJSWoAbMfdo3exz+XjmYCbfxMM=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLRFIDNotify.h</key>
 		<data>
-		AFqWVg70KIsZ7HjHLBtJA9r/yRo=
+		Z9cewAjKjmfdQrZ+N3W7XaRnhbM=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLRFIDParams.h</key>
 		<data>
@@ -490,7 +498,7 @@
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLUIConfiguration.h</key>
 		<data>
-		tkVpB4cxDxq7ssiqJBh6vTs0Sik=
+		SsUT0KGBzoXEejfnQH2DztUVaR0=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLURLRequestInterceptingDelegate.h</key>
 		<data>
@@ -499,6 +507,10 @@
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLUVFiberElement.h</key>
 		<data>
 		AuSbBnBgDYDdu1CyCiz0CmKJJaI=
+		</data>
+		<key>ios-arm64/DocumentReader.framework/Headers/RGLUniversalNFCTagTransport.h</key>
+		<data>
+		XIpH2Aw9ljflqg6sOiaTt+Q/Mu0=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLVDSData.h</key>
 		<data>
@@ -538,7 +550,7 @@
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Info.plist</key>
 		<data>
-		7TgLL6PI94tCMp2PwKEKWH9Kufk=
+		oDukPSFVsJSAPdnmR/IjfJZ8ioU=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Modules/module.modulemap</key>
 		<data>
@@ -550,7 +562,7 @@
 		</data>
 		<key>ios-arm64/DocumentReader.framework/PrivateHeaders/RGLConstants.h</key>
 		<data>
-		10GCiei6YtcmFZxGwx+onVEVA98=
+		6JMw2Sb5msekw9yq6nrFX2HFnXc=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/PrivateHeaders/RGLCustomization+Private.h</key>
 		<data>
@@ -1270,11 +1282,11 @@
 		</data>
 		<key>ios-arm64/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/DWARF/DocumentReader</key>
 		<data>
-		HaljqFGbST0Hx6f8Uc2TyRMvtFE=
+		t/xzeMOZaBN63ySgt3XjFxNjmws=
 		</data>
 		<key>ios-arm64/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/Relocations/aarch64/DocumentReader.yml</key>
 		<data>
-		ZCcC65RsAecziPUTkzjOR832rcE=
+		NijHyH1gVReT/4k/KhJxZ16V914=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Assets.car</key>
 		<data>
@@ -1282,11 +1294,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/DocumentReader</key>
 		<data>
-		MgdoNTZgI7Fj6kOPUzaIVw8G0t0=
+		YrzxhDgHWv/Gj3wPImTtDjCiF4w=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/DocumentReader.h</key>
 		<data>
-		b4c+RB5p1ehwrF3y6XLb6hzYblw=
+		Lr5Y4ON1HgksZoV9wSmpiMsmKh4=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLAccessControlProcedureType.h</key>
 		<data>
@@ -1322,7 +1334,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLBackendProcessingConfig.h</key>
 		<data>
-		5XjP3EwlUvzLUrF1L9jjQsuF6w0=
+		stYSsLqWrV0GyY5yPWsE+o7RSOc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLBarcodePosition.h</key>
 		<data>
@@ -1378,7 +1390,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLCustomization.h</key>
 		<data>
-		tMAuPTYusAEviUFQ8OYIM3AaKZc=
+		oHWzR2Vr+jiueo5/v9goWArjXuU=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLDTCDataGroup.h</key>
 		<data>
@@ -1414,7 +1426,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLDocReader.h</key>
 		<data>
-		JefNGhomZl9LuBaI/d+mpJPQAyg=
+		KvfXoAT0PR8Rxz5TUJXkaV/PjQs=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLDocReaderCameraViewController.h</key>
 		<data>
@@ -1426,7 +1438,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLDocReaderRFIDDelegate.h</key>
 		<data>
-		uZefH2nMZmO00y649Vg9MDTATR8=
+		rVypYeoDRNeYIpBywTYwNWA6o8c=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLDocReaderVersion.h</key>
 		<data>
@@ -1526,7 +1538,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLDocumentView.h</key>
 		<data>
-		EIUM5Rd35V5OdcINaOXFE0z5Sv4=
+		IdnJOVhrpesMpHVOEFq+Tcfv8yM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLElementRect.h</key>
 		<data>
@@ -1550,7 +1562,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLFieldType.h</key>
 		<data>
-		4MCGMCrPevVYT7Lh96u3DW/1Eks=
+		w1NWl6wyIn6NjD8otlAR1XQlXMs=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLFile.h</key>
 		<data>
@@ -1562,7 +1574,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLFinalizeConfig.h</key>
 		<data>
-		ZlQPiwnUv/awGDyk20E/BoVJBLo=
+		wFRMT0s4RFHkY+TroqX6PEC2YXM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLFunctionality.h</key>
 		<data>
@@ -1682,11 +1694,19 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLProcessParams.h</key>
 		<data>
-		e6GNO+L4Jb9U2ra+j9E3a0dYmKc=
+		eh1ss3eqWq1Ed5E3NBhqR1Yk62c=
+		</data>
+		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLRFIDAccessControlCA.h</key>
+		<data>
+		n7nM3WPL4HLi83TdShc555UESis=
+		</data>
+		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLRFIDAccessControlPACE.h</key>
+		<data>
+		UhJSWoAbMfdo3exz+XjmYCbfxMM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLRFIDNotify.h</key>
 		<data>
-		AFqWVg70KIsZ7HjHLBtJA9r/yRo=
+		Z9cewAjKjmfdQrZ+N3W7XaRnhbM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLRFIDParams.h</key>
 		<data>
@@ -1762,7 +1782,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLUIConfiguration.h</key>
 		<data>
-		tkVpB4cxDxq7ssiqJBh6vTs0Sik=
+		SsUT0KGBzoXEejfnQH2DztUVaR0=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLURLRequestInterceptingDelegate.h</key>
 		<data>
@@ -1771,6 +1791,10 @@
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLUVFiberElement.h</key>
 		<data>
 		AuSbBnBgDYDdu1CyCiz0CmKJJaI=
+		</data>
+		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLUniversalNFCTagTransport.h</key>
+		<data>
+		XIpH2Aw9ljflqg6sOiaTt+Q/Mu0=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLVDSData.h</key>
 		<data>
@@ -1810,7 +1834,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Info.plist</key>
 		<data>
-		6Cp3XxCvDS/js0D3jxmKozLrYEw=
+		t18Y/zfJiPDrWXSsHAZ3rj5f1iU=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Modules/module.modulemap</key>
 		<data>
@@ -1822,7 +1846,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/PrivateHeaders/RGLConstants.h</key>
 		<data>
-		10GCiei6YtcmFZxGwx+onVEVA98=
+		6JMw2Sb5msekw9yq6nrFX2HFnXc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/PrivateHeaders/RGLCustomization+Private.h</key>
 		<data>
@@ -1850,7 +1874,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/_CodeSignature/CodeResources</key>
 		<data>
-		dG0kI5HbuVsNRJCEz2fwgc+as8E=
+		kiPVg3FoAL+789Sq4/5GobX4gZ8=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/ar.lproj/InfoPlist.strings</key>
 		<dict>
@@ -2546,15 +2570,15 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/DWARF/DocumentReader</key>
 		<data>
-		U7Wc5Pl7k3tI6nqtBGv1OE9kFaU=
+		LWm1kILGQi/n2KrcDefOa61aM2Y=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/Relocations/aarch64/DocumentReader.yml</key>
 		<data>
-		d0g6R3y5Je7vj1+Nq2NSZEBuoSA=
+		j+VxXJG7wJJKLKozNJisbLnX6kM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/Relocations/x86_64/DocumentReader.yml</key>
 		<data>
-		Ancvm6WVqxe7rfgR4ZQT8296Xuw=
+		JmvxQUUxD+IHwAIZhRm4FEQb2B8=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -2563,33 +2587,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZYSiSf2rJzfpeGSsxypEIMWY3l0=
+			cgZq1Dknrd4qWgcAMHZj+ii5JD8=
 			</data>
 			<key>hash2</key>
 			<data>
-			RGa2Mr67u0kyYUgCnlYJFyejSqABIrKyM71Cmb6dvQk=
+			+2CHwzZ28Imd2SZw192AgsSS8QgbmpjXv4fiusx9cTw=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/DocumentReader</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vPxcYOQ/nXrtJzuTh9nhh+mGYks=
+			KWlApYJql5UvReWnPTwEQM2L6V4=
 			</data>
 			<key>hash2</key>
 			<data>
-			k33hQBSn+mzDm2bdiemfsDnyyLHxsS2YDvUdQ1bjnd4=
+			/VntSX/KRzSssnx7hSYWjdenivU6fEPjuM3Flotro7w=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Headers/DocumentReader.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			b4c+RB5p1ehwrF3y6XLb6hzYblw=
+			Lr5Y4ON1HgksZoV9wSmpiMsmKh4=
 			</data>
 			<key>hash2</key>
 			<data>
-			ncI7C8PJ/Jw/BaJNyDIcTI7ICrplUAq2KrgmDsN+KVU=
+			beLi3mI401bms3FRLhyXrxch5Unlfzj7unmMQBOlCg4=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLAccessControlProcedureType.h</key>
@@ -2684,11 +2708,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5XjP3EwlUvzLUrF1L9jjQsuF6w0=
+			stYSsLqWrV0GyY5yPWsE+o7RSOc=
 			</data>
 			<key>hash2</key>
 			<data>
-			6XL8uWnSC8QqQf9u6sDPXi4OGBU+QQJHe+cIq6w1On0=
+			jli5jG54+oXWHzGjFoeQojdFXMOOQURI4yiRQgTt7GE=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLBarcodePosition.h</key>
@@ -2838,11 +2862,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tMAuPTYusAEviUFQ8OYIM3AaKZc=
+			oHWzR2Vr+jiueo5/v9goWArjXuU=
 			</data>
 			<key>hash2</key>
 			<data>
-			AjdheE6ZgKci2z6WvgTcwvHsCxA6gqxNuVthrAEU27A=
+			GbAdXi0e7wHFRZnfpl9C3dUKI/IpaQjW8MmWjFgPyKg=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLDTCDataGroup.h</key>
@@ -2937,11 +2961,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JefNGhomZl9LuBaI/d+mpJPQAyg=
+			KvfXoAT0PR8Rxz5TUJXkaV/PjQs=
 			</data>
 			<key>hash2</key>
 			<data>
-			IEjTQMa3mV3jR/+Tujz41rOJN2MFx7wevqEMn6iCylM=
+			cNo4st3iMp05XPDvMBadH7gz6oOKjUwT3zpLJO064YU=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLDocReaderCameraViewController.h</key>
@@ -2970,11 +2994,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uZefH2nMZmO00y649Vg9MDTATR8=
+			rVypYeoDRNeYIpBywTYwNWA6o8c=
 			</data>
 			<key>hash2</key>
 			<data>
-			4tHZnN8vtzijSC9EpkqhMKMfClc+bsvxiT2SyB6WOX0=
+			cs1DVBPBmqZ9/FOtdA4TSwHMRPsn3aB24PQg2QzrEag=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLDocReaderVersion.h</key>
@@ -3245,11 +3269,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EIUM5Rd35V5OdcINaOXFE0z5Sv4=
+			IdnJOVhrpesMpHVOEFq+Tcfv8yM=
 			</data>
 			<key>hash2</key>
 			<data>
-			EhForQHmCMKCqEMmZIJ3cCtEqhvPjqYU7h9QWjQKH+A=
+			nJ+VchAlJcAS6iGySzpX6IyeMtg+y3XRIR+4I9WZsiQ=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLElementRect.h</key>
@@ -3311,11 +3335,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4MCGMCrPevVYT7Lh96u3DW/1Eks=
+			w1NWl6wyIn6NjD8otlAR1XQlXMs=
 			</data>
 			<key>hash2</key>
 			<data>
-			pKCB0vKcNMz+9J8OKXRBIR/fsY0aohL1LIykavo4lOM=
+			33s/iFHpryk5lDweR8Uj3HnWYAj5GzkvjgPTEZH3318=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLFile.h</key>
@@ -3344,11 +3368,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZlQPiwnUv/awGDyk20E/BoVJBLo=
+			wFRMT0s4RFHkY+TroqX6PEC2YXM=
 			</data>
 			<key>hash2</key>
 			<data>
-			cXrpZ1dIWnIEn4xdhQ8Jeg9+u6u1fJ1H74jPbVLK/U4=
+			+yvkHPlxvFvR/Ryd5iGdJsaVnfVhgzSx8PSo1WiXOok=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLFunctionality.h</key>
@@ -3674,22 +3698,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			e6GNO+L4Jb9U2ra+j9E3a0dYmKc=
+			eh1ss3eqWq1Ed5E3NBhqR1Yk62c=
 			</data>
 			<key>hash2</key>
 			<data>
-			9VECF0RkPLwpHQEb0FnNGTnZivfY7/NhVHOW7g6hopE=
+			w4P0VIVOP3aLD4d2i/zLlT/kc56ok4RW2U9hVjcJ3EM=
+			</data>
+		</dict>
+		<key>ios-arm64/DocumentReader.framework/Headers/RGLRFIDAccessControlCA.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			n7nM3WPL4HLi83TdShc555UESis=
+			</data>
+			<key>hash2</key>
+			<data>
+			C1r0QgpMFEOFuNv5MEqh4Tb0vMN2iabanmW0jYNTS2U=
+			</data>
+		</dict>
+		<key>ios-arm64/DocumentReader.framework/Headers/RGLRFIDAccessControlPACE.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UhJSWoAbMfdo3exz+XjmYCbfxMM=
+			</data>
+			<key>hash2</key>
+			<data>
+			M+pP8N8L/gIe3JQ0xbi+R4zEIg7jfblVYaQp+ZjY2Rk=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLRFIDNotify.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AFqWVg70KIsZ7HjHLBtJA9r/yRo=
+			Z9cewAjKjmfdQrZ+N3W7XaRnhbM=
 			</data>
 			<key>hash2</key>
 			<data>
-			NVcJIv6gMy3K7++IKbwuLPs2mVoUIAvckCmw8V/NkRY=
+			gJGOVN17ztrdJ5lhWGsDiUK2EPJJoy5u7zhldOqnqn8=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLRFIDParams.h</key>
@@ -3894,11 +3940,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tkVpB4cxDxq7ssiqJBh6vTs0Sik=
+			SsUT0KGBzoXEejfnQH2DztUVaR0=
 			</data>
 			<key>hash2</key>
 			<data>
-			L/ixZVwnth3/Ct96cBxoW0x4qpLrDxcw7Y8RX4foCUM=
+			7RESV7UAeNL4NFSL1QaBTm5sczRz3ymdhQuolKzJDNE=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLURLRequestInterceptingDelegate.h</key>
@@ -3921,6 +3967,17 @@
 			<key>hash2</key>
 			<data>
 			ZJ2ZzaMoV/8oTfbczomvJ71FKsEr3C9nSOiQ8hCNnwA=
+			</data>
+		</dict>
+		<key>ios-arm64/DocumentReader.framework/Headers/RGLUniversalNFCTagTransport.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XIpH2Aw9ljflqg6sOiaTt+Q/Mu0=
+			</data>
+			<key>hash2</key>
+			<data>
+			QwWS0s4LELMlY+grJBV18EW1CBwq6s6Aoc7idicNmF8=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Headers/RGLVDSData.h</key>
@@ -4026,11 +4083,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7TgLL6PI94tCMp2PwKEKWH9Kufk=
+			oDukPSFVsJSAPdnmR/IjfJZ8ioU=
 			</data>
 			<key>hash2</key>
 			<data>
-			MnL5snWQdKrh1S4iEbLHFdDzZDAAda1sc+dqzYUZQmQ=
+			xFSA12Yi6M3INh7ynoHK6Jab1UXrs40CKws5YzrZBy0=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Modules/module.modulemap</key>
@@ -4059,11 +4116,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			10GCiei6YtcmFZxGwx+onVEVA98=
+			6JMw2Sb5msekw9yq6nrFX2HFnXc=
 			</data>
 			<key>hash2</key>
 			<data>
-			VmaSnGGLbvEdSeTIOc8inkojh9vqH3oTCXKq24oheug=
+			3aqt/6iRFQX4ykknat4e9+y1+C905nhBaWfEjmsmdlk=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/PrivateHeaders/RGLCustomization+Private.h</key>
@@ -5146,22 +5203,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			HaljqFGbST0Hx6f8Uc2TyRMvtFE=
+			t/xzeMOZaBN63ySgt3XjFxNjmws=
 			</data>
 			<key>hash2</key>
 			<data>
-			T/C4PvZ8WbebF3mrEHV/q6Jwx3ebrkTxrNyyDusJf60=
+			4ALd4NYKEwL/M91eF1c+6Pgh7vfMt9a/eUEe/oipiYg=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/Relocations/aarch64/DocumentReader.yml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ZCcC65RsAecziPUTkzjOR832rcE=
+			NijHyH1gVReT/4k/KhJxZ16V914=
 			</data>
 			<key>hash2</key>
 			<data>
-			63uh5ISh6L8ySRZhPekjo0bXWFkQ9+emx1vEBh2eEsk=
+			k0iofosHBoOALlTrGSWwjk0B34heGM9C986N9DyYN/E=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Assets.car</key>
@@ -5179,22 +5236,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MgdoNTZgI7Fj6kOPUzaIVw8G0t0=
+			YrzxhDgHWv/Gj3wPImTtDjCiF4w=
 			</data>
 			<key>hash2</key>
 			<data>
-			F2LJecKmOlZeTeUpoi+CaBxi+aBY3tqzOnXd4ZVssBw=
+			iceelrbqi110/AecJfPD7Wq8UxCbCWJMgj5DCjq70BQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/DocumentReader.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			b4c+RB5p1ehwrF3y6XLb6hzYblw=
+			Lr5Y4ON1HgksZoV9wSmpiMsmKh4=
 			</data>
 			<key>hash2</key>
 			<data>
-			ncI7C8PJ/Jw/BaJNyDIcTI7ICrplUAq2KrgmDsN+KVU=
+			beLi3mI401bms3FRLhyXrxch5Unlfzj7unmMQBOlCg4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLAccessControlProcedureType.h</key>
@@ -5289,11 +5346,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5XjP3EwlUvzLUrF1L9jjQsuF6w0=
+			stYSsLqWrV0GyY5yPWsE+o7RSOc=
 			</data>
 			<key>hash2</key>
 			<data>
-			6XL8uWnSC8QqQf9u6sDPXi4OGBU+QQJHe+cIq6w1On0=
+			jli5jG54+oXWHzGjFoeQojdFXMOOQURI4yiRQgTt7GE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLBarcodePosition.h</key>
@@ -5443,11 +5500,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tMAuPTYusAEviUFQ8OYIM3AaKZc=
+			oHWzR2Vr+jiueo5/v9goWArjXuU=
 			</data>
 			<key>hash2</key>
 			<data>
-			AjdheE6ZgKci2z6WvgTcwvHsCxA6gqxNuVthrAEU27A=
+			GbAdXi0e7wHFRZnfpl9C3dUKI/IpaQjW8MmWjFgPyKg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLDTCDataGroup.h</key>
@@ -5542,11 +5599,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JefNGhomZl9LuBaI/d+mpJPQAyg=
+			KvfXoAT0PR8Rxz5TUJXkaV/PjQs=
 			</data>
 			<key>hash2</key>
 			<data>
-			IEjTQMa3mV3jR/+Tujz41rOJN2MFx7wevqEMn6iCylM=
+			cNo4st3iMp05XPDvMBadH7gz6oOKjUwT3zpLJO064YU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLDocReaderCameraViewController.h</key>
@@ -5575,11 +5632,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uZefH2nMZmO00y649Vg9MDTATR8=
+			rVypYeoDRNeYIpBywTYwNWA6o8c=
 			</data>
 			<key>hash2</key>
 			<data>
-			4tHZnN8vtzijSC9EpkqhMKMfClc+bsvxiT2SyB6WOX0=
+			cs1DVBPBmqZ9/FOtdA4TSwHMRPsn3aB24PQg2QzrEag=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLDocReaderVersion.h</key>
@@ -5850,11 +5907,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EIUM5Rd35V5OdcINaOXFE0z5Sv4=
+			IdnJOVhrpesMpHVOEFq+Tcfv8yM=
 			</data>
 			<key>hash2</key>
 			<data>
-			EhForQHmCMKCqEMmZIJ3cCtEqhvPjqYU7h9QWjQKH+A=
+			nJ+VchAlJcAS6iGySzpX6IyeMtg+y3XRIR+4I9WZsiQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLElementRect.h</key>
@@ -5916,11 +5973,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4MCGMCrPevVYT7Lh96u3DW/1Eks=
+			w1NWl6wyIn6NjD8otlAR1XQlXMs=
 			</data>
 			<key>hash2</key>
 			<data>
-			pKCB0vKcNMz+9J8OKXRBIR/fsY0aohL1LIykavo4lOM=
+			33s/iFHpryk5lDweR8Uj3HnWYAj5GzkvjgPTEZH3318=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLFile.h</key>
@@ -5949,11 +6006,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZlQPiwnUv/awGDyk20E/BoVJBLo=
+			wFRMT0s4RFHkY+TroqX6PEC2YXM=
 			</data>
 			<key>hash2</key>
 			<data>
-			cXrpZ1dIWnIEn4xdhQ8Jeg9+u6u1fJ1H74jPbVLK/U4=
+			+yvkHPlxvFvR/Ryd5iGdJsaVnfVhgzSx8PSo1WiXOok=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLFunctionality.h</key>
@@ -6279,22 +6336,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			e6GNO+L4Jb9U2ra+j9E3a0dYmKc=
+			eh1ss3eqWq1Ed5E3NBhqR1Yk62c=
 			</data>
 			<key>hash2</key>
 			<data>
-			9VECF0RkPLwpHQEb0FnNGTnZivfY7/NhVHOW7g6hopE=
+			w4P0VIVOP3aLD4d2i/zLlT/kc56ok4RW2U9hVjcJ3EM=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLRFIDAccessControlCA.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			n7nM3WPL4HLi83TdShc555UESis=
+			</data>
+			<key>hash2</key>
+			<data>
+			C1r0QgpMFEOFuNv5MEqh4Tb0vMN2iabanmW0jYNTS2U=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLRFIDAccessControlPACE.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UhJSWoAbMfdo3exz+XjmYCbfxMM=
+			</data>
+			<key>hash2</key>
+			<data>
+			M+pP8N8L/gIe3JQ0xbi+R4zEIg7jfblVYaQp+ZjY2Rk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLRFIDNotify.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AFqWVg70KIsZ7HjHLBtJA9r/yRo=
+			Z9cewAjKjmfdQrZ+N3W7XaRnhbM=
 			</data>
 			<key>hash2</key>
 			<data>
-			NVcJIv6gMy3K7++IKbwuLPs2mVoUIAvckCmw8V/NkRY=
+			gJGOVN17ztrdJ5lhWGsDiUK2EPJJoy5u7zhldOqnqn8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLRFIDParams.h</key>
@@ -6499,11 +6578,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tkVpB4cxDxq7ssiqJBh6vTs0Sik=
+			SsUT0KGBzoXEejfnQH2DztUVaR0=
 			</data>
 			<key>hash2</key>
 			<data>
-			L/ixZVwnth3/Ct96cBxoW0x4qpLrDxcw7Y8RX4foCUM=
+			7RESV7UAeNL4NFSL1QaBTm5sczRz3ymdhQuolKzJDNE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLURLRequestInterceptingDelegate.h</key>
@@ -6526,6 +6605,17 @@
 			<key>hash2</key>
 			<data>
 			ZJ2ZzaMoV/8oTfbczomvJ71FKsEr3C9nSOiQ8hCNnwA=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLUniversalNFCTagTransport.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XIpH2Aw9ljflqg6sOiaTt+Q/Mu0=
+			</data>
+			<key>hash2</key>
+			<data>
+			QwWS0s4LELMlY+grJBV18EW1CBwq6s6Aoc7idicNmF8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Headers/RGLVDSData.h</key>
@@ -6631,11 +6721,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6Cp3XxCvDS/js0D3jxmKozLrYEw=
+			t18Y/zfJiPDrWXSsHAZ3rj5f1iU=
 			</data>
 			<key>hash2</key>
 			<data>
-			e0UkUQvHaMcDY2jus7bK4ztt4kyt/PCfOWovssgHluI=
+			p8TNt8yN+sNxze1/joRWuV1vB+FPu2CJShKXVivjxN4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Modules/module.modulemap</key>
@@ -6664,11 +6754,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			10GCiei6YtcmFZxGwx+onVEVA98=
+			6JMw2Sb5msekw9yq6nrFX2HFnXc=
 			</data>
 			<key>hash2</key>
 			<data>
-			VmaSnGGLbvEdSeTIOc8inkojh9vqH3oTCXKq24oheug=
+			3aqt/6iRFQX4ykknat4e9+y1+C905nhBaWfEjmsmdlk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/PrivateHeaders/RGLCustomization+Private.h</key>
@@ -6741,11 +6831,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dG0kI5HbuVsNRJCEz2fwgc+as8E=
+			kiPVg3FoAL+789Sq4/5GobX4gZ8=
 			</data>
 			<key>hash2</key>
 			<data>
-			SVa70O+7h2goWngJdAYP0tpsCUWBjJpk+3C+Wni4gv0=
+			1fGEzt2E0EkPmtir7emuA6X+acEtFivO4Sp8oLrrJQg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/ar.lproj/InfoPlist.strings</key>
@@ -7762,33 +7852,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			U7Wc5Pl7k3tI6nqtBGv1OE9kFaU=
+			LWm1kILGQi/n2KrcDefOa61aM2Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			9JxF+l+Aw4vrKzuEuRMr8WCU2QbhqsZAfnf+ANZ3jFg=
+			ZO1uyAKcMe+CDQy1Ib0VBw8GU0rnzaU93sZ5yriFhZs=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/Relocations/aarch64/DocumentReader.yml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			d0g6R3y5Je7vj1+Nq2NSZEBuoSA=
+			j+VxXJG7wJJKLKozNJisbLnX6kM=
 			</data>
 			<key>hash2</key>
 			<data>
-			f6wnpGP1JjgoV5tEjLwdzYEjT9Sce9z/ZT7iS37X5Fs=
+			w0oq9/du/C+Fl5yqlrgXsryKlqsDfBjGQnCX1+sqLuw=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/Relocations/x86_64/DocumentReader.yml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Ancvm6WVqxe7rfgR4ZQT8296Xuw=
+			JmvxQUUxD+IHwAIZhRm4FEQb2B8=
 			</data>
 			<key>hash2</key>
 			<data>
-			HlY7uNsQrgDTujsM2vsHILUKn2+Chem7fw5HGsrBEZ8=
+			49USb8Ngsp7wY9XQVzN11+DBi32b7HbOzpI7W8xki5c=
 			</data>
 		</dict>
 	</dict>

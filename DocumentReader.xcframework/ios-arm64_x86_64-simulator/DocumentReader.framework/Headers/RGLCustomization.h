@@ -27,8 +27,7 @@ NS_SWIFT_NAME(Customization)
 @property(nonatomic, assign) BOOL showHelpAnimation;
 
 /// Allows you to set any UIImage for the help animation.
-@property(nonatomic, strong, nullable) UIImage *helpAnimationImage;
-
+@property(nonatomic, strong, nullable) UIImage *helpAnimationImage RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationImage` for available customization options.");
 /// If it's set to true, status messages during the document processing will be shown. Default: true.
 @property(nonatomic, assign) BOOL showStatusMessages;
 
@@ -116,13 +115,13 @@ NS_SWIFT_NAME(Customization)
 @property(nonatomic, strong, nullable) NSString *multipageButtonText;
 
 /// Allows you to set any UIImage for the "Skip next page" button.
-@property(nonatomic, strong, nullable) UIImage *multipageButtonImage;
+@property(nonatomic, strong, nullable) UIImage *multipageButtonImage RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationImage` for available customization options.");
 
 /// Allows you to set any UIImage for the multipage animation (front side).
-@property(nonatomic, strong, nullable) UIImage *multipageAnimationFrontImage;
+@property(nonatomic, strong, nullable) UIImage *multipageAnimationFrontImage RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationImage` for available customization options.");
 
 /// Allows you to set any UIImage for the multipage animation (back side).
-@property(nonatomic, strong, nullable) UIImage *multipageAnimationBackImage;
+@property(nonatomic, strong, nullable) UIImage *multipageAnimationBackImage RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationImage` for available customization options.");
 
 /// Allows you to set length of the lines of the camera frame. It's applied once you change the "cameraFrameShapeType" property to "RGLCameraFrameShapeTypeCorners". Default: 25.
 @property(nonatomic, assign) CGFloat cameraFrameLineLength;
@@ -140,10 +139,10 @@ NS_SWIFT_NAME(Customization)
 @property(nonatomic, assign) BOOL showNextPageAnimation;
 
 /// Allows you to set a delay before the next page/side animation starts. Default: 0.
-@property(nonatomic, assign) NSTimeInterval nextPageAnimationStartDelay;
+@property(nonatomic, assign) NSTimeInterval nextPageAnimationStartDelay RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationTiming` enum for available customization options.");
 
 /// Allows you to set a delay before hiding the next page/side animation. Default: 0.
-@property(nonatomic, assign) NSTimeInterval nextPageAnimationEndDelay;
+@property(nonatomic, assign) NSTimeInterval nextPageAnimationEndDelay RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationTiming` enum for available customization options.");
 
 /// If it's set to true, the background mask next to the camera frame will be displayed. Default: true.
 @property(nonatomic, assign) BOOL showBackgroundMask;
@@ -152,7 +151,7 @@ NS_SWIFT_NAME(Customization)
 @property(nonatomic, strong, nullable) UIColor *backgroundMaskColor;
 
 /// Allows you to set any UIImage within the camera frame.
-@property(nonatomic, strong, nullable) UIImage *borderBackgroundImage;
+@property(nonatomic, strong, nullable) UIImage *borderBackgroundImage RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationImage` enum for available customization options.");
 
 /// Allows you to set intensity of the background mask. Default: 1.0.
 @property(nonatomic, assign) CGFloat backgroundMaskAlpha;
@@ -161,10 +160,10 @@ NS_SWIFT_NAME(Customization)
 @property(nonatomic, assign) UIViewContentMode helpAnimationImageContentMode;
 
 /// Allows you to specify how a view of the multipage animation (front side) adjusts its content when its size changes. Default: UIViewContentModeScaleAspectFit.
-@property(nonatomic, assign) UIViewContentMode multipageAnimationFrontImageContentMode;
+@property(nonatomic, assign) UIViewContentMode multipageAnimationFrontImageContentMode RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationContentMode` enum for available customization options.");
 
 /// Allows you to specify how a view of the multipage animation (back side) adjusts its content when its size changes. Default: UIViewContentModeScaleAspectFit.
-@property(nonatomic, assign) UIViewContentMode multipageAnimationBackImageContentMode;
+@property(nonatomic, assign) UIViewContentMode multipageAnimationBackImageContentMode RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationContentMode` enum for available customization options.");
 
 /// Allows you to change the location of the multipage button. 
 @property(nonatomic, assign) CGFloat multipageButtonPositionMultiplier;
@@ -194,16 +193,16 @@ NS_SWIFT_NAME(Customization)
 @property(nonatomic, assign) CGFloat cameraFrameCornerRadius;
 
 /// Allows you to set any UIImage for the torch button when its state is ON.
-@property(nonatomic, strong, nullable) UIImage *torchButtonOnImage;
+@property(nonatomic, strong, nullable) UIImage *torchButtonOnImage RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationImage` enum for available customization options.");
 
 /// Allows you to set any UIImage for the torch button when its state is OFF.
-@property(nonatomic, strong, nullable) UIImage *torchButtonOffImage;
+@property(nonatomic, strong, nullable) UIImage *torchButtonOffImage RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationImage` enum for available customization options.");
 
 /// Allows you to set any UIImage for the close button.
-@property(nonatomic, strong, nullable) UIImage *closeButtonImage;
+@property(nonatomic, strong, nullable) UIImage *closeButtonImage RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationImage` enum for available customization options.");
 
 /// Allows you to set any UIImage for the capture button.
-@property(nonatomic, strong, nullable) UIImage *captureButtonImage;
+@property(nonatomic, strong, nullable) UIImage *captureButtonImage RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationImage` enum for available customization options.");
 
 /// Allows you to set any UIImage for the button that allows changing shapes of the camera (collapsed state).
 @property(nonatomic, strong, nullable) UIImage *changeFrameButtonCollapseImage;
@@ -212,7 +211,7 @@ NS_SWIFT_NAME(Customization)
 @property(nonatomic, strong, nullable) UIImage *changeFrameButtonExpandImage;
 
 /// Allows you to set any UIImage for the button that allows changing positions of the capture device.
-@property(nonatomic, strong, nullable) UIImage *cameraSwitchButtonImage;
+@property(nonatomic, strong, nullable) UIImage *cameraSwitchButtonImage RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationImage` enum for available customization options.");
 
 /// Allows you to set a size for the toolbar (it's where all buttons are located).
 @property(nonatomic, assign) CGFloat toolbarSize;
@@ -220,7 +219,7 @@ NS_SWIFT_NAME(Customization)
 /// Allows you to set any `UIImage` for the hologram animation.
 /// When set to `nil` the default image will be used.
 /// This property can be set during the scanning process to tailor the user experiese for different types of documents.
-@property(nonatomic, strong, nullable) UIImage *hologramAnimationImage RGL_DEPRECATED(7.1, "Use `livenessAnimationImage` instead.");
+@property(nonatomic, strong, nullable) UIImage *hologramAnimationImage RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationImage` enum for available customization options.");
 
 /// Allows you to specify how a view of the help animation adjusts its content when its size changes.
 /// Defaults to `UIViewContentModeScaleAspectFit`.
@@ -237,7 +236,7 @@ NS_SWIFT_NAME(Customization)
 /// Allows you to set any `UIImage` for the liveness animation.
 /// When set to `nil` the default image will be used.
 /// This property can be set during the scanning process to tailor the user experiese for different types of documents.
-@property(nonatomic, strong, nullable) UIImage *livenessAnimationImage;
+@property(nonatomic, strong, nullable) UIImage *livenessAnimationImage RGL_DEPRECATED(9.3, "Customize via `uiConfiguration` property instead. See `RGLCustomizationImage` enum for available customization options.");
 
 /// Allows you to specify how a view of the help animation adjusts its content when its size changes.
 /// Defaults to `UIViewContentModeScaleAspectFit`.

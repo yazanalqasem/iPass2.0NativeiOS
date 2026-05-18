@@ -17,6 +17,7 @@ NS_SWIFT_NAME(DocReader.FinalizeConfig)
 @property (nonatomic, assign) BOOL rawImages;
 @property (nonatomic, assign) BOOL video;
 @property (nonatomic, assign) BOOL rfidSession;
+@property (nonatomic, assign) BOOL mdlSession;
 
 + (instancetype)defaultParams;
 

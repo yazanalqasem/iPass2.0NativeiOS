@@ -1,6 +1,7 @@
 #import <DocumentReader/RGLProcessParams.h>
 #import <DocumentReader/RGLDocReaderRFIDDelegate.h>
 #import <DocumentReader/RGLRFIDNotify.h>
+#import <DocumentReader/RGLUniversalNFCTagTransport.h>
 #import <DocumentReader/RGLMacros.h>
 #import <DocumentReader/RGLMDLEnums.h>
 #import <DocumentReader/RGLDocumentReaderErrorCodes.h>
@@ -362,6 +363,15 @@ RGL_EMPTY_INIT_UNAVAILABLE
  */
 - (void)startRFIDReaderFromPresenter:(UIViewController * _Nonnull)presenter
                           completion:(RGLDocumentReaderCompletion _Nonnull)completion;
+
+/**
+ It's used for the RFID chip processing
+ @param universalNFCTag Universal NFC Tag Transport protocol
+ @param notificationCallback Notifications of the RFID chip processing
+ @param completion The block to execute after the scanning process finishes
+ */
+- (void)readRFIDWithUniversalTag:(id<RGLUniversalNFCTagTransport> _Nullable)universalNFCTag notificationCallback:(RGLRFIDNotificationCallback _Nullable)notificationCallback  completion:(RGLRFIDProcessCompletion _Nonnull)completion
+NS_SWIFT_NAME(readRFID(universalNFCTag:notificationCallback:completion:));
 /**
  It's used for the RFID chip processing
  @param notificationCallback Notifications of the RFID chip processing

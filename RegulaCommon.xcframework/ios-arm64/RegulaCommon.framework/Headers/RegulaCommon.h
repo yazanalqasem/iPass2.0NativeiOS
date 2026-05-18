@@ -51,3 +51,6 @@
 #import <RegulaCommon/CIImage+RGLCUIInterfaceOrientation.h>
 #import <RegulaCommon/RGLCCameraOutput.h>
 #import <RegulaCommon/RGLCCameraCapturePhotoOutput.h>
+
+// :MARK: Helpers
+#import <RegulaCommon/RGLCUIKitHelper.h>
