@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import <DocumentReader/RGLDocumentReaderGraphicField.h>
+#import "RGLDocumentReaderGraphicField.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

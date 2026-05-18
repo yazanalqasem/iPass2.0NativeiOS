@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
-#import <DocumentReader/RGLProcessParams.h>
-#import <DocumentReader/RGLDocumentReaderBarcodeResult.h>
+#import "RGLProcessParams.h"
+#import "RGLDocumentReaderBarcodeResult.h"
 
 @class RGLPDF417Info;
 

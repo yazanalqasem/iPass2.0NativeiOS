@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <DocumentReader/RGLProcessParams.h>
+#import "RGLProcessParams.h"
 
 @protocol RGLURLRequestInterceptingDelegate;
 

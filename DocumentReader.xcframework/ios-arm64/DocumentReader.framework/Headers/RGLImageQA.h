@@ -52,9 +52,6 @@ NS_SWIFT_NAME(ImageQA)
 /// Type: Double.
 @property (nonatomic, strong, nullable) NSNumber *brightnessThreshold;
 
-/// This option checks document image occlusion.
-@property (nonatomic, strong, nullable) NSNumber *occlusionCheck;
-
 /// This option controls the quality checks that the image should pass in order to be considered a valid input during the scanning process.
 @property (nonatomic, strong, nullable) NSArray<RGLImageQualityCheckType> *expectedPass;
 

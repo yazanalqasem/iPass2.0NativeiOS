@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) NSNumber *threshold;
 
 /// The IDs of the groups in which the search is performed.
-@property(nonatomic, strong, nullable) NSArray<NSString *> *groupIDs;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *groupIDs;
 
 @end
 

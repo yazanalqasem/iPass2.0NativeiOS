@@ -1,50 +1,14 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, RGLPKDResourceType) {
-    /**
-     Certificate file contents (.pem, .cer, .crt, .der)
-     */
     RGLPKDResourceTypeCertificate_PA          = 0,
-    /**
-     Certificate file contents (.cvcert) and private key file contents (.pkcs8)
-     */
     RGLPKDResourceTypeCertificate_TA          = 1,
-    /**
-     LDIF file contents (.ldif)
-     */
     RGLPKDResourceTypeLDIF                    = 2,
-    /**
-     CRL file contents (.crl)
-     */
     RGLPKDResourceTypeCRL                     = 3,
-    /**
-     Master List (.ml, .mls)
-     */
     RGLPKDResourceTypeML                      = 4,
-    /**
-     Defect List (.dl, .dls, .dfl)
-     */
     RGLPKDResourceTypeDefL                    = 5,
-    /**
-     Deviance List (.dl, .dls, .dvl)
-     */
     RGLPKDResourceTypeDevL                    = 6,
-    /**
-     Black List (.bl, .bls)
-     */
     RGLPKDResourceTypeBL                      = 7,
-    /**
-     LDIF file contents for TA
-     */
-    RGLPKDResourceTypeLDIF_TA                 = 8,
-    /**
-     Master List with CV certificates for TA
-     */
-    RGLPKDResourceTypeML_TA                   = 9,
-    /**
-     CBOR List (.cbor)
-     */
-    RGLPKDResourceType_CBOR                   = 10
 } NS_SWIFT_NAME(PKDResourceType);
 
 NS_SWIFT_NAME(PKDCertificate)

@@ -1,9 +1,9 @@
 #import <Foundation/Foundation.h>
 
-#import <DocumentReader/RGLScenario.h>
-#import <DocumentReader/RGLOnlineProcessingConfig.h>
-#import <DocumentReader/RGLRecordingTimestampConfig.h>
-#import <DocumentReader/RGLDocumentReaderBaseCameraViewController.h>
+#import "RGLScenario.h"
+#import "RGLOnlineProcessingConfig.h"
+#import "RGLRecordingTimestampConfig.h"
+#import "RGLDocumentReaderCameraViewController.h"
 
 typedef NS_ENUM(NSInteger, RGLCaptureMode) {
     /**
@@ -46,22 +46,18 @@ NS_SWIFT_NAME(RecordScanningProcessDelegate)
 - (void)didFailWithError:(nonnull NSError *)error;
 @end
 
-@class RGLDocumentReaderBaseCameraViewController;
+@class RGLDocumentReaderCameraViewController;
 
 NS_SWIFT_NAME(Functionality)
 @interface RGLFunctionality : NSObject
 
-@property(nonatomic, weak, nullable) RGLDocumentReaderBaseCameraViewController *cameraViewController;
+@property(nonatomic, weak, nullable) RGLDocumentReaderCameraViewController *cameraViewController;
 /**
  Set this setting to override the default cropping frame on the camera view controller provided by scenarios. Default: RGLDocReaderFrameScenarioDefault.
  */
 @property(nonatomic, assign) RGLDocReaderFrame cameraFrame;
 /**
- If set, torch (if available) will turn on immediately on camera preview start. Default: false.
- */
-@property(nonatomic, assign) BOOL torchTurnedOn;
-/**
- If it's set to true, the button that allows you to turn on/off the torch will be displayed. Default: false when scanning is started using `startScanner(presenter:config:completion:)` method.
+ If it's set to true, the button that allows you to turn on/off the torch will be displayed. Default: true.
  */
 @property(nonatomic, assign) BOOL showTorchButton;
 /**
@@ -75,7 +71,7 @@ NS_SWIFT_NAME(Functionality)
 /**
  If it's set to true, the button that allows you to change the camera frame type will be displayed. Default: false.
  */
-@property(nonatomic, assign) BOOL showChangeFrameButton RGL_DEPRECATED(8.1, "showChangeFrameButton param removed");
+@property(nonatomic, assign) BOOL showChangeFrameButton;
 /**
  If it's set to true, the button that allows you to change a position of a capture device for the video session will be displayed. Default: false.
  */
@@ -146,14 +142,7 @@ NS_SWIFT_NAME(Functionality)
  If it's set to true, scanner operate in manual multipage scanning mode. Set this flag to true, if you wanna create for example, custom logic (or UI) between scanning document pages. Default: false.
  */
 @property(nonatomic, assign) BOOL manualMultipageMode;
-/**
- When enabled, the SDK prevents both screen recording and screenshots. Default: false.
- */
-@property(nonatomic, assign) BOOL preventScreenRecording;
-/**
- If it's set to true, system is allowed to hide the visual indicator for returning to the Home Screen in landscape mode. Default: true.
- */
-@property(nonatomic, assign) BOOL homeIndicatorAutoHide;
+
 /**
  Sets a limit on the number of pages to be processed
  */
@@ -168,10 +157,5 @@ NS_SWIFT_NAME(Functionality)
  The settings used for encoding the media appended to the output. See AVVideoSettings.h for AVMediaTypeVideo for more information on how to construct an output settings dictionary.
  */
 @property(nonatomic, strong, nullable) NSDictionary<NSString *, id> *videoOutputSettings;
-
-/**
- Allows you to specify a timeout interval for retrieve data from mDL via BLE. Default: 15.
- */
-@property(nonatomic, assign) NSTimeInterval mDLTimeout;
 
 @end

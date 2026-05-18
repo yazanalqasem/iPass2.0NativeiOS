@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
 
-#import <DocumentReader/RGLMacros.h>
-#import <DocumentReader/RGLCheckResult.h>
-#import <DocumentReader/RGLFieldType.h>
+#import "RGLMacros.h"
+#import "RGLCheckResult.h"
+#import "RGLFieldType.h"
 
 @class UIImage;
 
@@ -157,10 +157,6 @@ typedef NS_ENUM(NSInteger, RGLResultType) {
      */
     RGLResultTypeBarcodePosition                =  62,
     /**
-     BSI TR-03135 standard
-     */
-    RGLResultTypeBSIXMLv2                       =  73,
-    /**
      Used for storing document position
      */
     RGLResultTypeDocumentPosition               =  85,
@@ -187,23 +183,7 @@ typedef NS_ENUM(NSInteger, RGLResultType) {
     /**
      Servers for storing the results of data reading in a form of a list of objects of the original binary representation of the graphics in memory of the RFID-chip
      */
-    RGLResultTypeRfidOriginalGraphics           = 105,
-    /**
-     Digital Travel Credential data
-     */
-    RGLResultTypeRfidDTCVC                      = 109,
-    /**
-     mDL  char* (base64-encoded JSON)
-     */
-    RGLResultTypeMDLParsedReponse               = 121,
-    /**
-     VDS_NC
-     */
-    RGLResultTypeVDSNC                          = 124,
-    /**
-     VDS
-    */
-    RGLResultTypeVDS                            = 125
+    RGLResultTypeRfidOriginalGraphics           = 105
 } NS_SWIFT_NAME(ResultType);
 
 /// Enumeration contains identifiers that determine the verification and comparison of text fields
@@ -449,27 +429,7 @@ typedef NS_ENUM(NSInteger, RGLSecurityFeatureType) {
     /**
      Contact сhip check
      */
-    RGLSecurityFeatureTypeContactChipClassification          =  51,
-  
-    RGLSecurityFeatureTypeHeadPositionCheck                  =  52,
-  
-    RGLSecurityFeatureTypeLivenessBlackAndWhiteCopyCheck     =  53,
-    
-    RGLSecurityFeatureTypeLivenessDynaprint                  =  54,
-
-    RGLSecurityFeatureTypeLivenessGeometryCheck              =  55,
-    /**
-     SecurityFeatureType_Age_Check
-     */
-    RGLSecurityFeatureTypeAgeCheck                           =  56,
-    /**
-     SecurityFeatureType_Sex_Check
-     */
-    RGLSecurityFeatureTypeSexCheck                           =  57,
-    RGLSecurityFeatureTypePortraitComparisonRFIDvsGhost      =  58,
-    RGLSecurityFeatureTypePortraitComparisonBarcodeVsGhost   =  59,
-    RGLSecurityFeatureTypePortraitComparisonGhostVsLive      =  60,
-    RGLSecurityFeatureTypePortraitComparisonExtVsGhost       =  61,
+    RGLSecurityFeatureTypeContactChipClassification          =  51
 } NS_SWIFT_NAME(SecurityFeatureType);
 
 /// Enumeration contains a language ID that identifies a particular language
@@ -958,16 +918,6 @@ typedef NS_ENUM(NSInteger, RGLCheckDiagnose) {
      Facial image is found
      */
     RGLCheckDiagnoseFieldPosCorrector_FaceAbsenceCheckError = 85,
-  
-    RGLCheckDiagnoseFieldPosCorrector_IncorrectHeadPosition = 86,
-    /**
-     * Age check error
-     */
-    RGLCheckDiagnoseFieldPosCorrector_AgeCheckError = 87,
-    /**
-     * Sex check error
-     */
-    RGLCheckDiagnoseFieldPosCorrector_SexCheckError = 88,
     /**
      OVI object is not visible in IR
      */
@@ -1079,10 +1029,6 @@ typedef NS_ENUM(NSInteger, RGLCheckDiagnose) {
      */
     RGLCheckDiagnoseTextShouldBeBlack = 133,
     /**
-     Security text is absent
-     */
-    RGLCheckDiagnoseSecurityTextIsAbsent = 134,
-    /**
      Barcode read with errors
      */
     RGLCheckDiagnoseBarcodeWasReadWithErrors = 140,
@@ -1102,8 +1048,6 @@ typedef NS_ENUM(NSInteger, RGLCheckDiagnose) {
      Glares in barcode area
      */
     RGLCheckDiagnoseGlaresInBarcodeArea = 144,
-  
-    RGLCheckDiagnoseNoCertificateForDigitalSignatureCheck = 145,
     /**
      Portraits differ
      */
@@ -1193,8 +1137,6 @@ typedef NS_ENUM(NSInteger, RGLCheckDiagnose) {
     RGLCheckDiagnoseOCRQualityInvalidFont = 221,
     RGLCheckDiagnoseOCRQualityInvalidBackground = 222,
     RGLCheckDiagnoseLasInkInvalidLinesFrequency = 230,
-    RGLCheckDiagnoseDocumentNotLive = 238,
-    RGLCheckDiagnoseDocLivenessBlackAndWhiteCopyDetected = 239,
     /**
     Traces of an electronic device were found in the image
      */
@@ -1203,10 +1145,6 @@ typedef NS_ENUM(NSInteger, RGLCheckDiagnose) {
      Invalid barcode background
      */
     RGLCheckDiagnoseDocLivenessInvalidBarcodeBackground = 241,
-    /**
-     Virtual camera was detected
-     */
-    RGLCheckDiagnoseDocLivenessVirtualCameraDetected = 242,
     /**
      Base32 error
      */
@@ -1266,7 +1204,6 @@ typedef NS_ENUM(NSInteger, RGLProcessingFinishedStatus) {
 @class RGLDocumentReaderGraphicField;
 @class RGLDocumentReaderBarcodeResult;
 @class RGLVDSNCData;
-@class RGLVDSData;
 @class RGLDocumentReaderResultsStatus;
 @class RGLTransactionInfo;
 
@@ -1313,15 +1250,6 @@ NS_SWIFT_NAME(DocumentReaderResults)
 /// Visible Digital Seal data.
 @property(nonatomic, strong, readonly, nullable) RGLVDSNCData *vdsncData;
 
-/// Visible Digital Seal data.
-@property(nonatomic, strong, readonly, nullable) RGLVDSData *vdsData;
-
-/// DTCVC data.
-@property(nonatomic, strong, readonly, nullable) NSData *dtcData;
-
-/// Contains results in accordance with the BSI TR-03135 standard.
-@property(nonatomic, strong, readonly, nullable) NSString *bsiTr03135Results;
-
 /// Document processing finish status, one of RGLProcessingFinishedStatus values
 @property(nonatomic, assign, readonly) RGLProcessingFinishedStatus processingFinishedStatus;
 
@@ -1352,7 +1280,6 @@ NS_SWIFT_NAME(DocumentReaderResults)
                                      chipPage:(NSInteger)chipPage
                                 barcodeResult:(nullable RGLDocumentReaderBarcodeResult *)barcodeResult
                                     vdsncData:(nullable RGLVDSNCData *)vdsncData
-                                      vdsData:(nullable RGLVDSData *)vdsData
                                        status:(nonnull RGLDocumentReaderResultsStatus *)status
                            processingFinished:(NSInteger)processingFinished
                            morePagesAvailable:(NSInteger)morePagesAvailable

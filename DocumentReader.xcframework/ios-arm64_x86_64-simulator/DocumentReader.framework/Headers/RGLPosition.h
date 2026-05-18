@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <DocumentReader/RGLDocumentReaderResults.h>
-#import <DocumentReader/RGLDocumentReaderDocumentType.h>
+#import "RGLDocumentReaderResults.h"
+#import "RGLDocumentReaderDocumentType.h"
 
 NS_SWIFT_NAME(Position)
 @interface RGLPosition : NSObject

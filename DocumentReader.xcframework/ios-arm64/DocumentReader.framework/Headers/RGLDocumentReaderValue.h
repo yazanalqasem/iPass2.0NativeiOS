@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CGGeometry.h>
-#import <DocumentReader/RGLDocumentReaderResults.h>
+#import "RGLDocumentReaderResults.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

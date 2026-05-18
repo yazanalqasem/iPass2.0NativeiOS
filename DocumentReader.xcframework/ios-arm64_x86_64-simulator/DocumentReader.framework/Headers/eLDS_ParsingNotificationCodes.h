@@ -232,8 +232,6 @@ typedef NS_ENUM(NSUInteger, eLDS_ParsingNotificationCodes) {
   ntfLDS_ICAO_Certificate_VisualMrz_Country_NonMatching = 0x90000251,
   ntfLDS_MRZ_CountryCode_VisualMrz_NonMatching = 0x00022019,
   ntfLDS_ICAO_Certificate_MRZ_Country_NonMatching = 0x90000252,
-  ntfLDS_ICAO_Certificate_Issuer_CountryNonUpperCase = 0x90000253,
-  ntfLDS_ICAO_Certificate_Subject_CountryNonUpperCase = 0x90000254,
 } NS_SWIFT_NAME(eLDS_ParsingNotificationCodes);
 
 FOUNDATION_EXPORT NSString *eLDS_ParsingNotificationCodesGetStringValue(eLDS_ParsingNotificationCodes type) CF_SWIFT_NAME(getter:eLDS_ParsingNotificationCodes.stringValue(self:));

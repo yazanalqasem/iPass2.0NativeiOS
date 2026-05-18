@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <DocumentReader/RGLDocumentReaderResults.h>
+#import "RGLDocumentReaderResults.h"
 
 NS_SWIFT_NAME(DocumentReaderJsonResultGroup)
 @interface RGLDocumentReaderJsonResultGroup : NSObject

@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
-#import <DocumentReader/RGLDocumentReaderResults.h>
-#import <DocumentReader/RGLImageQualityGroup.h>
+#import "RGLDocumentReaderResults.h"
+#import "RGLImageQualityGroup.h"
 
 NS_SWIFT_NAME(ImageQuality)
 @interface RGLImageQuality : NSObject

@@ -7,19 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <DocumentReader/RGLMacros.h>
+#import "RGLMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(DocReader.BaseReaderConfig)
 @interface RGLBaseReaderConfig : NSObject
 
-/// Enables automatic license update check during `DocumentReader` initialization.
+// Enables automatic license update check during `DocumentReader` initialization.
 /// Defaults to `true`.
 @property(readwrite, nonatomic, assign) BOOL licenseUpdateCheck;
-
-/// Allows you to configure the maximum time needed for a license update (in seconds).
-@property(readwrite, nonatomic, copy, nullable) NSNumber *licenseUpdateTimeout;
 
 /// The path to the database file.
 @property(readwrite, nonatomic, copy, nullable) NSString *databasePath;

@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import <DocumentReader/RGLAuthenticityElement.h>
-#import <DocumentReader/RGLCheckResult.h>
-#import <DocumentReader/RGLMacros.h>
+#import "RGLAuthenticityElement.h"
+#import "RGLCheckResult.h"
+#import "RGLMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

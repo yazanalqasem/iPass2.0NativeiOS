@@ -38,7 +38,3 @@ FOUNDATION_EXPORT NSString *const RGL_SCENARIO_OCR_FREE;
 FOUNDATION_EXPORT NSString *const RGL_SCENARIO_CREDIT_CARD;
 /// Scenario for obtaining an original image without any processing
 FOUNDATION_EXPORT NSString *const RGL_SCENARIO_CAPTURE;
-/// Scenario for Digital Travel Credentials (DTC) processing
-FOUNDATION_EXPORT NSString *const RGL_SCENARIO_DTC;
-/// Scenario for RFID processing
-FOUNDATION_EXPORT NSString *const RGL_SCENARIO_RFID;

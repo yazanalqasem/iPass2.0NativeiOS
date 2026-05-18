@@ -1,12 +1,12 @@
 #import <Foundation/Foundation.h>
-#import <DocumentReader/RGLDocumentReaderResults.h>
+#import "RGLDocumentReaderResults.h"
 
 @class RGLAuthenticityCheck;
 
 NS_SWIFT_NAME(DocumentReaderAuthenticityResult)
 @interface RGLDocumentReaderAuthenticityResult : NSObject
 
-@property(nonatomic, assign, readonly) RGLCheckResult status RGL_DEPRECATED(7.6, "Instead, use an instance of the `RGLDocumentReaderResultsStatus` class, the `detailsOptical` container, and the `security` property on it.");
+@property(nonatomic, assign, readonly) RGLCheckResult status;
 @property(nonatomic, strong, readonly, nullable) NSArray <RGLAuthenticityCheck *> *checks;
 
 - (instancetype _Nonnull)init NS_UNAVAILABLE;

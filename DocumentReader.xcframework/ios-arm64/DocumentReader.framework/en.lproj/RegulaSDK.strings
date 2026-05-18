@@ -111,22 +111,12 @@
 "RFID_LAYER6_SM_MAC_INCORRECT" = "LAYER6: Checksum validation error in RFID response";
 "RFID_LAYER6_WRONG_RND_ICC_LENGTH" = "LAYER6: Wrong data length of Get Challenge command execution response";
 "RSDT_RFID_READING_FINISHED" = "RFID data reading finished";
-"SecurityFeatureType_Age_Check" = "Age check";
 "SecurityFeatureType_CheckDigitalSignature" = "Digital signature сheck";
 "SecurityFeatureType_ContactChipClassification" = "Contact сhip check";
-"SecurityFeatureType_HeadPositionCheck" = "Head position check";
-"SecurityFeatureType_Liveness_BlackAndWhiteCopyCheck" = "Black and white copy check";
-"SecurityFeatureType_Liveness_Dynaprint" = "Dynaprint check";
-"SecurityFeatureType_Liveness_GeometryCheck" = "Geometry check";
 "SecurityFeatureType_Portrait_Comparison_BarcodevsCamera" = "Barcode vs. Live";
-"SecurityFeatureType_Portrait_Comparison_BarcodevsGhost" = "Barcode vs. Ghost";
 "SecurityFeatureType_Portrait_Comparison_ExtvsBarcode" = "External vs. Barcode";
-"SecurityFeatureType_Portrait_Comparison_ExtvsGhost" = "External vs. Ghost";
-"SecurityFeatureType_Portrait_Comparison_GhostvsLive" = "Ghost vs. Live";
 "SecurityFeatureType_Portrait_Comparison_RFIDvsBarcode" = "RFID chip vs. Barcode";
-"SecurityFeatureType_Portrait_Comparison_RFIDvsGhost" = "RFID chip vs. Ghost";
 "SecurityFeatureType_Portrait_Comparison_vsBarcode" = "Visual vs. Barcode";
-"SecurityFeatureType_Sex_Check" = "Sex check";
 "TCT_Unknown" = "Unknown";
 "ch_4079" = "Handwritten";
 "ch_4556" = "Moire pattern";
@@ -137,11 +127,8 @@
 "chd_BarcodeReadedWithErrors" = "Barcode has been read with errors";
 "chd_BarcodeSizeParamsError" = "Barcode parameters error";
 "chd_ContactChipTypeMismatch" = "Contact chip type mismatch";
-"chd_DocLiveness_BlackAndWhiteCopyDetected" = "Black and white copy detected";
-"chd_DocLiveness_DocumentNotLive" = "Verification failed";
 "chd_DocLiveness_ElectronicDeviceDetected" = "Traces of using an electronic device were found in the image";
 "chd_DocLiveness_InvalidBarcodeBackground" = "Invalid barcode background";
-"chd_DocLiveness_VirtualCameraDetected" = "Virtual camera detected";
 "chd_DocumentIsCancelling" = "Document is cancelled";
 "chd_ElementShouldBeColored" = "Element should be colored";
 "chd_ElementShouldBeGrayscale" = "Element should be grayscale";
@@ -153,15 +140,12 @@
 "chd_FalseLuminiscenceInBlank" = "Fake luminescence in UV";
 "chd_FalseLuminiscenceInMRZ" = "Excessive luminescence in MRZ";
 "chd_FibersNotFound" = "Fibers are not found";
-"chd_FieldPosCorrector_AgeCheckError" = "Age mismatch";
 "chd_FieldPosCorrector_FaceAbsenceCheckError" = "Facial image is found";
 "chd_FieldPosCorrector_FacePresenceCheckError" = "No facial image found";
 "chd_FieldPosCorrector_Glares_In_Photo_Area" = "Glare in the photo area";
 "chd_FieldPosCorrector_Highlight_IR" = "Excessive light in IR";
-"chd_FieldPosCorrector_IncorrectHeadPosition" = "Incorrect head position";
 "chd_FieldPosCorrector_LandmarksCheckError" = "Facial landmarks (eyes) check error";
 "chd_FieldPosCorrector_PhotoReplaced" = "The portrait was replaced";
-"chd_FieldPosCorrector_SexCheckError" = "Sex mismatch";
 "chd_FieldsComparisonLogicError" = "Logical error when comparing fields";
 "chd_FingerprintsComparisonMismatch" = "Fingerprint mismatch";
 "chd_FinishedByTimeout" = "Document verification timeout has expired";
@@ -205,7 +189,6 @@
 "chd_MrzQuality_WrongMrzWidth" = "MRZ area width does not correspond to the standard";
 "chd_MrzQuality_WrongSymbolPosition" = "MRZ dimensions do not match the current document's MRZ dimensions";
 "chd_NecessaryImageNotFound" = "The image required for this check is missing";
-"chd_NoCertificateForDigitalSignatureCheck" = "No certificate for digital signature check";
 "chd_NotAllBarcodesRead" = "This document should contain more barcodes";
 "chd_OCRQuality_InvalidBackground" = "Signs of OCR area editing detected";
 "chd_OCRQuality_InvalidFont" = "Incorrect text data font";
@@ -240,7 +223,6 @@
 "chd_PortraitComparison_NotEnoughImages" = "Not enough images";
 "chd_PortraitComparison_PortraitsDiffer" = "The portraits do not match";
 "chd_PortraitComparison_ServiceError" = "Service error";
-"chd_SecurityTextIsAbsent" = "Security text is absent";
 "chd_SourcesComparisonError" = "Noncoincidence of data from different sources";
 "chd_SpecksInUV" = "Overexposure or glares in the image under UV light";
 "chd_SyntaxError" = "Data syntax error";
@@ -527,7 +509,6 @@
 "ntfLDS_ICAO_Certificate_Issuer_AttributeNonCompliant" = "Notification - ICAO certificate: Issuer attribute non-compliant";
 "ntfLDS_ICAO_Certificate_Issuer_CommonName_Missed" = "Notification - ICAO certificate: Issuer common name missed";
 "ntfLDS_ICAO_Certificate_Issuer_CountryNonCompliant" = "Notification - ICAO certificate: Issuer country non-compliant";
-"ntfLDS_ICAO_Certificate_Issuer_CountryNonUpperCase" = "Notification - ICAO certificate: Issuer country is not in uppercase";
 "ntfLDS_ICAO_Certificate_Issuer_Country_Missed" = "Notification - ICAO certificate: Issuer country missed";
 "ntfLDS_ICAO_Certificate_Issuer_SN_NonCompliant" = "Notification - ICAO certificate: Issuer SN non-compliant";
 "ntfLDS_ICAO_Certificate_MRZ_Country_NonMatching" = "Country codes from certificate and DG1 MRZ don't match";
@@ -537,7 +518,6 @@
 "ntfLDS_ICAO_Certificate_Subject_CommonNameNonCompliant" = "Notification - ICAO certificate: Subject common name non-compliant";
 "ntfLDS_ICAO_Certificate_Subject_CommonName_Missed" = "Notification - ICAO certificate: Subject common name missed";
 "ntfLDS_ICAO_Certificate_Subject_CountryNonCompliant" = "Notification - ICAO certificate: Subject country non-compliant";
-"ntfLDS_ICAO_Certificate_Subject_CountryNonUpperCase" = "Notification - ICAO certificate: Subject country is not in uppercase";
 "ntfLDS_ICAO_Certificate_Subject_Country_Missed" = "Notification - ICAO certificate: Subject country missed";
 "ntfLDS_ICAO_Certificate_Subject_NonCompliant" = "Notification - ICAO certificate: Subject non-compliant";
 "ntfLDS_ICAO_Certificate_Subject_SN_NonCompliant" = "Notification - ICAO certificate: Subject SN non-compliant";
@@ -652,7 +632,6 @@
 "strAdministrativeNumber" = "Administrative number";
 "strAge" = "Age";
 "strAgeAtIssue" = "Age at issue";
-"strAirlineCode" = "Airline code";
 "strAirlineDesignatorofboardingpassissuer" = "Airline designator of boarding pass issuer";
 "strAirlineName" = "Airline name";
 "strAirlineNameFrequentFlyer" = "Airline loyalty program for frequent flyers";
@@ -675,7 +654,6 @@
 "strBankCardValidThru" = "Bank card validity";
 "strBanknoteNumber" = "Banknote number";
 "strBarcode" = "Barcode";
-"strBarcodeBackground" = "Barcode background";
 "strBarcodeFormatCheck" = "Barcode format check";
 "strBarcodeSizeCheck" = "Barcode size check";
 "strBenefitsNumber" = "Benefits number";
@@ -705,7 +683,6 @@
 "strCitizenshipStatus" = "Citizenship status";
 "strCivilStatus" = "Civil status";
 "strColorDynamic" = "Color dynamics";
-"strCommercialIndicator" = "Commercial indicator";
 "strCommercialVehicleCodes" = "Commercial vehicle code";
 "strCompanyName" = "Company name";
 "strCompartmentCode" = "Compartment code";
@@ -713,7 +690,6 @@
 "strComplianceType" = "Compliance type";
 "strConditions" = "Conditions";
 "strConfiguration" = "Configuration";
-"strConnectingMdl" = "Connecting to mDL";
 "strConnectionLost" = "The connection was lost";
 "strControlNo" = "Control number";
 "strCopy" = "Copy";
@@ -947,9 +923,6 @@
 "strDSCertificateSubject" = "DS certificate subject";
 "strDSCertificateValidFrom" = "DS certificate valid from";
 "strDSCertificateValidTo" = "DS certificate valid to";
-"strDTC_DateOfExpiry" = "DTC date of expiry";
-"strDTC_ID" = "DTC ID";
-"strDTC_Version" = "DTC version";
 "strDUFNumber" = "DUF number";
 "strDataDiscriminator" = "Data discriminator";
 "strDateFirstRenewal" = "Date of first renewal";
@@ -993,11 +966,6 @@
 "strDocumentTooSmall" = "Fit the document into the frame";
 "strDonor" = "Donor";
 "strDossierNumber" = "Dossier number";
-"strDtcDg17" = "DTC content info (DG17)";
-"strDtcDg18" = "DTC hash values (DG18)";
-"strDtcDg22" = "DTC security info (DG22)";
-"strDtcDg23" = "DTC other info (DG23)";
-"strDtcDg24" = "DTC signer info (DG24)";
 "strDurationofStay" = "Duration of stay";
 "strECEnvironmentalType" = "Vehicle environmental type";
 "strEDLDG1" = "Text data elements (DG1)";
@@ -1021,7 +989,6 @@
 "strEFChipSecurity" = "EF.ChipSecurity";
 "strEFSOD" = "EF.SOD";
 "strEQVCode" = "EQV code";
-"strElectronicDevice" = "Electronic device traces";
 "strElectronicTicketIndicator" = "Electronic ticket indicator";
 "strElement" = "Element";
 "strEmail" = "Email";
@@ -1063,8 +1030,6 @@
 "strFinalChecksum" = "Final checksum";
 "strFingerprint" = "Fingerprint";
 "strFirstIssueDate" = "First issue date";
-"strFirstIssueDateCheckDigit" = "First issue date check digit";
-"strFirstIssueDateChecksum" = "First issue date checksum";
 "strFirstName" = "First name";
 "strFirstNameTruncation" = "First name truncation";
 "strFirstSurname" = "First surname";
@@ -1095,7 +1060,7 @@
 "strHoloVerifyStatic" = "Verify Static Hologram";
 "strHologramDetection" = "Hologram detection";
 "strHolograms" = "Holograms";
-"strIPI" = "Invisible personal information (IPI)";
+"strIPI" = "IPI (invisible personal information)";
 "strIRB900" = "IR B900 ink";
 "strIRVis" = "IR transparency";
 "strISOIssuerIDNumber" = "ID number of ISO issuer";
@@ -1119,11 +1084,9 @@
 "strIssueTimestamp" = "Issue time";
 "strIssuerIdentificationNumber" = "Issuer identification number";
 "strIssuingStateCode" = "Issuing state code";
-"strIssuingStateCodeAlpha2" = "Issuing state code (Alpha-2)";
 "strIssuingStateName" = "Issuing state";
 "strJurisdictionEndorsementCode" = "Jurisdiction endorsement code";
 "strJurisdictionRestrictionCode" = "Jurisdiction restriction code";
-"strJurisdictionSpecificData" = "Jurisdiction specific data";
 "strJurisdictionVehicleClass" = "Jurisdiction vehicle class";
 "strKeepDeviceStill" = "Hold the device still";
 "strLandmarks" = "Facial landmarks check";
@@ -1141,10 +1104,13 @@
 "strLine3Checksum" = "Checksum for line 3";
 "strLine3OptionalData" = "Optional data from line 3";
 "strLiveness" = "Liveness";
+"strLivenessBarcodeBackground" = "Liveness: Barcode background";
+"strLivenessElectronicDevice" = "Liveness: Electronic device traces";
+"strLivenessMLI" = "Liveness MLI";
+"strLivenessOVI" = "Liveness OVI";
 "strLivenessScreenCapture" = "Liveness: Screen capture";
 "strLookingDocument" = "Searching for a document...";
 "strMCNoviceDate" = "Expiry date of Motorcycle Novice status";
-"strMLI" = "Multiple laser image (MLI)";
 "strMRZ" = "MRZ";
 "strMRZLinesICAORFID" = "MRZ lines from ICAO RFID";
 "strMRZString1" = "MRZ line 1";
@@ -1153,7 +1119,6 @@
 "strMRZStrings" = "MRZ lines";
 "strMRZStringsWithCorrectCheckSums" = "MRZ lines with correct checksums";
 "strMRZType" = "MRZ Type";
-"strMVCAgency" = "MVC agency";
 "strMailingAddressCity" = "Mailing address - city";
 "strMailingAddressJurisdictionCode" = "Mailing address - jurisdiction code";
 "strMailingAddressPostalCode" = "Mailing address - postal code";
@@ -1188,8 +1153,6 @@
 "strNameSuffix" = "Name suffix";
 "strNationality" = "Nationality";
 "strNationalityCode" = "Nationality code";
-"strNationalityCodeAlpha2" = "Nationality code (Alpha-2)";
-"strNonDomiciledIndicator" = "Non-domiciled indicator";
 "strNonResidentIndicator" = "Non-resident indicator";
 "strNone" = "None";
 "strNotDefined" = "Undefined";
@@ -1205,10 +1168,8 @@
 "strOCRNumber" = "OCR number";
 "strOCRText" = "OCR Text";
 "strOK" = "OK";
-"strOVI" = "Optically variable ink (OVI)";
 "strOVICheck" = "OVI check";
 "strObservations" = "Observations";
-"strOcclusion" = "Occlusion";
 "strOldDateOfIssue" = "Old date of issue";
 "strOldDocumentNumber" = "Old document number";
 "strOldPlaceOfIssue" = "Old place of issue";
@@ -1264,8 +1225,6 @@
 "strPhotoProcessing" = "Photo processing...";
 "strPhotoShape" = "Shape of the photo";
 "strPhotoSizeCheck" = "Size check";
-"strPlaceDeviceOnDevice" = "Place the device on the device";
-"strPlaceDocumentCloser" = "Place the document closer";
 "strPlaceDocumentInFrame" = "Fit the document into the frame";
 "strPlaceOfBirthRUS" = "Place of birth (National)";
 "strPlaceOfBirthStateCode" = "Birth state code";
@@ -1275,7 +1234,6 @@
 "strPlaceofBirth" = "Place of birth";
 "strPlaceofBirthArea" = "Country/region of birth";
 "strPlaceofRegistration" = "Place of registration";
-"strPleaseWait" = "Please wait...";
 "strPoliceDistrict" = "Police district";
 "strPortrait" = "Portrait";
 "strPortraitComparison" = "Portrait comparison";
@@ -1293,7 +1251,6 @@
 "strPresentNextPage" = "Please provide the next page";
 "strPreviousType" = "Type/number of the previous document";
 "strProcessingDocument" = "Document processing...";
-"strProcessingMdl" = "Processing mDL";
 "strProfession" = "Profession";
 "strProfessionalIdNumber" = "Professional ID number";
 "strProofOfCitizenship" = "Proof of citizenship";
@@ -1347,10 +1304,8 @@
 "strSequenceNumber" = "Sequence number";
 "strSerialNumber" = "Serial number";
 "strSex" = "Sex";
-"strShortFlightNumber" = "Short flight number";
 "strSignature" = "Signature";
 "strSkinColor" = "Skin color";
-"strSkip" = "Skip";
 "strSocialSecurityNumber" = "Social insurance number";
 "strSpCode" = "Special code";
 "strSpecialNotes" = "Special notes";

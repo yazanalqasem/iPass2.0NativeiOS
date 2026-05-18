@@ -139,32 +139,8 @@ typedef NS_ENUM(uint32_t, RGLRFIDNotificationCodes) {
 
   /// Event of the detection of real biometric data absence in DG3 or DG4 and random filling data usage.
   /// The `attachment` parameter contains a file identifier from `RFIDDataFileType`.
-  RGLRFIDNotificationCodesBiometricsEmptyPlaceholder = 0x000F0000,
-
-  /// Event of data update in session structure for a read file.
-  /// The `attachment` parameter contains a file identifier from `RFIDDataFileType`.
-  RGLRFIDNotificationCodesSessionFileDataUpdated = 0x00100000,
-    
-  /// Event indicating a TCC `GetCertificateChain` method invocation.
-  RGLRFIDNotificationCodesTCCTAResources = 0x00110000,
-    
-  /// Event indicating a TCC `GetTASignature` method invocation.
-  RGLRFIDNotificationCodesTCCTASignature = 0x00110001,
-    
+  RGLRFIDNotificationCodesBiometricsEmptyPlaceholder = 0x000F0000
 } NS_SWIFT_NAME(RFIDNotificationCodes);
-
-// eRFID_Application_Type
-typedef NS_ENUM(uint32_t, RGLRFIDApplicationType) {
-  RGLRFIDApplicationTypeUnspecified             = 0,
-  RGLRFIDApplicationTypeEPassport               = 1,
-  RGLRFIDApplicationTypeEID                     = 2,
-  RGLRFIDApplicationTypeESign                   = 3,
-  RGLRFIDApplicationTypeEDL                     = 4,
-  RGLRFIDApplicationTypeLDS2TravelRecords       = 5,
-  RGLRFIDApplicationTypeLDS2VisaRecords         = 6,
-  RGLRFIDApplicationTypeLDS2AddBiometrics       = 7,
-  RGLRFIDApplicationTypeEDTCPC                  = 8
-} NS_SWIFT_NAME(RFIDApplicationType);
 
 // eRFID_DataFile_Type
 typedef NS_ENUM(uint32_t, RGLRFIDDataFileType) {
@@ -192,11 +168,6 @@ typedef NS_ENUM(uint32_t, RGLRFIDDataFileType) {
   RGLRFIDDataFileTypePassportSOD                 = 21,
   RGLRFIDDataFileTypePassportCVCA                = 22,
   RGLRFIDDataFileTypePassportCOM                 = 23,
-  RGLRFIDDataFileTypeDTCDG17                     = 57,
-  RGLRFIDDataFileTypeDTCDG18                     = 58,
-  RGLRFIDDataFileTypeDTCDG22                     = 62,
-  RGLRFIDDataFileTypeDTCDG23                     = 63,
-  RGLRFIDDataFileTypeDTCDG24                     = 64,
   RGLRFIDDataFileTypeIDDG1                       = 101,
   RGLRFIDDataFileTypeIDDG2                       = 102,
   RGLRFIDDataFileTypeIDDG3                       = 103,

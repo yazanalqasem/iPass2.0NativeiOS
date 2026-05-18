@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import <DocumentReader/RGLMacros.h>
+#import "RGLMacros.h"
 
 typedef enum {
     /// Doc 9303, 6th edition, 2006
@@ -52,9 +52,7 @@ typedef NS_ENUM(NSInteger, RGLRFIDPasswordType) {
     /// eSign-PIN
     RGLRFIDPasswordTypePinEsign = 5,
     /// Scanning Area Identifier (for eDL application)
-    RGLRFIDPasswordTypeSai = 6,
-    /// MRZHash
-    RGLRFIDPasswordTypeMrzHash = 7,
+    RGLRFIDPasswordTypeSai = 6
 } NS_SWIFT_NAME(RFIDPasswordType);
 
 typedef NS_ENUM(NSInteger, RGLRFIDTerminalType) {
@@ -89,21 +87,14 @@ typedef NS_ENUM(NSInteger, RGLESignManagementAction) {
     RGLESignManagementActionSignData = 7
 } NS_SWIFT_NAME(ESignManagementAction);
 
-typedef NS_ENUM(NSInteger, RGLRFIDReadingBufferSize) {
-    /// ExtendedLength
-    RGLRFIDReadingBufferSizeExtendedLength = -1,
-    /// StandardLength
-    RGLRFIDReadingBufferSizeStandartLength = 0
-} NS_SWIFT_NAME(RFIDReadingBufferSize);
-
-@class RGLePassportDataGroup, RGLeIDDataGroup, RGLeDLDataGroup, RGLDTCDataGroup, RGLDocumentReaderResults, RGLReprocParams;
+@class RGLePassportDataGroup, RGLeIDDataGroup, RGLeDLDataGroup, RGLDocumentReaderResults, RGLReprocParams;
 
 NS_SWIFT_NAME(RFIDScenario)
 @interface RGLRFIDScenario : NSObject
 
 @property(nonatomic, assign) BOOL autoSettings;
 @property(nonatomic, assign) RGLESignManagementAction signManagementAction;
-@property(nonatomic, assign) RGLRFIDReadingBufferSize readingBuffer;
+@property(nonatomic, assign) int readingBuffer;
 @property(nonatomic, assign) int defaultReadingBufferSize;
 @property(nonatomic, assign) int onlineTAToSignDataType;
 @property(nonatomic, assign) BOOL onlineTA;
@@ -131,19 +122,12 @@ NS_SWIFT_NAME(RFIDScenario)
 @property(nonatomic, assign) BOOL readEPassport;
 @property(nonatomic, assign) BOOL readEID;
 @property(nonatomic, assign) BOOL readEDL;
-@property(nonatomic, assign) BOOL readDTC;
 @property(nonatomic, strong, nonnull) RGLePassportDataGroup *ePassportDataGroups;
 @property(nonatomic, strong, nonnull) RGLeIDDataGroup *eIDDataGroups;
 @property(nonatomic, strong, nonnull) RGLeDLDataGroup *eDLDataGroups;
-@property(nonatomic, strong, nonnull) RGLDTCDataGroup *DTCDataGroups;
 @property(nonatomic, strong, nonnull) NSString *mrz;
-@property(nonatomic, strong, nonnull) NSString *mrzHash;
-@property(nonatomic, strong, nullable) NSString *cardAccess;
 @property(nonatomic, strong, nonnull) NSString *eSignPINDefault;
 @property(nonatomic, strong, nonnull) NSString *eSignPINNewValue;
-@property(nonatomic, strong, nullable) NSString *documentNumber;
-@property(nonatomic, strong, nullable) NSString *dateOfBirth;
-@property(nonatomic, strong, nullable) NSString *dateOfExpiry;
 @property(nonatomic, assign) BOOL authorizedSTSignature;
 @property(nonatomic, assign) BOOL authorizedSTQSignature;
 @property(nonatomic, assign) BOOL authorizedWriteDG17;
@@ -162,17 +146,6 @@ NS_SWIFT_NAME(RFIDScenario)
 /// If set to true, continue RFID chip processing, despite ICAO critical errors
 /// Default: false.
 @property(nonatomic, assign) BOOL proceedReadingAlways;
-/// If enabled, Certificate Revoke List(s) (CRL) will be loaded from remote and verified
-/// Default: false
-@property(nonatomic, assign) BOOL loadCRLFromRemote;
-
-/// Perform check MRZ according to standard described in
-/// BSI TR - 03105: ePassport Conformity Testing(v 1.0 04.04.2008)
-/// Type: Bool
-@property(nonatomic, strong, nullable) NSNumber *mrzStrictCheck;
-
-
-@property(nonatomic, strong, nullable) NSNumber *independentSODStatus;
 
 - (instancetype _Nonnull)initWithJSON:(NSDictionary *_Nonnull)json;
 - (NSDictionary *_Nonnull)rfidScenarioDictionary;

@@ -12,9 +12,6 @@ FOUNDATION_EXPORT const unsigned char DocumentReaderVersionString[];
 #import <DocumentReader/RGLDocReader.h>
 #import <DocumentReader/RGLDocReaderVersion.h>
 #import <DocumentReader/RGLScenario.h>
-#import <DocumentReader/RGLDocumentReaderErrorCodes.h>
-#import <DocumentReader/RGLDocumentReaderCameraViewController.h>
-#import <DocumentReader/RGLDocReaderCameraViewController.h>
 
 #import <DocumentReader/RGLMacros.h>
 #import <DocumentReader/RGLDocumentReaderResults.h>
@@ -37,7 +34,6 @@ FOUNDATION_EXPORT const unsigned char DocumentReaderVersionString[];
 #import <DocumentReader/RGLImageQuality.h>
 #import <DocumentReader/RGLDocumentReaderAuthenticityResult.h>
 #import <DocumentReader/RGLRFIDSessionData.h>
-#import <DocumentReader/RGLUniversalNFCTagTransport.h>
 #import <DocumentReader/RGLRFIDNotify.h>
 #import <DocumentReader/RGLDocumentReaderGraphicField.h>
 #import <DocumentReader/RGLRFIDScenario.h>
@@ -49,7 +45,6 @@ FOUNDATION_EXPORT const unsigned char DocumentReaderVersionString[];
 #import <DocumentReader/RGLePassportDataGroup.h>
 #import <DocumentReader/RGLeIDDataGroup.h>
 #import <DocumentReader/RGLeDLDataGroup.h>
-#import <DocumentReader/RGLDTCDataGroup.h>
 #import <DocumentReader/RGLDocReaderDocumentsDatabase.h>
 #import <DocumentReader/RGLAccessControlProcedureType.h>
 #import <DocumentReader/RGLApplication.h>
@@ -91,8 +86,6 @@ FOUNDATION_EXPORT const unsigned char DocumentReaderVersionString[];
 #import <DocumentReader/RGLImageQA.h>
 #import <DocumentReader/RGLGlaresCheckParams.h>
 #import <DocumentReader/RGLVDSNCData.h>
-#import <DocumentReader/RGLVDSData.h>
-#import <DocumentReader/RGLDocFeature.h>
 #import <DocumentReader/RGLBytesData.h>
 #import <DocumentReader/RGLImageQualityCheckType.h>
 #import <DocumentReader/RGLTCCParams.h>
@@ -111,12 +104,10 @@ FOUNDATION_EXPORT const unsigned char DocumentReaderVersionString[];
 #import <DocumentReader/RGLCustomization.h>
 #import <DocumentReader/RGLInitializationResponse.h>
 #import <DocumentReader/RGLLicense.h>
-#import <DocumentReader/RGLFinalizeConfig.h>
 
 #import <DocumentReader/RGLFieldType.h>
 #import <DocumentReader/eLDS_ParsingErrorCodes.h>
 #import <DocumentReader/eLDS_ParsingNotificationCodes.h>
-#import <DocumentReader/eRFID_BaudRate.h>
 #import <DocumentReader/RGLImageInput.h>
 #import <DocumentReader/RGLReprocParams.h>
 #import <DocumentReader/RGLOnlineProcessingConfig.h>
@@ -133,15 +124,3 @@ FOUNDATION_EXPORT const unsigned char DocumentReaderVersionString[];
 #import <DocumentReader/RGLMRZDetectMode.h>
 
 #import <DocumentReader/RGLBluetooth.h>
-
-#import <DocumentReader/RGLDeviceRetrievalMethod.h>
-#import <DocumentReader/RGLDeviceEngagement.h>
-#import <DocumentReader/RGLDataRetrieval.h>
-#import <DocumentReader/RGLNameSpaceMDL.h>
-#import <DocumentReader/RGLDocumentRequestMDL.h>
-#import <DocumentReader/RGLDocumentRequest18013MDL.h>
-#import <DocumentReader/RGLDetailsAge.h>
-#import <DocumentReader/RGLMDLEnums.h>
-#import <DocumentReader/RGLBsi.h>
-#import <DocumentReader/RGLRFIDAccessControlCA.h>
-#import <DocumentReader/RGLRFIDAccessControlPACE.h>

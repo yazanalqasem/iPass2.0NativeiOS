@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import <DocumentReader/RGLDocumentReaderResults.h>
+#import "RGLDocumentReaderResults.h"
 
 NS_SWIFT_NAME(AuthenticityElement)
 @interface RGLAuthenticityElement : NSObject

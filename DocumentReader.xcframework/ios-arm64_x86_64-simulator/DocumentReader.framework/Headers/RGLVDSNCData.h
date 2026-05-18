@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <DocumentReader/RGLMacros.h>
+#import "RGLMacros.h"
 
 @class RGLBytesData;
 @class RGLCertificateChain;

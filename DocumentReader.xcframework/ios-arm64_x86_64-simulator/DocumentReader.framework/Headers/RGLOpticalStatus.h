@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import <DocumentReader/RGLMacros.h>
-#import <DocumentReader/RGLCheckResult.h>
+#import "RGLMacros.h"
+#import "RGLCheckResult.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
