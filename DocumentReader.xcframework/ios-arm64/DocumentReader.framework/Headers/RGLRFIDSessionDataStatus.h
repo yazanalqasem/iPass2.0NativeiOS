@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 
-#import "RGLMacros.h"
-#import "RGLCheckResult.h"
+#import <DocumentReader/RGLMacros.h>
+#import <DocumentReader/RGLCheckResult.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

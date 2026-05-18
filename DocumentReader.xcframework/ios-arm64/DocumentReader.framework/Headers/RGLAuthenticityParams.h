@@ -33,6 +33,7 @@ NS_SWIFT_NAME(AuthenticityParams)
 @property(nullable, nonatomic, strong) NSNumber *checkPhotoEmbedding;
 @property(nullable, nonatomic, strong) NSNumber *checkPhotoComparison;
 @property(nullable, nonatomic, strong) NSNumber *checkLetterScreen;
+@property(nullable, nonatomic, strong) NSNumber *checkSecurityText;
 
 RGL_EMPTY_INIT_UNAVAILABLE
 

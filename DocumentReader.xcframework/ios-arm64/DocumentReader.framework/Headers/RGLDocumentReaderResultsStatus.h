@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RGLMacros.h"
-#import "RGLCheckResult.h"
+#import <DocumentReader/RGLMacros.h>
+#import <DocumentReader/RGLCheckResult.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class RGLOpticalStatus;
+@class RGLDetailsAge;
 @class RGLRFIDSessionDataStatus;
 
 /// Provision of document verification status
@@ -40,6 +41,17 @@ NS_SWIFT_NAME(DocumentReaderResults.Status)
 
 /// Verification status for document data against database.
 @property(nonatomic, readonly, assign) RGLCheckResult stopList;
+
+/// Summary of all age results.
+@property(nonatomic, readonly, assign) RGLCheckResult age;
+
+/// Container for an details age scanning statuses.
+@property(nonatomic, readonly, strong, nonnull) RGLDetailsAge *detailsAge;
+
+/// Summary of all mDL results.
+@property(nonatomic, readonly, assign) RGLCheckResult mDL;
+
+@property(nonatomic, readonly, assign) RGLCheckResult captureProcessIntegrity;
 
 RGL_EMPTY_INIT_UNAVAILABLE
 

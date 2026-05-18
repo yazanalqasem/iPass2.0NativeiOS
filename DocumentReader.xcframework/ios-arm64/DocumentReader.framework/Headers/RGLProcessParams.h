@@ -8,6 +8,7 @@
 @class RGLFaceAPIParams;
 @class RGLBackendProcessingConfig;
 @class RGLAuthenticityParams;
+@class RGLBsi;
 
 /// Enumeration contains the types of barcodes that can be processed
 typedef NS_ENUM(NSInteger, RGLBarcodeType) {
@@ -96,14 +97,17 @@ NS_SWIFT_NAME(ProcessParams)
 /// Type: Array of Integer.
 @property (nonatomic, strong, nullable) NSArray<NSNumber *> *documentIDList;
 
-/// The path to the logs folder of the last session.
-@property (readonly, nonatomic, strong, nullable) NSString *sessionLogFolder;
-
 /// If you recognize the MRZ of documents, all fields will be extracted.
 /// If you recognize the Visual zone of documents, you can set the list of field types that you wish to extract, other fields will be skipped during processing.
 /// All fields will be extracted if it is empty.
 /// Type: Array of `RGLFieldType` enum.
 @property (nonatomic, strong, nullable) NSArray<NSNumber *> *fieldTypesFilter;
+
+/// If a document contains a Visual zone, you can specify a list of field types that should be excluded from extraction.
+/// All field types listed in this array are skipped during processing, while the remaining fields are recognized.
+/// This filter is not applicable to the MRZ, barcode or RFID. If the fieldTypesIgnoreFilter is empty, all fields are extracted.
+/// Type: Array of `RGLFieldType` enum.
+@property (nonatomic, strong, nullable) NSArray<NSNumber *> *fieldTypesIgnoreFilter;
 
 /// Set types of barcodes that you wish to recognize. All barcodes will be recognized if it's empty.
 /// Type: Array of `RGLBarcodeType` enum.
@@ -166,7 +170,7 @@ NS_SWIFT_NAME(ProcessParams)
 
 /// Allows you to set the maximum value of the deviation of the corners of the document from the value of `90` degrees.
 /// Type: Integer.
-@property (nonatomic, strong, nullable) NSNumber *perspectiveAngle;
+@property (nonatomic, strong, nullable) NSNumber *perspectiveAngle RGL_DEPRECATED(7.6, "Deprecated property.");
 
 /// If set to `true`, allows you to manually set the document's bounds after it is detected.
 /// Type: Bool.
@@ -297,7 +301,11 @@ NS_SWIFT_NAME(ProcessParams)
 
 /// When enabled, image quality checks status affects document optical and overall status.
 /// Type: Bool.
-@property (nonatomic, strong, nullable) NSNumber *respectImageQuality;
+@property (nonatomic, strong, nullable) NSNumber *respectImageQuality RGL_DEPRECATED(7.5, "Use `strictImageQuality` instead.");
+
+/// When enabled, the image quality check status affects the document optical and overall status.
+/// Type: Bool.
+@property (nonatomic, strong, nullable) NSNumber *strictImageQuality;
 
 /// When enabled, the Surname and GivenNames field (`RGLDocumentReaderTextField`) will be divided into fields with fieldTypes `RGLFieldTypeFt_First_Name, RGLFieldTypeFt_Second_Name, RGLFieldTypeFt_Third_Name, RGLFieldTypeFt_Fourth_Name, RGLFieldTypeFt_Last_Name`.
 @property (nonatomic, strong, nullable) NSNumber *splitNames;
@@ -341,9 +349,18 @@ NS_SWIFT_NAME(ProcessParams)
 /// Accepts `RGLMRZDetectMode` value.
 @property (nonatomic, strong, nullable) NSNumber *mrzDetectMode;
 
+/// Maximum number of pages to be processed in a PDF document.
+/// If set, only the specified number of pages will be analyzed.
+/// Type: Int.
+@property (nonatomic, strong, nullable) NSNumber *pdfPagesLimit;
+
 /// This parameter is used to generate numeric representation for issuing state and nationality codes.
 /// Type: Bool.
 @property (nonatomic, strong, nullable) NSNumber *generateNumericCodes;
+
+/// This parameter is used to generate DTCVC data.
+/// Type: Bool.
+@property (nonatomic, strong, nullable) NSNumber *generateDTCVC;
 
 /// Custom RFID params. See `RGLRFIDParams` for more information.
 @property (nonatomic, strong, nullable) RGLRFIDParams *rfidParams;
@@ -359,5 +376,50 @@ NS_SWIFT_NAME(ProcessParams)
 @property (nonatomic, strong, nullable) RGLAuthenticityParams *authenticityParams;
 
 @property (nonatomic, strong, nullable) RGLBackendProcessingConfig *backendProcessingConfig;
+
+/// If the certificates required for performing the Digital signature check are missing,
+/// this parameter if enabled will make the Barcode format check failed.
+/// Type: Bool.
+@property (nonatomic, strong, nullable) NSNumber *strictBarcodeDigitalSignatureCheck;
+
+/// Select the longest value from the different value sources and write it to the value field
+/// if comparison is done successfully. The parameter applies this logic to the personal names,
+/// such as given name, surname, surname and given name, middle name and etc.
+/// Type: Bool.
+@property (nonatomic, strong, nullable) NSNumber *selectLongestNames;
+
+/// Set to force DL categories expiry date status to either valid or not. By default,
+/// if the DL category expiry date is correct, its status will be wasNotDone, otherwise error.
+/// Type: Bool.
+@property (nonatomic, strong, nullable) NSNumber *strictDLCategoryExpiry;
+
+@property (nonatomic, strong, nullable) NSNumber *generateAlpha2Codes;
+
+/// This parameter if enabled will ignore the minimum barcode resolution needed to start processing.
+/// Type: Bool.
+@property (nonatomic, strong, nullable) NSNumber *disableAuthResolutionFilter;
+
+/// When enabled, this parameter marks security checks that don’t meet minimum requirements as "Failed" (instead of "WasNotDone"), which causes the overall security status to be 'Failed'.
+/// Type: Bool.
+@property (nonatomic, strong, nullable) NSNumber *strictSecurityChecks;
+
+/// When disabled, date of expiry doesn't affect the mrz and text statuses.
+/// Type: Bool.
+@property (nonatomic, strong, nullable) NSNumber *strictExpiryDate;
+
+/// Allows transliteration to be turned on or off; by default, it is enabled.
+/// Type: Bool.
+@property (nonatomic, strong, nullable) NSNumber *returnTransliteratedFields;
+
+/// Type: Bool.
+@property (nonatomic, strong, nullable) NSNumber *checkCaptureProcessIntegrity;
+
+@property (nonatomic, strong, nullable) RGLBsi *bsiTr03135;
+
+@property (nonatomic, strong, nullable) NSNumber *debugSaveBinarySession;
+
+/// This parameter is used to enable Visible Digital Seal check.
+/// Type: Bool.
+@property (nonatomic, strong, nullable) NSNumber *checkVDS;
 
 @end

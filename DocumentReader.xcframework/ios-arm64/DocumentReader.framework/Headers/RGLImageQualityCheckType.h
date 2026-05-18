@@ -39,8 +39,11 @@ FOUNDATION_EXPORT RGLImageQualityCheckType const RGLImageQualityCheckTypePortrai
 /// Handwritten image check.
 FOUNDATION_EXPORT RGLImageQualityCheckType const RGLImageQualityCheckTypeHandwritten;
 
-/// Handwritten image check.
+/// Image brightness check.
 FOUNDATION_EXPORT RGLImageQualityCheckType const RGLImageQualityCheckTypeBrightness;
+
+/// Document occlusion check.
+FOUNDATION_EXPORT RGLImageQualityCheckType const RGLImageQualityCheckTypeOcclusion;
 
 FOUNDATION_EXPORT NSString *RGLImageQualityCheckTypeGetStringValue(RGLImageQualityCheckType type) CF_SWIFT_NAME(getter:ImageQualityCheckType.stringValue(self:));
 

@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "RGLAuthenticityElement.h"
+#import <DocumentReader/RGLAuthenticityElement.h>
 
 @class RGLElementRect;
 
