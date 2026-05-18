@@ -1,6 +1,6 @@
 ---
 triple:          'arm64-apple-darwin'
-binary-path:     '/Users/administratorregula/Library/Developer/Xcode/DerivedData/DocumentReader-bvoxbkdfhmfcrmfovnkstvbprbek/Build/Intermediates.noindex/ArchiveIntermediates/DocumentReader/InstallationBuildProductsLocation/Library/Frameworks/DocumentReader.framework/DocumentReader'
+binary-path:     '/Users/administratorregula/Library/Developer/Xcode/DerivedData/DocumentReader-axmbstdencsdyzfudsafjdblxmaj/Build/Intermediates.noindex/ArchiveIntermediates/DocumentReader/InstallationBuildProductsLocation/Library/Frameworks/DocumentReader.framework/DocumentReader'
 relocations:
   - { offset: 0x85B20, size: 0x8, addend: 0x0, symName: _DocumentReaderVersionString, symObjAddr: 0x0, symBinAddr: 0xEEBC0, symSize: 0x0 }
   - { offset: 0x85B55, size: 0x8, addend: 0x0, symName: _DocumentReaderVersionNumber, symObjAddr: 0x38, symBinAddr: 0xEEBF8, symSize: 0x0 }
@@ -3758,8 +3758,8 @@ relocations:
   - { offset: 0x10329E, size: 0x8, addend: 0x0, symName: '-[RGLDocumentReaderResults .cxx_destruct]', symObjAddr: 0x2BC4, symBinAddr: 0xAE3D4, symSize: 0xE4 }
   - { offset: 0x103874, size: 0x8, addend: 0x0, symName: '+[RGLCoreWrapper sharedInstance]', symObjAddr: 0x0, symBinAddr: 0xAE4B8, symSize: 0x74 }
   - { offset: 0x103882, size: 0x8, addend: 0x0, symName: '+[RGLCoreWrapper sharedInstance]', symObjAddr: 0x0, symBinAddr: 0xAE4B8, symSize: 0x74 }
-  - { offset: 0x1038AC, size: 0x8, addend: 0x0, symName: _sharedInstance.instance, symObjAddr: 0x11D78, symBinAddr: 0x183C00, symSize: 0x0 }
-  - { offset: 0x1038C2, size: 0x8, addend: 0x0, symName: _sharedInstance.onceToken, symObjAddr: 0x11D80, symBinAddr: 0x183C08, symSize: 0x0 }
+  - { offset: 0x1038AC, size: 0x8, addend: 0x0, symName: _sharedInstance.instance, symObjAddr: 0x11D70, symBinAddr: 0x183C00, symSize: 0x0 }
+  - { offset: 0x1038C2, size: 0x8, addend: 0x0, symName: _sharedInstance.onceToken, symObjAddr: 0x11D78, symBinAddr: 0x183C08, symSize: 0x0 }
   - { offset: 0x103C46, size: 0x8, addend: 0x0, symName: '___32+[RGLCoreWrapper sharedInstance]_block_invoke', symObjAddr: 0x74, symBinAddr: 0xAE52C, symSize: 0x64 }
   - { offset: 0x103CCC, size: 0x8, addend: 0x0, symName: '-[RGLCoreWrapper prepareCallback:]', symObjAddr: 0xD8, symBinAddr: 0xAE590, symSize: 0xA8 }
   - { offset: 0x103D51, size: 0x8, addend: 0x0, symName: '-[RGLCoreWrapper resetCallback]', symObjAddr: 0x180, symBinAddr: 0xAE638, symSize: 0x9C }
@@ -4235,9 +4235,9 @@ relocations:
   - { offset: 0x113784, size: 0x8, addend: 0x0, symName: '+[RGLMRZFormatValue formatFrom:]', symObjAddr: 0x2AC, symBinAddr: 0xB86EC, symSize: 0xD4 }
   - { offset: 0x1137C7, size: 0x8, addend: 0x0, symName: '-[RGLMRZFormatValue rawValue]', symObjAddr: 0x380, symBinAddr: 0xB87C0, symSize: 0x8 }
   - { offset: 0x11387D, size: 0x8, addend: 0x0, symName: '-[RGLProcessParams init]', symObjAddr: 0x0, symBinAddr: 0xB87C8, symSize: 0xF8 }
-  - { offset: 0x113897, size: 0x8, addend: 0x0, symName: __livePortait, symObjAddr: 0x630E8, symBinAddr: 0x183C30, symSize: 0x0 }
-  - { offset: 0x1138B2, size: 0x8, addend: 0x0, symName: __extPortait, symObjAddr: 0x630F0, symBinAddr: 0x183C38, symSize: 0x0 }
-  - { offset: 0x1138C8, size: 0x8, addend: 0x0, symName: __dtc, symObjAddr: 0x630F8, symBinAddr: 0x183C40, symSize: 0x0 }
+  - { offset: 0x113897, size: 0x8, addend: 0x0, symName: __livePortait, symObjAddr: 0x630E0, symBinAddr: 0x183C30, symSize: 0x0 }
+  - { offset: 0x1138B2, size: 0x8, addend: 0x0, symName: __extPortait, symObjAddr: 0x630E8, symBinAddr: 0x183C38, symSize: 0x0 }
+  - { offset: 0x1138C8, size: 0x8, addend: 0x0, symName: __dtc, symObjAddr: 0x630F0, symBinAddr: 0x183C40, symSize: 0x0 }
   - { offset: 0x114752, size: 0x8, addend: 0x0, symName: '-[RGLProcessParams init]', symObjAddr: 0x0, symBinAddr: 0xB87C8, symSize: 0xF8 }
   - { offset: 0x1147A8, size: 0x8, addend: 0x0, symName: '-[RGLProcessParams processParamsDictionary]', symObjAddr: 0xF8, symBinAddr: 0xB88C0, symSize: 0x19B0 }
   - { offset: 0x1149A3, size: 0x8, addend: 0x0, symName: '-[RGLProcessParams rfidParamsDictionary]', symObjAddr: 0x1AA8, symBinAddr: 0xBA270, symSize: 0x88 }

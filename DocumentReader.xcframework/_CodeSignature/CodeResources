@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/DocumentReader.framework/Assets.car</key>
 		<data>
-		cgZq1Dknrd4qWgcAMHZj+ii5JD8=
+		ZYSiSf2rJzfpeGSsxypEIMWY3l0=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/DocumentReader</key>
 		<data>
@@ -550,7 +550,7 @@
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Info.plist</key>
 		<data>
-		oDukPSFVsJSAPdnmR/IjfJZ8ioU=
+		7igffDjcXWL9OQRvZa9qbmblQ9w=
 		</data>
 		<key>ios-arm64/DocumentReader.framework/Modules/module.modulemap</key>
 		<data>
@@ -1282,11 +1282,11 @@
 		</data>
 		<key>ios-arm64/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/DWARF/DocumentReader</key>
 		<data>
-		t/xzeMOZaBN63ySgt3XjFxNjmws=
+		WdXRq5MjEKVQGjtFMuMME83o/iI=
 		</data>
 		<key>ios-arm64/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/Relocations/aarch64/DocumentReader.yml</key>
 		<data>
-		NijHyH1gVReT/4k/KhJxZ16V914=
+		fHKUlhyjtM7ANwmPkJdU6pm/sW0=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Assets.car</key>
 		<data>
@@ -1834,7 +1834,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Info.plist</key>
 		<data>
-		t18Y/zfJiPDrWXSsHAZ3rj5f1iU=
+		5TQN8zV16bC2HBTX6KQ73TX2M/s=
 		</data>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Modules/module.modulemap</key>
 		<data>
@@ -2570,15 +2570,15 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/DWARF/DocumentReader</key>
 		<data>
-		LWm1kILGQi/n2KrcDefOa61aM2Y=
+		oaUBdu99lYiCtfeixmiJ26tpHbw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/Relocations/aarch64/DocumentReader.yml</key>
 		<data>
-		j+VxXJG7wJJKLKozNJisbLnX6kM=
+		hWzcoT9E897c5ll/SKcFJ1iBjvM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/Relocations/x86_64/DocumentReader.yml</key>
 		<data>
-		JmvxQUUxD+IHwAIZhRm4FEQb2B8=
+		xN23vAoIpf6m6AOO0xJyu5W8M/o=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -2587,11 +2587,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cgZq1Dknrd4qWgcAMHZj+ii5JD8=
+			ZYSiSf2rJzfpeGSsxypEIMWY3l0=
 			</data>
 			<key>hash2</key>
 			<data>
-			+2CHwzZ28Imd2SZw192AgsSS8QgbmpjXv4fiusx9cTw=
+			RGa2Mr67u0kyYUgCnlYJFyejSqABIrKyM71Cmb6dvQk=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/DocumentReader</key>
@@ -4083,11 +4083,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oDukPSFVsJSAPdnmR/IjfJZ8ioU=
+			7igffDjcXWL9OQRvZa9qbmblQ9w=
 			</data>
 			<key>hash2</key>
 			<data>
-			xFSA12Yi6M3INh7ynoHK6Jab1UXrs40CKws5YzrZBy0=
+			Cg3DzFrR4c55CkCfWTMUlA/YX0CQYl8E6PJSig5gm4k=
 			</data>
 		</dict>
 		<key>ios-arm64/DocumentReader.framework/Modules/module.modulemap</key>
@@ -5203,22 +5203,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			t/xzeMOZaBN63ySgt3XjFxNjmws=
+			WdXRq5MjEKVQGjtFMuMME83o/iI=
 			</data>
 			<key>hash2</key>
 			<data>
-			4ALd4NYKEwL/M91eF1c+6Pgh7vfMt9a/eUEe/oipiYg=
+			4C75brIypRnLEOyVH/Ny1et9aVX9R4M2BNMcp2Jge8Y=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/Relocations/aarch64/DocumentReader.yml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NijHyH1gVReT/4k/KhJxZ16V914=
+			fHKUlhyjtM7ANwmPkJdU6pm/sW0=
 			</data>
 			<key>hash2</key>
 			<data>
-			k0iofosHBoOALlTrGSWwjk0B34heGM9C986N9DyYN/E=
+			oy3UZ0wNCPin1PeIuc3NEe5RUXhNNkLXk+NNwh/IUJQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Assets.car</key>
@@ -6721,11 +6721,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			t18Y/zfJiPDrWXSsHAZ3rj5f1iU=
+			5TQN8zV16bC2HBTX6KQ73TX2M/s=
 			</data>
 			<key>hash2</key>
 			<data>
-			p8TNt8yN+sNxze1/joRWuV1vB+FPu2CJShKXVivjxN4=
+			VdJcWkS0hj+wF2aiNRbc8S7FPs0q/uE96Z1csW4b8/Y=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/DocumentReader.framework/Modules/module.modulemap</key>
@@ -7852,33 +7852,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LWm1kILGQi/n2KrcDefOa61aM2Y=
+			oaUBdu99lYiCtfeixmiJ26tpHbw=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZO1uyAKcMe+CDQy1Ib0VBw8GU0rnzaU93sZ5yriFhZs=
+			qQFaXFyYV8HQP7oY4uSII5bMsitn3pD3tqD/f5ZMuVg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/Relocations/aarch64/DocumentReader.yml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			j+VxXJG7wJJKLKozNJisbLnX6kM=
+			hWzcoT9E897c5ll/SKcFJ1iBjvM=
 			</data>
 			<key>hash2</key>
 			<data>
-			w0oq9/du/C+Fl5yqlrgXsryKlqsDfBjGQnCX1+sqLuw=
+			d8270kD+Ixvowxs7YkalaJuS6BryaZACDUcafnXqgG8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/DocumentReader.framework.dSYM/Contents/Resources/Relocations/x86_64/DocumentReader.yml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JmvxQUUxD+IHwAIZhRm4FEQb2B8=
+			xN23vAoIpf6m6AOO0xJyu5W8M/o=
 			</data>
 			<key>hash2</key>
 			<data>
-			49USb8Ngsp7wY9XQVzN11+DBi32b7HbOzpI7W8xki5c=
+			eAZlkmeo1y66m4BPesy12/vI4MuCSACMrrc4Lak6AIU=
 			</data>
 		</dict>
 	</dict>

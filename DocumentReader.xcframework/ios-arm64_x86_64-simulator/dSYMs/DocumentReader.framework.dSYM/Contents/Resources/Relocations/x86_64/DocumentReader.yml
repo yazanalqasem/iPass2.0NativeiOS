@@ -1,6 +1,6 @@
 ---
 triple:          'x86_64-apple-darwin'
-binary-path:     '/Users/administratorregula/Library/Developer/Xcode/DerivedData/DocumentReader-bvoxbkdfhmfcrmfovnkstvbprbek/Build/Intermediates.noindex/ArchiveIntermediates/DocumentReader/InstallationBuildProductsLocation/Library/Frameworks/DocumentReader.framework/DocumentReader'
+binary-path:     '/Users/administratorregula/Library/Developer/Xcode/DerivedData/DocumentReader-axmbstdencsdyzfudsafjdblxmaj/Build/Intermediates.noindex/ArchiveIntermediates/DocumentReader/InstallationBuildProductsLocation/Library/Frameworks/DocumentReader.framework/DocumentReader'
 relocations:
   - { offset: 0x87A34, size: 0x8, addend: 0x0, symName: _DocumentReaderVersionString, symObjAddr: 0x0, symBinAddr: 0x10D430, symSize: 0x0 }
   - { offset: 0x87A69, size: 0x8, addend: 0x0, symName: _DocumentReaderVersionNumber, symObjAddr: 0x38, symBinAddr: 0x10D468, symSize: 0x0 }
