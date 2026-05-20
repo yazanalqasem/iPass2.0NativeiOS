@@ -959,7 +959,7 @@ public class iPassSDKManger {
     
    
 
-    public static func isVPNConnected() -> Bool  async    {
+    public static func isVPNConnected() -> Bool {
         guard let settings = CFNetworkCopySystemProxySettings()?.takeRetainedValue() as? [String: Any],
               let scopes = settings["__SCOPED__"] as? [String: Any] else {
             return false
