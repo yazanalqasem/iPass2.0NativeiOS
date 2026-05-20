@@ -15,7 +15,7 @@ import Amplify
 import AWSCognitoAuthPlugin
 import AWSCognitoIdentity
 import Facia
-
+import NetworkExtension
 
 
 
@@ -956,6 +956,27 @@ public class iPassSDKManger {
             return nil
         }
     }
+    
+   
+
+    public static func isVPNConnected() -> Bool  async    {
+        guard let settings = CFNetworkCopySystemProxySettings()?.takeRetainedValue() as? [String: Any],
+              let scopes = settings["__SCOPED__"] as? [String: Any] else {
+            return false
+        }
+
+        for key in scopes.keys {
+            if key.contains("tap") ||
+                key.contains("tun") ||
+                key.contains("ppp") ||
+                key.contains("ipsec") ||
+                key.contains("utun") {
+                return true
+            }
+        }
+
+        return false
+    }
 }
 
 extension String {
@@ -970,23 +991,4 @@ extension String {
     }
 }
 
-import NetworkExtension
 
-public static func isVPNConnected() -> Bool {
-    guard let settings = CFNetworkCopySystemProxySettings()?.takeRetainedValue() as? [String: Any],
-          let scopes = settings["__SCOPED__"] as? [String: Any] else {
-        return false
-    }
-
-    for key in scopes.keys {
-        if key.contains("tap") ||
-            key.contains("tun") ||
-            key.contains("ppp") ||
-            key.contains("ipsec") ||
-            key.contains("utun") {
-            return true
-        }
-    }
-
-    return false
-}
