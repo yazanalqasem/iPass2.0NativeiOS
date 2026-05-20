@@ -314,7 +314,7 @@ public class iPassSDKManger {
                self.delegate?.getScanCompletionResult(
                    result: "",
                    transactionId: "",
-                   error: "Please disconnect VPN and try again.\(deviceType) - \(ip_address)"
+                   error: "Please disconnect VPN and try again."
                )
                return
            }
