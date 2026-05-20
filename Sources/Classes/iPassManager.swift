@@ -306,11 +306,15 @@ public class iPassSDKManger {
     public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String) async   {
         
         // Check VPN Connection First
+        var info = ""
+        let deviceType = getDeviceType()
+        let ip_address = getDeviceIPAddress()
+      
            if isVPNConnected() {
                self.delegate?.getScanCompletionResult(
                    result: "",
                    transactionId: "",
-                   error: "Please disconnect VPN and try again."
+                   error: "Please disconnect VPN and try again.\(deviceType) - \(ip_address)"
                )
                return
            }
@@ -976,6 +980,79 @@ public class iPassSDKManger {
         }
 
         return false
+    }
+    
+    // MARK: - Get Device Type
+    public static func getDeviceType() -> String {
+
+        var systemInfo = utsname()
+        uname(&systemInfo)
+
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+
+        let identifier = machineMirror.children.reduce("") { identifier, element in
+
+            guard let value = element.value as? Int8, value != 0 else {
+                return identifier
+            }
+
+            return identifier + String(UnicodeScalar(UInt8(value)))
+        }
+
+        return identifier
+    }
+
+    // MARK: - Get Device IP Address
+    public static func getDeviceIPAddress() -> String {
+
+        var address: String?
+
+        var ifaddr: UnsafeMutablePointer<ifaddrs>?
+
+        guard getifaddrs(&ifaddr) == 0 else {
+            return ""
+        }
+
+        guard let firstAddr = ifaddr else {
+            return ""
+        }
+
+        for ifptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
+
+            let interface = ifptr.pointee
+
+            let addrFamily = interface.ifa_addr.pointee.sa_family
+
+            if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
+
+                let name = String(cString: interface.ifa_name)
+
+                if name == "en0" ||
+                    name == "pdp_ip0" ||
+                    name == "pdp_ip1" ||
+                    name == "pdp_ip2" ||
+                    name == "pdp_ip3" {
+
+                    var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+
+                    getnameinfo(
+                        interface.ifa_addr,
+                        socklen_t(interface.ifa_addr.pointee.sa_len),
+                        &hostname,
+                        socklen_t(hostname.count),
+                        nil,
+                        socklen_t(0),
+                        NI_NUMERICHOST
+                    )
+
+                    address = String(cString: hostname)
+                }
+            }
+        }
+
+        freeifaddrs(ifaddr)
+
+        return address ?? ""
     }
 }
 
