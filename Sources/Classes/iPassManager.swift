@@ -305,10 +305,15 @@ public class iPassSDKManger {
     
     public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String) async   {
         
-      
-        
-        
-        
+        // Check VPN Connection First
+           if isVPNConnected() {
+               self.delegate?.getScanCompletionResult(
+                   result: "",
+                   transactionId: "",
+                   error: "Please disconnect VPN and try again."
+               )
+               return
+           }
        
         if(flowId == 10031) {
             if(socialMediaEmail == "" ) {
@@ -965,3 +970,23 @@ extension String {
     }
 }
 
+import NetworkExtension
+
+public static func isVPNConnected() -> Bool {
+    guard let settings = CFNetworkCopySystemProxySettings()?.takeRetainedValue() as? [String: Any],
+          let scopes = settings["__SCOPED__"] as? [String: Any] else {
+        return false
+    }
+
+    for key in scopes.keys {
+        if key.contains("tap") ||
+            key.contains("tun") ||
+            key.contains("ppp") ||
+            key.contains("ipsec") ||
+            key.contains("utun") {
+            return true
+        }
+    }
+
+    return false
+}
