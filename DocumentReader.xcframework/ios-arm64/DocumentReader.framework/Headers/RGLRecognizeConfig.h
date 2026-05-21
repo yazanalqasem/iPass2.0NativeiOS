@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <DocumentReader/RGLBaseConfig.h>
-#import "RGLMacros.h"
+#import <DocumentReader/RGLMacros.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,6 +28,7 @@ NS_SWIFT_NAME(DocReader.RecognizeConfig)
 @property (nonatomic, strong, nullable) NSData *imageData;
 @property (nonatomic, strong, nullable) NSArray <UIImage *> *images;
 @property (nonatomic, strong, nullable) NSArray <RGLImageInput *> *imageInputs;
+@property (nonatomic, strong, nullable) NSData *dtc;
 
 RGL_EMPTY_INIT_UNAVAILABLE
 

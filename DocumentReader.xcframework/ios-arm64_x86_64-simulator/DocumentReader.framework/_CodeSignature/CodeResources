@@ -6,15 +6,15 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		7EQkCpJ1B25vR/xqgjhri2qXA7o=
+		cgZq1Dknrd4qWgcAMHZj+ii5JD8=
 		</data>
 		<key>Headers/DocumentReader.h</key>
 		<data>
-		MaiVgkxuEHVywIVmdr0WnT7H3yw=
+		Lr5Y4ON1HgksZoV9wSmpiMsmKh4=
 		</data>
 		<key>Headers/RGLAccessControlProcedureType.h</key>
 		<data>
-		G0irVyr3sJan2X7CWhkbRuKcWxg=
+		qYcPA5Z6cxnbkC7XmNs8JvS1sRE=
 		</data>
 		<key>Headers/RGLActivityIndicator.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/RGLApplication.h</key>
 		<data>
-		JS1FonOTnvxxRMeQlh6Qp1T8UJw=
+		H5rEHwWHvXjKMZLbqPjQPZhjg0U=
 		</data>
 		<key>Headers/RGLAttribute.h</key>
 		<data>
@@ -30,15 +30,15 @@
 		</data>
 		<key>Headers/RGLAuthenticityCheck.h</key>
 		<data>
-		tU2oLbnMU4PsjQMgU25bPAODLaI=
+		iU01LASwzwkA2PuUWyoXoLyRC1Y=
 		</data>
 		<key>Headers/RGLAuthenticityElement.h</key>
 		<data>
-		abF7KdqXSq0Hq4loYhQLUjNRZEM=
+		Kkd+C+RM70wCCaCiebQ5dGev/rc=
 		</data>
 		<key>Headers/RGLAuthenticityParams.h</key>
 		<data>
-		Lzh6xIrakl5153QMkAN74zgfAs8=
+		pHasrNozUOmMJwK6s8CJY5GN0dw=
 		</data>
 		<key>Headers/RGLAuthority.h</key>
 		<data>
@@ -46,31 +46,35 @@
 		</data>
 		<key>Headers/RGLBackendProcessingConfig.h</key>
 		<data>
-		EUH2TM+SXu6+OlluKqxfhDmrxlk=
+		stYSsLqWrV0GyY5yPWsE+o7RSOc=
 		</data>
 		<key>Headers/RGLBarcodePosition.h</key>
 		<data>
-		jCR9QN/DJJlJaH0JJ+eOtpL5GjI=
+		nWJe1Q0fO638qZPaRdQSg1y6YU8=
 		</data>
 		<key>Headers/RGLBaseConfig.h</key>
 		<data>
-		5nMLdH20S8+S6RY+IEGlsUoDSBE=
+		a89iG9vVkSa9MmCsssbncfYu4HI=
 		</data>
 		<key>Headers/RGLBaseReaderConfig.h</key>
 		<data>
-		1Y6wyis4xpDdXmYekMUvZ+ZaDbI=
+		Lilr8la+Xh9zs2yMAbOmnbQqwb4=
 		</data>
 		<key>Headers/RGLBleConfig.h</key>
 		<data>
-		7i6HRDRncCapKL0mpcI9sEz0W+g=
+		nyOfFFip/RCnEABG6y6w2Z3A1vM=
 		</data>
 		<key>Headers/RGLBluetooth.h</key>
 		<data>
-		XG693Cn2ZzyuwjTKwj5yGQjcnyM=
+		KJaIoNd6n/DBWIwvVk42wdH40Wg=
+		</data>
+		<key>Headers/RGLBsi.h</key>
+		<data>
+		aDh3WEvoasIaGUAuhYSngMZu/io=
 		</data>
 		<key>Headers/RGLBytesData.h</key>
 		<data>
-		GB0E632aOr/26noq3j/lRT7X5sY=
+		Jfo1CzQISw635KA/6haiUyjuwXk=
 		</data>
 		<key>Headers/RGLCardProperties.h</key>
 		<data>
@@ -78,7 +82,7 @@
 		</data>
 		<key>Headers/RGLCertificateChain.h</key>
 		<data>
-		VsXkfb3ZT203XB11CepSRYsVPBc=
+		7pCrq0Z33V5eEBVOGwL2uWAAaGA=
 		</data>
 		<key>Headers/RGLCertificateData.h</key>
 		<data>
@@ -90,15 +94,19 @@
 		</data>
 		<key>Headers/RGLConfig.h</key>
 		<data>
-		e+quuHmO+yCK3QbWDjp3cm9nYlI=
+		cNvZoF5DMXyoQytUDHsztHQddU8=
 		</data>
 		<key>Headers/RGLCornerView.h</key>
 		<data>
-		BIwViWtHOsozDkZ7yQ6gNa9giPQ=
+		VUgyVpITK3c97+PkIAm319pUO6E=
 		</data>
 		<key>Headers/RGLCustomization.h</key>
 		<data>
-		KoKWaw5L7Jskl0vYAQMqX9rd2ng=
+		oHWzR2Vr+jiueo5/v9goWArjXuU=
+		</data>
+		<key>Headers/RGLDTCDataGroup.h</key>
+		<data>
+		BdRx3uW9c1ypaz2AdBtUniqNTeA=
 		</data>
 		<key>Headers/RGLDataField.h</key>
 		<data>
@@ -108,9 +116,33 @@
 		<data>
 		K4MpS0GAJKnsQb3fl31D/4GfIBI=
 		</data>
+		<key>Headers/RGLDataRetrieval.h</key>
+		<data>
+		BcuMQi74gBLc1gg6MEauGUVVVMg=
+		</data>
+		<key>Headers/RGLDetailsAge.h</key>
+		<data>
+		JbK+tiQfwPOSSSC+tRpk7zd7pBE=
+		</data>
+		<key>Headers/RGLDeviceEngagement.h</key>
+		<data>
+		ML/cAv6Mw/4x6oMCYBFqzGuTNz8=
+		</data>
+		<key>Headers/RGLDeviceRetrievalMethod.h</key>
+		<data>
+		T1F/oilvleMVjz4Fo3vnZjy+YKQ=
+		</data>
+		<key>Headers/RGLDocFeature.h</key>
+		<data>
+		3hDXsb4Z1fhiJHj51yxCPeAQk6Y=
+		</data>
 		<key>Headers/RGLDocReader.h</key>
 		<data>
-		1dPh4APsNegVW/eQltxAl21hMWU=
+		KvfXoAT0PR8Rxz5TUJXkaV/PjQs=
+		</data>
+		<key>Headers/RGLDocReaderCameraViewController.h</key>
+		<data>
+		xHCBZYgauXlXFHvRuJuIkLFylyc=
 		</data>
 		<key>Headers/RGLDocReaderDocumentsDatabase.h</key>
 		<data>
@@ -118,31 +150,35 @@
 		</data>
 		<key>Headers/RGLDocReaderRFIDDelegate.h</key>
 		<data>
-		rM5WqysNGK8f3JyweWzFGngAS/s=
+		rVypYeoDRNeYIpBywTYwNWA6o8c=
 		</data>
 		<key>Headers/RGLDocReaderVersion.h</key>
 		<data>
-		5GjfMepd0F5AhYLUhoZc0152gCA=
+		ePkGmLTS/3UO1Akej6BetDdYaTU=
 		</data>
 		<key>Headers/RGLDocumentPosition.h</key>
 		<data>
-		+X1G8SGnfsQ32sOD8Ko2quXVvEI=
+		wGCYtzJII2lW/+jpTYcrKEgdv9M=
 		</data>
 		<key>Headers/RGLDocumentReaderAuthenticityResult.h</key>
 		<data>
-		+By1IknVe36mg8/qywfPWiE77x8=
+		0FssoZnpBcHTjQs+SEDfOEDvhps=
 		</data>
 		<key>Headers/RGLDocumentReaderBarcodeField.h</key>
 		<data>
-		dnW7sxNx/kb+3xtBLlhSyXsJZd4=
+		D3KffI5S5mOl8wxmHBeWPUfgVsE=
 		</data>
 		<key>Headers/RGLDocumentReaderBarcodeResult.h</key>
 		<data>
-		GE3DgtfJ+lrh8ofOpwLV6r1T7/o=
+		X5RUDOMFFU/BE6icelLRJmzAgNs=
+		</data>
+		<key>Headers/RGLDocumentReaderBaseCameraViewController.h</key>
+		<data>
+		86SXmMzmoRhAJocJJUYRUqf7j/k=
 		</data>
 		<key>Headers/RGLDocumentReaderCameraViewController.h</key>
 		<data>
-		fNKsJupIUqxXO8HqKHtUFiVMgFg=
+		gTqHXksf9cB6QnDiz/IR3tzMTUg=
 		</data>
 		<key>Headers/RGLDocumentReaderComparison.h</key>
 		<data>
@@ -152,9 +188,13 @@
 		<data>
 		vXUJJFoLoL3V36MPOyDW0WibsVQ=
 		</data>
+		<key>Headers/RGLDocumentReaderErrorCodes.h</key>
+		<data>
+		/LslpnoqZGI5zD4VcG5sUZBO0CI=
+		</data>
 		<key>Headers/RGLDocumentReaderGraphicField.h</key>
 		<data>
-		iSM0VZWxpAxxgbIl3PWffW5ojOU=
+		MyhwjGEOWllW8eixU4uXoe0cvnQ=
 		</data>
 		<key>Headers/RGLDocumentReaderGraphicResult.h</key>
 		<data>
@@ -162,15 +202,15 @@
 		</data>
 		<key>Headers/RGLDocumentReaderJsonResultGroup.h</key>
 		<data>
-		0mEfoA6CA5wY+1ZAhthqj4RbWMs=
+		XBoW4iJ3ekC/Ar+6TTO5ud1Z9gA=
 		</data>
 		<key>Headers/RGLDocumentReaderResults.h</key>
 		<data>
-		eOj1CyXBeGxTm6aKGw/CAlhuy2E=
+		4Ft9quN2GtuBkZC5G1MZUY0gMH8=
 		</data>
 		<key>Headers/RGLDocumentReaderResultsStatus.h</key>
 		<data>
-		82cw9JRKmTO5y9qSqJ8/KC/TLZQ=
+		3kj6aFs8lMDIddnkCwQy6uLrqtU=
 		</data>
 		<key>Headers/RGLDocumentReaderRfidOrigin.h</key>
 		<data>
@@ -182,11 +222,11 @@
 		</data>
 		<key>Headers/RGLDocumentReaderTextField.h</key>
 		<data>
-		hYTaSjfZlmygNEfx78YcDeVfeY0=
+		Wf//EgA6YxTxth5tMwNQJn27ivw=
 		</data>
 		<key>Headers/RGLDocumentReaderTextResult.h</key>
 		<data>
-		6zvwi3uWY8KgyT8sCjR9vdLEGuM=
+		Ou4Q2NqneIiH1OV8gc0cCAgfsg4=
 		</data>
 		<key>Headers/RGLDocumentReaderTextSource.h</key>
 		<data>
@@ -198,11 +238,19 @@
 		</data>
 		<key>Headers/RGLDocumentReaderValue.h</key>
 		<data>
-		7jWl5js32oQHuVEwfrIzvVpOTzY=
+		oJ04BeQINEmhlqubXcSwU+GSe2o=
+		</data>
+		<key>Headers/RGLDocumentRequest18013MDL.h</key>
+		<data>
+		pGecQ3fglmC1fEAGn59yDtDs0uY=
+		</data>
+		<key>Headers/RGLDocumentRequestMDL.h</key>
+		<data>
+		K/qisPktygvteLScn1L6yjRdXuo=
 		</data>
 		<key>Headers/RGLDocumentView.h</key>
 		<data>
-		p2m2PpozADITXb7cOiDayJ/C6x0=
+		IdnJOVhrpesMpHVOEFq+Tcfv8yM=
 		</data>
 		<key>Headers/RGLElementRect.h</key>
 		<data>
@@ -214,7 +262,7 @@
 		</data>
 		<key>Headers/RGLExternalConstants.h</key>
 		<data>
-		utZ8aKcbWYLyq5I1EQZgxjtk8ts=
+		/8AJwNH5nlVuhVfdlHggxUKlCS0=
 		</data>
 		<key>Headers/RGLFaceAPIParams.h</key>
 		<data>
@@ -222,23 +270,27 @@
 		</data>
 		<key>Headers/RGLFaceAPISearchParams.h</key>
 		<data>
-		BxfsqlVpDfvXdxFbskq+rz96ASY=
+		1dBbE6QvGnPF+Qs/KHYEdEtaXhQ=
 		</data>
 		<key>Headers/RGLFieldType.h</key>
 		<data>
-		qGjUIet43qv0S53OzCAJGhJppYo=
+		w1NWl6wyIn6NjD8otlAR1XQlXMs=
 		</data>
 		<key>Headers/RGLFile.h</key>
 		<data>
-		5Vjh4eQgN/tblYSkFDf8dUFS0HQ=
+		ZhAOgi0HGwXeznBmA20BYKGxa/A=
 		</data>
 		<key>Headers/RGLFileData.h</key>
 		<data>
 		lnJc6RWc1qMIuJlLmD9AZqra4k8=
 		</data>
+		<key>Headers/RGLFinalizeConfig.h</key>
+		<data>
+		wFRMT0s4RFHkY+TroqX6PEC2YXM=
+		</data>
 		<key>Headers/RGLFunctionality.h</key>
 		<data>
-		yLq86UzwisIMEd2n1JoNny7mE2M=
+		/n6P82gDSl1n1BbduFD7n0qXs00=
 		</data>
 		<key>Headers/RGLGlaresCheckParams.h</key>
 		<data>
@@ -246,27 +298,27 @@
 		</data>
 		<key>Headers/RGLIdentResult.h</key>
 		<data>
-		E0mh04XDQCySuMmdrWpT9i3NuNM=
+		eilAFE5rK9MWnMNm4vBDRX9EO1k=
 		</data>
 		<key>Headers/RGLImageInput.h</key>
 		<data>
-		RKTsed8Z+Djv8gRQU3mH5a4qvyw=
+		E2MTktXBpYb4vK0cQO4OxFTNchg=
 		</data>
 		<key>Headers/RGLImageQA.h</key>
 		<data>
-		F6o2b1PPDtzioHetvpXDpaPqt+o=
+		CMRsByLebfIFPUECdhGYU5VGkCE=
 		</data>
 		<key>Headers/RGLImageQuality.h</key>
 		<data>
-		8GsQjFNy2PpvDJKGuIblQg5R8kU=
+		fW0Up99RNNfd94DKbrzj9bAgXV4=
 		</data>
 		<key>Headers/RGLImageQualityCheckType.h</key>
 		<data>
-		PMOACRasz3th1KreFmL2/K0nHws=
+		HA1HFot/xnSzUdGh8OSDLqqgn8g=
 		</data>
 		<key>Headers/RGLImageQualityGroup.h</key>
 		<data>
-		sQM5svERMwxe9zQ5IV1AOJmecaQ=
+		Owi/FJudGVyWbEZ15xOr5fwvjPk=
 		</data>
 		<key>Headers/RGLInitializationResponse.h</key>
 		<data>
@@ -278,11 +330,15 @@
 		</data>
 		<key>Headers/RGLLivenessParams.h</key>
 		<data>
-		Wgipu9fuEf76BMgTCCQmW76aN3A=
+		FZBxxrtL/7oTBD8mOFqNItGXIy8=
 		</data>
 		<key>Headers/RGLLogLevel.h</key>
 		<data>
 		zuF6zHkrTkLP2cnxIL9n77up2no=
+		</data>
+		<key>Headers/RGLMDLEnums.h</key>
+		<data>
+		SRm4Kz06ZZ2p21S3kivbJjIclb4=
 		</data>
 		<key>Headers/RGLMRZDetectMode.h</key>
 		<data>
@@ -302,19 +358,23 @@
 		</data>
 		<key>Headers/RGLMrzPosition.h</key>
 		<data>
-		CuFiedEb6RJI++cxPEhHLFe61L8=
+		js+8+h69zVQw5zylOdtnx0k0NSg=
+		</data>
+		<key>Headers/RGLNameSpaceMDL.h</key>
+		<data>
+		E9jfV+wZhEEOLZ9voEVXxZ6ifsY=
 		</data>
 		<key>Headers/RGLOCRSecurityTextCheck.h</key>
 		<data>
-		cHwit39hf3XCeamTxnDXbslHjl0=
+		r0ZknDkcJ6UwhdL7I1v+Ee9Zqgw=
 		</data>
 		<key>Headers/RGLOnlineProcessingConfig.h</key>
 		<data>
-		DadiSbJnMadsuwbQBdY8zvtgDYo=
+		a0M1J1UIoG7NFe1usRTxdqvJcV8=
 		</data>
 		<key>Headers/RGLOpticalStatus.h</key>
 		<data>
-		pbg6V+m/ghxCBWbibKbkXurVkqc=
+		MGrxpONZUx0Uby52DBU+4U7sJkE=
 		</data>
 		<key>Headers/RGLPAAttribute.h</key>
 		<data>
@@ -330,15 +390,15 @@
 		</data>
 		<key>Headers/RGLPKDCertificate.h</key>
 		<data>
-		zuK3lwOku3MJ2a1OQ3UijeD/hNw=
+		jsZArM6psrUKMuLlOH8an8S/qFY=
 		</data>
 		<key>Headers/RGLPhotoIdentResult.h</key>
 		<data>
-		QO1LElsOQ1AfVq0FjV9E9zFsiMU=
+		0lQuL8IOTtTp0fQBhgqGOEAVRcM=
 		</data>
 		<key>Headers/RGLPosition.h</key>
 		<data>
-		QV0hxYGljKTqdYvA6Z6fiNMW9MY=
+		d2KK8ZyBWyZTJ/quaERavOeDWmc=
 		</data>
 		<key>Headers/RGLPreviewView.h</key>
 		<data>
@@ -346,11 +406,19 @@
 		</data>
 		<key>Headers/RGLProcessParams.h</key>
 		<data>
-		lZQDirJnA25fvqyuy3ZKhqGC5ac=
+		eh1ss3eqWq1Ed5E3NBhqR1Yk62c=
+		</data>
+		<key>Headers/RGLRFIDAccessControlCA.h</key>
+		<data>
+		n7nM3WPL4HLi83TdShc555UESis=
+		</data>
+		<key>Headers/RGLRFIDAccessControlPACE.h</key>
+		<data>
+		UhJSWoAbMfdo3exz+XjmYCbfxMM=
 		</data>
 		<key>Headers/RGLRFIDNotify.h</key>
 		<data>
-		MeWVmGhRK+nsKCrxiNfEpgFkxek=
+		Z9cewAjKjmfdQrZ+N3W7XaRnhbM=
 		</data>
 		<key>Headers/RGLRFIDParams.h</key>
 		<data>
@@ -358,15 +426,15 @@
 		</data>
 		<key>Headers/RGLRFIDScenario.h</key>
 		<data>
-		UXPIK0Lc5puBFsz/8fVWJgi7Z3k=
+		OeWlLrGZCAnfG6T6XLT1+vk6vO0=
 		</data>
 		<key>Headers/RGLRFIDSessionData.h</key>
 		<data>
-		O+fq84ZN12ZgxUPara9O20GzJJg=
+		DGMgk81LoSL9emxRcYkZc5orsmE=
 		</data>
 		<key>Headers/RGLRFIDSessionDataStatus.h</key>
 		<data>
-		fr3coGT+VJpn6I8HlIUcBCVLe3Y=
+		r8sl2KSvykzqmGCenPopmnbAJEg=
 		</data>
 		<key>Headers/RGLRFIDValue.h</key>
 		<data>
@@ -374,7 +442,7 @@
 		</data>
 		<key>Headers/RGLRecognizeConfig.h</key>
 		<data>
-		S2AlcUcduWwuBWRtTJkvW13hyDk=
+		Iquh4A1CSe2mi2a7LWM5qzLbZlE=
 		</data>
 		<key>Headers/RGLRecordingTimestampConfig.h</key>
 		<data>
@@ -386,7 +454,7 @@
 		</data>
 		<key>Headers/RGLScannerConfig.h</key>
 		<data>
-		BPM22Cp9DNMPWNSUCnxSKFAlubA=
+		gcGTyK9R5VbjphWmVLUcf4CVIiw=
 		</data>
 		<key>Headers/RGLScenario.h</key>
 		<data>
@@ -394,7 +462,7 @@
 		</data>
 		<key>Headers/RGLSecurityFeatureCheck.h</key>
 		<data>
-		mUChmA+rrcalYj6yqE++G3wHBbQ=
+		h0tPjaH3VB1jRK4PpqoPV+1z8RQ=
 		</data>
 		<key>Headers/RGLSecurityObject.h</key>
 		<data>
@@ -418,15 +486,15 @@
 		</data>
 		<key>Headers/RGLTextProcessing.h</key>
 		<data>
-		KDLnMNE2+4xR1Juxvpi7J5zzijI=
+		CWC3tkcO1hhqQyPKcCB5oixaQ64=
 		</data>
 		<key>Headers/RGLTransactionInfo.h</key>
 		<data>
-		Bn6QHxPb3sUhWM/oz9amc8AoS/w=
+		/3js88bWYQ0uNoyDu4DxSy1Vjq8=
 		</data>
 		<key>Headers/RGLUIConfiguration.h</key>
 		<data>
-		JE+jaNZIM03LbCeWpIfvz83Z2T4=
+		SsUT0KGBzoXEejfnQH2DztUVaR0=
 		</data>
 		<key>Headers/RGLURLRequestInterceptingDelegate.h</key>
 		<data>
@@ -434,11 +502,19 @@
 		</data>
 		<key>Headers/RGLUVFiberElement.h</key>
 		<data>
-		qlCQJKGd8yGm2qg+3X66bYOzxes=
+		AuSbBnBgDYDdu1CyCiz0CmKJJaI=
+		</data>
+		<key>Headers/RGLUniversalNFCTagTransport.h</key>
+		<data>
+		XIpH2Aw9ljflqg6sOiaTt+Q/Mu0=
+		</data>
+		<key>Headers/RGLVDSData.h</key>
+		<data>
+		3ziuRzwBKrEbrlwaCUWuPRDUbqs=
 		</data>
 		<key>Headers/RGLVDSNCData.h</key>
 		<data>
-		BbxxLL8d/fa18KV9tsJXCKnuZgk=
+		A+s6ySpTs1JkynNInL0P8NxiXu8=
 		</data>
 		<key>Headers/RGLValidity.h</key>
 		<data>
@@ -462,15 +538,19 @@
 		</data>
 		<key>Headers/eLDS_ParsingNotificationCodes.h</key>
 		<data>
-		45Z2KDuz9kKlWz6xefbOAHzbE3I=
+		CkXqSJKipxS9m4KG84lHKiz7GPI=
+		</data>
+		<key>Headers/eRFID_BaudRate.h</key>
+		<data>
+		Mg2w9lTtv8jXpAiVdWMFLNyy854=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		tUBDYixCyRJZm/J1PtaQDZJ50tY=
+		tp/+9LEf11uFRSMve4OD/NGqdkM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		nTE5Z0xbclQRcEQMhc6wuV4UzBs=
+		pvnAx+Mm1yhF/hj0uz7dqE731Ew=
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
@@ -478,11 +558,31 @@
 		</data>
 		<key>PrivateHeaders/RGLConstants.h</key>
 		<data>
-		10GCiei6YtcmFZxGwx+onVEVA98=
+		6JMw2Sb5msekw9yq6nrFX2HFnXc=
+		</data>
+		<key>PrivateHeaders/RGLCustomization+Private.h</key>
+		<data>
+		BXpcAtYF87Y6B354NC/H3LROaPM=
 		</data>
 		<key>PrivateHeaders/RGLDatabaseBackgroundLoader.h</key>
 		<data>
 		av5wbsh22LnC0tXzjlJ34vt32A0=
+		</data>
+		<key>PrivateHeaders/RGLDocumentReaderErrorCodes+Private.h</key>
+		<data>
+		YevN1SL+WriV8jz9h8sfo5uUAqM=
+		</data>
+		<key>PrivateHeaders/RGLFunctionality+Private.h</key>
+		<data>
+		hbDeAK9GFbr8V53QfeuEU/EZNyY=
+		</data>
+		<key>PrivateHeaders/RGLProcessParams+Private.h</key>
+		<data>
+		8yq5e1iBOFNwADzXVpkCmJVhLrg=
+		</data>
+		<key>PrivateHeaders/RGLRFIDErrorCodes+Private.h</key>
+		<data>
+		yiC80Ty+udRh9+yXcZnV8qOcibE=
 		</data>
 		<key>ar.lproj/InfoPlist.strings</key>
 		<dict>
@@ -497,7 +597,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ckg5L2X3KOeeozq2R7RcnZ7pdnc=
+			bvUDioAe0hYmdACnbEmAOsanF6M=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -515,7 +615,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OL9UXUz1I8QFB2TPXjkWxXIc0C0=
+			Gk+JPhJ3tLAV6dqR3n81vDmTdkg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -533,7 +633,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OL9UXUz1I8QFB2TPXjkWxXIc0C0=
+			Gk+JPhJ3tLAV6dqR3n81vDmTdkg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -551,7 +651,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OL9UXUz1I8QFB2TPXjkWxXIc0C0=
+			Gk+JPhJ3tLAV6dqR3n81vDmTdkg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -569,7 +669,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1nQy4ZrQlURy/XRYPSXdKXUL+2I=
+			4dgwAU3zfIs/xyNmQMJOIZV+rFM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -587,7 +687,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8aM6Y7Z7Sv8P3kRt1lAEOxsVUmU=
+			UNPsYxXdXeD+bo/oMS2PB6+vgh8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -605,7 +705,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bMxETuSQoHMwAZ5D8Lq37PNK6AE=
+			rcPwOdmylI69cHIUlOoAL3ypNSs=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -623,7 +723,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			inbXD35XZPnVGZADADa3ncpMyoM=
+			l611fZSAL/v4YZHSvrlclm9OgoQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -641,7 +741,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			e9ul6YDtyDFNj2gzXygJcxyb6+M=
+			GVdnEmCpQ5D3pdVh4M9wDLRFtiA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -659,7 +759,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wWyfOplJhyN+g1MjVo/iuDPcx7o=
+			6+z96wI2LR2x4J9TOStnIRjJSX0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -677,7 +777,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eNHJzsk9abj0SWIfMyZMH4+5ePc=
+			Zj7oFHM6apy1IKWKrRfk/oMpkDQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -695,7 +795,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			u47nRsVu5MbcSxXjnqGSgGVznNQ=
+			e9DVVZh1KalCM8fEkKOKdVboNjE=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -713,7 +813,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xkU4H1vniF5/E7OjDmwv6uHxFq0=
+			enFq2c/MppT9XcoofUk9UBwDQqw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -731,7 +831,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vcqB9aTyqyjvU1D5hOORDXadHDk=
+			STOYb5Ezu4HhPcm/jLh1AgI7WdY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -749,7 +849,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LLRKvHMedKf4xK2BKWx3FPpSKlg=
+			AF56zq/59jkNZAa2XyCDwP7BMvg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -767,7 +867,25 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TkhbdNYYPjplldXCp6Yn3Sdv7Xk=
+			SP1c9frtCvtySm3xgOb61TFJWDA=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>hy.lproj/InfoPlist.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			saQ8s8Dd6k4rux5CbKGtBs51qOo=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>hy.lproj/RegulaSDK.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/mYreec++mlkeYZM+j6ojiDdQCk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -785,7 +903,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zT5VMKCcnMAK70JHO9jGFMSCg88=
+			yKC22dE9NVZYRLWMcB8mXYMcHpo=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -803,7 +921,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			FvvTGSL2I6zgrSvd8FOaAlL5nRw=
+			Vvq2yU6ys79Bw0pZ9eiVU/DaL44=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -821,7 +939,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Uqv7GJajJNjctwD1JSdjgDBRxns=
+			zZK28b5Gkv+uSs5pbdPzQCxuXos=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -839,7 +957,25 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zjc2CdwzJP/P5tsDKMf8HWM0ORM=
+			IHPou04KjYeaMZfIx3ajFe6wmMY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ky.lproj/InfoPlist.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			saQ8s8Dd6k4rux5CbKGtBs51qOo=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ky.lproj/RegulaSDK.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mYk5D8yysbTSTc3VGZ0hUq1plRE=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -857,7 +993,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			X9vb5s1xH/kjgGYMzOH9v1Xkbvc=
+			aqtcwrs7sU95lp4BNGY+UqURkD0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -875,7 +1011,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			A4IOGe3BJB9s6Adu8a8SHHayKp8=
+			N7nJMGMm8Kn3mhY3JmATyQ2VN6M=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -893,7 +1029,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Wg9HIya+DsyM2voDn1hC+H74jIs=
+			x0gjLJEnxRA286MNHkWmEjt/6ks=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -911,7 +1047,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wTIaWbnpe+TirFBK8Ir9R00LNCE=
+			mBIW3zKnMNdHP/4HBb5JfSyJwyk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -929,7 +1065,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			R6MWYy2T0EUDZ7sI2tTo6TJmqr4=
+			xoktVUkLMamfKngjyB3FIxvDQz8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -947,7 +1083,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			R6MWYy2T0EUDZ7sI2tTo6TJmqr4=
+			xoktVUkLMamfKngjyB3FIxvDQz8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -965,7 +1101,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Bv0fEnJP3x4pfG60pbKZrHiYT2U=
+			tNy+HA0nn5wISGhu69KxD53NjRk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -983,7 +1119,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YDqjT75qlZuhSyA765YHWGDjD6A=
+			tyB3C6EH85OJBCiEmCitlDWmc5M=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1001,7 +1137,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GkhuiKC1gWMQdkhLJkDad2YCKGE=
+			ammqeRUKW0XYE6Y0ol6GgEAefrk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1023,7 +1159,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			H+t7uzNrnU76P9ZufS1t6p0GBBw=
+			WANXkE/9pDRaDyhi83lQdv2ZnX4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1041,7 +1177,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			L2G0mm4KZDWo7drJFWniSbL0k1U=
+			dfn4FxYzJ8B/tXjNtifnHl9qOcA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1059,7 +1195,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nD0gk9ofTkLZtJoLe0q9a/Omr94=
+			GLNFDxHwF7qUPw4FJDH53Fz8+TE=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1077,7 +1213,25 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ahMO86dKgY1LjuBTI/hZLrM1TDs=
+			KsRLCONkU0utU4e45zRDjk7xrMU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>uz.lproj/InfoPlist.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			saQ8s8Dd6k4rux5CbKGtBs51qOo=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>uz.lproj/RegulaSDK.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SVZHs6e6KJmV82Q9EAdPdINYlF8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1095,7 +1249,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xTA1RW6loUTp6pDEJQyrZVwvxQE=
+			+hIyeclvgmYcQa2TQIAu6a8RYzc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1113,25 +1267,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZCYqlA5kVJ1GB0JrbTkUK7RjS2U=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>zh-Hant.lproj/InfoPlist.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			saQ8s8Dd6k4rux5CbKGtBs51qOo=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>zh-Hant.lproj/RegulaSDK.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ZCYqlA5kVJ1GB0JrbTkUK7RjS2U=
+			ZUDL2dS9B9edwoqM6T1ajBmw7js=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1143,21 +1279,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GsjhL/RyowrU0/eU+czmHf6qJq+EpdghWz1sqEDMNIU=
+			+2CHwzZ28Imd2SZw192AgsSS8QgbmpjXv4fiusx9cTw=
 			</data>
 		</dict>
 		<key>Headers/DocumentReader.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5f7316lAKpU+QXbFRaFuSiMhyyUe6JpoNVXp5lWE58c=
+			beLi3mI401bms3FRLhyXrxch5Unlfzj7unmMQBOlCg4=
 			</data>
 		</dict>
 		<key>Headers/RGLAccessControlProcedureType.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jOVlitrk++ehFCfWNKJTdh2Xsj52qm/9fbGMYxbTVm4=
+			U1VfoGDFsN1ltJK36fvUGfeRb/jSoDKvbAS41yeo4jI=
 			</data>
 		</dict>
 		<key>Headers/RGLActivityIndicator.h</key>
@@ -1171,7 +1307,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			U1SYR9NUtPtz53xIu3m0PloZ+0IRTJukuCX64ccF0aE=
+			5YIRXlx8ADL+31Ijq4pmioBfmFIRho8lLcxecgB9VzM=
 			</data>
 		</dict>
 		<key>Headers/RGLAttribute.h</key>
@@ -1185,21 +1321,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			09DG5ORZAFDYoP6C3xeINHu4V497cyccbjDmso6lrFo=
+			fC+xVqWLo3UMXSwQv4LEIvSHsUGj4+3DXeRULoAEzEA=
 			</data>
 		</dict>
 		<key>Headers/RGLAuthenticityElement.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pVyqJJKTH7vVaRXTbYxO03+bMzvLadWEigYXyCrZWQY=
+			O9pun3pracZdcwt6ylPCnitmhF1xjfArJyD9RneipRo=
 			</data>
 		</dict>
 		<key>Headers/RGLAuthenticityParams.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			06jTT2fjKkcQ+kuktWQhwD/8Z1jHGPXpxdbVP/0/fe0=
+			MjhSGjAN+BKbM4mp5Pb2aRVOW+zoN099M8Jziu3N6II=
 			</data>
 		</dict>
 		<key>Headers/RGLAuthority.h</key>
@@ -1213,49 +1349,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			L0gUrzPJYkQ/kBnC9VUA+NstvJe3SjqMf3NYPpPJsgY=
+			jli5jG54+oXWHzGjFoeQojdFXMOOQURI4yiRQgTt7GE=
 			</data>
 		</dict>
 		<key>Headers/RGLBarcodePosition.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FDqqS5acZoqmbOkdCtQVVDlSyt+ELs9i1kEtlSPiPhE=
+			onUNWMe9/kmgkIrPCxi1cbvecExoa/GhxvMPbqK1FEA=
 			</data>
 		</dict>
 		<key>Headers/RGLBaseConfig.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vBhy/+04ZjbHEj8BVZfHNA+bWvgRFa6P+sx4jaiVpNY=
+			2ENaVhowhCLH1ue2apVX6Ik3Nj7+3x2Kv/LS7uJbhJg=
 			</data>
 		</dict>
 		<key>Headers/RGLBaseReaderConfig.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sam2h+Rwlyq7+2TTxVpw6U+jM3BIMdgN6Yeqjhhpzys=
+			S73zq/4rlDQ8E+kb2oE1nEGWGCvW1JNuCcWPpyzb214=
 			</data>
 		</dict>
 		<key>Headers/RGLBleConfig.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7b9xkQf8v0aWGEqCdFwOXUJ5PKEtZ7HSwKvYc8ON3rA=
+			GGBwKFgvNz78masbIfbzNZtQ5tb2zQ3FUY0TH0k6+Go=
 			</data>
 		</dict>
 		<key>Headers/RGLBluetooth.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RwY2+rix+58QAWnAbQL7sGp3zoHt6iEfQYRzO+4QuFU=
+			FbsolgraC4C0Htmdl6qhYz67vykjDiAa5LqP3Mioshc=
+			</data>
+		</dict>
+		<key>Headers/RGLBsi.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			wrpWveZwYYTxxwyrPjrj0X+D/tuqhBd5dQbalrOeWTU=
 			</data>
 		</dict>
 		<key>Headers/RGLBytesData.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Lxymyj/m5tdOe88RO6M4ihRD+O61wCIZhSNBMHbgNV0=
+			nH9YG4EI+RwYSpno4FH0jf17lfArmNffXcDpdPC37Tg=
 			</data>
 		</dict>
 		<key>Headers/RGLCardProperties.h</key>
@@ -1269,7 +1412,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6Bt4TtYNHOmFy53cgHXI/5oDf+vf5uot+clcTgbikhQ=
+			/8xBw0ar7hKrkGfy5+gCmOKLtWR8z9/AKIdfV4xnSEs=
 			</data>
 		</dict>
 		<key>Headers/RGLCertificateData.h</key>
@@ -1290,21 +1433,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UHA3XeqYrPOx7KQ0aVr7NjmTixYrgGW5fnxIpQcAtVI=
+			02E/fdod2TU8xzJqrtcl5LE9aZgd1zKzh00RYOD2hfc=
 			</data>
 		</dict>
 		<key>Headers/RGLCornerView.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			63hxSVwXqDHQsAesvxc1WdhAzNqTv+6kk8cES0jS9jI=
+			E1eeOmYAvrAjDBcbWr+c5PULgKThlFGf3B/vePywLPQ=
 			</data>
 		</dict>
 		<key>Headers/RGLCustomization.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+Un4yJnl4Ore02GS7BaFCxT2f6lnlhCE53f8mbzJHQQ=
+			GbAdXi0e7wHFRZnfpl9C3dUKI/IpaQjW8MmWjFgPyKg=
+			</data>
+		</dict>
+		<key>Headers/RGLDTCDataGroup.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			qWs7XvNBb69jqdeoVxD8F85fWI678psYJLkrdCoUxCs=
 			</data>
 		</dict>
 		<key>Headers/RGLDataField.h</key>
@@ -1321,11 +1471,53 @@
 			LDwe3+rlv75FPWW6CjglsQpmIPEmOUIPWFNVgrogGEw=
 			</data>
 		</dict>
+		<key>Headers/RGLDataRetrieval.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UyycZ2pvTriv1RCyvnsEGR5pzW/8SieP2UOVFDHHMX4=
+			</data>
+		</dict>
+		<key>Headers/RGLDetailsAge.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			uerw17irGY5iQm2RTRmujBzORPkwY/owNDjx++ElvMI=
+			</data>
+		</dict>
+		<key>Headers/RGLDeviceEngagement.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			klKT2mAFlqZOannXHq7bSMSMwnMbPpayyu5QEysNn4A=
+			</data>
+		</dict>
+		<key>Headers/RGLDeviceRetrievalMethod.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			FwKesW/iJbex0Gx8GMFE1X6d+h+2qnk8M8cu5azgfiM=
+			</data>
+		</dict>
+		<key>Headers/RGLDocFeature.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Ju030IPy61OQxW7knVXEVvj8iVgP/l/3aCx9RhW1iHo=
+			</data>
+		</dict>
 		<key>Headers/RGLDocReader.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yn6ndzLCTjfDkPTcLL8/bvC3deUiXBpZ5rkgRyUUo8w=
+			cNo4st3iMp05XPDvMBadH7gz6oOKjUwT3zpLJO064YU=
+			</data>
+		</dict>
+		<key>Headers/RGLDocReaderCameraViewController.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			58qID8ykfZBcXr2lM4omT+CDQm6FRA+E9ZWBJQ0KbJc=
 			</data>
 		</dict>
 		<key>Headers/RGLDocReaderDocumentsDatabase.h</key>
@@ -1339,49 +1531,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+B6gn7p+dyRzG3ijveUuLbaLN6aSaqrFD+6v6XEDxuQ=
+			cs1DVBPBmqZ9/FOtdA4TSwHMRPsn3aB24PQg2QzrEag=
 			</data>
 		</dict>
 		<key>Headers/RGLDocReaderVersion.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+aone2IQX7cMdDPPdGwC66TpDaSsyUfolKDdZomBs/8=
+			BIwrhUbzs3yN8tiI/aPnJthasSE+XDTAtaFGuZIXGlw=
 			</data>
 		</dict>
 		<key>Headers/RGLDocumentPosition.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3yae6aGJs4Nen1HCA3EbP7vqo2W2gfny/b4KaX/lnss=
+			P+GH1PiAKeQiOlBct9bIy822xqNDtHGH1RNLP9uvnrA=
 			</data>
 		</dict>
 		<key>Headers/RGLDocumentReaderAuthenticityResult.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UQdi7Hk4sGAB09hoCFGeZokudPRqvOQIK06+bnYRj+Y=
+			bdkSebQerZc/kDBpYCTnF1cUaN9Ph3cupf0lNhfIG0s=
 			</data>
 		</dict>
 		<key>Headers/RGLDocumentReaderBarcodeField.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JyDScC6aoH834sZRPtU7Y5F6fHQuEqOOoY+cMXyWKGU=
+			J9krMYUbZTccbEwetYfRqoqE7Dvc6ECZ4A5PNdxtTkw=
 			</data>
 		</dict>
 		<key>Headers/RGLDocumentReaderBarcodeResult.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wvHe42xFe/YdywdxhvqOw2rhn0lTUsjX/rcC/l3X2RI=
+			bki5+DsAEprCB3hX6FHssZLXwVi+s74lJ1vwjCbixMk=
+			</data>
+		</dict>
+		<key>Headers/RGLDocumentReaderBaseCameraViewController.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			d4Dckctb+xqdagKlNhjJaLD1/NzzGsOm00p44BJnXeg=
 			</data>
 		</dict>
 		<key>Headers/RGLDocumentReaderCameraViewController.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+ZgLgzLjPlUrsvjgdTKI6EhMQE7SbdW7Brr+l3V9BYE=
+			PkbrIY2YKwVNZ2dCzPZELYHxyrJMYLf5ZzG7toiL8yQ=
 			</data>
 		</dict>
 		<key>Headers/RGLDocumentReaderComparison.h</key>
@@ -1398,11 +1597,18 @@
 			c2zu4LCHCuhmXW3bq6TMQgmIL0JhSGOw1o7DxDSUJfw=
 			</data>
 		</dict>
+		<key>Headers/RGLDocumentReaderErrorCodes.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oV5a8Txjy6+nCDPNUjpyiuItnZkmPvHpp+jrD0tyldU=
+			</data>
+		</dict>
 		<key>Headers/RGLDocumentReaderGraphicField.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VAvpH391/hzdxkIbktZNdh+oICP8CCWO0A70CVZY8t0=
+			KwuaTqMgruIOdyPqrM5XLMorUkqKa9l/z2rhBtBWlCw=
 			</data>
 		</dict>
 		<key>Headers/RGLDocumentReaderGraphicResult.h</key>
@@ -1416,21 +1622,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uHFjauYba9UoQ/3/NWDC8tqnMlQzI/U3epef+kdFn2g=
+			2BIIQwRZopNupJ0TI8U0tVl/dXGD2pH2iifhc6tzEt0=
 			</data>
 		</dict>
 		<key>Headers/RGLDocumentReaderResults.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EfnURy4byjQIHSJqaKRohuQ3dydqk50LefT83+++EDk=
+			bPJqY/rIVOCxoegUhpMQfE229mAj+hm4A/i5VseyzNY=
 			</data>
 		</dict>
 		<key>Headers/RGLDocumentReaderResultsStatus.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DhApHXfL7ON/FOefxaRC+rwcbfMP6scjgTcsLHmQpdE=
+			8OQaFIieJhg11C130cnn3FvyyutXOxtsBuEGcAt8j0k=
 			</data>
 		</dict>
 		<key>Headers/RGLDocumentReaderRfidOrigin.h</key>
@@ -1451,14 +1657,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rWuyw8eUuLT+FtxCtP/LxWX1fXuhCBMo4YhNwwUMcik=
+			FQlpcA2dre90i+vLRs4WIJU4QtuValX6x8IhEnTZ0dM=
 			</data>
 		</dict>
 		<key>Headers/RGLDocumentReaderTextResult.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wYRsxLGn/ivvRBPTL1O1MBhluzbD1ix4nkOdsE/lQCw=
+			mXnTm+AxdDWmOLjKLCHqGhbmLY1h1+vYSfjvJy1VY+0=
 			</data>
 		</dict>
 		<key>Headers/RGLDocumentReaderTextSource.h</key>
@@ -1479,14 +1685,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/mEPJnjO3k5Nt2UCfchkcQ/UDw97bVZ+K+yDhcXmV00=
+			RnwCKmaDwylnkzOCPgUT8hweIN2rHDDlu5CmG7yUPzg=
+			</data>
+		</dict>
+		<key>Headers/RGLDocumentRequest18013MDL.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Xm5daPJwKKCyMUB0s+R3yoBCWDtn/dw7joTbIkyEFrg=
+			</data>
+		</dict>
+		<key>Headers/RGLDocumentRequestMDL.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			42OJM7x4fXd69L6C+TTSnvzAOCDOaGHVSa3UMAfAiXU=
 			</data>
 		</dict>
 		<key>Headers/RGLDocumentView.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rjJ35XMiWIaAvms5DUrTkIUMFEeLy3rPJENdctyBP2k=
+			nJ+VchAlJcAS6iGySzpX6IyeMtg+y3XRIR+4I9WZsiQ=
 			</data>
 		</dict>
 		<key>Headers/RGLElementRect.h</key>
@@ -1507,7 +1727,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RmEDV7sVIjl6v26AIeBO/+0BKLhrfpYyWCM14cuqk+s=
+			CWC0r0vhCQCtrIxqlGbsmx6jEwhxGbv+DlMo4prboik=
 			</data>
 		</dict>
 		<key>Headers/RGLFaceAPIParams.h</key>
@@ -1521,21 +1741,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yHaJNPOywIbayfnpj51n3vQdwCWI4avqLJiDMrvX9Gg=
+			TJW6i0s3yPtCl94QBX6KlXEu7Ol90FbKq44LPOS9wDw=
 			</data>
 		</dict>
 		<key>Headers/RGLFieldType.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Qy2hOGLcycOjQrC5Iy3kgDT/uRHZ/+qNCz+6CDwR7xw=
+			33s/iFHpryk5lDweR8Uj3HnWYAj5GzkvjgPTEZH3318=
 			</data>
 		</dict>
 		<key>Headers/RGLFile.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0oPxpAwGdpLkfIVqOgMVXaBnOlreWgV6CYhPj3pL5Hk=
+			trUmP2lP7KdFSGtK80ajHhiANmBrMVLfg/JXqtKAImc=
 			</data>
 		</dict>
 		<key>Headers/RGLFileData.h</key>
@@ -1545,11 +1765,18 @@
 			hD1RjtAjSmgtWT3aS4li4hQk8ts/aN2MwqylOysAQo8=
 			</data>
 		</dict>
+		<key>Headers/RGLFinalizeConfig.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+yvkHPlxvFvR/Ryd5iGdJsaVnfVhgzSx8PSo1WiXOok=
+			</data>
+		</dict>
 		<key>Headers/RGLFunctionality.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YtCwMuOJZCvtAORIeH24PxJg0n1EEOo07Ed5KDgp71A=
+			gy6cQxAsle7sOQXOz2K3EPMtDa5RW8p9EDrj+0O78Jc=
 			</data>
 		</dict>
 		<key>Headers/RGLGlaresCheckParams.h</key>
@@ -1563,42 +1790,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uV1KJjv9s8sEjIMD6UWtm6RvjLoGsL9dnPTANeLGBqY=
+			vqSY8SdcqCDfeT45rIcNTXGPoj6C35PDMtRb9PYRX5A=
 			</data>
 		</dict>
 		<key>Headers/RGLImageInput.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			79NxTmOYaU2eD1ClMYgVFQGDK0FZ9Z54PymoD9icYA8=
+			cYlDugUkXyKVjY/bIRqOm8k4aoiiTLVKGRbNsTbxOzM=
 			</data>
 		</dict>
 		<key>Headers/RGLImageQA.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			u11J0rYyUoKZnl+tdFQwqVI0QvCBD4fYl0Ujs94FF+A=
+			gmEQZKYRamZGNoZb0UMnXDrcwAfRTssJ6DOsakHaofA=
 			</data>
 		</dict>
 		<key>Headers/RGLImageQuality.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eXLMqkYllyRCexj7qJVk69yKF1tjSJe5FlovJZqgnWU=
+			1pvifrNuV2NA5VqtJATpLUsNE1dIbK0shP3oFJcb7wg=
 			</data>
 		</dict>
 		<key>Headers/RGLImageQualityCheckType.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AdEhi5zBhR88tacokBO/16JxDDah9r07Vzxd9jS0jqo=
+			I1bJU/V5W5ICjOcw4cc/kZegY0ZBPT4m2ei8tAJ6D/w=
 			</data>
 		</dict>
 		<key>Headers/RGLImageQualityGroup.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TVq8Vxct6a2D4JvjUmR3bFq+crRx2FdXoS3vyCxSqEM=
+			bv+nFMQ0rU/b5GqKERlytoAw0ziilWHitAHPu8H2TWA=
 			</data>
 		</dict>
 		<key>Headers/RGLInitializationResponse.h</key>
@@ -1619,7 +1846,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KFkN/Iv3KiPhMJ/ju5FJKJ3NXPWFyBIdExvJagmjzy8=
+			6ixR/2Ls9LgmnVe/M3FHgx8xOHwodLluAs9lAhCuYmU=
 			</data>
 		</dict>
 		<key>Headers/RGLLogLevel.h</key>
@@ -1627,6 +1854,13 @@
 			<key>hash2</key>
 			<data>
 			gj50+MFZFWmN9cIGI1LaDZIsq8d4aXBwXS/YgP8Ay/U=
+			</data>
+		</dict>
+		<key>Headers/RGLMDLEnums.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AdHYCM/WOFbydA9DLdMv0jYw4a5zXGtKEGhVODAk9g8=
 			</data>
 		</dict>
 		<key>Headers/RGLMRZDetectMode.h</key>
@@ -1661,28 +1895,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Z1+8qKMf1+gYSXuRPAB94riBb4zkt5QGILOoFsz0kB8=
+			XM45GPEM6bhNCkYQ1Am4CYgPjbmLwr/WVisTzLKvlvs=
+			</data>
+		</dict>
+		<key>Headers/RGLNameSpaceMDL.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Quii+Pgs8kyWIAwkXK92Agn7a+SJszl7yFqCkQX1YME=
 			</data>
 		</dict>
 		<key>Headers/RGLOCRSecurityTextCheck.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vGyB+ZF54nmLoDnCosnuSLL2wJFxnR0VMyvPJX/TD0U=
+			l2tpfgDoznCabvLRY1p3P0k+Djtf+pIb4c9DHnosT04=
 			</data>
 		</dict>
 		<key>Headers/RGLOnlineProcessingConfig.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mkGGN3k1GjC2NNyI0J/D88nnsHnB6gLHjHUSM8RSduA=
+			4cRFv2Hd9aa9Q9RdXshVJ0Ic6unTzv8jy/AM3scFdnU=
 			</data>
 		</dict>
 		<key>Headers/RGLOpticalStatus.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3/NX1EZzTrX2MUcpWDIZ5VxBDaRgmK6HBJ2sIEtMSb0=
+			MJAstjzTdObQ/cyYcKfj9vZ7YfbT4BlptzrTJtTJ1go=
 			</data>
 		</dict>
 		<key>Headers/RGLPAAttribute.h</key>
@@ -1710,21 +1951,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ScEXNSElSVAdv8D/M5dJOG8AHsddOaG1NE9zVWUU7Sg=
+			dMWNEsFvVzPsYDLeC/q3/s0P75mWfHEhJSrl9thNTeQ=
 			</data>
 		</dict>
 		<key>Headers/RGLPhotoIdentResult.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			i+iEeRZwE5FEklrVhgaftSNAWXH7+5WKwxEmHxAhB4g=
+			JBz15JUEqDozjDTCwEM2sTfmiO8SUXaCbwJW2NirV2M=
 			</data>
 		</dict>
 		<key>Headers/RGLPosition.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			V+xELUPwNKguMEm8e9ouFcwRnrT5AA1Gs90WpKAaYJA=
+			mFaMzd/Z7d093bmsekgtZxkqMdd99FWuQDFx8wPW6kw=
 			</data>
 		</dict>
 		<key>Headers/RGLPreviewView.h</key>
@@ -1738,14 +1979,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			tDwa7x+ezJi+AerT6MyZfo0b11Nk5Uw20i0u8zlISdo=
+			w4P0VIVOP3aLD4d2i/zLlT/kc56ok4RW2U9hVjcJ3EM=
+			</data>
+		</dict>
+		<key>Headers/RGLRFIDAccessControlCA.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			C1r0QgpMFEOFuNv5MEqh4Tb0vMN2iabanmW0jYNTS2U=
+			</data>
+		</dict>
+		<key>Headers/RGLRFIDAccessControlPACE.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			M+pP8N8L/gIe3JQ0xbi+R4zEIg7jfblVYaQp+ZjY2Rk=
 			</data>
 		</dict>
 		<key>Headers/RGLRFIDNotify.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			f7fzPwydahQ0cdvaNCLMRvM8O7NHxnL+9t+18CDTz3Q=
+			gJGOVN17ztrdJ5lhWGsDiUK2EPJJoy5u7zhldOqnqn8=
 			</data>
 		</dict>
 		<key>Headers/RGLRFIDParams.h</key>
@@ -1759,21 +2014,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WNJpmXMy3LSl0YpwuQ1R2AO1wR7TU0NqtgGQgRNmfgk=
+			dPFtDzc13tvXRxTM/wgN7xS0F0jr0aVc7dc20bKttFE=
 			</data>
 		</dict>
 		<key>Headers/RGLRFIDSessionData.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qF7lRqSGCUSGubWrvrlzt3znlpuKsXlo5huOfqgadQg=
+			VINsGqdMGFfkLikkKAuoPLx02hYldZJDmWeoxYK+q+g=
 			</data>
 		</dict>
 		<key>Headers/RGLRFIDSessionDataStatus.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			K9BsRLM+ZzD9NzfUzNzc2eWhgtLavOqg6Dk+eV1QN7M=
+			T1aBn1IKYYgn5NUD6N4GLH1eZZIwOog8Qc5wWVshlrE=
 			</data>
 		</dict>
 		<key>Headers/RGLRFIDValue.h</key>
@@ -1787,7 +2042,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OWJ59aa4G5IJR0SN4X0AeMfTu8uiGBpJqncdBkxG/T8=
+			fgaDuTyLBjchwZOhulHKeZgZ/nEvkDBKjbK9Ofi3j14=
 			</data>
 		</dict>
 		<key>Headers/RGLRecordingTimestampConfig.h</key>
@@ -1808,7 +2063,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			O889OKFouH1D51CEnqyQVxcrhWzgH33Zj1c1E6XdcDM=
+			K8NuMQ02nkgBy7W9YZWhAQdjZ5I20otXN3EY7l2g2F4=
 			</data>
 		</dict>
 		<key>Headers/RGLScenario.h</key>
@@ -1822,7 +2077,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XNweMr+ZwuxOA6c6lSfTb5rrWvNPqdqS1EFmhELMZ3Q=
+			nwHvBXg4DF0NuGa63YHS1hvlo2VFUiDE+LIcWugtg9w=
 			</data>
 		</dict>
 		<key>Headers/RGLSecurityObject.h</key>
@@ -1864,21 +2119,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Wx9qY2w1hmQ9REztka4xByJYNE73WNKlxwsm9KR6uPM=
+			QG4Z6vomx6cTAqQMAjKCZrlfRb8mfOTo2V5bsVdEG7I=
 			</data>
 		</dict>
 		<key>Headers/RGLTransactionInfo.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Vi+Yh2elckKFC0GcT7Lp+7VsEESQZ2G9T/ELWy1xB1I=
+			hJfx91izLZTzeA9FQAb/Et0f1Xw8wTj88KeNTm4XDag=
 			</data>
 		</dict>
 		<key>Headers/RGLUIConfiguration.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			B6Yj6G80idvM0MUSsy1BKBObl4zkPC/4+YQZGB4UdPI=
+			7RESV7UAeNL4NFSL1QaBTm5sczRz3ymdhQuolKzJDNE=
 			</data>
 		</dict>
 		<key>Headers/RGLURLRequestInterceptingDelegate.h</key>
@@ -1892,14 +2147,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MB+Vh5DhSFOa0limO0g5OJLQ+D+SPFQQ9mNmCvnmYoo=
+			ZJ2ZzaMoV/8oTfbczomvJ71FKsEr3C9nSOiQ8hCNnwA=
+			</data>
+		</dict>
+		<key>Headers/RGLUniversalNFCTagTransport.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QwWS0s4LELMlY+grJBV18EW1CBwq6s6Aoc7idicNmF8=
+			</data>
+		</dict>
+		<key>Headers/RGLVDSData.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			9iWw850bHjm3rSsa/C8I4lOtbwRzASs7r4jFzujJByI=
 			</data>
 		</dict>
 		<key>Headers/RGLVDSNCData.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Kp5nZQ8EJP2mrEyvl5BDvdWqdQE4KLLmz6z7Pgp6zVQ=
+			I+lottsn3JI5y5unvTaXNv0NStzY/YvRSDkCs6nMBtA=
 			</data>
 		</dict>
 		<key>Headers/RGLValidity.h</key>
@@ -1941,14 +2210,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			o1CvgYukTs7caL2OeGB1V4oYE495oIFKzk3gcmBMuoE=
+			NKX7pvI/yluPX9nL2tliX0hq0JJORFwxeot643phMeM=
+			</data>
+		</dict>
+		<key>Headers/eRFID_BaudRate.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			BrROekbQVqOw4GcTU3XrZExVzN0Hv1LAZO35PiDXIY4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2SzC6V1Pk03a2uIJF6zr/hiESwZwAPzN3ybTMZM+oHM=
+			vKqxjvi+dgi2kSFoBozLi90eGPBC8QSvFZRs7NIF75Y=
 			</data>
 		</dict>
 		<key>PrivacyInfo.xcprivacy</key>
@@ -1962,7 +2238,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VmaSnGGLbvEdSeTIOc8inkojh9vqH3oTCXKq24oheug=
+			3aqt/6iRFQX4ykknat4e9+y1+C905nhBaWfEjmsmdlk=
+			</data>
+		</dict>
+		<key>PrivateHeaders/RGLCustomization+Private.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			rRxsWMyH5fo/urbQBES5HqPDCAiF/znu0Nt7enBneVo=
 			</data>
 		</dict>
 		<key>PrivateHeaders/RGLDatabaseBackgroundLoader.h</key>
@@ -1970,6 +2253,34 @@
 			<key>hash2</key>
 			<data>
 			pLBEznRr1LLIyBabOFqMYMx23a8lh7wpXUw1Y4YiRGo=
+			</data>
+		</dict>
+		<key>PrivateHeaders/RGLDocumentReaderErrorCodes+Private.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			hXRR7+zQXPHaw1Q0V4n8cyobfUl9S+zoCfBNAP7N+T0=
+			</data>
+		</dict>
+		<key>PrivateHeaders/RGLFunctionality+Private.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			q8WRzefGMQxj0h0tHB/cjLgDkdyMLAowlDET7+tZ61o=
+			</data>
+		</dict>
+		<key>PrivateHeaders/RGLProcessParams+Private.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fMhNFPI2q2IjHi6ZmmnnYQnhDrV4HM+Ozt9jWmJ8Ii8=
+			</data>
+		</dict>
+		<key>PrivateHeaders/RGLRFIDErrorCodes+Private.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			CdUX0N2hkXFrnxebVEUcWw5JzhLMiNXLHUWopMtgoQs=
 			</data>
 		</dict>
 		<key>ar.lproj/InfoPlist.strings</key>
@@ -1985,7 +2296,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7yC2wBqLempaQjhrt+x4kBrVwqLW2KkuMWxw5GWOhPY=
+			jZsNAIi0TgP6rxEeeSNuiieuOE7PxteEKgDlCE/9khg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2003,7 +2314,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			naSPnvzUvj6q9mEsn4kJzz5JAG+1y5+Wp2r6dTfhrUc=
+			148gHqLqtARmDOXPXgtgTnaUb6SYVE/Ovf728RYdU6Y=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2021,7 +2332,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			naSPnvzUvj6q9mEsn4kJzz5JAG+1y5+Wp2r6dTfhrUc=
+			148gHqLqtARmDOXPXgtgTnaUb6SYVE/Ovf728RYdU6Y=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2039,7 +2350,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			naSPnvzUvj6q9mEsn4kJzz5JAG+1y5+Wp2r6dTfhrUc=
+			148gHqLqtARmDOXPXgtgTnaUb6SYVE/Ovf728RYdU6Y=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2057,7 +2368,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NdkV8OAS52EUnyRC295CU5AYeXGzJdTc2y1BtzLYIOc=
+			e9QtjunsEFLk1SfVYcgr1/jqfnu07ZeXzLuomg2fhlg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2075,7 +2386,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aJarWGeg6e6S68nZbj0SG8M9nGuScj+hu98X997jk0s=
+			y/BnTM43bZj7oMYVB1UFG1RUZO8bUMGlaDCtxrhov1Y=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2093,7 +2404,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DXhfuHY+j9Gtibuf0+xjtfncJFw4/WXEi/DFcw31bE4=
+			l43MCX/wRWuUoSMpPFTBh6SI+4fXAdKga9V2WATYUkw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2111,7 +2422,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UPgDjGVuvKw/wsv1Uc82UXuGX8IYFPYwigGw84BZCUA=
+			7ut1/CS9aYswk24iyq3YCiZle3onUz0pRFTY2gpTR8o=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2129,7 +2440,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MIyWfAa22n+BWSfIlOlK/PiW5XMTph2yE+ECsrX4+Rs=
+			qVgg6aGfcHJ34seEj5i1lTLnkyTHgXOiWQCRC4+cr60=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2147,7 +2458,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6iZ1ZS797pSzQuk13M8qG1Fw8Bb6jCKguuzaL62LeaU=
+			FrT6uYVIi+TYuFuBBQNL0DiguVwp0HayF4C6IsdAHFU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2165,7 +2476,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ih6fjTEzuFTno0/p7djQxMQa5rOiFps8v4Glm2dEdyY=
+			fBhvLwDn9+IdGvKoDASlXDFcOkc4ZjPozvVzaRvtYqI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2183,7 +2494,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jZPjpXYO0JbgVHAArm5r7L+mT8D+BbMhVbxhcsJQ2Ok=
+			0jt17kXZeWTJaxh0RTZf0DobgorKAFH2ZT0xj02/Ask=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2201,7 +2512,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			L7kdtvGL2dIdVVKBDIJraIKoEh5vKgq3Q9O8GPMjT+0=
+			zN7vXX2Dps7GKKoRYh9362opPjkKwC9aBgcSb3tQFOg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2219,7 +2530,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LJPuJelwuf9yyRkNnnAKeIf6h0OiZY6JIpPXkOrbDyw=
+			Z51P8GAlkeQpbibcV89T5632d5211la9RiZhImaQl4o=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2237,7 +2548,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rESz99dzQIvrZlGhRgflTI9ry+WwzNBfwAyEiRDcCvk=
+			CX71aDtR8yqzxWoEcjf6Td1X19y1qEhxcC1nb2GVgjw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2255,7 +2566,25 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/1Uffkc+iEu/L3vD94AEKRT/8l7qPtX8Lhw5mbTkETU=
+			XW5JJD/QePVZrdNsGVAC3tOqQNo8BmDjKwEQy+BJVEE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>hy.lproj/InfoPlist.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QGc++opWmjdS2kM6kZgMJcAhVGw+O2b9xQuxQCJSTHs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>hy.lproj/RegulaSDK.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			kp2x9sgvddgNCbRcqxCAbnOdqN8+CgYAVED3UNNoZYk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2273,7 +2602,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ANQ307z7A56E1hKsZ3HFcMlbPNn2QYOKKcXDA6lQy74=
+			SfdDj+UYuMZrHL0l4rOU7Ayr5+5L6MvsGzonm7Yk1oQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2291,7 +2620,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			z6J8L+9N47Rv1xd3bKxT9ZafKUQS18OunkFFMjOMsg0=
+			53t5B85VPNJlFKvV7V7eKo4RBpQis3vMb9Akw/yKgeI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2309,7 +2638,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GuUR27kXnIBFvUOpdiU/+1kPQEsuB+9BRPKVTmmqL1Y=
+			9Tgir07PfMWoGzaTR3ZckgQ7XPfyAZXlDgd4OT0NyD4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2327,7 +2656,25 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aX79c0PQz2KtIZ1fuO7xXhL2sRK+c9z23OAlVVM3uUc=
+			odXpH0/Vdm4nmysXWm9LNyv/MDU0hOzCoDEIL0eNGvM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ky.lproj/InfoPlist.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QGc++opWmjdS2kM6kZgMJcAhVGw+O2b9xQuxQCJSTHs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ky.lproj/RegulaSDK.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ss30DfXi/9svipwKhEJ6HwGGWIVYWeBa0BtxHmfxM5w=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2345,7 +2692,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pmMATDxtzlskvfK4OvneiBnQeBIMhmIi9FPE/MI8wNU=
+			rKXjnzJsxnQcLpqpZjl8IVp9Zkm3QHv46XeUNMFEW/s=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2363,7 +2710,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9uKxmiTy/oaGr3y499sm4g1jxLW6X60SzNL5RTxAv9Q=
+			LXezeuaueavI8DIqEmz5ixrigri/ocp1pe3PjbVCnHE=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2381,7 +2728,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MFptVkkBFyFKhw+B+cwvHBEVo1Xxn6oRoTo1stPCjac=
+			8+m5r+eswlzIuHUK0NyhkY8TF1sw/min2Iw3DZT2Cmo=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2399,7 +2746,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MEjTPCY0CV+uB3UvJbnBYXKK8lJuOj8gOGK6J7DhG50=
+			xmMDcqh8TC3rdVZkcEVm6dPBFWJHV2qfJ2XDADoL/LM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2417,7 +2764,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OEAYZm1KH/s1Z9H68MG+EVy2ZpEo+UGTPQvzDbqRYfo=
+			enECcequ7ZiXCi/4tdSMbhquNNA7FlsMkpaCltiGLyg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2435,7 +2782,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OEAYZm1KH/s1Z9H68MG+EVy2ZpEo+UGTPQvzDbqRYfo=
+			enECcequ7ZiXCi/4tdSMbhquNNA7FlsMkpaCltiGLyg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2453,7 +2800,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZA+hHd+ZwJkPYs81kMTlWSCx1IlyB/WBDZX56QMc3Uk=
+			pzPKU8ZdYeNiKxh5sH/lw7ixu4lsLoynTZbY85ymi28=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2471,7 +2818,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2spepKvOCHhzAXlLujF00j49zoZEs1iEy/enSbKnvSs=
+			sFy3tffmzPXAV7ir58o+A6IJ0BmQOB6VX+tCQiRSJvs=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2489,7 +2836,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LbL1fHlI4SX2Pc0G1108zDCPszsep/e7/knpENTBZfA=
+			kuAXhoms6fHO3Y6jHdSsIdtXzH3Ul9RIaYGyO1GN4QQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2514,7 +2861,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BsX0x3oRONHeeJfXlKUIaaEjGfAA0cyoM9iOsxTOkzk=
+			Es344xIGnU+JVbs+spFgYH51X4Z1cnuunyZImx26IGQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2532,7 +2879,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WsoLZnWNENzFyayB/s+FuGcDPcJ2uOQtXCr7oped1pI=
+			uYVMhGHRD3rrGNvqdZoBXLZ3Y6t4nNY3RgnonAnGN4w=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2550,7 +2897,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			epzlnRit7Vqy+aMk/VShRgh/MhS0OE3uQAi2U24Leow=
+			bqAJZk0LE2/mIuYjMsT08FvfMV1NeWmV3A/L3mnhdks=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2568,7 +2915,25 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YPUpnoVIfoqGHm99FqrpEKhxuJcVBJVABBrqRWnh5Gg=
+			+x66hhkbBEJu5SivYb0EChbSlwyouICNtsKsGVO/etQ=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>uz.lproj/InfoPlist.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QGc++opWmjdS2kM6kZgMJcAhVGw+O2b9xQuxQCJSTHs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>uz.lproj/RegulaSDK.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bZZbvSxUWqtYe6PPExPgcGynDKHyuf9nMt6B7E27fuk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2586,7 +2951,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OwZ86uFziLmPXgXLiiTGWxX8ctRwgoOPXqwT9dMf4X8=
+			PdEpm5+FlzEg9lDvdy/slflJLREa9oxgJMsmuLh42JU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2604,25 +2969,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JESkYc20Fyq6gVpf+43iaUCqBKmIIvORrGNzHBIo19o=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>zh-Hant.lproj/InfoPlist.strings</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			QGc++opWmjdS2kM6kZgMJcAhVGw+O2b9xQuxQCJSTHs=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>zh-Hant.lproj/RegulaSDK.strings</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			JESkYc20Fyq6gVpf+43iaUCqBKmIIvORrGNzHBIo19o=
+			kKWKcfcWZoIsayy3PV59/ReO7GjiSaMnbtc8242v5Qw=
 			</data>
 			<key>optional</key>
 			<true/>

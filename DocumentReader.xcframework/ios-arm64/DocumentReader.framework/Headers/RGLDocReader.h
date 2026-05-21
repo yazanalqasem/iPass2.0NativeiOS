@@ -1,7 +1,10 @@
-#import "RGLProcessParams.h"
-#import "RGLDocReaderRFIDDelegate.h"
-#import "RGLRFIDNotify.h"
-#import "RGLMacros.h"
+#import <DocumentReader/RGLProcessParams.h>
+#import <DocumentReader/RGLDocReaderRFIDDelegate.h>
+#import <DocumentReader/RGLRFIDNotify.h>
+#import <DocumentReader/RGLUniversalNFCTagTransport.h>
+#import <DocumentReader/RGLMacros.h>
+#import <DocumentReader/RGLMDLEnums.h>
+#import <DocumentReader/RGLDocumentReaderErrorCodes.h>
 
 @class UIViewController;
 @class UIImage;
@@ -11,7 +14,7 @@
 @class RGLFunctionality;
 @class RGLCustomization;
 @class RGLInitializationResponse;
-@class RGLDocumentReaderCameraViewController;
+@class RGLDocumentReaderBaseCameraViewController;
 @class RGLLicense;
 @class RGLPKDCertificate;
 @class RGLRFIDNotify;
@@ -24,6 +27,9 @@
 @class RGLScannerConfig;
 @class RGLRecognizeConfig;
 @class RGLTransactionInfo;
+@class RGLFinalizeConfig;
+@class RGLDeviceEngagement;
+@class RGLDataRetrieval;
 
 /// Enum contains all possible notification codes about reading process
 typedef NS_ENUM(NSInteger, RGLDocReaderAction) {
@@ -67,7 +73,11 @@ typedef NS_ENUM(NSInteger, RGLCommand) {
     RGLCommandRfidNotify = 101,
     RGLCommandRfidGetDataForScenario = 102,
     RGLCommandTorchGetUVFoto = 200,
-    RGLCommandCommandInternetSend = 300
+    RGLCommandCommandInternetSend = 300,
+    RGLCommandBluetoothConnect = 500,
+    RGLCommandBluetoothDisconnect = 501,
+    RGLCommandBluetoothSendData = 502,
+    RGLCommandCheckCaptureProcessIntegrity = 503,
 } NS_SWIFT_NAME(Command);
 
 /// Enum contains all possible RFID notification actions
@@ -102,98 +112,6 @@ typedef NS_ENUM(NSInteger, RGLRFIDCompleteAction) {
     RGLRFIDCompleteActionSessionRestarted = 3
 } NS_SWIFT_NAME(RFIDCompleteAction);
 
-extern _Nonnull NSErrorDomain const RGLDocumentReaderDomain;
-/// Enum contains all possible error codes
-typedef NS_ERROR_ENUM(RGLDocumentReaderDomain, RGLDocumentReaderErrorCode) {
-  ///  A Core framework is absent.
-  RGLDocumentReaderErrorCodeInitializationCoreAbsent = 0,
-
-  /// The reader is not initialized or an unknown initialization error occured.
-  RGLDocumentReaderErrorCodeInitializationFailed = 1,
-
-  /// This scenario is not supported based on your license and Core framework capabilities.
-  RGLDocumentReaderErrorCodeIncorrectScenario = 2,
-
-  /// There are no results after recognition of camera frames.
-  RGLDocumentReaderErrorCodeNoResult = 3,
-
-  /// An error is encountered during database removal.
-  RGLDocumentReaderErrorCodeRemoveDatabase = 4,
-
-  /// An error is encountered during database download.
-  RGLDocumentReaderErrorCodeFetchingDatabase = 5,
-
-  /// An incorrect database ID.
-  RGLDocumentReaderErrorCodeDbIdNotFound = 6,
-
-  /// An incorrect database ID.
-  RGLDocumentReaderErrorCodeDbDescriptionNotFound = 7,
-
-  /// An error is encountered during database save on your device.
-  RGLDocumentReaderErrorCodeSaveDb = 8,
-
-  /// A database is corrupted.
-  RGLDocumentReaderErrorCodeDownloadDbIncorrectChecksum = 9,
-
-  /// A database is corrupted.
-  RGLDocumentReaderErrorCodeDownloadDb = 10,
-
-  /// Deprecated.
-  RGLDocumentReaderErrorCodeCreationDb = 11,
-
-  /// An RFID error.
-  RGLDocumentReaderErrorCodeRfidError = 12,
-
-  /// A license is absent or corrupted.
-  RGLDocumentReaderErrorCodeLicenseAbsentOrCorrupted = 13,
-
-  /// An invalid date, i.e. the license may be expired, or the date and time of set on the device doesn't correspond to reality.
-  RGLDocumentReaderErrorCodeLicenseInvalidDate = 14,
-
-  /// An invalid version.
-  RGLDocumentReaderErrorCodeLicenseInvalidVersion = 15,
-
-  /// An invalid device ID.
-  RGLDocumentReaderErrorCodeLicenseInvalidDeviceID = 16,
-
-  /// An invalid OS or application ID.
-  RGLDocumentReaderErrorCodeLicenseInvalidSystemOrAppID = 17,
-
-  /// There are no capabilities for this functionality in your license.
-  RGLDocumentReaderErrorCodeLicenseNoCapabilities = 18,
-
-  /// There are no authenticity capabilities in your license.
-  RGLDocumentReaderErrorCodeLicenseNoAuthenticity = 19,
-
-  /// An invalid URL of the video during its generating.
-  RGLDocumentReaderErrorCodeRecordProcessInvalidOutputURL = 20,
-
-  /// Something went wrong with online license processing.
-  RGLDocumentReaderErrorCodeLicenseOnlineError = 21,
-
-  /// db.dat is absent.
-  RGLDocumentReaderErrorCodeNoNoDatabase = 22,
-
-  /// db.dat is incorrect.
-  RGLDocumentReaderErrorCodeDatabaseIncorrect = 23,
-
-  /// Failed to set TCC params.
-  RGLDocumentReaderErrorCodeSetTCCParamsFailed = 24,
-
-  /// The operation failed due to RFID reading has already started.
-  RGLDocumentReaderErrorCodeRFIDInProgress = 25,
-  
-  RGLDocumentReaderErrorCodeStartBackendProcessingFailed = 26,
-  
-  RGLDocumentReaderErrorCodeAddDataToPackageFailed = 27,
-  
-  RGLDocumentReaderErrorCodeFinalizePackageFailed = 28,
-
-  /// The application doesn't have permission to use the camera.
-  RGLDocumentReaderErrorCodeCameraNoPermission = 29,
-    
-  RGLDocumentReaderErrorCodeCameraNotAvailable = 30
-};
 
 typedef void (^RGLDocumentReaderInitializationCompletion)(BOOL success,
                                                           NSError * _Nullable error) NS_SWIFT_NAME(DocumentReaderInitializationCompletion);
@@ -212,6 +130,9 @@ typedef void (^RGLRFIDProcessCompletion)(RGLRFIDCompleteAction action,
                                          NSError * _Nullable error, RGLRFIDErrorCodes errorCode) NS_SWIFT_NAME(RFIDProcessCompletion);
 typedef void (^RGLRFIDNotificationCallback)(RGLRFIDNotificationAction notificationAction, RGLRFIDNotify* _Nullable notification) NS_SWIFT_NAME(RFIDNotificationCallback);
 typedef NSString * _Nullable (^RGLLocalizationHandler)(NSString * _Nonnull localizationKey);
+typedef void (^RGLDocumentReaderDeviceEngagementCompletion)(RGLDeviceEngagement * _Nullable deviceEngagement,
+                                                            NSError * _Nullable error) NS_SWIFT_NAME(DocumentReaderDeviceEngagementCompletion);
+typedef void (^RGLDocumentReaderDataRetrievalCompletion)(RGLDataRetrieval * _Nullable dataRetrieval, NSError * _Nullable error) NS_SWIFT_NAME(DocumentReaderDataRetrievalCompletion);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -245,11 +166,15 @@ RGL_EMPTY_INIT_UNAVAILABLE
  */
 @property(nonatomic, assign, readonly, getter=isDocumentReaderIsReady) BOOL documentReaderIsReady;
 /**
- Allows you to check if RFID chip reading can be performed based on your license and Core framework capabilities
+ Allows you to check if native RFID chip reading can be performed based on your license and Core framework capabilities
  */
 @property(nonatomic, assign, readonly, getter=isRFIDAvailableForUse) BOOL rfidAvailable;
 /**
  Allows you to check if you can use external Regula Bluetooth devices based on your license and Core framework capabilities
+ */
+@property(nonatomic, assign, readonly, getter=isAuthenticatorRFIDAvailableForUse) BOOL useAuthenticatorRFIDAvailable;
+/**
+ Allows you to check if you can use external Regula Bluetooth devices based on your license, available scenarios and Core framework capabilities
  */
 @property(nonatomic, assign, readonly, getter=isAuthenticatorAvailableForUse) BOOL useAuthenticatorAvailable;
 /**
@@ -303,6 +228,9 @@ RGL_EMPTY_INIT_UNAVAILABLE
  It should be used when you add Document Reader SDK inside yours and do localization
  */
 @property(nonatomic, strong) _Nullable Class localizationClassName;
+
+/// Custom language locale code of DocumentReaderSDK. If empty or doesn't exist - app language is used. Format "en-US" or "en".
+@property(readwrite, nonatomic, strong, nullable) NSString *languageLocaleCode;
 
 /// A localization hook to override default localization search logic.
 /// If this block is not set or the implementation of the block returns `nil` the default localization will be used.
@@ -358,13 +286,13 @@ RGL_EMPTY_INIT_UNAVAILABLE
  */
 - (void)runAutoUpdate:(nonnull NSString *)databaseID
            completion:(RGLDocumentReaderPrepareCompletion _Nonnull)completion NS_SWIFT_NAME(runAutoUpdate(databaseID:completion:));
-- (UIViewController * _Nullable)prepareCameraViewController:(RGLDocumentReaderCameraViewController *_Nullable)controller cameraHandler:(RGLDocumentReaderCompletion _Nonnull)completion NS_SWIFT_NAME(prepareCameraViewController(cameraViewController:cameraHandler:));
-- (UIViewController * _Nullable)prepareCameraViewController:(RGLDocumentReaderCompletion _Nonnull)completion NS_SWIFT_NAME(prepareCameraViewController(cameraHandler:));
+
 /**
  Allows you to remove the database from your app
  @param completion The block to execute after the removal finishes
  */
 - (void)removeDatabase:(RGLDocumentReaderPrepareCompletion _Nullable)completion NS_SWIFT_NAME(removeDatabase(completion:));
+
 /**
  Allows you to cancel the database update
  */
@@ -408,13 +336,42 @@ RGL_EMPTY_INIT_UNAVAILABLE
  */
 - (void)showScannerFromPresenter:(UIViewController * _Nonnull)presenter
                           config:(RGLScannerConfig *)config
-                      completion:(RGLDocumentReaderCompletion _Nonnull)completion NS_SWIFT_NAME(showScanner(presenter:config:completion:));
+                      completion:(RGLDocumentReaderCompletion _Nonnull)completion NS_SWIFT_NAME(showScanner(presenter:config:completion:)) RGL_DEPRECATED(8.1, "Use `startScannerFromPresenter` instead");
+
+/**
+ It's used for multiple frames processing which are captured from the camera, new user interface used
+ @param presenter controller scanner shoud be presented from
+ @param config scanning configuration
+ @param completion The block to execute after the recognition process finishes
+ */
+- (void)startScannerFromPresenter:(UIViewController *)presenter
+                           config:(RGLScannerConfig *)config
+                       completion:(RGLDocumentReaderCompletion)completion
+                          NS_SWIFT_NAME(startScanner(presenter:config:completion:));
+
+- (UIViewController * _Nullable)prepareCameraViewController:(RGLDocumentReaderBaseCameraViewController * _Nullable)controller cameraHandler:(RGLDocumentReaderCompletion _Nonnull)completion NS_SWIFT_NAME(prepareCameraViewController(cameraViewController:cameraHandler:)) RGL_DEPRECATED(8.1, "Use `prepareCameraViewControllerForStart` instead");
+- (UIViewController * _Nullable)prepareCameraViewController:(RGLDocumentReaderCompletion _Nonnull)completion NS_SWIFT_NAME(prepareCameraViewController(cameraHandler:)) RGL_DEPRECATED(8.1, "Use `prepareCameraViewControllerForStart` instead");
+
+- (UIViewController * _Nullable)prepareCameraViewControllerForStart:(RGLDocumentReaderBaseCameraViewController * _Nullable)controller cameraHandler:(RGLDocumentReaderCompletion _Nonnull)completion
+    NS_SWIFT_NAME(prepareCameraViewControllerForStart(cameraViewController:cameraHandler:));
+- (UIViewController * _Nullable)prepareCameraViewControllerForStart:(RGLDocumentReaderCompletion _Nonnull)completion
+    NS_SWIFT_NAME(prepareCameraViewControllerForStart(cameraHandler:));
+
 /**
  It's used for the RFID chip processing
  @param completion The block to execute after the scanning process finishes
  */
 - (void)startRFIDReaderFromPresenter:(UIViewController * _Nonnull)presenter
                           completion:(RGLDocumentReaderCompletion _Nonnull)completion;
+
+/**
+ It's used for the RFID chip processing
+ @param universalNFCTag Universal NFC Tag Transport protocol
+ @param notificationCallback Notifications of the RFID chip processing
+ @param completion The block to execute after the scanning process finishes
+ */
+- (void)readRFIDWithUniversalTag:(id<RGLUniversalNFCTagTransport> _Nullable)universalNFCTag notificationCallback:(RGLRFIDNotificationCallback _Nullable)notificationCallback  completion:(RGLRFIDProcessCompletion _Nonnull)completion
+NS_SWIFT_NAME(readRFID(universalNFCTag:notificationCallback:completion:));
 /**
  It's used for the RFID chip processing
  @param notificationCallback Notifications of the RFID chip processing
@@ -455,7 +412,67 @@ RGL_EMPTY_INIT_UNAVAILABLE
 
 - (RGLScenario * _Nullable)selectedScenario;
 
+/**
+ It's used to finalize package during backend processing
+ */
 - (void)finalizePackageWithCompletion:(nonnull RGLDocumentReaderFinalizePackageCompletion)completion;
+
+/**
+ It's used to finalize package during backend processing with FinalizeConfig
+ */
+- (void)finalizePackageWithFinalizeConfig:(nullable RGLFinalizeConfig *)finalizeConfig completion:(nonnull RGLDocumentReaderFinalizePackageCompletion)completion;
+
+/**
+ It's used to end transaction during backend processing
+ */
+- (void)endBackendTransaction;
+
+/**
+ It's used to engage device
+ */
+- (void)startEngageDeviceFromPresenter:(nonnull UIViewController *)presenter
+                                  type:(RGLeMDLDeviceEngagement)type
+                            completion:(RGLDocumentReaderDeviceEngagementCompletion)completion;
+
+/**
+ It's used to engage device via NFC without UI
+ */
+- (void)engageDeviceNFC:(nonnull UIViewController *)presenter
+             completion:(RGLDocumentReaderDeviceEngagementCompletion)completion;
+
+/**
+ It's used to engage device without UI via QR code data string
+ */
+- (void)engageDeviceData:(nonnull NSString *)data
+              completion:(RGLDocumentReaderDeviceEngagementCompletion)completion;
+
+/**
+ It's used to retrieve data
+ */
+- (void)startRetrieveData:(nonnull RGLDeviceEngagement *)deviceEngagement
+            dataRetrieval:(nonnull RGLDataRetrieval *)dataRetrieval
+               completion:(nonnull RGLDocumentReaderCompletion)completion;
+
+/**
+ It's used to read mDL in automode
+ */
+- (void)startReadMDLFromPresenter:(nonnull UIViewController *)presenter
+                   engagementType:(RGLeMDLDeviceEngagement)type
+                    dataRetrieval:(nonnull RGLDataRetrieval *)dataRetrieval
+                       completion:(RGLDocumentReaderCompletion)completion;
+
+/**
+ It's used to retrieve data via NFC without UI
+ */
+- (void)retrieveDataNFC:(nonnull RGLDataRetrieval *)dataRetrieval
+             completion:(RGLDocumentReaderCompletion)completion;
+
+/**
+ It's used to retrieve data via BLE without UI
+ */
+- (void)retrieveDataBLE:(nonnull RGLDeviceEngagement *)deviceEngagement
+          dataRetrieval:(nonnull RGLDataRetrieval *)dataRetrieval
+             completion:(RGLDocumentReaderCompletion)completion;
 
 /**
  It's used to deinitialize Document Reader and free up RAM as a consequence of this

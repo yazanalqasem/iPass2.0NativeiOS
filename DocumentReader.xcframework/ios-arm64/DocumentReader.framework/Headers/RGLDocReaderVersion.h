@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "RGLDocReaderDocumentsDatabase.h"
+#import <DocumentReader/RGLDocReaderDocumentsDatabase.h>
 
 NS_SWIFT_NAME(DocReaderVersion)
 /// Interface contains properties to get the information about the SDK

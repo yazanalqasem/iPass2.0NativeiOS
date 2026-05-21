@@ -6,6 +6,10 @@ typedef NS_ENUM(NSInteger, RGLBarcodeResult) {
      */
     RGLBarcodeResultNoErr                                 = 0,
     /**
+     Invalid result
+     */
+    RGLBarcodeInvalidResult                               = 140,
+    /**
      Null pointer of input arg/param error
      */
     RGLBarcodeResultNullPtrErr                            = -6001,

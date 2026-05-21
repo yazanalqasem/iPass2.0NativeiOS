@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "RGLRFIDNotify.h"
+#import <DocumentReader/RGLRFIDNotify.h>
 
 @class RGLFile;
 
@@ -9,7 +9,7 @@ NS_SWIFT_NAME(Application)
 @property(nonatomic, strong, readonly, nonnull) NSString *applicationID;
 @property(nonatomic, strong, readonly, nonnull) NSString *dataHashAlgorithm;
 @property(nonatomic, strong, readonly, nonnull) NSArray <RGLFile *> *files;
-@property(nonatomic, assign, readonly) NSInteger type;
+@property(nonatomic, assign, readonly) RGLRFIDApplicationType type;
 @property(nonatomic, assign, readonly) RGLRFIDErrorCodes status;
 @property(nonatomic, strong, readonly, nonnull) NSString *unicodeVersion;
 @property(nonatomic, strong, readonly, nonnull) NSString *version;

@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "RGLRFIDNotify.h"
+#import <DocumentReader/RGLRFIDNotify.h>
 
 @class RGLExtension, RGLAuthority, RGLValidity, RGLRFIDValue;
 
