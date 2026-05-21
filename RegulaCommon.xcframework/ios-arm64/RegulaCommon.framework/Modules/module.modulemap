@@ -1,6 +1,26 @@
-framework module RegulaCommon {
-  umbrella header "RegulaCommon.h"
-  export *
+//
+//  RegulaCommon.modulemap
+//  RegulaCommon
+//
+//  Created by Антон Потапчик on 27.11.25.
+//  Copyright © 2025 Regula. All rights reserved.
+//
 
-  module * { export * }
+framework module RegulaCommon {
+    umbrella header "RegulaCommon.h"
+
+    export *
+    module * { export * }
+    
+    explicit module Private {
+
+        header "RGLCISSyscalls.h"
+
+        export *
+    }
+}
+
+module RegulaCommon.Swift {
+  header "RegulaCommon-Swift.h"
+  requires objc
 }

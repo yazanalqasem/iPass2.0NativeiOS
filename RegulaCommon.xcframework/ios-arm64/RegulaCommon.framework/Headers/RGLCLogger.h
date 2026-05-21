@@ -92,6 +92,10 @@ typedef NS_ENUM(NSInteger, RGLCLoggerLevel) {
             line:(int)line
          message:(NSString *)format, ...;
 
++ (void)logLevel:(RGLCLoggerLevel)level
+       subsystem:(nullable NSString *)subsystem
+         message:(NSString *)format;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -4,10 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/AVCaptureConnection+RGLCUIDeviceOrientation.h</key>
-		<data>
-		jPdYvVTegoRjKtklfPokmQWuQdo=
-		</data>
 		<key>Headers/CIImage+RGLCUIInterfaceOrientation.h</key>
 		<data>
 		jDpVYxh26EesV2tWWyDdlden/Rs=
@@ -23,6 +19,10 @@
 		<key>Headers/NSError+RGLCAdditions.h</key>
 		<data>
 		pGpOzJmyK6eZxZMPAeapFcIodK4=
+		</data>
+		<key>Headers/RGLCBaseViewController.h</key>
+		<data>
+		tpNJgwvcv5+pwZLZ5FYbAOFPeg0=
 		</data>
 		<key>Headers/RGLCCamera.h</key>
 		<data>
@@ -86,11 +86,11 @@
 		</data>
 		<key>Headers/RGLCLogger.h</key>
 		<data>
-		4635OePPLh04NQT77TmAeBA6LGM=
+		lkuXbE2GFSceSFPp46geEYvJOpg=
 		</data>
 		<key>Headers/RGLCLoggingViewController.h</key>
 		<data>
-		Q5lQVjoHGYNp5zV3sa/Aj9EK2Hg=
+		4N0JXUEa4TrwIsM4Gdfq92BzcW4=
 		</data>
 		<key>Headers/RGLCNetworkReachabilityManager.h</key>
 		<data>
@@ -112,6 +112,10 @@
 		<data>
 		/uYGkrc2FkfQ4HT4alseKNn/utc=
 		</data>
+		<key>Headers/RGLCUIKitHelper.h</key>
+		<data>
+		skmOrVyFUzplL3nVZ1x7/jwH5Oc=
+		</data>
 		<key>Headers/RGLCURLRequestInterceptor.h</key>
 		<data>
 		TL37MaY832Yh0Kwh6k2FNHXieyE=
@@ -130,38 +134,79 @@
 		</data>
 		<key>Headers/RGLCVideoRecorder.h</key>
 		<data>
-		w/truJmFWIE5MxEVaUbVg2kZbt0=
+		OwI9rWKm9A9GEFJV3q+QBtoCGgE=
 		</data>
 		<key>Headers/RGLCustomUIViewBuilder.h</key>
 		<data>
 		OblYfys9luevcYhRshjqMVBTsGA=
 		</data>
+		<key>Headers/RegulaCommon-Swift.h</key>
+		<data>
+		JZJT5U8JoJFdXC3xouAA0pyRePY=
+		</data>
 		<key>Headers/RegulaCommon.h</key>
 		<data>
-		c+KWbgo5vOFuC48ZaqZ/dFTcfYE=
+		GeDWThVUSX0Rf6amuVXoVZ27CJc=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		0MFBGDwX/mzzUr9Qa4CnGDN7OsY=
+		ivEbKo1mMRULPH4k9i8C5c+R56k=
+		</data>
+		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
+		<data>
+		chUDHfLK/JI6RUY/xJWhU3O4AoI=
+		</data>
+		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<data>
+		xz082bmztMUuL5hFbzG6+NEPqCA=
+		</data>
+		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<data>
+		51SXteT7nmNm82Cq3tTniirSphk=
+		</data>
+		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
+		<data>
+		xz082bmztMUuL5hFbzG6+NEPqCA=
+		</data>
+		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
+		<data>
+		TsIDTwJIDmKFKJIHcTwp2CYbtZg=
+		</data>
+		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
+		<data>
+		chUDHfLK/JI6RUY/xJWhU3O4AoI=
+		</data>
+		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
+		<data>
+		r8AdhiJWaDlUPbJOgLO0SnQ1zyA=
+		</data>
+		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
+		<data>
+		ovPqZtRc/VHd1zRoeK1xbAFwj5E=
+		</data>
+		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<data>
+		r8AdhiJWaDlUPbJOgLO0SnQ1zyA=
+		</data>
+		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
+		<data>
+		EeAZhQ0dzj7HoPJDEn5Mvy7hpFY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		FxiujTWug+v+EZPVZ+zy1KvGs5Y=
+		RPjlD70kH5giymBK4pICRT10vPk=
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
 		k5zyvjnkHZTM5QoddgJNPz9aUZc=
 		</data>
+		<key>PrivateHeaders/RGLCISSyscalls.h</key>
+		<data>
+		h5vTzp5PHkkQ2LM0v01+66BfPUg=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/AVCaptureConnection+RGLCUIDeviceOrientation.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			NTSdrfGainjnGqa/8ZmBglASe9zrBjzQZ5rtQAiAg1Q=
-			</data>
-		</dict>
 		<key>Headers/CIImage+RGLCUIInterfaceOrientation.h</key>
 		<dict>
 			<key>hash2</key>
@@ -188,6 +233,13 @@
 			<key>hash2</key>
 			<data>
 			XovhiaVrlo88HdmVk2TQPywrDcH/IB//UwKn5AHBSs8=
+			</data>
+		</dict>
+		<key>Headers/RGLCBaseViewController.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			H5HFarCE1GzMDD28Ai/qRbNAXg+3pdQqApPMU3iWvsM=
 			</data>
 		</dict>
 		<key>Headers/RGLCCamera.h</key>
@@ -299,14 +351,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nu3gTqCltyVpyepUqkTJDnW+m2b4oguLucIaaTwxPFA=
+			Dguoy5dDnCYsrMGyjwtCCRd75U5JPV5vU3GUpy/pNZA=
 			</data>
 		</dict>
 		<key>Headers/RGLCLoggingViewController.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/Pr4abwsegkn3nDs5FnsoA0lEQuAbgpp7mZ6i1BkI+4=
+			Ouh9dqR4fXPZw8w9l/OBG8g2/HAEkqopDKZXj1WGQQ4=
 			</data>
 		</dict>
 		<key>Headers/RGLCNetworkReachabilityManager.h</key>
@@ -344,6 +396,13 @@
 			zGYkXpfG3uT9J/96b7TUBEPvMg11l56SjZ4sTITU3GU=
 			</data>
 		</dict>
+		<key>Headers/RGLCUIKitHelper.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VlRxUCckOIGwflX5443WBbMB69e6dCHuMS5oPrVOh8Q=
+			</data>
+		</dict>
 		<key>Headers/RGLCURLRequestInterceptor.h</key>
 		<dict>
 			<key>hash2</key>
@@ -376,7 +435,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			sHfPolBDvyZNNkI66xXahU/v/EFaMVvevoF7w4ybI34=
+			HF/8S4Z6Rs9fLez97iV/pnastQhlkGb2Ge0RuTSbQc4=
 			</data>
 		</dict>
 		<key>Headers/RGLCustomUIViewBuilder.h</key>
@@ -386,18 +445,95 @@
 			348V62sCAUOhUMI95SetgqcZFZPmy2BM5PgneOGOfXc=
 			</data>
 		</dict>
+		<key>Headers/RegulaCommon-Swift.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			kSUoCPXDjKR5gJE6gvpxTUAPD3VRaswUgMk7N/mBlU8=
+			</data>
+		</dict>
 		<key>Headers/RegulaCommon.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0BqYa8I4HG6DDgJw/t1eTa4qhp/c786lJqMF1tD3y20=
+			PtljWbi90geZwmqgjGJbujWMs1ZfjlMHGi3knpNKito=
+			</data>
+		</dict>
+		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			q/R/zBvWj/kyk31TUJN15WGyN2DXTU77XBN/Vjd0kk4=
+			</data>
+		</dict>
+		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			k/NvxnseQ2+o8P8mBSGxqPiCjqxU71fmbaCxE1AbjRY=
+			</data>
+		</dict>
+		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ddbittHmelsek3w6OdO4RArY7u3AcF8ua+2jMIQgrz0=
+			</data>
+		</dict>
+		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			k/NvxnseQ2+o8P8mBSGxqPiCjqxU71fmbaCxE1AbjRY=
+			</data>
+		</dict>
+		<key>Modules/RegulaCommon.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			nY6k0sXWU+wY2BcEfOGWl6BdFXPFLoRhGiZEwKpkTOQ=
+			</data>
+		</dict>
+		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			q/R/zBvWj/kyk31TUJN15WGyN2DXTU77XBN/Vjd0kk4=
+			</data>
+		</dict>
+		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			DmTPkS2P0lvgNhkqytyXC5AsI8zGbDmXqCqNbK7uj5s=
+			</data>
+		</dict>
+		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			N6Si9kROyeE0J0NcUXdwSZ/cEW+d2PCrLL8UDi6Cx0E=
+			</data>
+		</dict>
+		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			DmTPkS2P0lvgNhkqytyXC5AsI8zGbDmXqCqNbK7uj5s=
+			</data>
+		</dict>
+		<key>Modules/RegulaCommon.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+vhnnq8phFsE9I2alINOCiwk58McYarrIhI3NbOigTI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uUssgstR+tSztETOzDSqBXrhvGLEpXzeGM8hjUHiM6M=
+			7J7+vQMz9cWE8mWwujRWcivzvyJzzNMffC2J76UesLg=
 			</data>
 		</dict>
 		<key>PrivacyInfo.xcprivacy</key>
@@ -405,6 +541,13 @@
 			<key>hash2</key>
 			<data>
 			uag30grA/UknGNI+UF7De40588rK3OqYWzjjf4pqhM4=
+			</data>
+		</dict>
+		<key>PrivateHeaders/RGLCISSyscalls.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			XGoCl4Js0ucU/FphUT8rWbk9ekeCoV21TlhGXE/LLRA=
 			</data>
 		</dict>
 	</dict>
