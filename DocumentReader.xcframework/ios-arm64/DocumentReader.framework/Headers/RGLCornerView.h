@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-#import "RGLScenario.h"
+#import <DocumentReader/RGLScenario.h>
 
 NS_SWIFT_NAME(CornerView)
 @interface RGLCornerView : UIView

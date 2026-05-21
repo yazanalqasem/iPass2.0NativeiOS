@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 
-#import "RGLDocumentReaderResults.h"
-#import "RGLImageQualityCheckType.h"
+#import <DocumentReader/RGLDocumentReaderResults.h>
+#import <DocumentReader/RGLImageQualityCheckType.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

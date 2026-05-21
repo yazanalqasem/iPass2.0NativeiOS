@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RGLMacros.h"
+#import <DocumentReader/RGLMacros.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

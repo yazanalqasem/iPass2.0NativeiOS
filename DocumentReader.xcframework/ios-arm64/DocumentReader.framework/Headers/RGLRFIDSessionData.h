@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
-#import "RGLRFIDNotify.h"
-#import "RGLMacros.h"
+#import <DocumentReader/RGLRFIDNotify.h>
+#import <DocumentReader/RGLMacros.h>
 
 @class RGLAccessControlProcedureType, RGLApplication,
 RGLSecurityObject, RGLCardProperties, RGLRFIDSessionDataStatus, RGLDataField;

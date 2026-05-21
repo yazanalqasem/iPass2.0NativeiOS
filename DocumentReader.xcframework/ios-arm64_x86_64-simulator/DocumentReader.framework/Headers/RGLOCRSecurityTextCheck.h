@@ -6,7 +6,7 @@
 //  Copyright © 2023 Regula. All rights reserved.
 //
 
-#import "RGLAuthenticityElement.h"
+#import <DocumentReader/RGLAuthenticityElement.h>
 
 @class RGLElementRect;
 
@@ -23,7 +23,7 @@ NS_SWIFT_NAME(OCRSecurityTextCheck)
 @property(nonatomic, strong, readonly, nonnull) RGLElementRect *etalonFieldRect;
 @property(nonatomic, strong, readonly, nonnull) NSString *securityTextResultOCR;
 @property(nonatomic, strong, readonly, nonnull) NSString *etalonResultOCR;
-
+@property(nonatomic, assign, readonly) RGLResultType etalonResultType;
 
 @end
 

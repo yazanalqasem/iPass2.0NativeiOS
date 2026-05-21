@@ -590,6 +590,9 @@ typedef NS_ENUM(NSInteger, RGLFieldType) {
     RGLFieldTypeFt_DataDiscriminator = 335,
     /// ISO issuer ID number
     RGLFieldTypeFt_ISO_Issuer_ID_Number = 336,
+    RGLFieldTypeFt_DTC_Version          = 337,
+    RGLFieldTypeFt_DTC_ID               = 338,
+    RGLFieldTypeFt_DTC_DateOfExpiry     = 339,
     /// Registration number issued by GardaNational Immigration Bureau
     RGLFieldTypeFt_GNIB_Number = 340,
     /// Department number
@@ -1304,7 +1307,32 @@ typedef NS_ENUM(NSInteger, RGLFieldType) {
 
     // Date of first positive test result
     RGLFieldTypeFt_Date_of_First_Positive_Test_Result = 691,
+  
+    RGLFieldTypeFt_EF_CardAccess = 692,
+    
+    RGLFieldTypeFt_Short_Flight_Number = 693,
+    
+    RGLFieldTypeFt_Airline_Code = 694,
 
+    RGLFieldTypeFt_MVC_Agency = 695,
+
+    RGLFieldTypeFt_Issuing_State_Code_Alpha2 = 696,
+
+    RGLFieldTypeFt_Nationality_Code_Alpha2 = 697,
+
+    RGLFieldTypeFt_First_Issue_Date_CheckDigit = 698,
+
+    RGLFieldTypeFt_First_Issue_Date_Checksum = 699,
+    
+    RGLFieldTypeFt_Expiry_Timestamp = 700,
+  
+    RGLFieldTypeFt_Commercial_Indicator = 701,
+  
+    RGLFieldTypeFt_Non_Domiciled_Indicator = 702,
+  
+    RGLFieldTypeFt_Jurisdiction_Specific_Data = 703,
+    
+    RGLFieldTypeFt_Data_DateOfExpiry = 704,
 } NS_SWIFT_NAME(FieldType);
 
 FOUNDATION_EXPORT NSString *RGLFieldTypeGetStringValue(RGLFieldType type) CF_SWIFT_NAME(getter:FieldType.stringValue(self:));

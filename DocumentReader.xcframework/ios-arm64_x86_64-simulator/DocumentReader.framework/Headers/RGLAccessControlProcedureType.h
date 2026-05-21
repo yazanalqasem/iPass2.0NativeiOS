@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
-#import "RGLRFIDNotify.h"
-#import "RGLRFIDScenario.h"
+#import <DocumentReader/RGLRFIDNotify.h>
+#import <DocumentReader/RGLRFIDScenario.h>
 
 NS_SWIFT_NAME(AccessControlProcedureType)
 @interface RGLAccessControlProcedureType : NSObject

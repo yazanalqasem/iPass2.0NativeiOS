@@ -18,6 +18,9 @@ NS_SWIFT_NAME(LivenessParams)
 @property(nonatomic, strong, nullable) NSNumber *checkMLI;
 @property(nonatomic, strong, nullable) NSNumber *checkHolo;
 @property(nonatomic, strong, nullable) NSNumber *checkED;
+@property(nonatomic, strong, nullable) NSNumber *checkBlackAndWhiteCopy;
+@property(nonatomic, strong, nullable) NSNumber *checkDynaprint;
+@property(nonatomic, strong, nullable) NSNumber *checkGeometry;
 
 + (instancetype)defaultParams;
 

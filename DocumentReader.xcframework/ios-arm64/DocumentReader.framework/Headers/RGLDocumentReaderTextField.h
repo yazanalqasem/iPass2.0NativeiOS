@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "RGLDocumentReaderResults.h"
+#import <DocumentReader/RGLDocumentReaderResults.h>
 
 @class RGLDocumentReaderComparison;
 @class RGLDocumentReaderValidity;

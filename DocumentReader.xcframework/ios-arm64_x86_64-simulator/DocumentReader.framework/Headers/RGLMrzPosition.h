@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "RGLPosition.h"
+#import <DocumentReader/RGLPosition.h>
 
 NS_SWIFT_NAME(MrzPosition)
 @interface RGLMrzPosition : RGLPosition
