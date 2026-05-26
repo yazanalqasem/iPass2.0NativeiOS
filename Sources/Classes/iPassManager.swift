@@ -124,9 +124,15 @@ public class iPassSDKManger {
 
     
     public  static func UserOnboardingProcess(email: String, password: String, completion: @escaping (Bool?, String?) -> Void) {
+       
+        let deviceType = getDeviceType()
+        let ip_address = getDeviceIPAddress()
+
         let parameters: [String: Any] = [
             UserLoginApi.email: email,
-            UserLoginApi.password: password
+            UserLoginApi.password: password,
+            UserLoginApi.ipAddress: ip_address,
+            UserLoginApi.deviceType: deviceType
         ]
         
 //        if(serverUrl == "" || serverUrl.isEmpty) {
