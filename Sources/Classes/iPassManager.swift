@@ -281,7 +281,20 @@ public class iPassSDKManger {
             else {
                 var tempDict = [String: String]()
                 tempDict = response?.iPassconvertToDictionary() ?? [:]
+                print("Dict",tempDict)
                 if(tempDict["message"]?.lowercased() == "sucess") {
+                    let isVpn = tempDict["is_vpn"]?.lowercased() == "true"
+
+                    if isVPNConnected() == true && isVpn == true {
+
+                           self.delegate?.getScanCompletionResult(
+                               result: "",
+                               transactionId: "",
+                               error: "Please disconnect VPN and try again."
+                           )
+
+                           return
+                       }
                     if(iPassSDKDataManager.shared.userSelectedFlowId == 10031 || iPassSDKDataManager.shared.userSelectedFlowId == 10032 || iPassSDKDataManager.shared.userSelectedFlowId == 10011) {
                          createLivenessSessionID()
                     }
@@ -313,14 +326,6 @@ public class iPassSDKManger {
         let deviceType = getDeviceType()
         let ip_address = getDeviceIPAddress()
       
-           if isVPNConnected() {
-               self.delegate?.getScanCompletionResult(
-                   result: "",
-                   transactionId: "",
-                   error: "Please disconnect VPN and try again."
-               )
-               return
-           }
        
         if(flowId == 10031) {
             if(socialMediaEmail == "" ) {
