@@ -283,9 +283,9 @@ public class iPassSDKManger {
                 tempDict = response?.iPassconvertToDictionary() ?? [:]
                 print("Dict",tempDict)
                 if(tempDict["message"]?.lowercased() == "sucess") {
-                    let isVpn = tempDict["is_vpn"]?.lowercased() == "true"
+                    let isVpn = tempDict["is_vpn"] as? Bool ?? false
 
-                    if isVPNConnected() == true && isVpn == true {
+                            if isVPNConnected() == true && isVpn == true {
 
                            self.delegate?.getScanCompletionResult(
                                result: "",
