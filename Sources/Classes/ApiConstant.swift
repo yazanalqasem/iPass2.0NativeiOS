@@ -24,8 +24,7 @@ struct UserLoginApi {
     static let baseApi = (Apis.baseUrl) + "/api/v1/ipass/create/authenticate/login"
     static let email = "email"
     static let password = "password"
-    static let ipAddress = "ip_address"
-    static let deviceType = "device_type"
+  
 }
 
 // Create Session Api
@@ -49,6 +48,8 @@ struct SaveDataApi {
     static let idv_data = "idv_data"
     static let source = "source"
     static var language = "language"
+    static var ipAddress = "ip_address"
+    static var deviceType = "device_type"
 }
 
 // Save Data Api

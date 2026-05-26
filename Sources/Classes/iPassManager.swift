@@ -125,14 +125,11 @@ public class iPassSDKManger {
     
     public  static func UserOnboardingProcess(email: String, password: String, completion: @escaping (Bool?, String?) -> Void) {
        
-        let deviceType = getDeviceType()
-        let ip_address = getDeviceIPAddress()
+      
 
         let parameters: [String: Any] = [
             UserLoginApi.email: email,
-            UserLoginApi.password: password,
-            UserLoginApi.ipAddress: ip_address,
-            UserLoginApi.deviceType: deviceType
+            UserLoginApi.password: password
         ]
         
 //        if(serverUrl == "" || serverUrl.isEmpty) {
@@ -825,6 +822,10 @@ public class iPassSDKManger {
                 userIpAddress = ""
             }
             
+            let deviceType = getDeviceType()
+            let ip_address = getDeviceIPAddress()
+            
+            
             let parameters: [String: Any] = [
                 SaveDataApi.sessionId: iPassSDKDataManager.shared.sessionId,
                 SaveDataApi.randomid: iPassSDKDataManager.shared.sid,
@@ -836,7 +837,8 @@ public class iPassSDKManger {
                 SaveDataApi.idv_data: documentDataJson ?? "",
                 SaveDataApi.language : iPassSDKDataManager.shared.deviceCurrentLangauge,
                 SaveDataApi.source: "iOS v1.0.6",
-                
+                SaveDataApi.ipAddress:ip_address,
+                SaveDataApi.deviceType:deviceType,
             ]
             iPassHandler.methodForPost(url: SaveDataApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
 //                if(error != "") {
