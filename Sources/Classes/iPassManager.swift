@@ -272,19 +272,37 @@ public class iPassSDKManger {
             if(error != "") {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                   stopLoaderAnimation()
-                    var tempDict = [String: String]()
-                    tempDict = error?.iPassconvertToDictionary() ?? [:]
-                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? LocalizationManager.shared.localizedString(forKey: "limit_over"))
+//                    var tempDict = [String: String]()
+//                    tempDict = error?.iPassconvertToDictionary() ?? [:]
+//                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? LocalizationManager.shared.localizedString(forKey: "limit_over"))
+                    
+                    var tempDict = [String: Any]()
+                                   tempDict = error?.iPassconvertToDictionary() ?? [:]
+
+                                   self.delegate?.getScanCompletionResult(
+                                       result: "",
+                                       transactionId: "",
+                                       error: (tempDict["message"] as? String) ??
+                                              LocalizationManager.shared.localizedString(forKey: "limit_over")
+                                   )
                 }
                
             }
             else {
-                var tempDict = [String: String]()
-                tempDict = response?.iPassconvertToDictionary() ?? [:]
-                print("Dict",tempDict)
-                if(tempDict["message"]?.lowercased() == "sucess") {
-                    let isVpn = tempDict["is_vpn"] as? Bool ?? false
+//                var tempDict = [String: String]()
+//                tempDict = response?.iPassconvertToDictionary() ?? [:]
+//                print("Dict",tempDict)
+//                if(tempDict["message"]?.lowercased() == "sucess") {
+//                    let isVpn = tempDict["is_vpn"] as? Bool ?? false
+                var tempDict = [String: Any]()
+                            tempDict = response?.iPassconvertToDictionary() ?? [:]
 
+                            print("Dict:", tempDict)
+
+                            if let message = tempDict["message"] as? String,
+                               message.lowercased() == "sucess" {
+
+                                let isVpn = tempDict["is_vpn"] as? Bool ?? false
                             if isVPNConnected() == true && isVpn == true {
 
                            self.delegate?.getScanCompletionResult(
@@ -309,7 +327,12 @@ public class iPassSDKManger {
                     }
                 }
                 else {
-                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: tempDict["message"] ?? LocalizationManager.shared.localizedString(forKey: "limit_over"))
+                    self.delegate?.getScanCompletionResult(
+                                     result: "",
+                                     transactionId: "",
+                                     error: (tempDict["message"] as? String) ??
+                                            LocalizationManager.shared.localizedString(forKey: "limit_over")
+                                 )
                 }
             }
             
@@ -1066,16 +1089,37 @@ public class iPassSDKManger {
     }
 }
 
+//extension String {
+//    func iPassconvertToDictionary() -> [String: String]? {
+//        if let data = self.data(using: .utf8) {
+//            do {
+//                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: String]
+//            } catch {
+//            }
+//        }
+//        return nil
+//    }
+//}
 extension String {
-    func iPassconvertToDictionary() -> [String: String]? {
+
+    func iPassconvertToDictionary() -> [String: Any]? {
+
         if let data = self.data(using: .utf8) {
+
             do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: String]
+
+                return try JSONSerialization.jsonObject(
+                    with: data,
+                    options: []
+                ) as? [String: Any]
+
             } catch {
+
+                print("JSON Parse Error:", error)
             }
         }
+
         return nil
     }
 }
-
 
