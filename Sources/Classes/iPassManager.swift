@@ -821,11 +821,8 @@ public class iPassSDKManger {
             } else {
                 userIpAddress = ""
             }
-            
             let deviceType = getDeviceType()
             let ip_address = getDeviceIPAddress()
-            
-            
             let parameters: [String: Any] = [
                 SaveDataApi.sessionId: iPassSDKDataManager.shared.sessionId,
                 SaveDataApi.randomid: iPassSDKDataManager.shared.sid,
