@@ -64,3 +64,28 @@ struct getPermissionStatus {
 }
 
 
+// Save Data  Dual Api
+
+struct SaveDataDualApi {
+    static let baseApi = (Apis.baseUrl) + "/api/v1/ipass/dual-poi/initiate/process/sdk?token="
+    static let sessionId = "sessionId"
+    static let randomid = "randomid"
+    static let social_media_email = "social_media_email"
+    static let phone_number = "phone_number"
+    static let ipadd = "ipadd"
+    static let email = "email"
+    static let workflow = "workflow"
+    static let idv_data = "idv_data"
+    static let source = "source"
+    static var language = "language"
+    static var ipAddress = "ip_address"
+    static var deviceType = "device_type"
+}
+
+// Save Data Api
+struct GetDataDualApi {
+    static let baseApi = (Apis.baseUrl) + "/api/v1/ipass/dual-poi/idv/getAll/data?token="
+    static let sesid = "&sesid="
+}
+
+

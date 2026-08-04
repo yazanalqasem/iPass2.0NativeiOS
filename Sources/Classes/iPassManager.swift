@@ -342,7 +342,7 @@ public class iPassSDKManger {
 
     
     
-    public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, controller: UIViewController, userToken:String, appToken:String) async   {
+    public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, dualPoi : Bool, controller: UIViewController, userToken:String, appToken:String) async   {
         
         // Check VPN Connection First
         var info = ""
