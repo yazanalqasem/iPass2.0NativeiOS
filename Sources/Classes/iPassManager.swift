@@ -44,6 +44,7 @@ public class iPassSDKDataManager {
     var alreadyReturned = true
     var documentDateFormat = "dd-mm-yyyy"
     var dbVariable = ""
+    var dualPoiValue = Bool()
 }
 
 
@@ -431,7 +432,7 @@ public class iPassSDKManger {
     public static func startScanningProcess(userEmail:String, flowId: Int, socialMediaEmail: String, phoneNumber: String, dualPoi : Bool, controller: UIViewController, userToken:String, appToken:String) async   {
         
         // Check VPN Connection First
-        var info = ""   
+        var info = ""
         let deviceType = getDeviceType()
         let ip_address = getDeviceIPAddress()
       
@@ -466,6 +467,9 @@ public class iPassSDKManger {
         iPassSDKDataManager.shared.sid = generateRandomTwoDigitNumber()
         iPassSDKDataManager.shared.email = userEmail
         iPassSDKDataManager.shared.controller = controller
+        iPassSDKDataManager.shared.dualPoiValue = dualPoi
+        print("dualPoi--",dualPoi)
+      
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -994,7 +998,7 @@ public class iPassSDKManger {
     
     private static func startDataFetching() {
         
-        
+        print("iPassSDKDataManager.shared.dualPoiValue---",iPassSDKDataManager.shared.dualPoiValue)
         
             iPassHandler.methodForGet(urlStr: GetDataApi.baseApi + iPassSDKDataManager.shared.token + GetDataApi.sesid + iPassSDKDataManager.shared.sid) { response, error in
                 DispatchQueue.main.async {
