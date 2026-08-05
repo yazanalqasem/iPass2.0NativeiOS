@@ -567,7 +567,7 @@ public class iPassSDKManger {
     
     private static func oPenDocumentScanner()  {
                         
- 
+ print("oPenDocumentScanner-----")
         setDocumentScannerProperties()
         
     }
@@ -957,7 +957,7 @@ public class iPassSDKManger {
                 SaveDataApi.deviceType:deviceType,
             ]
             
-            if iPassSDKDataManager.shared.dualPoiValue {
+            if iPassSDKDataManager.shared.dualPoiValue == true {
                 iPassHandler.methodForPost(url: SaveDataDualApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
     //                if(error != "") {
     //                    DispatchQueue.main.async {
