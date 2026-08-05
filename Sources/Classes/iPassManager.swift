@@ -349,6 +349,7 @@ public class iPassSDKManger {
         let deviceType = getDeviceType()
         let ip_address = getDeviceIPAddress()
       
+        
        
         if(flowId == 10031) {
             if(socialMediaEmail == "" ) {
@@ -906,6 +907,8 @@ public class iPassSDKManger {
     }
     
     private static func startDataFetching() {
+        
+        
         
             iPassHandler.methodForGet(urlStr: GetDataApi.baseApi + iPassSDKDataManager.shared.token + GetDataApi.sesid + iPassSDKDataManager.shared.sid) { response, error in
                 DispatchQueue.main.async {
