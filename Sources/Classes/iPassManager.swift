@@ -956,36 +956,72 @@ public class iPassSDKManger {
                 SaveDataApi.ipAddress:ip_address,
                 SaveDataApi.deviceType:deviceType,
             ]
-            iPassHandler.methodForPost(url: SaveDataApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
-//                if(error != "") {
-//                    DispatchQueue.main.async {
-//                        stopLoaderAnimation()
-//                    }
-//                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: error)
-//                }
-               
-                
-                if let error = error, !error.isEmpty {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            stopLoaderAnimation()
+            
+            if iPassSDKDataManager.shared.dualPoiValue {
+                iPassHandler.methodForPost(url: SaveDataDualApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
+    //                if(error != "") {
+    //                    DispatchQueue.main.async {
+    //                        stopLoaderAnimation()
+    //                    }
+    //                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: error)
+    //                }
+                   
+                    
+                    if let error = error, !error.isEmpty {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                stopLoaderAnimation()
+                            }
+                            
+                            let processedError: String
+                            if error.contains("++") {
+                                processedError = error.replacingOccurrences(of: "++", with: "")
+                            } else {
+                                processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error")
+                            }
+                            
+                            self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: processedError)
                         }
-                        
-                        let processedError: String
-                        if error.contains("++") {
-                            processedError = error.replacingOccurrences(of: "++", with: "")
-                        } else {
-                            processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error")
-                        }
-                        
-                        self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: processedError)
+                    
+                    else {
+                        startDataFetching()
                     }
+                    
+                }
                 
-                else {
-                    startDataFetching()
+            } else {
+                iPassHandler.methodForPost(url: SaveDataApi.baseApi + (iPassSDKDataManager.shared.token), params: parameters) { response, error in
+    //                if(error != "") {
+    //                    DispatchQueue.main.async {
+    //                        stopLoaderAnimation()
+    //                    }
+    //                    self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: error)
+    //                }
+                   
+                    
+                    if let error = error, !error.isEmpty {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                stopLoaderAnimation()
+                            }
+                            
+                            let processedError: String
+                            if error.contains("++") {
+                                processedError = error.replacingOccurrences(of: "++", with: "")
+                            } else {
+                                processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error")
+                            }
+                            
+                            self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: processedError)
+                        }
+                    
+                    else {
+                        startDataFetching()
+                    }
+                    
                 }
                 
             }
             
+          
             
             
         }
@@ -1000,6 +1036,9 @@ public class iPassSDKManger {
         
         print("iPassSDKDataManager.shared.dualPoiValue---",iPassSDKDataManager.shared.dualPoiValue)
         
+        
+    // SINGLE POI API
+        if !iPassSDKDataManager.shared.dualPoiValue {
             iPassHandler.methodForGet(urlStr: GetDataApi.baseApi + iPassSDKDataManager.shared.token + GetDataApi.sesid + iPassSDKDataManager.shared.sid) { response, error in
                 DispatchQueue.main.async {
                     stopLoaderAnimation()
@@ -1028,6 +1067,38 @@ public class iPassSDKManger {
                 }
                 
             }
+        } else {
+            // DUAL POI API
+            iPassHandler.methodForGet(urlStr: GetDataDualApi.baseApi + iPassSDKDataManager.shared.token + GetDataApi.sesid + iPassSDKDataManager.shared.sid) { response, error in
+                DispatchQueue.main.async {
+                    stopLoaderAnimation()
+                }
+//                if(error != "") {
+//                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
+//                }
+                
+                if let error = error, !error.isEmpty {
+                        DispatchQueue.main.async {
+                            stopLoaderAnimation()
+                        }
+                        
+                        let processedError: String
+                        if error.contains("++") {
+                            processedError = error.replacingOccurrences(of: "++", with: "")
+                        } else {
+                            processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error")
+                        }
+                        
+                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: processedError)
+                    }
+                
+                else {
+                    self.delegate?.getScanCompletionResult(result: response as! String, transactionId: iPassSDKDataManager.shared.sid, error: "")
+                }
+                
+            }
+        }
+         
         
         
       

@@ -35,7 +35,13 @@ struct CreateSessionApi {
 }
 
 
-// Save Data Api
+// Check Permission Api
+struct getPermissionStatus {
+    static let baseApi = (Apis.baseUrl) + "/api/v1/ipass/customer/access?token="
+}
+
+
+// Save Data Api single POI
 struct SaveDataApi {
     static let baseApi = (Apis.baseUrl) + "/api/v1/ipass/initiate/process/sdk?token="
     static let sessionId = "sessionId"
@@ -52,19 +58,15 @@ struct SaveDataApi {
     static var deviceType = "device_type"
 }
 
-// Save Data Api
+// Save Data Api Single POI
 struct GetDataApi {
     static let baseApi = (Apis.baseUrl) + "/api/v1/ipass/idv/getAll/data?token="
     static let sesid = "&sesid="
 }
 
-// Check Permission Api
-struct getPermissionStatus {
-    static let baseApi = (Apis.baseUrl) + "/api/v1/ipass/customer/access?token="
-}
 
 
-// Save Data  Dual Api
+// Save Data  Dual POI
 
 struct SaveDataDualApi {
     static let baseApi = (Apis.baseUrl) + "/api/v1/ipass/dual-poi/initiate/process/sdk?token="
@@ -82,7 +84,7 @@ struct SaveDataDualApi {
     static var deviceType = "device_type"
 }
 
-// Save Data Api
+// Save Data Api Dual POI
 struct GetDataDualApi {
     static let baseApi = (Apis.baseUrl) + "/api/v1/ipass/dual-poi/idv/getAll/data?token="
     static let sesid = "&sesid="
