@@ -190,12 +190,11 @@ public class iPassSDKManger {
         print("UserLoginApi.baseApi: \(UserLoginApi.baseApi)")
         print("UserLoginApi.parameters: \(parameters)")
 
-        iPassHandler.methodForPost(url: UserLoginApi.baseApi,
-                                   params: parameters) { response, error in
+        iPassHandler.methodForPost(url: UserLoginApi.baseApi, params: parameters) { response, error in
 
             print("responseUserLoginApi ---- \(String(describing: response))")
 
-            // Handle Error
+            // Handle API Error
             if let error = error, !error.isEmpty {
 
                 let processedError: String
@@ -210,63 +209,61 @@ public class iPassSDKManger {
                 return
             }
 
+            // Parse Response
             guard let json = response as? [String: Any] else {
-                print("Response is not Dictionary")
                 completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
                 return
             }
-
-            print("JSON = \(json)")
 
             guard let user = json["user"] as? [String: Any] else {
-                print("user not found")
                 completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
                 return
             }
 
-            print("User = \(user)")
-
             guard let token = user["token"] as? String else {
-                print("token not found")
                 completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
                 return
             }
 
             print("Login Token = \(token)")
 
-            // -----------------------------
+            // -------------------------------
             // Read customer_data
-            // -----------------------------
-
+            // -------------------------------
             if let customerData = user["customer_data"] as? [String: Any] {
 
                 print("customer_data = \(customerData)")
-                print("customer_data Keys = \(customerData.keys)")
 
-                if let dualPoiAccess = customerData["dualpoi_access"] as? Bool {
+                if let value = customerData["dualpoi_access"] {
+
+                    print("dualpoi_access Raw Value = \(value)")
+                    print("dualpoi_access Type = \(type(of: value))")
+
+                    var dualPoiAccess = false
+
+                    if let boolValue = value as? Bool {
+                        dualPoiAccess = boolValue
+                    } else if let numberValue = value as? NSNumber {
+                        dualPoiAccess = numberValue.boolValue
+                    } else if let stringValue = value as? String {
+                        dualPoiAccess = (stringValue as NSString).boolValue
+                    }
+
                     print("✅ dualpoi_access = \(dualPoiAccess)")
+
+                    // Use the value wherever you need
+                    if dualPoiAccess {
+                        print("Dual POI Enabled")
+                    } else {
+                        print("Dual POI Disabled")
+                    }
+
                 } else {
-                    print("❌ dualpoi_access not found")
-                    print("Value = \(String(describing: customerData["dualpoi_access"]))")
-                }
-
-            }
-            else if let customerData = user["customer_data"] as? NSDictionary {
-
-                print("customer_data NSDictionary = \(customerData)")
-                print("customer_data Keys = \(customerData.allKeys)")
-
-                if let dualPoiAccess = customerData["dualpoi_access"] as? Bool {
-                    print("✅ dualpoi_access = \(dualPoiAccess)")
-                } else {
-                    print("❌ dualpoi_access not found")
-                    print("Value = \(String(describing: customerData["dualpoi_access"]))")
+                    print("❌ dualpoi_access key not found")
                 }
 
             } else {
-
                 print("❌ customer_data not found")
-                print("Type = \(String(describing: user["customer_data"]))")
             }
 
             completion(true, token)
