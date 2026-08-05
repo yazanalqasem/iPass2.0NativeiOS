@@ -139,7 +139,7 @@ public class DataBaseDownloading{
         iPassSDKDataManager.shared.deviceCurrentLangauge = currentLanguage
         if(serverUrl == "" || serverUrl.isEmpty) {
            // Apis.baseUrl = "https://plusapi.ipass-mena.com"
-            Apis.baseUrl = "https://staging.ipass-mena.com"
+            Apis.baseUrl = "https://staging.ipass-mena.com/stagapi"
          
              
         }
