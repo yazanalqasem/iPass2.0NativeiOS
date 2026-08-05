@@ -151,6 +151,7 @@ public class iPassSDKManger {
         print("UserLoginApi.baseApi",UserLoginApi.baseApi)
         print("UserLoginApi.parameters",parameters)
         iPassHandler.methodForPost(url: UserLoginApi.baseApi, params: parameters) { response, error in
+            print("responseUserLoginApi----",response)
             if let error = error, !error.isEmpty {
                 let processedError: String
                 if error.contains("++") {
