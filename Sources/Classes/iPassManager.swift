@@ -187,14 +187,15 @@ public class iPassSDKManger {
             UserLoginApi.password: password
         ]
 
-        print("UserLoginApi.baseApi:", UserLoginApi.baseApi)
-        print("UserLoginApi.parameters:", parameters)
+        print("UserLoginApi.baseApi: \(UserLoginApi.baseApi)")
+        print("UserLoginApi.parameters: \(parameters)")
 
-        iPassHandler.methodForPost(url: UserLoginApi.baseApi, params: parameters) { response, error in
+        iPassHandler.methodForPost(url: UserLoginApi.baseApi,
+                                   params: parameters) { response, error in
 
             print("responseUserLoginApi ---- \(String(describing: response))")
 
-            // Handle API Error
+            // Handle Error
             if let error = error, !error.isEmpty {
 
                 let processedError: String
@@ -209,60 +210,65 @@ public class iPassSDKManger {
                 return
             }
 
-            // Parse Response
             guard let json = response as? [String: Any] else {
+                print("Response is not Dictionary")
                 completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
                 return
             }
+
+            print("JSON = \(json)")
 
             guard let user = json["user"] as? [String: Any] else {
+                print("user not found")
                 completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
                 return
             }
 
-            // Get Login Token
+            print("User = \(user)")
+
             guard let token = user["token"] as? String else {
+                print("token not found")
                 completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
                 return
             }
 
-            print("Login Token: \(token)")
+            print("Login Token = \(token)")
 
-            // Get customer_data
+            // -----------------------------
+            // Read customer_data
+            // -----------------------------
+
             if let customerData = user["customer_data"] as? [String: Any] {
 
-                // Get dualpoi_access
+                print("customer_data = \(customerData)")
+                print("customer_data Keys = \(customerData.keys)")
+
                 if let dualPoiAccess = customerData["dualpoi_access"] as? Bool {
-
-                    print("dualpoi_access: \(dualPoiAccess)")
-
-                    if dualPoiAccess {
-                        print("✅ Dual POI is ENABLED")
-                    } else {
-                        print("❌ Dual POI is DISABLED")
-                    }
-
+                    print("✅ dualpoi_access = \(dualPoiAccess)")
                 } else {
-                    print("dualpoi_access key not found")
+                    print("❌ dualpoi_access not found")
+                    print("Value = \(String(describing: customerData["dualpoi_access"]))")
                 }
 
-                // Optional: Print other values if needed
-                if let idvAccess = customerData["idv_access"] as? Bool {
-                    print("idv_access: \(idvAccess)")
+            }
+            else if let customerData = user["customer_data"] as? NSDictionary {
+
+                print("customer_data NSDictionary = \(customerData)")
+                print("customer_data Keys = \(customerData.allKeys)")
+
+                if let dualPoiAccess = customerData["dualpoi_access"] as? Bool {
+                    print("✅ dualpoi_access = \(dualPoiAccess)")
+                } else {
+                    print("❌ dualpoi_access not found")
+                    print("Value = \(String(describing: customerData["dualpoi_access"]))")
                 }
 
-                if let kycAccess = customerData["kyc_access"] as? Bool {
-                    print("kyc_access: \(kycAccess)")
-                }
-
-                if let amlAccess = customerData["aml_access"] as? Bool {
-                    print("aml_access: \(amlAccess)")
-                }
             } else {
-                print("customer_data not found")
+
+                print("❌ customer_data not found")
+                print("Type = \(String(describing: user["customer_data"]))")
             }
 
-            // Success
             completion(true, token)
         }
     }
