@@ -626,7 +626,7 @@ public class iPassSDKManger {
         
         var translationDictionary = [String : String]()
        // ENG, AR, FR, SP, TURKISH, URDU, GERMAN, KURDISH
-        a
+        
         
         if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "en") {
             let dataValues = EnglishDataValues()
