@@ -153,11 +153,13 @@ public class iPassSDKManger {
         iPassHandler.methodForPost(url: UserLoginApi.baseApi, params: parameters) { response, error in
             print("responseUserLoginApi----",response)
             if let error = error, !error.isEmpty {
+                print("responseUserLoginApi111----",response)
                 let processedError: String
                 if error.contains("++") {
                     processedError = error.replacingOccurrences(of: "++", with: "")
                 } else {
                     processedError = LocalizationManager.shared.localizedString(forKey: "user_login_issue")
+                    print("responseUserLoginApi111----",response)
                 }
                 completion(false, processedError)
                 
@@ -170,9 +172,11 @@ public class iPassSDKManger {
                     if let user = json["user"] as? [String: Any] {
                         if let token = user["token"] as? String {
                             completion(true, token)
+                            print("responseUserLoginApi111-wewe---",response)
                         }
                         else {
                             completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
+                            
                         }
                     }
                     else {

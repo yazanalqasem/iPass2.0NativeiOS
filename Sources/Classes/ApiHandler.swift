@@ -67,83 +67,126 @@ public class iPassHandler {
     
     
     
-    public static func methodForPost(url: String, params: [String: Any], completion: @escaping (Any?, String?) -> Void) {
-        // Create a URL for the API endpoint
+    public static func methodForPost(url: String,
+                                     params: [String: Any],
+                                     completion: @escaping (Any?, String?) -> Void) {
+
+        // Create URL
         guard let url = URL(string: url) else {
+            completion(nil, "Invalid URL")
             return
         }
-       
-        // Create a URLRequest with the URL, setting the HTTP method to "POST"
+
+        // Create Request
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-
-        // Add headers if needed
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: params) else {
-            completion("", "Error")
+        // Encode Parameters
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+            request.httpBody = jsonData
+
+            // MARK: - Request Log
+            print("\n================== API REQUEST ==================")
+            print("URL        : \(url.absoluteString)")
+            print("Method     : \(request.httpMethod ?? "")")
+            print("Headers    : \(request.allHTTPHeaderFields ?? [:])")
+
+            if let body = String(data: jsonData, encoding: .utf8) {
+                print("Body:\n\(body)")
+            }
+
+            print("=================================================\n")
+
+        } catch {
+            completion(nil, error.localizedDescription)
             return
         }
 
-        // Set the request body with your encoded parameters
-        request.httpBody = jsonData
+        URLSession.shared.dataTask(with: request) { data, response, error in
 
-        // Create a URLSessionDataTask with the request
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            // MARK: - Error
             if let error = error {
-                completion("", error.localizedDescription)
+                print("\n❌ Network Error: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    completion(nil, error.localizedDescription)
+                }
                 return
             }
-            
-                   let httpResponseee = response as? HTTPURLResponse
-            let statusCode = httpResponseee?.statusCode
-            
-            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-                
-                if let data = data {
-                    // Process the data, e.g., convert it to a Swift object
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: [])
-                        if let jsonObject = json as? [String: Any] {
-                            if let message = jsonObject["message"] as? String {
-                               
-                                completion("", message + "++")
-                                return
-                                // Use the message as needed
-                            } else {
-                                completion("", error?.localizedDescription)
-                                return
-                            }
+
+            // MARK: - Response Log
+            if let httpResponse = response as? HTTPURLResponse {
+
+                print("\n================== API RESPONSE =================")
+                print("Status Code : \(httpResponse.statusCode)")
+                print("Headers     : \(httpResponse.allHeaderFields)")
+
+                if let data = data,
+                   let responseString = String(data: data, encoding: .utf8) {
+                    print("Raw Response:\n\(responseString)")
+                }
+
+                print("=================================================\n")
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                DispatchQueue.main.async {
+                    completion(nil, "Invalid response")
+                }
+                return
+            }
+
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(nil, "No response data")
+                }
+                return
+            }
+
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+
+                // Print Parsed JSON
+                print("✅ Parsed JSON:")
+                print(json)
+
+                if (200...299).contains(httpResponse.statusCode) {
+
+                    DispatchQueue.main.async {
+                        completion(json, nil)
+                    }
+
+                } else {
+
+                    if let dict = json as? [String: Any],
+                       let message = dict["message"] as? String {
+
+                        DispatchQueue.main.async {
+                            completion(nil, message)
                         }
-                        else {
-                            completion("", error?.localizedDescription)
-                            return
+
+                    } else {
+
+                        DispatchQueue.main.async {
+                            completion(nil, "Request failed with status code \(httpResponse.statusCode)")
                         }
-                        
-                    } 
-                    catch {
-                        completion("", error.localizedDescription)
-                        return
                     }
                 }
-                
-                completion("", error?.localizedDescription)
-                return
-            }
-            
-            if let data = data {
-                // Process the data, e.g., convert it to a Swift object
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    completion(json, "")
-                } catch {
-                    completion("", error.localizedDescription)
+
+            } catch {
+                print("❌ JSON Parsing Error: \(error.localizedDescription)")
+
+                if let responseString = String(data: data, encoding: .utf8) {
+                    print("Response String: \(responseString)")
+                }
+
+                DispatchQueue.main.async {
+                    completion(nil, error.localizedDescription)
                 }
             }
-        }
 
-        // Resume the data task to initiate the request
-        task.resume()
+        }.resume()
     }
     
     
