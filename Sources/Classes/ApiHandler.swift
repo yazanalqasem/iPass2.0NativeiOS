@@ -165,6 +165,7 @@ public class iPassHandler {
                         DispatchQueue.main.async {
                             completion(nil, message)
                         }
+                        
 
                     } else {
 

@@ -123,73 +123,151 @@ public class iPassSDKManger {
     
 
     
-    public  static func UserOnboardingProcess(email: String, password: String, completion: @escaping (Bool?, String?) -> Void) {
-       
-      
+//    public  static func UserOnboardingProcess(email: String, password: String, completion: @escaping (Bool?, String?) -> Void) {
+//       
+//      
+//
+//        let parameters: [String: Any] = [
+//            UserLoginApi.email: email,
+//            UserLoginApi.password: password
+//        ]
+//        
+//
+//        print("UserLoginApi.baseApi",UserLoginApi.baseApi)
+//        print("UserLoginApi.parameters",parameters)
+//        iPassHandler.methodForPost(url: UserLoginApi.baseApi, params: parameters) { response, error in
+//            print("responseUserLoginApi----",response)
+//            if let error = error, !error.isEmpty {
+//                print("responseUserLoginApi111----",response)
+//                let processedError: String
+//                if error.contains("++") {
+//                    processedError = error.replacingOccurrences(of: "++", with: "")
+//                } else {
+//                    processedError = LocalizationManager.shared.localizedString(forKey: "user_login_issue")
+//                    print("responseUserLoginApi111----",response)
+//                }
+//                completion(false, processedError)
+//                
+//            }
+//          
+//            
+//            
+//            else {
+//                if let json = response as? [String: Any] {
+//                    if let user = json["user"] as? [String: Any] {
+//                        if let token = user["token"] as? String {
+//                            completion(true, token)
+//                            print("responseUserLoginApi111-wewe---",response)
+//                        }
+//                        else {
+//                            completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
+//                            
+//                        }
+//                    }
+//                    else {
+//                        completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
+//                    }
+//                }
+//                else {
+//                    completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
+//                }
+//            }
+//        }
+//        
+//    }
+    
+    
+    
+    public static func UserOnboardingProcess(email: String,
+                                             password: String,
+                                             completion: @escaping (Bool?, String?) -> Void) {
 
         let parameters: [String: Any] = [
             UserLoginApi.email: email,
             UserLoginApi.password: password
         ]
-        
-//        if(serverUrl == "" || serverUrl.isEmpty) {
-//            Apis.baseUrl = "https://plusapi.ipass-mena.com/api/v1/ipass/"
-//        }
-//        else {
-//            
-//            if isValidURLMethod(serverUrl) == true {
-//                Apis.baseUrl = serverUrl
-//            }
-//            else {
-//                self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error:  LocalizationManager.shared.localizedString(forKey: "invalid_url"))
-//                return;
-//            }
-//            
-//           
-//        }
-        
-        print("UserLoginApi.baseApi",UserLoginApi.baseApi)
-        print("UserLoginApi.parameters",parameters)
+
+        print("UserLoginApi.baseApi:", UserLoginApi.baseApi)
+        print("UserLoginApi.parameters:", parameters)
+
         iPassHandler.methodForPost(url: UserLoginApi.baseApi, params: parameters) { response, error in
-            print("responseUserLoginApi----",response)
+
+            print("responseUserLoginApi ---- \(String(describing: response))")
+
+            // Handle API Error
             if let error = error, !error.isEmpty {
-                print("responseUserLoginApi111----",response)
+
                 let processedError: String
+
                 if error.contains("++") {
                     processedError = error.replacingOccurrences(of: "++", with: "")
                 } else {
                     processedError = LocalizationManager.shared.localizedString(forKey: "user_login_issue")
-                    print("responseUserLoginApi111----",response)
                 }
+
                 completion(false, processedError)
-                
+                return
             }
-          
-            
-            
-            else {
-                if let json = response as? [String: Any] {
-                    if let user = json["user"] as? [String: Any] {
-                        if let token = user["token"] as? String {
-                            completion(true, token)
-                            print("responseUserLoginApi111-wewe---",response)
-                        }
-                        else {
-                            completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
-                            
-                        }
-                    }
-                    else {
-                        completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
-                    }
-                }
-                else {
-                    completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
-                }
+
+            // Parse Response
+            guard let json = response as? [String: Any] else {
+                completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
+                return
             }
+
+            guard let user = json["user"] as? [String: Any] else {
+                completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
+                return
+            }
+
+            // Get Login Token
+            guard let token = user["token"] as? String else {
+                completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
+                return
+            }
+
+            print("Login Token: \(token)")
+
+            // Get customer_data
+            if let customerData = user["customer_data"] as? [String: Any] {
+
+                // Get dualpoi_access
+                if let dualPoiAccess = customerData["dualpoi_access"] as? Bool {
+
+                    print("dualpoi_access: \(dualPoiAccess)")
+
+                    if dualPoiAccess {
+                        print("✅ Dual POI is ENABLED")
+                    } else {
+                        print("❌ Dual POI is DISABLED")
+                    }
+
+                } else {
+                    print("dualpoi_access key not found")
+                }
+
+                // Optional: Print other values if needed
+                if let idvAccess = customerData["idv_access"] as? Bool {
+                    print("idv_access: \(idvAccess)")
+                }
+
+                if let kycAccess = customerData["kyc_access"] as? Bool {
+                    print("kyc_access: \(kycAccess)")
+                }
+
+                if let amlAccess = customerData["aml_access"] as? Bool {
+                    print("aml_access: \(amlAccess)")
+                }
+            } else {
+                print("customer_data not found")
+            }
+
+            // Success
+            completion(true, token)
         }
-        
     }
+    
+    
     
     private static func generateRandomTwoDigitNumber() -> String {
         let lowerBound = 10
