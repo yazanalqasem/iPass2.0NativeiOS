@@ -29,6 +29,8 @@ public class iPassSDKDataManager {
     static let shared = iPassSDKDataManager()
     
     var resultScanData = DocumentReaderResults()
+    var resultScanDataDual1: DocumentReaderResults?
+    var resultScanDataDual2: DocumentReaderResults?
     var authToken = String()
     var userSelectedFlowId = Int()
     var userPhoneNumber = String()
@@ -564,7 +566,7 @@ public class iPassSDKManger {
     
     
         
-    
+    //
     private static func oPenDocumentScanner()  {
                         
  print("oPenDocumentScanner-----")
@@ -581,10 +583,9 @@ public class iPassSDKManger {
         DocReader.shared.processParams.returnUncroppedImage = true
         DocReader.shared.processParams.dateFormat = iPassSDKDataManager.shared.documentDateFormat
         DocReader.shared.processParams.multipageProcessing = true
-        DocReader.shared.customization.cameraFrameDefaultColor = .blue
-        DocReader.shared.customization.tintColor  = .red
-//        DocReader.shared.customization.cameraFrameDefaultColor  = UIColor(red: 126/255, green: 87/255, blue: 196/255, alpha: 1)
-//        DocReader.shared.customization.tintColor  = UIColor(red: 126/255, green: 87/255, blue: 196/255, alpha: 1)
+     
+        DocReader.shared.customization.cameraFrameDefaultColor  = UIColor(red: 126/255, green: 87/255, blue: 196/255, alpha: 1)
+        DocReader.shared.customization.tintColor  = UIColor(red: 126/255, green: 87/255, blue: 196/255, alpha: 1)
         DocReader.shared.functionality.showSkipNextPageButton = false
         DocReader.shared.processParams.authenticityParams = AuthenticityParams.default()
         DocReader.shared.processParams.authenticityParams?.livenessParams = LivenessParams.default()
@@ -599,9 +600,6 @@ public class iPassSDKManger {
         DocReader.shared.functionality.videoSessionPreset = AVCaptureSession.Preset.hd4K3840x2160
         DocReader.shared.processParams.respectImageQuality = true
 //        DocReader.shared.processParams.imageQA.dpiThreshold = 400
-        
-        
-       
         
 
        // DocReader.shared.processParams.minDPI = 400
@@ -628,7 +626,7 @@ public class iPassSDKManger {
         
         var translationDictionary = [String : String]()
        // ENG, AR, FR, SP, TURKISH, URDU, GERMAN, KURDISH
-        
+        a
         
         if( iPassSDKDataManager.shared.deviceCurrentLangauge.lowercased() == "en") {
             let dataValues = EnglishDataValues()
@@ -677,7 +675,11 @@ public class iPassSDKManger {
             return nil
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            startDocumentProcessing()
+            if iPassSDKDataManager.shared.dualPoiValue {
+                startDualDocumentProcessing()
+            } else {
+                startDocumentProcessing()
+            }
         }
         
     }
@@ -773,6 +775,132 @@ public class iPassSDKManger {
         }
     }
     
+    private static func startDualDocumentProcessing() {
+        iPassSDKDataManager.shared.alreadyReturned = true
+        iPassSDKDataManager.shared.resultScanDataDual1 = nil
+        iPassSDKDataManager.shared.resultScanDataDual2 = nil
+        
+        DispatchQueue.main.async {
+            stopLoaderAnimation()
+        }
+        
+        let config = DocReader.ScannerConfig(scenario: "")
+        config.scenario = RGL_SCENARIO_FULL_AUTH
+        DocReader.shared.showScanner(presenter: iPassSDKDataManager.shared.controller, config: config) { [self] (action, docResults, error) in
+            if action == .complete || action == .processTimeout {
+                if let results = docResults {
+                    iPassSDKDataManager.shared.resultScanDataDual1 = results
+                }
+                startDualDocumentScanningPhaseTwo()
+            }
+            else if action == .cancel {
+                DispatchQueue.main.async {
+                    stopLoaderAnimation()
+                }
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "document_scanning_error"))
+            }
+        }
+    }
+
+    private static func startDualDocumentScanningPhaseTwo() {
+        let config = DocReader.ScannerConfig(scenario: "")
+        config.scenario = RGL_SCENARIO_FULL_AUTH
+        DocReader.shared.showScanner(presenter: iPassSDKDataManager.shared.controller, config: config) { [self] (action, docResults, error) in
+            if action == .complete || action == .processTimeout {
+                if let results = docResults {
+                    iPassSDKDataManager.shared.resultScanDataDual2 = results
+                }
+                performDualNFCPhaseOne()
+            }
+            else if action == .cancel {
+                DispatchQueue.main.async {
+                    stopLoaderAnimation()
+                }
+                self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "document_scanning_error"))
+            }
+        }
+    }
+    
+    private static func performDualNFCPhaseOne() {
+        let hasChip = (iPassSDKDataManager.shared.resultScanDataDual1?.chipPage ?? 0) != 0
+        if hasChip {
+            DocReader.shared.startRFIDReader(fromPresenter: iPassSDKDataManager.shared.controller, completion: { [self] (action, results, error) in
+                if action == .processTimeout || action == .error {
+                    iPassSDKDataManager.shared.controller.view.iPassgetMinimum(toastMessage: LocalizationManager.shared.localizedString(forKey: "nfc_issue"), duration: 2)
+                }
+                
+                if let results = results {
+                    iPassSDKDataManager.shared.resultScanDataDual1 = results
+                }
+                
+                if action == .processTimeout || action == .error {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        performDualNFCPhaseTwo()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        performDualNFCPhaseTwo()
+                    }
+                }
+            })
+        } else {
+            performDualNFCPhaseTwo()
+        }
+    }
+    
+    private static func performDualNFCPhaseTwo() {
+        let hasChip = (iPassSDKDataManager.shared.resultScanDataDual2?.chipPage ?? 0) != 0
+        if hasChip {
+            DocReader.shared.startRFIDReader(fromPresenter: iPassSDKDataManager.shared.controller, completion: { [self] (action, results, error) in
+                if action == .processTimeout || action == .error {
+                    iPassSDKDataManager.shared.controller.view.iPassgetMinimum(toastMessage: LocalizationManager.shared.localizedString(forKey: "nfc_issue"), duration: 2)
+                }
+                
+                if let results = results {
+                    iPassSDKDataManager.shared.resultScanDataDual2 = results
+                }
+                
+                if action == .processTimeout || action == .error {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        Task { @MainActor in
+                            await startCameraDual()
+                        }
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        Task { @MainActor in
+                            await startCameraDual()
+                        }
+                    }
+                }
+            })
+        } else {
+            DispatchQueue.main.async {
+                Task { @MainActor in
+                    await startCameraDual()
+                }
+            }
+        }
+    }
+    
+    public static func startCameraDual() async {
+        if (iPassSDKDataManager.shared.resultScanDataDual1?.textResult.fields.count ?? 0) == 0 || (iPassSDKDataManager.shared.resultScanDataDual2?.textResult.fields.count ?? 0) == 0 {
+            self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "document_scanning_error"))
+            return
+        }
+        else {
+            if( iPassSDKDataManager.shared.userSelectedFlowId == 10031 ||  iPassSDKDataManager.shared.userSelectedFlowId == 10032 ||  iPassSDKDataManager.shared.userSelectedFlowId == 10011) {
+                await fetchCurrentAuthSession()
+            }
+            else   {
+                DispatchQueue.main.async {
+                          addAnimationLoader()
+                }
+                startSavingDataToPanel()
+            }
+        }
+    }
+
     public static func startCamera() async {
         
         
@@ -944,6 +1072,18 @@ public class iPassSDKManger {
             }
             let deviceType = getDeviceType()
             let ip_address = getDeviceIPAddress()
+            
+            var finalIdvData: Any = documentDataJson ?? ""
+            if iPassSDKDataManager.shared.dualPoiValue == true {
+                let document1Json = convertStringToJSON(iPassSDKDataManager.shared.resultScanDataDual1?.rawResult ?? "")
+                let document2Json = convertStringToJSON(iPassSDKDataManager.shared.resultScanDataDual2?.rawResult ?? "")
+                
+                finalIdvData = [
+                    "document1": document1Json ?? [:],
+                    "document2": document2Json ?? [:]
+                ]
+            }
+            
             let parameters: [String: Any] = [
                 SaveDataApi.sessionId: iPassSDKDataManager.shared.sessionId,
                 SaveDataApi.randomid: iPassSDKDataManager.shared.sid,
@@ -952,7 +1092,7 @@ public class iPassSDKManger {
                 SaveDataApi.ipadd: userIpAddress,
                 SaveDataApi.email: iPassSDKDataManager.shared.email,
                 SaveDataApi.workflow: String(iPassSDKDataManager.shared.userSelectedFlowId),
-                SaveDataApi.idv_data: documentDataJson ?? "",
+                SaveDataApi.idv_data: finalIdvData,
                 SaveDataApi.language : iPassSDKDataManager.shared.deviceCurrentLangauge,
                 SaveDataApi.source: "iOS v1.0.7",
                 SaveDataApi.ipAddress:ip_address,
