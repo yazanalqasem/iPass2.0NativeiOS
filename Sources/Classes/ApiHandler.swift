@@ -207,12 +207,23 @@ public class iPassHandler {
         // Create a URLSessionDataTask with the request
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
+                print("\n❌ Network Error: \(error.localizedDescription)")
                 completion("", error.localizedDescription)
                 return
             }
             
             let httpResponseee = response as? HTTPURLResponse
             let statusCode = httpResponseee?.statusCode
+            
+            if let httpResponse = httpResponseee {
+                print("\n================== GET API RESPONSE =================")
+                print("URL         : \(url.absoluteString)")
+                print("Status Code : \(httpResponse.statusCode)")
+                if let data = data, let responseString = String(data: data, encoding: .utf8) {
+                    print("Raw Response:\n\(responseString)")
+                }
+                print("=================================================\n")
+            }
             
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
                 if let data = data {

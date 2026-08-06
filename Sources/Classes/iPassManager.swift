@@ -1194,7 +1194,8 @@ public class iPassSDKManger {
 //                if(error != "") {
 //                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
 //                }
-                
+                print ("error in---sss",error)
+                print ("response in in---ssss",response)
                 if let error = error, !error.isEmpty {
                         DispatchQueue.main.async {
                             stopLoaderAnimation()
@@ -1203,8 +1204,10 @@ public class iPassSDKManger {
                         let processedError: String
                         if error.contains("++") {
                             processedError = error.replacingOccurrences(of: "++", with: "")
+                            print ("error in---ggg",processedError)
                         } else {
                             processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error") + " (\(error))"
+                            print ("error in---nnn",processedError)
                         }
                         
                     self.delegate?.getScanCompletionResult(result: "" , transactionId: iPassSDKDataManager.shared.sid, error: processedError)
@@ -1224,7 +1227,8 @@ public class iPassSDKManger {
 //                if(error != "") {
 //                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: "Data processing error")
 //                }
-                
+                print ("error in---",error)
+                print ("response in in---",response)
                 if let error = error, !error.isEmpty {
                         DispatchQueue.main.async {
                             stopLoaderAnimation()
@@ -1232,9 +1236,12 @@ public class iPassSDKManger {
                         
                         let processedError: String
                         if error.contains("++") {
+                           
                             processedError = error.replacingOccurrences(of: "++", with: "")
+                            print ("error in---333",processedError)
                         } else {
                             processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error") + " (\(error))"
+                            print ("error in--555-",processedError)
                         }
                         
                     self.delegate?.getScanCompletionResult(result: "" , transactionId: iPassSDKDataManager.shared.sid, error: processedError)
