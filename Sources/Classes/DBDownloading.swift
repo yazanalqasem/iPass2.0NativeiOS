@@ -155,7 +155,6 @@ public class DataBaseDownloading{
             }
         }
         
-           
             
             do {
                // Amplify.Logging.logLevel = .verbose
