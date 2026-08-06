@@ -624,6 +624,10 @@ public class iPassSDKManger {
 
 
         
+        
+        
+        
+        
         var translationDictionary = [String : String]()
        // ENG, AR, FR, SP, TURKISH, URDU, GERMAN, KURDISH
         
