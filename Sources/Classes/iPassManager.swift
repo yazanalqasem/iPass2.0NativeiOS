@@ -890,6 +890,7 @@ public class iPassSDKManger {
     public static func startCameraDual() async {
         if (iPassSDKDataManager.shared.resultScanDataDual1?.textResult.fields.count ?? 0) == 0 || (iPassSDKDataManager.shared.resultScanDataDual2?.textResult.fields.count ?? 0) == 0 {
             self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: LocalizationManager.shared.localizedString(forKey: "document_scanning_error"))
+       
             return
         }
         else {
@@ -1126,10 +1127,10 @@ public class iPassSDKManger {
                             if error.contains("++") {
                                 processedError = error.replacingOccurrences(of: "++", with: "")
                             } else {
-                                processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error")
+                                processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error") + " (\(error))"
                             }
                             
-                            self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: processedError)
+                            self.delegate?.getScanCompletionResult(result: "", transactionId: iPassSDKDataManager.shared.sid, error: processedError)
                         }
                     
                     else {
@@ -1157,10 +1158,10 @@ public class iPassSDKManger {
                             if error.contains("++") {
                                 processedError = error.replacingOccurrences(of: "++", with: "")
                             } else {
-                                processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error")
+                                processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error") + " (\(error))"
                             }
                             
-                            self.delegate?.getScanCompletionResult(result: "", transactionId: "", error: processedError)
+                            self.delegate?.getScanCompletionResult(result: "", transactionId: iPassSDKDataManager.shared.sid, error: processedError)
                         }
                     
                     else {
@@ -1206,10 +1207,10 @@ public class iPassSDKManger {
                         if error.contains("++") {
                             processedError = error.replacingOccurrences(of: "++", with: "")
                         } else {
-                            processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error")
+                            processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error") + " (\(error))"
                         }
                         
-                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: processedError)
+                    self.delegate?.getScanCompletionResult(result: "" , transactionId: iPassSDKDataManager.shared.sid, error: processedError)
                     }
                 
                 else {
@@ -1236,10 +1237,10 @@ public class iPassSDKManger {
                         if error.contains("++") {
                             processedError = error.replacingOccurrences(of: "++", with: "")
                         } else {
-                            processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error")
+                            processedError = LocalizationManager.shared.localizedString(forKey: "data_processing_error") + " (\(error))"
                         }
                         
-                    self.delegate?.getScanCompletionResult(result: "" , transactionId: "", error: processedError)
+                    self.delegate?.getScanCompletionResult(result: "" , transactionId: iPassSDKDataManager.shared.sid, error: processedError)
                     }
                 
                 else {
