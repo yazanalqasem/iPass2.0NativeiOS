@@ -1131,7 +1131,10 @@ public class iPassSDKManger {
                         }
                     
                     else {
-                        startDataFetching()
+                        // Add a 3-second delay for Dual POI to give the backend time to finish processing
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                            startDataFetching()
+                        }
                     }
                     
                 }
