@@ -183,7 +183,7 @@ public class iPassSDKManger {
     
     public static func UserOnboardingProcess(email: String,
                                              password: String,
-                                             completion: @escaping (Bool?, String?) -> Void) {
+                                             completion: @escaping (Bool?, String?,[String: Any]?) -> Void) {
 
         let parameters: [String: Any] = [
             UserLoginApi.email: email,
@@ -208,23 +208,23 @@ public class iPassSDKManger {
                     processedError = LocalizationManager.shared.localizedString(forKey: "user_login_issue")
                 }
 
-                completion(false, processedError)
+                completion(false, processedError, response as? [String : Any])
                 return
             }
 
             // Parse Response
             guard let json = response as? [String: Any] else {
-                completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
+                completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"), response as? [String : Any])
                 return
             }
 
             guard let user = json["user"] as? [String: Any] else {
-                completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
+                completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"), response as? [String : Any])
                 return
             }
 
             guard let token = user["token"] as? String else {
-                completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"))
+                completion(false, LocalizationManager.shared.localizedString(forKey: "user_login_issue"), (response as? [String : Any]))
                 return
             }
 
@@ -269,7 +269,7 @@ public class iPassSDKManger {
                 print("❌ customer_data not found")
             }
 
-            completion(true, token)
+            completion(true, token, response as? [String : Any])
         }
     }
     
