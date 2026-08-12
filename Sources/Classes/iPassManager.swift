@@ -798,7 +798,7 @@ public class iPassSDKManger {
                 if let results = docResults {
                     iPassSDKDataManager.shared.resultScanDataDual1 = results
                 }
-                startDualDocumentScanningPhaseTwo()
+                performDualNFCPhaseOne()
             }
             else if action == .cancel {
                 DispatchQueue.main.async {
@@ -820,7 +820,7 @@ public class iPassSDKManger {
                 if let results = docResults {
                     iPassSDKDataManager.shared.resultScanDataDual2 = results
                 }
-                performDualNFCPhaseOne()
+                performDualNFCPhaseTwo()
             }
             else if action == .cancel {
                 DispatchQueue.main.async {
@@ -845,16 +845,16 @@ public class iPassSDKManger {
                 
                 if action == .processTimeout || action == .error {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        performDualNFCPhaseTwo()
+                        startDualDocumentScanningPhaseTwo()
                     }
                 } else {
                     DispatchQueue.main.async {
-                        performDualNFCPhaseTwo()
+                        startDualDocumentScanningPhaseTwo()
                     }
                 }
             })
         } else {
-            performDualNFCPhaseTwo()
+            startDualDocumentScanningPhaseTwo()
         }
     }
     
