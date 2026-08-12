@@ -1229,7 +1229,7 @@ public class iPassSDKManger {
             }
         } else {
             // DUAL POI API
-            iPassHandler.methodForGet(urlStr: GetDataDualApi.baseApi + iPassSDKDataManager.shared.token + GetDataApi.sesid + iPassSDKDataManager.shared.sid) { response, error in
+            iPassHandler.methodForGet(urlStr: GetDataDualApi.baseApi + iPassSDKDataManager.shared.token + GetDataApi.sesid + iPassSDKDataManager.shared.sessionId) { response, error in
                 DispatchQueue.main.async {
                     stopLoaderAnimation()
                 }
