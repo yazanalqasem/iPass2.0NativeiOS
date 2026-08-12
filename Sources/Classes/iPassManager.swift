@@ -788,6 +788,9 @@ public class iPassSDKManger {
             stopLoaderAnimation()
         }
         
+        // Ensure the first document in Dual POI only scans the front side
+        DocReader.shared.processParams.multipageProcessing = false
+        
         let config = DocReader.ScannerConfig(scenario: "")
         config.scenario = RGL_SCENARIO_FULL_AUTH
         DocReader.shared.showScanner(presenter: iPassSDKDataManager.shared.controller, config: config) { [self] (action, docResults, error) in
@@ -807,6 +810,9 @@ public class iPassSDKManger {
     }
 
     private static func startDualDocumentScanningPhaseTwo() {
+        // Ensure the second document in Dual POI scans both sides
+        DocReader.shared.processParams.multipageProcessing = true
+        
         let config = DocReader.ScannerConfig(scenario: "")
         config.scenario = RGL_SCENARIO_FULL_AUTH
         DocReader.shared.showScanner(presenter: iPassSDKDataManager.shared.controller, config: config) { [self] (action, docResults, error) in
