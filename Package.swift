@@ -7,7 +7,7 @@ let package = Package(
     name: "iPass2.0NativeiOS",
     defaultLocalization: "en",
     platforms: [
-       .macOS(.v10_13), .iOS(.v14),
+       .macOS(.v10_13), .iOS(.v15),
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
