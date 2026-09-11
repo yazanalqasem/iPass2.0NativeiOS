@@ -839,7 +839,7 @@ public class iPassSDKManger {
                     iPassSDKDataManager.shared.controller.view.iPassgetMinimum(toastMessage: LocalizationManager.shared.localizedString(forKey: "nfc_issue"), duration: 2)
                 }
                 
-                if let results = results {
+                if action == .complete, let results = results {
                     iPassSDKDataManager.shared.resultScanDataDual1 = results
                 }
                 
@@ -866,7 +866,7 @@ public class iPassSDKManger {
                     iPassSDKDataManager.shared.controller.view.iPassgetMinimum(toastMessage: LocalizationManager.shared.localizedString(forKey: "nfc_issue"), duration: 2)
                 }
                 
-                if let results = results {
+                if action == .complete, let results = results {
                     iPassSDKDataManager.shared.resultScanDataDual2 = results
                 }
                 
@@ -1229,7 +1229,7 @@ public class iPassSDKManger {
             }
         } else {
             // DUAL POI API
-            iPassHandler.methodForGet(urlStr: GetDataDualApi.baseApi + iPassSDKDataManager.shared.token + GetDataApi.sesid + iPassSDKDataManager.shared.sessionId) { response, error in
+            iPassHandler.methodForGet(urlStr: GetDataDualApi.baseApi + iPassSDKDataManager.shared.token + GetDataDualApi.sesid + iPassSDKDataManager.shared.sid) { response, error in
                 DispatchQueue.main.async {
                     stopLoaderAnimation()
                 }
